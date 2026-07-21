@@ -1,0 +1,9 @@
+---
+const { id, class: className = '' } = Astro.props;
+---
+
+<section id={id} class={`bg-canvas py-12 ${className}`}>
+  <div class="max-w-6xl mx-auto px-4">
+    <slot />
+  </div>
+</section>

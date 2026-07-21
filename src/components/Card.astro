@@ -1,0 +1,15 @@
+---
+const { variant = 'white', class: className = '' } = Astro.props;
+
+const variants: Record<string, string> = {
+  white: 'bg-white border border-card-border shadow-sm text-brand-navy',
+  navy: 'bg-brand-navy shadow-lg text-white',
+  teal: 'bg-brand-teal-dark shadow-lg text-white',
+};
+
+const variantClasses = variants[variant] || variants.white;
+---
+
+<div class={`rounded-2xl p-6 md:p-8 ${variantClasses} ${className}`}>
+  <slot />
+</div>

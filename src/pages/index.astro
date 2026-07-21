@@ -1,0 +1,287 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+import PublicReviews from '../components/PublicReviews';
+import { CheckCircle, ChevronRight, Clock, Mail } from 'lucide-react';
+
+const TRUST = [
+  { icon: '🔓', title: 'No unnecessary login friction', desc: 'Members confirm attendance from their email — no account required, no app to download, no passwords to forget.' },
+  { icon: '📋', title: 'Clear service records', desc: 'Hours are frozen at event creation. Every response is timestamped. Officers can lock any month to finalize totals.' },
+  { icon: '🤝', title: 'Practical for real organizations', desc: 'Built around how clubs and volunteer groups actually operate — recurring meetings, interclub coordination, monthly reporting.' },
+];
+---
+
+<Layout title="HoursServed.com | Service Hour Tracking for Clubs & Service Organizations" description="Track volunteer hours, manage members, and generate service-hour reports your club can submit anywhere. Built for club secretaries. No logins required for members.">
+  <div class="min-h-screen bg-canvas font-sans">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- Hero -->
+      <Section>
+        <Card variant="navy" class="text-center">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white text-base font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-wide">
+            Built for Service Clubs and Districts
+          </div>
+          <h1 class="max-w-3xl mx-auto mb-6 leading-tight">
+            <span class="block font-black text-white" style="font-size: clamp(2.2rem, 6vw, 4rem)">Spend less Time on Admin.</span>
+            <span class="block font-black text-white" style="font-size: clamp(2.2rem, 6vw, 4rem)">Spend more Time Serving.</span>
+          </h1>
+          <p class="text-base text-white max-w-2xl mx-auto mb-8 leading-relaxed">
+            HoursServed helps service clubs and districts run meetings, organize service, prepare reports, onboard officers, and grow members with less chasing, fewer logins, and clearer follow-through.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-10">
+            {['Plan meetings and service events faster', 'Prepare cleaner submission-ready reports', 'Make officer transition easier every year', 'Turn volunteers into future members'].map(b => (
+              <div class="flex items-center gap-2 text-base text-white font-medium">
+                <CheckCircle class="w-4 h-4 text-white flex-shrink-0" /> {b}
+              </div>
+            ))}
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-navy font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-base">
+              Book a Demo
+            </a>
+            <a href="/how-it-works" class="flex items-center justify-center gap-1 bg-transparent border-white text-white font-semibold px-8 py-4 rounded-xl text-base hover:opacity-90 transition-opacity" style="border: 1.5px solid #FFFFFF">
+              See How It Works <ChevronRight class="w-4 h-4" />
+            </a>
+          </div>
+          <p class="text-base text-white text-center mt-4">Built to work for service clubs in Canada, the US, the UK, and Australia.</p>
+          <p class="text-base text-white mt-3">support@hoursserved.com</p>
+        </Card>
+      </Section>
+
+      <!-- Mission Bridge -->
+      <Section>
+        <Card variant="white" class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold text-brand-navy mb-5">Built to reduce admin work, not add to it.</h2>
+          <p class="text-base text-brand-ink leading-relaxed mb-8 max-w-3xl mx-auto">
+            Every workflow in the platform is designed to help officers and members complete the work behind the work — attendance, service records, meeting follow-up, officer handoffs, volunteer growth, and reporting — so more time and energy goes back to serving the community.
+          </p>
+          <div class="grid sm:grid-cols-3 gap-6 text-left">
+            {[
+              { icon: '⚡', title: 'Reduce Admin Friction', desc: 'Make common club admin tasks easier to complete correctly the first time.' },
+              { icon: '🔒', title: 'Protect Service Momentum', desc: 'Keep meetings, projects, and officer transitions from stalling the club.' },
+              { icon: '🤝', title: 'Grow More Helping Hands', desc: 'Turn volunteers, guests, and new members into long-term contributors.' },
+            ].map(({ icon, title, desc }) => (
+              <div class="bg-white border border-card-border rounded-2xl p-6">
+                <div class="text-3xl mb-3">{icon}</div>
+                <h3 class="font-bold text-brand-navy mb-2 text-base">{title}</h3>
+                <p class="text-base text-brand-ink leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Feature intro section -->
+      <Section>
+        <Card variant="white" class="text-center">
+          <h2 class="text-2xl font-bold text-brand-navy mb-4">What HoursServed helps service clubs do better</h2>
+          <p class="text-base text-brand-ink leading-relaxed">
+            Every feature exists to reduce admin load, improve follow-through, and help your club serve with more excellence.
+          </p>
+        </Card>
+      </Section>
+
+      <!-- Visual proof -->
+      <Section>
+        <Card variant="white">
+          <h2 class="text-3xl font-bold text-center text-brand-navy mb-3">No uncertainty. No friction. Just two buttons.</h2>
+          <p class="text-base text-brand-ink text-center mb-14 max-w-xl mx-auto">See the exact workflow: from the email they receive to the attendance recorded.</p>
+          <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div>
+              <p class="text-base font-bold text-gray-600 uppercase tracking-widest mb-4 text-center">The email they receive</p>
+              <img
+                src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/901bba013_AttendanceRequestedScreenshot.png"
+                alt="Email asking a member to confirm attendance, with Yes and No buttons."
+                class="w-full rounded-2xl shadow-lg border border-gray-100"
+              />
+            </div>
+            <div>
+              <p class="text-base font-bold text-gray-600 uppercase tracking-widest mb-4 text-center">After they click yes</p>
+              <img
+                src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/9c18c9565_AttendanceConfirmedScreenshot.png"
+                alt="Confirmation screen showing attendance recorded and service hours logged automatically."
+                class="w-full rounded-2xl shadow-lg border border-gray-100"
+              />
+            </div>
+          </div>
+          <div class="bg-white border border-card-border rounded-2xl p-8 text-center">
+            <p class="text-base font-bold text-gray-600 uppercase tracking-widest mb-4">In your admin dashboard</p>
+            <img
+              src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/f83bf4cd1_AdminDashboard.png"
+              alt="Officer dashboard showing member count, events, service hours, attendance rate, and recent activity."
+              class="w-full max-w-2xl rounded-2xl shadow-lg border border-gray-100 mx-auto"
+            />
+            <p class="text-base text-brand-ink text-center mt-4">Officer dashboard with activity and reporting at a glance</p>
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Who It's For -->
+      <Section>
+        <Card variant="white">
+          <h2 class="text-3xl font-bold text-center text-brand-navy mb-3">Who It's For</h2>
+          <p class="text-base text-brand-ink text-center mb-3 max-w-4xl mx-auto font-medium">Built for the people who keep your organization organized, responsive, and running on time.</p>
+          <p class="text-base text-brand-ink text-center mb-12 max-w-2xl mx-auto leading-relaxed">HoursServed is made for the people behind the scenes who keep everything moving—sending sign-ups, tracking attendance, collecting service hours, organizing shared costs, and following up with members. By reducing admin time, it helps your leaders and coordinators spend less time chasing details and more time serving people.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { emoji: '📋', title: 'Secretary', desc: 'Manage meeting sign-ups, attendance records, reminders, and follow-up from one place—without relying on paper lists or spreadsheets.' },
+              { emoji: '💰', title: 'Treasurer', desc: 'Track dues, guest counts, shared event costs, and payment-related details in a clearer, more organized workflow.' },
+              { emoji: '🏛️', title: 'President or Chair', desc: 'Get better visibility into participation, reporting, and follow-through without taking on more day-to-day admin work.' },
+              { emoji: '🙋', title: 'Volunteer or Ministry Coordinator', desc: 'Keep sign-ups, responses, participation, and service-hour collection simple for members, volunteers, and ministry teams.' },
+              { emoji: '📅', title: 'Committee Chair or Event Lead', desc: 'Run recurring meetings, service projects, and special events with less back-and-forth, fewer missed details, and less manual cleanup afterward.' },
+              { emoji: '🏆', title: 'District Officer', desc: 'Get consolidated participation and service-hour data from clubs across your district — ready for district reporting without chasing down secretaries.' },
+            ].map(({ emoji, title, desc }) => (
+              <div class="bg-white border border-card-border rounded-2xl p-6 shadow-sm flex flex-col">
+                <div class="text-3xl mb-4" aria-hidden="true">{emoji}</div>
+                <h3 class="font-bold text-brand-navy mb-2 text-base leading-snug">{title}</h3>
+                <p class="text-base text-brand-ink leading-relaxed flex-1">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Organizations We Support -->
+      <Section>
+        <Card variant="navy">
+          <h2 class="text-3xl font-bold text-center text-white mb-3">Organizations We Support</h2>
+          <p class="text-base text-white text-center mb-3 max-w-2xl mx-auto font-medium">Designed for the people on the front line of administration in volunteer-led organizations.</p>
+          <p class="text-base text-white text-center mb-12 max-w-2xl mx-auto leading-relaxed">HoursServed adapts its language, templates, and workflows to fit the way your organization operates, so the people handling administration can spend less time managing process and more time supporting the people they serve.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { emoji: '👥', title: 'Service Clubs', desc: 'Built for Club Secretaries, Treasurers, Presidents, Service Chairs, and Event Chairs who manage meetings, attendance, service reporting, and shared club costs.', href: '/solutions/service-clubs' },
+              { emoji: '🏛️', title: 'Districts', desc: 'For District Governors, district secretaries, and leadership teams who need better visibility, less admin friction, and more reporting consistency across clubs.', href: '/solutions/districts' },
+              { emoji: '⛪', title: 'Churches and Ministries', desc: 'Helpful for Church Administrators, Ministry Leaders, Volunteer Coordinators, Treasurers, and Board Chairs who organize participation, service activity, and event-related details.', href: '/solutions/churches' },
+              { emoji: '🏛️', title: 'Community Groups and Nonprofits', desc: 'A fit for Program Coordinators, Volunteer Managers, Administrators, Treasurers, and Board Leaders who need a simpler way to keep people and reporting organized.', href: '/solutions/community-groups' },
+              { emoji: '🏫', title: 'Parent Councils and School Support Groups', desc: 'Useful for Council Chairs, Secretaries, Treasurers, Volunteer Coordinators, and Event Leads managing meetings, school events, and volunteer participation.', href: '/solutions/parent-councils-booster-groups-youth-sports' },
+              { emoji: '📋', title: 'Boards, Associations, and Committees', desc: 'Designed for Board Chairs, Secretaries, Treasurers, Committee Leads, and Administrators who want smoother meeting coordination, cleaner records, and less manual follow-up.', href: '/solutions' },
+            ].map(({ emoji, title, desc, href }) => (
+              <div class="group bg-white rounded-2xl border border-card-border p-6 shadow-sm hover:border-brand-teal hover:shadow-md transition-all flex flex-col relative">
+                <div class="text-3xl mb-4 text-brand-navy" aria-hidden="true">{emoji}</div>
+                <h3 class="font-bold text-brand-ink group-hover:text-brand-teal-dark transition-colors mb-2 text-base leading-snug">
+                  <a href={href} class="after:absolute after:inset-0">{title}</a>
+                </h3>
+                <p class="text-base text-brand-ink leading-relaxed flex-1">{desc}</p>
+                <div class="flex items-center gap-1 text-base text-brand-teal-dark font-semibold mt-4" aria-hidden="true">
+                  Learn more <ChevronRight class="w-3.5 h-3.5" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <!-- How it works -->
+      <Section>
+        <Card variant="white">
+          <h2 class="text-3xl font-bold text-center text-brand-navy mb-3">How it works</h2>
+          <p class="text-base text-brand-ink text-center mb-14">Set up in minutes. Your members need zero training.</p>
+          <div class="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Clock, step: '1', title: 'Admin creates the event', desc: 'Enter title, date, duration, and commute time. Hours are frozen at creation — no retroactive changes. Add shifts with role-based capacity for complex events.' },
+              { icon: Mail, step: '2', title: 'Members & volunteers are notified', desc: 'Shift-based events let members and external volunteers claim roles. Standard meetings send automatic Attendance Request emails to the full roster.' },
+              { icon: CheckCircle, step: '3', title: 'One click logs everything', desc: 'YES confirms attendance and records service hours, commute time, and a timestamped audit record instantly. Admins can manually adjust any attendance record.' },
+            ].map(({ icon: Icon, step, title, desc }) => (
+              <div class="flex flex-col items-center text-center bg-canvas rounded-2xl border border-card-border p-8 shadow-sm">
+                <div class="w-14 h-14 bg-canvas border border-brand-teal rounded-2xl flex items-center justify-center mb-5">
+                  <Icon class="w-7 h-7 text-brand-teal-dark" />
+                </div>
+                <div class="text-base font-bold text-brand-teal-dark uppercase tracking-widest mb-2">Step {step}</div>
+                <h3 class="text-base font-bold text-brand-navy mb-2">{title}</h3>
+                <p class="text-base text-brand-ink leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div class="text-center mt-10">
+            <a href="/how-it-works" class="inline-flex items-center gap-2 text-brand-teal-dark font-semibold text-base hover:underline">
+              See the full walkthrough <ChevronRight class="w-4 h-4" />
+            </a>
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Trust & adoption -->
+      <Section>
+        <Card variant="white">
+          <h2 class="text-3xl font-bold text-center text-brand-navy mb-3">Built for easy adoption</h2>
+          <p class="text-base text-brand-ink text-center mb-12 max-w-xl mx-auto">Your officers get clear oversight. Your members get a simple email. Everyone gets less admin work.</p>
+          <div class="grid sm:grid-cols-3 gap-6">
+            {TRUST.map(({ icon, title, desc }) => (
+              <div class="bg-white border border-card-border rounded-2xl p-6 text-center">
+                <div class="text-3xl mb-4">{icon}</div>
+                <h3 class="font-bold text-brand-ink mb-2 text-base">{title}</h3>
+                <p class="text-base text-brand-ink leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <PublicReviews client:load />
+
+      <!-- Compare nudge -->
+      <Section>
+        <Card variant="white" class="text-center">
+          <h2 class="text-2xl font-bold text-brand-navy mb-2">Evaluating alternatives?</h2>
+          <p class="text-base text-brand-ink mb-8">See how HoursServed compares to the tools service clubs and districts already use or consider.</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href="/compare/unison" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs Unison</a>
+            <a href="/compare/signupgenius" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs SignUpGenius</a>
+            <a href="/compare/track-it-forward" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs Track It Forward</a>
+            <a href="/compare/lions-portal" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs Lions Portal</a>
+            <a href="/compare/clubrunner" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs ClubRunner</a>
+            <a href="/compare/lionsbase" class="text-base text-brand-teal-dark border border-brand-teal px-4 py-2 rounded-lg hover:bg-brand-teal/5 transition-colors">HoursServed vs LionsBase</a>
+            <a href="/compare" class="text-base text-gray-600 border border-card-border px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">Compare overview →</a>
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Proof / credibility strip -->
+      <Section>
+        <Card variant="navy">
+          <h3 class="text-base font-bold text-white uppercase tracking-widest text-center mb-8">Designed around Lions workflows</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { icon: '📊', label: 'Service activity preparation and reporting' },
+              { icon: '🔁', label: 'Officer onboarding and continuity' },
+              { icon: '🤝', label: 'Volunteer and member follow-up' },
+              { icon: '🏛️', label: 'District support visibility' },
+              { icon: '📋', label: 'Meeting and service administration with less friction' },
+            ].map(({ icon, label }) => (
+              <div class="flex items-start gap-3 bg-slate-600 rounded-xl px-4 py-4">
+                <span class="text-xl flex-shrink-0">{icon}</span>
+                <p class="text-base text-white leading-snug">{label}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Section>
+
+      <!-- Final CTA -->
+      <Section>
+        <Card variant="teal" class="text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 max-w-2xl mx-auto leading-tight">Give your club more time to serve</h2>
+          <p class="text-white mb-8 max-w-2xl mx-auto leading-relaxed">
+            If your club is still chasing attendance, rebuilding service records, losing momentum during officer changeover, or letting good volunteers slip away, HoursServed was built to help.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-brand-navy font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">Book a Demo</a>
+            <a href="/how-it-works" class="inline-flex items-center justify-center gap-2 bg-transparent border-white text-white font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity" style="border: 1.5px solid #FFFFFF">See How It Works <ChevronRight class="w-4 h-4" /></a>
+          </div>
+          <p class="text-white text-base">Built for service clubs and districts that want less admin friction and better follow-through.</p>
+        </Card>
+      </Section>
+
+    </main>
+
+    <MarketingFooter client:load />
+  </div>
+</Layout>
