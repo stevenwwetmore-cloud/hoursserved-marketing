@@ -2,6 +2,24 @@
 
 @import "tailwindcss";
 
+@theme {
+  /* Custom brand colors */
+  --color-canvas: #F1EFE8;
+  --color-card-border: #D3D1C7;
+  --color-brand-navy: #1E3A5F;
+  --color-brand-teal: #1D9E75;
+  --color-brand-teal-dark: #0F6E56;
+  --color-brand-e8edf3: #E8EDF3;
+  --color-brand-ink: #1F2937;
+
+  /* Font family */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+
+  /* Border radius using custom property */
+  --radius: 0.5rem;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -23,7 +41,6 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
   }
 }
 
