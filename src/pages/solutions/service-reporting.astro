@@ -1,0 +1,530 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import FAQAccordion from '../../components/FAQAccordion';
+
+const FAQS = [
+  {
+    q: 'Why does front-end data entry matter for reporting?',
+    a: 'If you capture clean, structured data when a service activity happens, your reporting writes itself. Default entries, drop-down field selections, and validated inputs mean the data is already clean, categorized, and ready to export when your secretary or DG needs it.',
+  },
+  {
+    q: 'How does this system match Lion Portal categories?',
+    a: 'Service categories, beneficiary types, and activity types in the entry form match the exact taxonomy used in Lion Portal — so there is no translation layer or guesswork when it is time to report.',
+  },
+  {
+    q: 'Is Lion Portal automated upload included in my plan?',
+    a: 'Automated Lion Portal submission is included in all District plans at no extra charge. Club plans include full Lion Portal field tracking and one-click CSV export. Upgrade to a District plan to activate automated submission.',
+  },
+  {
+    q: 'Is service reporting legally required for Lions Clubs?',
+    a: 'Yes. In the United States, Lions Clubs are 501(c)(4) organizations required to file Form 990 annually. Failure to file for three consecutive years results in automatic revocation of tax-exempt status. In Canada, clubs file a T1044 or T3010 with the CRA, which requires detailed accounts of charitable activities, volunteer hours, and people served.',
+  },
+  {
+    q: 'What happens if our club does not file accurate service reports?',
+    a: 'In the U.S., an incomplete or inaccurate Form 990 can trigger IRS scrutiny and, after three consecutive missed filings, automatic revocation of tax-exempt status. In Canada, failure to file or filing with unsupported program data can result in revocation of charitable status — meaning donors can no longer claim tax deductions for contributions.',
+  },
+  {
+    q: 'Can volunteers log service hours from their phone?',
+    a: 'Yes. The entry form is fully mobile-optimized with thumb-friendly drop-downs, large tap targets, and stepper inputs for hours and participants. Volunteers can capture hours at the event — no paper logs to transcribe later.',
+  },
+];
+---
+
+<Layout title="Lions Portal Reporting Automation — HoursServed" description="Automate Lions Portal monthly reporting. HoursServed generates myLCI-ready CSV exports from your attendance and service hour records automatically.">
+  <div class="min-h-screen text-gray-900" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+
+    {/* SECTION 1: HERO */}
+    <section class="relative overflow-hidden text-center px-6 py-24 md:py-28">
+      <div class="relative max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{backgroundColor: '#0F6E56'}}>
+          Lion Portal Upload — Now Live
+        </div>
+        <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest" style={{border: '2px solid #1E3A5F', color: '#1E3A5F'}}>
+          Service Reporting
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-6 max-w-3xl mx-auto leading-tight">
+          Accurate Service Reporting Starts at the Front End
+        </h1>
+        <p class="text-base text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Most Lions Clubs struggle with reporting because data is collected inconsistently, then entered into Lion Portal manually after the fact — often weeks later, often wrong. This system solves that problem at the source. By building structured data collection directly into the event and service workflow, the back-end reporting your club is legally required to submit becomes a natural byproduct of what you're already doing.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a
+            href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-white font-bold px-8 py-4 rounded-xl transition-colors text-base shadow-md"
+            style={{backgroundColor: '#0F6E56'}}
+          >
+            Book a Demo
+          </a>
+          <a
+            href="/app/dashboard"
+            class="inline-block bg-white font-bold px-8 py-4 rounded-xl transition-colors text-base"
+            style={{border: '2px solid #E5E1D8', color: '#1E3A5F'}}
+          >
+            Start Free →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 1.5: LION PORTAL UPLOAD — AUTOMATED */}
+    <section class="py-20 px-6" style={{backgroundColor: '#F8FFFE'}}>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-2 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{backgroundColor: '#0F6E56'}}>
+            Now Live
+          </div>
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Automated Submission</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Lion Portal Report Upload — Included. Automated. Done.
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            No extra charge. No manual data entry. No missed deadlines. HoursServed now uploads your monthly service activity report directly to Lion Portal — automatically, as part of every District plan at no extra charge.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="space-y-8">
+            <div class="space-y-5">
+              {[
+                {
+                  number: '1',
+                  title: 'Enter your Lion Account credentials once',
+                  body: 'Go to Club Settings and enter your Lion Account credentials. This takes 30 seconds. You only do it once.',
+                },
+                {
+                  number: '2',
+                  title: 'Run your events and meetings normally',
+                  body: 'HoursServed tracks attendance, hours, and all required Lion Portal fields as you go throughout the month. No extra work.',
+                },
+                {
+                  number: '3',
+                  title: 'Click Submit to Lion Portal',
+                  body: 'When all reports are export ready, click Submit. HoursServed logs in, fills every service activity form, and submits — while you watch the status in real time.',
+                },
+              ].map((step) => (
+                <div key={step.number} class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm" style={{border: '2px solid #E5E1D8'}}>
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-lg" style={{backgroundColor: '#0F6E56'}}>
+                    {step.number}
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-base">{step.title}</h3>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div class="p-6 bg-white rounded-2xl" style={{border: '2px solid #0F6E56'}}>
+              <p class="text-base leading-relaxed" style={{color: '#111827'}}>
+                <strong class="font-bold">No spreadsheets. No copy-paste. No logging into Lion Portal manually.</strong> Your secretary gets that hour back, every month.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="p-8 bg-white rounded-2xl shadow-2xl" style={{border: '2px solid #E5E1D8'}}>
+              <div class="space-y-6">
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">Setup takes 30 seconds</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Enter your Lion Account credentials once in Club Settings. That's it.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">Tracks as you go</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>All required Lion Portal fields are captured during normal event and meeting workflows.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">Watch it submit in real time</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>See live status updates as each service activity form is filled and submitted to Lion Portal.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">Full audit trail</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Every submission is logged with timestamp, status, and confirmation — so you always know what was sent.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 2: WHY FRONT-END DATA ENTRY MATTERS */}
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">The Core Principle</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Garbage In, Garbage Out — Until Now
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            The core principle behind this platform is simple: if you capture clean, structured data when a service activity happens, your reporting writes itself.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="space-y-6">
+            {[
+              {
+                icon: '⚡',
+                title: 'Default Entries',
+                body: "Common values — club ID, district, zone, service category — are pre-populated so volunteers aren't re-typing the same information every time.",
+                badge: 'Defaults eliminate repetitive entry',
+              },
+              {
+                icon: '🎯',
+                title: 'Drop-Down Field Selections',
+                body: "Service categories, beneficiary types, and activity types match the exact taxonomy used in Lion Portal — so there's no translation layer or guesswork when it's time to report.",
+                badge: 'Matches Lion Portal categories exactly',
+              },
+              {
+                icon: '✅',
+                title: 'Validated Inputs',
+                body: 'Hours, participants, and dollar values are range-checked at entry, catching errors before they become reporting problems.',
+                badge: 'Errors caught at the source',
+              },
+            ].map((item) => (
+              <div key={item.title} class="flex gap-4 p-5 bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+                <div class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                <div>
+                  <div class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-2" style={{border: '2px solid #0F6E56', color: '#0F6E56'}}>
+                    {item.badge}
+                  </div>
+                  <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p class="text-base text-gray-900 leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+            <div class="p-5 bg-white rounded-2xl" style={{border: '2px solid #1E3A5F'}}>
+              <p class="text-base text-gray-900 font-semibold leading-relaxed">
+                <strong>The result:</strong> when your District Governor or secretary sits down to compile quarterly or annual service reports, the data is already clean, categorized, and ready to export.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <img
+              src="/mockup1_service_entry_form.png"
+              alt="Service Activity Entry Form showing pre-populated club defaults and Lion Portal-matched drop-downs"
+              class="relative rounded-2xl shadow-2xl w-full"
+              style={{border: '2px solid #E5E1D8'}}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 3: SERVICE DASHBOARD */}
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Aggregated Data, Always Ready</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Your Service Dashboard — Real-Time, Every Entry
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            Every service activity logged updates your dashboard instantly. Total hours, people served, events by category — all in one view, filterable by month, quarter, or year.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="relative order-2 md:order-1">
+            <img
+              src="/mockup2_service_dashboard.png"
+              alt="Service Activity Dashboard showing total hours, people served, and category breakdown charts"
+              class="relative rounded-2xl shadow-2xl w-full"
+              style={{border: '2px solid #E5E1D8'}}
+            />
+          </div>
+
+          <div class="space-y-5 order-1 md:order-2">
+            {[
+              {
+                icon: '⏱',
+                title: 'Real-Time Totals',
+                body: 'Total volunteer hours, people served, service events, and dollar value of service — updated with every entry, no manual tallying.',
+                badge: 'Real-time totals updated with every entry',
+              },
+              {
+                icon: '📊',
+                title: 'Visual Category Breakdown',
+                body: 'Bar and donut charts break down volunteer hours and service events by category — Community, Health, Youth, Environment, Vision — so you can see where your club is making impact.',
+              },
+              {
+                icon: '📅',
+                title: 'Flexible Date Filtering',
+                body: 'Filter by This Month, This Quarter, This Year, or a custom date range. Perfect for quarterly reviews and annual reporting.',
+              },
+              {
+                icon: '📤',
+                title: 'One-Click Export',
+                body: 'Export your service summary as CSV or PDF — ready for your secretary, District Governor, or compliance filing.',
+                badge: 'One click to export for your secretary or DG',
+              },
+            ].map((item) => (
+              <div key={item.title} class="flex gap-4 p-5 bg-white rounded-2xl shadow-sm" style={{border: '2px solid #E5E1D8'}}>
+                <div class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                <div>
+                  {item.badge && (
+                    <div class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-2" style={{border: '2px solid #0F6E56', color: '#0F6E56'}}>
+                      {item.badge}
+                    </div>
+                  )}
+                  <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p class="text-base text-gray-900 leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 4: COMPLIANCE / LEGAL REALITY */}
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Legal Obligation</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Service Reporting Isn't Optional — It's a Legal Obligation
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            For Lions Clubs in both the United States and Canada, service activity reporting is directly tied to your tax-exempt status.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="p-7 bg-white rounded-2xl" style={{border: '2px solid #1E3A5F'}}>
+            <div class="text-2xl mb-3" aria-hidden="true">🇺🇸</div>
+            <h3 class="font-black text-xl mb-3" style={{color: '#1E3A5F'}}>United States — IRS Requirements</h3>
+            <p class="text-base text-gray-900 mb-4 leading-relaxed">
+              Lions Clubs in the U.S. are organized as <strong>501(c)(4) social welfare organizations</strong>. While they are not required to pay federal income tax, they must file annually with the IRS:
+            </p>
+            <ul class="space-y-3 text-base text-gray-900">
+              <li class="flex gap-2">
+                <span class="font-bold flex-shrink-0" style={{color: '#0F6E56'}}>→</span>
+                <span><strong>Form 990 (or 990-EZ)</strong> — requires documented reporting of program service accomplishments, number of people served, and outcomes achieved</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-red-700 font-bold flex-shrink-0" aria-hidden="true">⚠</span>
+                <span>Failure to file for <strong>three consecutive years</strong> results in automatic revocation of tax-exempt status under the Pension Protection Act of 2006</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-red-700 font-bold flex-shrink-0" aria-hidden="true">⚠</span>
+                <span>Revoked status means the club becomes <strong>liable for federal income tax</strong> and loses its ability to accept tax-deductible donations</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-7 bg-white rounded-2xl" style={{border: '2px solid #1E3A5F'}}>
+            <div class="text-2xl mb-3" aria-hidden="true">🇨🇦</div>
+            <h3 class="font-black text-xl mb-3" style={{color: '#1E3A5F'}}>Canada — CRA Requirements</h3>
+            <p class="text-base text-gray-900 mb-4 leading-relaxed">
+              Canadian Lions Clubs registered as NPOs file a <strong>T1044</strong> annually. Those registered as charitable organizations file a <strong>T3010 Registered Charity Information Return</strong>, which requires:
+            </p>
+            <ul class="space-y-3 text-base text-gray-900">
+              <li class="flex gap-2">
+                <span class="font-bold flex-shrink-0" style={{color: '#0F6E56'}}>→</span>
+                <span>A detailed account of <strong>charitable activities carried out</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="font-bold flex-shrink-0" style={{color: '#0F6E56'}}>→</span>
+                <span>Number of <strong>people served</strong> and geographic reach</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="font-bold flex-shrink-0" style={{color: '#0F6E56'}}>→</span>
+                <span><strong>Volunteer hours</strong> contributed</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-red-700 font-bold flex-shrink-0" aria-hidden="true">⚠</span>
+                <span>Failure to file can result in <strong>revocation of charitable status</strong> — meaning donors can no longer claim tax deductions</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="p-6 bg-white rounded-2xl text-center" style={{border: '2px solid #1E3A5F'}}>
+          <p class="text-base font-bold mb-1 text-gray-900">The Bottom Line</p>
+          <p class="text-base text-gray-900 leading-relaxed max-w-2xl mx-auto">
+            Whether you're filing in the U.S. or Canada, your service activity data is the evidentiary backbone of your compliance. This platform ensures that data exists, is accurate, and is ready when you need it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 5: REPORTING FEATURES */}
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Reporting</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Three Reporting Features That Matter
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            Service Summary shows your club's impact at a glance. Lion Portal Upload generates the CSV your District Governor needs. Archive preserves every month's final record.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {[
+            { icon: '📊', title: 'Service Summary', body: 'Total hours, people served, and category breakdown — updated in real time as activities are logged.' },
+            { icon: '📤', title: 'Lion Portal Upload', body: 'One-click CSV export formatted exactly for Lions Portal submission — no reformatting required.' },
+            { icon: '📋', title: 'Archive', body: 'Lock and preserve monthly reports with a timestamped audit trail for compliance and historical records.' },
+          ].map((item) => (
+            <div key={item.title} class="p-6 bg-white rounded-2xl shadow-sm" style={{border: '2px solid #E5E1D8'}}>
+              <div class="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
+              <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p class="text-base text-gray-900 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 6: MOBILE ENTRY */}
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Mobile-First Design</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-5 leading-tight">
+              Capture Hours at the Event — Not Back at the Office
+            </h2>
+            <p class="text-base text-gray-900 leading-relaxed mb-8">
+              Volunteers can log service hours directly from their phone while the event is happening. No paper logs to transcribe later. No details forgotten by the time someone gets to a desk.
+            </p>
+            <div class="space-y-4">
+              {[
+                { icon: '⚡', title: 'Pre-filled defaults', body: 'Club name, district, and zone auto-populate from your club profile — no repetitive entry for volunteers in the field.' },
+                { icon: '🎯', title: 'Thumb-friendly dropdowns', body: 'Large tap targets and Lion Portal-matched category options make accurate selection easy on any device.' },
+                { icon: '🔢', title: 'Stepper inputs', body: 'Large +/− buttons for hours and participants — designed for fast one-handed entry right at the event site.' },
+                { icon: '✅', title: 'Instant confirmation toast', body: 'Activity confirmed and synced to the dashboard in real time. No paper, no follow-up, no guesswork.' },
+              ].map((item) => (
+                <div key={item.title} class="flex gap-3">
+                  <div class="text-xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-base">{item.title}</p>
+                    <p class="text-base text-gray-900 leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="relative">
+            <img
+              src="/mockup5_mobile_entry.png"
+              alt="Mobile service entry form showing thumb-friendly inputs and instant confirmation toast"
+              class="relative rounded-2xl shadow-2xl w-full"
+              style={{border: '2px solid #E5E1D8'}}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SECTION 7: END-TO-END FLOW */}
+    <Section>
+      <Card variant="navy">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#E8EDF3'}}>End-to-End</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+            From Service Activity to Submitted Report — In One System
+          </h2>
+          <p class="text-base max-w-2xl mx-auto mb-14 leading-relaxed" style={{color: '#E8EDF3'}}>
+            Every step from logging a service event to submitting your compliance report happens inside one connected workflow — no spreadsheets, no copy-paste, no manual re-entry.
+          </p>
+          <div class="grid sm:grid-cols-5 gap-6 items-start">
+            {[
+              { step: '1', label: 'Event Logged', desc: 'Officer or volunteer logs the service activity with structured fields' },
+              { step: '2', label: 'Hours Recorded', desc: 'Service hours and participants captured with validated, categorized inputs' },
+              { step: '3', label: 'Data Aggregated', desc: 'Dashboard totals update in real time by service category' },
+              { step: '4', label: 'Export Ready', desc: 'CSV or PDF export generated for Lion Portal submission' },
+              { step: '5', label: 'Report Confirmed', desc: 'Secretary reviews, confirms, and your compliance record is complete' },
+            ].map((item) => (
+              <div key={item.step} class="flex flex-col items-center text-center gap-3">
+                <div class="w-11 h-11 rounded-full text-white font-black text-lg flex items-center justify-center flex-shrink-0 shadow-lg" style={{backgroundColor: '#0F6E56'}}>
+                  {item.step}
+                </div>
+                <p class="font-bold text-white text-base">{item.label}</p>
+                <p class="text-base leading-relaxed" style={{color: '#E8EDF3'}}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* SECTION 8: FAQ */}
+    <section class="py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Common Questions</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="space-y-3">
+          <FAQAccordion faqs={FAQS} client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+            Ready to Make Your Reporting Effortless?
+          </h2>
+          <p class="text-base mb-8 leading-relaxed" style={{color: '#E8EDF3'}}>
+            See how HoursServed turns every service activity into clean, compliant reporting data — automatically.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors text-base shadow-md"
+              style={{color: '#1E3A5F'}}
+            >
+              Book a Demo
+            </a>
+            <a
+              href="/app/dashboard"
+              class="inline-block border-2 border-white text-white font-bold px-8 py-4 rounded-xl transition-colors text-base"
+              style={{backgroundColor: 'transparent'}}
+            >
+              Start Free →
+            </a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

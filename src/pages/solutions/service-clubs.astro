@@ -1,0 +1,474 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import ServiceClubsTabs from '../../components/ServiceClubsTabs';
+import { Globe, Users, BarChart3, FileText, TriangleAlert, Lock, Check, Mail, Target, Clock, CreditCard } from 'lucide-react';
+
+const FEATURE_CARDS = [
+  { tag: 'Core',        icon: 'Mail', title: 'One-Email RSVP',                 desc: "Members click Yes or No. No login. No portal. Attendance recorded the moment they respond. That's the whole flow.",                                                                               bg: '#ffffff', text: '#111827', border: '#1E3A5F', tagBg: '#1E3A5F' },
+  { tag: 'Events',      icon: 'Target', title: 'Shift Management & Signup',       desc: 'Define your event shifts, set capacity, and email the invite. Volunteers claim their slot in one tap. The Event Operations Board shows your coverage live.',                                       bg: '#ffffff', text: '#111827', border: '#166534', tagBg: '#166534' },
+  { tag: 'Hours',       icon: 'Clock', title: 'Auto-Logged Service Hours',       desc: 'Every confirmed RSVP and shift signup logs hours automatically. Officers can correct or add hours after the event — even for members who forgot to sign up in advance.',                           bg: '#ffffff', text: '#111827', border: '#b45309', tagBg: '#b45309' },
+  { tag: 'Members',     icon: 'Users', title: 'Member & Volunteer Roster',       desc: "Import your member list, manage active rosters, and track community volunteers separately. Every member gets their own personal dashboard view.",                                                 bg: '#ffffff', text: '#111827', border: '#5b21b6', tagBg: '#5b21b6' },
+  { tag: 'Payments',    icon: 'CreditCard', title: 'Interclub Payment Coordination',  desc: "Send dues requests, track acknowledgments, and keep a clean audit trail for joint events and shared costs — without touching anyone's money.",                                                   bg: '#ffffff', text: '#111827', border: '#b91c1c', tagBg: '#b91c1c' },
+  { tag: 'Reporting',   icon: 'BarChart3', title: 'Monthly Reports & Approval Flow', desc: 'Reports auto-generate at month-end and wait for officer approval before distribution. Or run fully automated — your choice.',                                                                      bg: '#ffffff', text: '#111827', border: '#0F6E56', tagBg: '#0F6E56' },
+  { tag: 'District',    icon: 'Globe', title: 'District Dashboard & Coverage',   desc: 'District governors and Zone Chairs see all club reporting progress in one view. Spot gaps before month-end. Club Detail pages for drill-down.',                                                   bg: '#ffffff', text: '#111827', border: '#1E3A5F', tagBg: '#1E3A5F' },
+  { tag: 'Lions',       icon: 'FileText', title: 'LCI Lions Portal Export',         desc: 'Generate a perfectly formatted Lions International CSV in one click — ready to paste directly into Lion Portal with zero reformatting required.',                                                        bg: '#ffffff', text: '#111827', border: '#b45309', tagBg: '#b45309' },
+  { tag: 'Intelligence',icon: 'TriangleAlert', title: 'At-Risk Member Alerts',          desc: "HoursServed flags members who haven't attended in multiple months so your retention coordinator can reach out before they slip away quietly.",                                                    bg: '#ffffff', text: '#111827', border: '#374151', tagBg: '#374151' },
+];
+
+const FLEX_STEPS = [
+  { n: 1, title: 'Event closes — hours auto-logged',     body: 'Everyone who confirmed attendance has their hours recorded automatically at event end.' },
+  { n: 2, title: 'Corrections Queue opens',              body: 'Officers see members with zero hours, partial credits, or flagged discrepancies — and can correct them individually.' },
+  { n: 3, title: 'Each change is attributed and dated',  body: 'Every manual edit shows who changed it and when — a full audit trail for your records.' },
+  { n: 4, title: 'Month-lock protects approved data',    body: 'Once a month is locked after reporting, no changes can be made without an officer override — protecting your submitted numbers.' },
+];
+
+const DISTRICT_CLUBS = [
+  { name: 'Westside Lions',  pct: 100, color: '#1E3A5F' },
+  { name: 'Northview Lions', pct: 87,  color: '#1E3A5F' },
+  { name: 'Eastpark Lions',  pct: 60,  color: '#d97706' },
+  { name: 'Lakeview Lions',  pct: 22,  color: '#e11d48' },
+  { name: 'Riverside Lions', pct: 95,  color: '#1E3A5F' },
+];
+
+const DISTRICT_FEATURES = [
+  { icon: 'BarChart3', iconBg: '#1E3A5F', title: 'District Dashboard',      body: "All clubs in your district. Attendance, hours, and reporting status at a glance — without calling secretaries." },
+  { icon: 'BarChart3', iconBg: '#1E3A5F', title: 'Club Reporting Coverage', body: "See which clubs are up to date, which are lagging, and which haven't filed — before the deadline lands." },
+  { icon: 'FileText', iconBg: '#1E3A5F', title: 'Club Detail Pages',       body: 'Drill into any club for member-level reporting, event history, and hours breakdowns. No access request needed.' },
+  { icon: 'FileText', iconBg: '#1E3A5F', title: 'Export Center',           body: 'Download CSV or PDF exports across any date range — formatted for LCI portal submission or your own records.' },
+];
+
+const CHOOSE_CARDS = [
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: 'Your admin overhead is too high',
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      'Your secretary spends hours chasing RSVP replies every month',
+      "You're manually copying attendance into a spreadsheet after every meeting",
+      'Your service hours are compiled at month-end from paper sign-in sheets',
+      'It takes half a day to produce and distribute the monthly report',
+      'LCI portal submission requires reformatting data from multiple places',
+    ],
+  },
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: "Your members are older or not tech-savvy",
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      "Your members won't create accounts or remember passwords",
+      "Tap-to-respond email is the only system they'll actually use",
+      'Adoption has failed before because the tool was too complicated',
+      'You need something a new secretary can learn in minutes, not hours',
+      'Members should never need to "figure out" how to participate',
+    ],
+  },
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: 'You run events with external volunteers',
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      "Community volunteers join your events who aren't club members",
+      "You need shift coverage but don't want a complex signup system",
+      'You need to track volunteer hours separately from member service hours',
+      'Shift gaps are a recurring problem on event day',
+      'You want an operations board so the team knows coverage at a glance',
+    ],
+  },
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: 'You share costs across clubs',
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      'You co-host events with other clubs and split venue or catering costs',
+      'Tracking who owes what is currently done by email threads',
+      'You want a record of interclub cost-sharing without a finance platform',
+      'Your treasurer needs clean documentation at year end',
+      'Payment coordination is administrative, not transactional — no money through the app',
+    ],
+  },
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: "You're a District Governor or Zone Chair",
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      'You oversee multiple clubs and have no visibility into their reporting',
+      'Chasing clubs for monthly updates takes significant time each cycle',
+      'You want to see member engagement health across clubs',
+      "LCI reporting requires data from clubs you don't directly manage",
+      'At-Risk club alerts would help you intervene before clubs decline',
+    ],
+  },
+  {
+    circleFill: '#1E3A5F', checkColor: '#FFFFFF',
+    title: "You're facing officer transition",
+    check: { bg: '#1E3A5F', color: '#FFFFFF' },
+    items: [
+      'A new secretary is taking over and institutional knowledge is at risk',
+      'Your outgoing officers are the only ones who know where the data lives',
+      'You want the handover to be a data transfer, not a knowledge download',
+      "The new officer needs to be productive before they're fully trained",
+      'You want admin continuity — not a fresh start every June',
+    ],
+  },
+];
+---
+
+<Layout title="Service Clubs | HoursServed.com — Lions, Rotary & Kiwanis Hour Tracking" description="Purpose-built for Lions, Rotary, and Kiwanis. Automate service hour tracking, member management, and monthly reports for your service club.">
+  <div style={{backgroundColor: '#F1EFE8'}} class="text-gray-900">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+
+    {/* ── HERO ── */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center py-12">
+        <div class="inline-flex items-center gap-1.5 text-base font-semibold tracking-widest uppercase bg-white/10 border border-white/30 text-white px-3.5 py-1 rounded-full mb-7">
+          <span class="w-2 h-2 rounded-full bg-white inline-block" />
+          No passwords. No logins. Members just tap a link.
+        </div>
+        <h1 class="font-black leading-[1.1] text-white max-w-[760px] mx-auto mb-4 tracking-tight" style={{fontSize: 'clamp(2.5rem, 5.5vw, 4rem)'}}>
+          The All-in-One App<br />
+          <em class="text-white font-serif">Built for Service Clubs</em>
+        </h1>
+        <p class="text-base text-white max-w-[580px] mx-auto mb-9 leading-relaxed">
+          Meetings. Events. Service Hours. Interclub Payments —<br />
+          <strong class="text-white">organized, automated, and running in minutes.</strong>
+        </p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="/app/dashboard" class="bg-white no-underline px-7 py-3 rounded-lg text-base font-bold transition-all hover:shadow-lg" style={{color: '#1E3A5F'}}>Start Free — No Credit Card</a>
+          <a href="/demo" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg text-base font-semibold transition-all hover:bg-white/10">Book a Demo ›</a>
+        </div>
+        <p class="text-base text-white mt-3">Also used by churches, community groups &amp; parent organizations</p>
+      </div>
+      </Card>
+    </Section>
+
+    {/* ── PROOF BAR ── */}
+    <Section>
+      <Card variant="navy">
+        <div class="flex items-center justify-center gap-8 flex-wrap py-2">
+          <span class="text-base tracking-[0.12em] uppercase whitespace-nowrap text-white">Built for</span>
+          {[
+            { label: 'Lions clubs worldwide', icon: Globe },
+            { label: 'District Governors & Zone Chairs', icon: Users },
+          ].map((org, i, arr) => {
+            const IconComponent = org.icon;
+            return (
+            <span key={org.label} class="flex items-center gap-8">
+              <span class="text-base font-bold tracking-wide whitespace-nowrap flex items-center gap-2 text-white"><IconComponent size={16} aria-hidden="true" />{org.label}</span>
+              {i < arr.length - 1 && <span class="text-white">·</span>}
+            </span>
+          );
+          })}
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── WORKFLOW — Screenshots ── */}
+    <Section>
+      <Card>
+        <div class="text-center mb-8">
+          <p class="text-base font-bold tracking-[0.13em] uppercase mb-3" style={{color: '#1E3A5F'}}>The Member Experience</p>
+          <h2 class="font-black leading-[1.15] tracking-tight" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+            No uncertainty. No friction.{' '}
+            <em class="font-serif" style={{color: '#0F6E56'}}>Just two buttons.</em>
+          </h2>
+          <p class="text-gray-900 max-w-[520px] mx-auto mt-3 leading-relaxed">See the exact workflow — from the email they receive to the moment attendance is recorded.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-10 mt-12 items-start max-w-[860px] mx-auto">
+          <div class="flex flex-col items-center gap-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-base font-bold tracking-wide bg-white border-2 text-brand-navy" style={{borderColor: '#1E3A5F', color: '#1E3A5F'}}>
+              <span class="w-2 h-2 rounded-full inline-block" style={{backgroundColor: '#1E3A5F'}} /> The email they receive
+            </div>
+            <img
+              src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/d2fd547fa_AttendanceRequestedScreenshot.png"
+              alt="Attendance Requested email — one email, two buttons, no login required"
+              class="w-full rounded-2xl shadow-[0_8px_48px_rgba(0,0,0,0.12)] border border-gray-100"
+            />
+            <p class="text-center text-base text-gray-900 leading-relaxed max-w-[300px]">One email. Event details, service hours, commute time — and two buttons. <strong class="text-gray-700">That's the entire interface.</strong></p>
+          </div>
+
+          <div class="flex flex-col items-center gap-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-base font-bold tracking-wide bg-white border-2" style={{borderColor: '#0F6E56', color: '#0F6E56'}}>
+              <span class="w-2 h-2 rounded-full inline-block" style={{backgroundColor: '#0F6E56'}} /> After they click YES
+            </div>
+            <img
+              src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/6160d6b55_AttendanceConfirmedScreenshot.png"
+              alt="Attendance Recorded confirmation — hours logged automatically, no login required"
+              class="w-full rounded-2xl shadow-[0_8px_48px_rgba(0,0,0,0.12)] border border-gray-100"
+            />
+            <p class="text-center text-base text-gray-900 leading-relaxed max-w-[300px]">Attendance recorded. Hours logged. A clean confirmation — and a way to change their mind. <strong class="text-gray-700">Last click wins.</strong></p>
+          </div>
+        </div>
+
+        <div class="mt-12 max-w-[680px] mx-auto rounded-2xl px-8 py-6 text-center bg-white" style={{border: '1px solid #E5E1D8'}}>
+          <p class="text-base text-gray-600 leading-relaxed">
+            <span class="font-extrabold text-gray-900">No app download. No account creation. No confusion.</span>{' '}
+            Members follow a secure one-time link in the email — every response is timestamped, attributed, and immediately visible in your officer dashboard.
+          </p>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── FEATURE TABS ── */}
+    <Section>
+      <Card>
+        <div class="text-center mb-8">
+          <p class="text-base font-bold tracking-[0.13em] uppercase mb-3" style={{color: '#1E3A5F'}}>Everything you need</p>
+          <h2 class="font-black leading-[1.15] tracking-tight" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+            One system. Every admin task <em class="font-serif" style={{color: '#0F6E56'}}>handled.</em>
+          </h2>
+          <p class="text-gray-900 max-w-[580px] mx-auto mt-3 leading-relaxed">From RSVP to final report — no spreadsheets, no chasing, no chaos.</p>
+        </div>
+        <ServiceClubsTabs client:load />
+      </Card>
+    </Section>
+
+    {/* ── FEATURE CARDS ── */}
+    <Section>
+      <Card>
+        <div class="text-center mb-10">
+          <p class="text-base font-bold tracking-[0.13em] uppercase mb-3" style={{color: '#1E3A5F'}}>What's included</p>
+          <h2 class="font-black leading-[1.15] tracking-tight" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+            Every tool your officers need.{' '}
+            <em class="font-serif" style={{color: '#0F6E56'}}>None of the bloat they don't.</em>
+          </h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {FEATURE_CARDS.map((card) => {
+            const iconMap: Record<string, any> = {
+              'Mail': Mail,
+              'Target': Target,
+              'Clock': Clock,
+              'Users': Users,
+              'CreditCard': CreditCard,
+              'BarChart3': BarChart3,
+              'Globe': Globe,
+              'FileText': FileText,
+              'TriangleAlert': TriangleAlert,
+            };
+            const IconComponent = iconMap[card.icon];
+            return (
+            <div key={card.title} class="rounded-2xl p-6 relative overflow-hidden border transition-all hover:-translate-y-1 hover:shadow-xl" style={{background: card.bg, color: card.text, borderColor: card.border}}>
+              <span class="absolute top-4 right-4 text-base font-bold tracking-widest uppercase px-2 py-0.5 rounded-full text-white" style={{background: card.tagBg}}>{card.tag}</span>
+              <div class="mb-3"><IconComponent size={32} aria-hidden="true" style={{color: card.border}} /></div>
+              <h3 class="text-[1rem] font-extrabold mb-2 leading-normal">{card.title}</h3>
+              <p class="text-base text-gray-900 leading-relaxed">{card.desc}</p>
+            </div>
+          );
+          })}
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── HOURS CORRECTIONS ── */}
+    <Section>
+      <Card variant="navy">
+        <div class="flex flex-col gap-8">
+          <div>
+            <p class="text-base font-bold tracking-[0.13em] uppercase mb-3 text-white">Post-Event Flexibility</p>
+            <h2 class="font-black leading-[1.15] text-white tracking-tight mb-4" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)'}}>
+              Hours corrections,{' '}
+              <em class="font-serif text-white">handled gracefully.</em>
+            </h2>
+            <p class="text-base leading-relaxed mb-6 text-white">Real clubs are messy. Members show up who didn't RSVP. Volunteers log extra time. Someone's signup didn't go through. HoursServed handles all of it — after the fact, without touching the clean data.</p>
+            <div class="flex flex-col gap-4">
+              {FLEX_STEPS.map((step) => (
+                <div key={step.n} class="flex items-start gap-4 rounded-xl px-5 py-4 bg-white" style={{border: '1px solid #E5E1D8'}}>
+                  <div class="w-8 h-8 rounded-full text-white text-base font-extrabold flex items-center justify-center shrink-0 mt-px" style={{backgroundColor: '#1E3A5F'}}>{step.n}</div>
+                  <div>
+                    <h3 class="text-base font-bold mb-1" style={{color: '#1E3A5F'}}>{step.title}</h3>
+                    <p class="text-base text-gray-900 leading-normal">{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="rounded-2xl overflow-hidden bg-white" style={{border: '1px solid #E5E1D8'}}>
+            <div class="px-5 py-3 flex items-center gap-2 bg-gray-50" style={{borderBottom: '1px solid #E5E1D8'}}>
+              <span class="w-2 h-2 rounded-full bg-[#ff5f57]" /><span class="w-2 h-2 rounded-full bg-[#ffbd2e]" /><span class="w-2 h-2 rounded-full bg-[#28c840]" />
+              <span class="ml-1 text-base font-semibold text-gray-900">Corrections Queue — April</span>
+            </div>
+            <div class="p-5">
+              <div class="text-base font-bold tracking-widest uppercase text-gray-600 mb-3">Members needing review</div>
+              {[
+                { name: 'Carol G.', note: 'Attended Food Bank — 0 hrs logged',  status: 'Pending',  pending: true },
+                { name: 'Mike T.',  note: "No RSVP — showed up at event",       status: 'Pending',  pending: true },
+                { name: 'Anne W.', note: '+2 hrs added — setup crew',           status: 'Approved', pending: false },
+                { name: 'Dan F.',  note: 'Corrected: 4 hrs → 6 hrs',           status: 'Approved', pending: false },
+              ].map((row) => (
+                <div key={row.name} class={`flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 text-base ${row.pending ? 'bg-gray-50' : 'bg-gray-50'}`}>
+                  <span class="font-semibold text-gray-900 flex-1">{row.name}</span>
+                  <span class="text-base text-gray-600">{row.note}</span>
+                  <span class={`text-base font-bold px-2 py-0.5 rounded-full shrink-0 bg-white border ${row.pending ? 'border-[#b45309] text-[#92400e]' : 'border-[#166534] text-[#166534]'}`}>{row.status}</span>
+                </div>
+              ))}
+              <div class="mt-4 rounded-xl px-4 py-3 flex items-center gap-3 bg-white" style={{border: '1px solid #1E3A5F'}}>
+                <div class="w-8 h-8 rounded-full shrink-0 flex items-center justify-center" style={{backgroundColor: '#1E3A5F'}}><Lock size={20} aria-hidden="true" class="text-white" /></div>
+                <div>
+                  <div class="text-base font-bold" style={{color: '#1E3A5F'}}>Month-Lock Active — March</div>
+                  <div class="text-base text-gray-900">Report submitted. Edits require officer override.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── DISTRICT TOOLS ── */}
+    <Section>
+      <Card>
+        <div class="flex flex-col gap-8">
+          <div>
+            <p class="text-base font-bold tracking-[0.13em] uppercase mb-3" style={{color: '#1E3A5F'}}>District Tools</p>
+            <h2 class="font-black leading-[1.15] tracking-tight mb-3" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+              Built for governors.{' '}
+              <em class="font-serif" style={{color: '#0F6E56'}}>Not just secretaries.</em>
+            </h2>
+            <p class="text-gray-900 leading-relaxed mb-6">Zone Chairs and District Governors get a dedicated view across all clubs — not just their own.</p>
+            <div class="flex flex-col gap-4">
+              {DISTRICT_FEATURES.map((feat) => {
+                const iconMap: Record<string, any> = {
+                  'BarChart3': BarChart3,
+                  'FileText': FileText,
+                };
+                const IconComponent = iconMap[feat.icon];
+                return (
+                <div key={feat.title} class="flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-white" style={{border: '1px solid #E5E1D8'}}><IconComponent size={20} aria-hidden="true" style={{color: feat.iconBg}} /></div>
+                  <div>
+                    <h4 class="text-base font-bold text-gray-900 mb-1">{feat.title}</h4>
+                    <p class="text-base text-gray-900 leading-normal">{feat.body}</p>
+                  </div>
+                </div>
+              );
+              })}
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden w-full max-w-2xl mx-auto shadow-sm" style={{border: '1px solid #E5E1D8'}}>
+            <div class="text-white px-4 py-3 flex justify-between items-center text-base font-bold" style={{backgroundColor: '#1E3A5F'}}>
+              <span class="flex items-center gap-2"><Globe size={16} aria-hidden="true" /> District 18-C — Club Reporting</span><span class="text-white">April</span>
+            </div>
+            <div class="p-4">
+              {DISTRICT_CLUBS.map((club, i) => (
+                <div key={club.name} class={`flex items-center gap-2.5 px-2 py-2 rounded-md mb-1 text-base ${i % 2 === 0 ? 'bg-white' : ''}`}>
+                  <span class="flex-1 font-semibold text-gray-800">{club.name}</span>
+                  <div class="flex-[1.2] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="h-full rounded-full" style={{width: `${club.pct}%`, background: club.color}} />
+                  </div>
+                  <span class="text-gray-600 text-base w-8 text-right">{club.pct}%</span>
+                </div>
+              ))}
+              <div class="mt-3 px-3 py-2 bg-white border-2 border-red-700 rounded-lg text-base text-red-700 font-semibold flex items-center gap-2"><TriangleAlert size={16} aria-hidden="true" /> Lakeview Lions — low reporting coverage. Follow up?</div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── CHOOSE HOURSSERVED IF ── */}
+    <Section>
+      <Card>
+        <div class="text-center mb-10">
+          <p class="text-base font-bold tracking-[0.13em] uppercase mb-3" style={{color: '#1E3A5F'}}>Is this right for your club?</p>
+          <h2 class="font-black leading-[1.15] tracking-tight" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+            Choose <em class="font-serif" style={{color: '#0F6E56'}}>HoursServed</em> if…
+          </h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          {CHOOSE_CARDS.map((card) => (
+            <div key={card.title} class="bg-white rounded-2xl p-6 shadow-sm" style={{border: '1px solid #E5E1D8'}}>
+              <h3 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2.5">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill={card.circleFill} />
+                  <path d="M5 10L8.5 13.5L15 7" stroke={card.checkColor} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {card.title}
+              </h3>
+              <ul class="flex flex-col gap-2.5 list-none">
+                {card.items.map((item) => (
+                  <li key={item} class="flex items-start gap-2.5 text-base text-gray-900 leading-normal">
+                    <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-px" style={{background: card.check.bg, color: card.check.color}}>
+                      <Check size={16} aria-hidden="true" />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── COMPARE LINKS ── */}
+    <Section>
+      <Card>
+        <div class="text-center">
+          <h2 class="text-lg font-bold mb-4" style={{color: '#1E3A5F'}}>How does HoursServed compare?</h2>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href="/compare/unison" class="text-base border px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" style={{color: '#0F6E56', borderColor: '#E5E1D8'}}>vs Unison</a>
+            <a href="/compare/signupgenius" class="text-base border px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" style={{color: '#0F6E56', borderColor: '#E5E1D8'}}>vs SignUpGenius</a>
+            <a href="/compare/track-it-forward" class="text-base border px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" style={{color: '#0F6E56', borderColor: '#E5E1D8'}}>vs Track It Forward</a>
+            <a href="/compare/lionsbase" class="text-base border px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" style={{color: '#0F6E56', borderColor: '#E5E1D8'}}>vs LionsBase</a>
+            <a href="/pricing" class="text-base text-gray-900 border px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors" style={{borderColor: '#E5E1D8'}}>View Pricing</a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── WHERE WE SERVE ── */}
+    <Section>
+      <Card>
+        <div class="text-center mb-10">
+          <h2 class="font-black leading-[1.15] tracking-tight" style={{fontSize: 'clamp(1.8rem, 3.5vw, 2.7rem)', color: '#1E3A5F'}}>
+            Built for Service Clubs and Districts
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-sm" style={{border: '1px solid #E5E1D8'}}>
+            <span class="text-4xl block mb-3" aria-hidden="true">🇬🇧</span>
+            <h3 class="text-lg font-extrabold mb-1" style={{color: '#1E3A5F'}}>United Kingdom</h3>
+            <p class="text-base font-semibold mb-3" style={{color: '#0F6E56'}}>Multiple District 105</p>
+            <p class="text-base text-gray-900 leading-relaxed">Serving Lions clubs across the UK. GBP billing, Lions Portal reporting, and the same no-login member experience your secretary needs. Your data stays compliant with UK GDPR, handled automatically.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm" style={{border: '1px solid #E5E1D8'}}>
+            <span class="text-4xl block mb-3" aria-hidden="true">🇦🇺</span>
+            <h3 class="text-lg font-extrabold mb-1" style={{color: '#1E3A5F'}}>Australia</h3>
+            <p class="text-base font-semibold mb-3" style={{color: '#0F6E56'}}>Multiple District 201</p>
+            <p class="text-base text-gray-900 leading-relaxed">Supporting Lions clubs across Australia — one of the largest Lions structures in the world. AUD billing, automated Lions Portal reporting, and no-login RSVPs that actually get responses.</p>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── CTA ── */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center py-12">
+          <h2 class="font-black text-white mb-4" style={{fontSize: 'clamp(2rem, 4vw, 3rem)'}}>
+            Your officers have enough to do.<br />Let the admin run itself.
+          </h2>
+          <p class="max-w-[520px] mx-auto mb-9 text-base text-white leading-relaxed">Start free. No credit card. Set up in minutes and see why clubs across Canada, the US, UK, and Australia chose HoursServed over spreadsheets and patchwork tools.</p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a href="/app/dashboard" class="bg-white px-8 py-3.5 rounded-lg text-base font-extrabold transition-all hover:shadow-lg no-underline" style={{color: '#1E3A5F'}}>Start Free — No Credit Card</a>
+            <a href="/demo" class="bg-transparent border-2 border-white text-white px-7 py-3.5 rounded-lg text-base font-semibold transition-all hover:bg-white/10">Book a Demo</a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

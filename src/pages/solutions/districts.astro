@@ -1,0 +1,493 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import FAQAccordion from '../../components/FAQAccordion';
+import {
+  Screen01DistrictDashboard,
+  Screen02ClubCoverage,
+  Screen03ClubDetail,
+  Screen04EventOpsBoard,
+  Screen05EventDetail,
+  Screen06CorrectionsQueue,
+  Screen07WorkQueue,
+  Screen08ExportCenter,
+  Screen09LionsPortal,
+  Screen10BeforeAfter,
+} from '../../components/DistrictScreenshots';
+import { Clipboard, TrendingDown, Telescope, CheckSquare, ChevronRight, Calendar, Mail, Clock, Edit, BarChart3, Repeat, FileSpreadsheet, Inbox, Pin, Brain, CheckCircle, X } from 'lucide-react';
+
+const FAQS = [
+  {
+    q: 'Is HoursServed built only for one club, or can it support district-level use?',
+    a: 'HoursServed is designed to support the real operating needs that districts care about, including more consistent meeting, attendance, event, and service-hour workflows across clubs.',
+  },
+  {
+    q: 'Who is the districts page really for?',
+    a: 'This page is mainly for District Governors, district secretaries, and other district leadership roles that need better visibility, less admin friction, and more reporting consistency across clubs.',
+  },
+  {
+    q: 'How does HoursServed reduce district-level admin work?',
+    a: 'It helps clubs use a more structured process for meetings, attendance, events, and service-hour tracking, which reduces missing details, manual follow-up, and cleanup work later.',
+  },
+  {
+    q: 'Why is consistency across clubs such a big issue?',
+    a: 'When every club uses a different process, district reporting becomes harder to support, harder to review, and harder to keep organized. HoursServed helps create a more repeatable system.',
+  },
+  {
+    q: 'Does HoursServed help with attendance tracking?',
+    a: 'Yes. HoursServed includes attendance-related workflows, including simple response options that reduce friction for members and make officer follow-up easier.',
+  },
+  {
+    q: 'Can HoursServed support event and service activity tracking?',
+    a: 'Yes. HoursServed is designed to help organizations manage meetings, events, participation, and service-related records in a more organized way.',
+  },
+  {
+    q: 'Does HoursServed generate reports?',
+    a: 'Yes. HoursServed supports CSV and PDF reporting outputs to help officers review, organize, and prepare records more efficiently.',
+  },
+  {
+    q: 'Is this meant to replace every system a district already uses?',
+    a: 'Not necessarily. Many districts can start with one problem first, such as attendance response, event tracking, or reporting consistency, and expand from there.',
+  },
+  {
+    q: 'Why would a district choose HoursServed instead of a generic sign-up tool?',
+    a: 'Generic sign-up tools usually solve one narrow task. HoursServed is positioned to support the broader operational workflow around meetings, attendance, service hours, and reporting.',
+  },
+];
+---
+
+<Layout title="Lions District Management Software — HoursServed" description="HoursServed for Lions Districts — district-wide reporting coverage, club setup status tracking, officer transition tools, and Export Center.">
+  <div class="min-h-screen" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+    {/* 1. Hero */}
+    <Section>
+      <Card>
+        <div class="text-center py-12">
+          <div class="inline-flex items-center gap-2 bg-white border-2 text-base font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-wide" style={{borderColor: '#0F6E56', color: '#0F6E56'}}>
+            For District Leaders
+          </div>
+          <h1 class="max-w-3xl mx-auto mb-6 font-black leading-tight" style={{fontSize: 'clamp(2rem, 5vw, 3.25rem)', color: '#1E3A5F'}}>
+            Standardize Club Reporting Across Your District
+          </h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-normal">
+            HoursServed helps district leaders reduce follow-up, improve visibility, and bring more consistency to meetings, attendance, service hours, and reporting — without adding more work for club officers.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <a href="/demo" class="text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg transition-all text-base" style={{backgroundColor: '#0F6E56'}}>
+              Book a Demo
+            </a>
+            <a href="/compare/lionsbase" class="flex items-center justify-center gap-1 bg-white border-2 font-semibold px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors text-base" style={{borderColor: '#E5E1D8', color: '#1E3A5F'}}>
+              Compare vs LionsBase <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+            <a href="/compare/clubrunner" class="flex items-center justify-center gap-1 bg-white border-2 font-semibold px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors text-base" style={{borderColor: '#E5E1D8', color: '#1E3A5F'}}>
+              Compare vs ClubRunner <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </div>
+          <p class="text-base text-gray-600 max-w-xl mx-auto">
+            Used by district leaders who need a simpler way to support clubs, reduce admin friction, and improve reporting consistency across the district.
+          </p>
+        </div>
+      </Card>
+    </Section>
+
+    {/* 2. Problem section */}
+    <Section>
+      <Card>
+        <div class="flex flex-col gap-8">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-5 leading-normal" style={{color: '#1E3A5F'}}>
+              District leadership should not have to chase the same reporting problems over and over
+            </h2>
+            <p class="text-gray-600 leading-normal mb-6">
+              When every club handles meetings, attendance, service hours, and event records differently, the district ends up carrying the burden.
+            </p>
+            <p class="text-gray-600 leading-normal">
+              HoursServed helps districts replace that patchwork process with a simpler, more repeatable system clubs can actually use.
+            </p>
+          </div>
+          <div class="space-y-3">
+            {[
+              'Inconsistent reporting habits from club to club',
+              'Missing or late activity details',
+              'Too much back-and-forth with local officers',
+              'Weak visibility into what is actually happening across the district',
+              'More manual cleanup than there should be',
+            ].map((item) => (
+              <div key={item} class="flex items-start gap-3 bg-white rounded-xl px-5 py-4" style={{border: '1px solid #b91c1c'}}>
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center flex-shrink-0" style={{border: '1px solid #b91c1c'}}>
+                  <X size={14} style={{color: '#b91c1c'}} aria-hidden="true" />
+                </div>
+                <p class="text-base text-gray-900">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* 3. District Dashboard Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>See What District Leaders Can See in One View</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Real-time status across every club — who's reported, who's in progress, and who needs follow-up.</p>
+        <Screen01DistrictDashboard />
+      </Card>
+    </Section>
+
+    {/* 4. Core benefit cards */}
+    <Section>
+      <Card>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>What HoursServed helps districts do</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base">Four practical outcomes for district leaders and the clubs they support.</p>
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            {
+              icon: Clipboard,
+              title: 'Bring more consistency to club activity reporting',
+              desc: 'Create a more repeatable process for meetings, events, attendance, and service-hour tracking across the district.',
+            },
+            {
+              icon: TrendingDown,
+              title: 'Reduce follow-up and admin cleanup',
+              desc: 'Help club officers capture better information earlier, so district leaders spend less time chasing details later.',
+            },
+            {
+              icon: Telescope,
+              title: 'Improve district-wide visibility',
+              desc: 'Get a clearer picture of club activity, attendance patterns, and event participation without depending on fragmented systems.',
+            },
+            {
+              icon: CheckSquare,
+              title: 'Make it easier for clubs to participate',
+              desc: 'HoursServed is built to reduce friction for officers and members, including simple attendance response flows that do not force unnecessary complexity.',
+            },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} class="bg-white rounded-2xl border-2 p-7 shadow-sm flex flex-col" style={{borderColor: '#E5E1D8'}}>
+              <div class="mb-4"><Icon size={32} style={{color: '#1E3A5F'}} aria-hidden="true" /></div>
+              <h3 class="font-bold mb-2 text-base leading-normal" style={{color: '#1E3A5F'}}>{title}</h3>
+              <p class="text-base text-gray-600 leading-normal flex-1">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </Section>
+
+    {/* 5. Role-based section */}
+    <Section>
+      <Card>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center" style={{color: '#1E3A5F'}}>Built for the people trying to keep the district organized</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            {
+              role: 'For District Governors',
+              borderColor: '#b45309',
+              labelColor: '#92400e',
+              desc: 'HoursServed helps you improve visibility across clubs, support better district-wide consistency, and reduce the operating friction that slows officers down.',
+            },
+            {
+              role: 'For District Secretaries',
+              borderColor: '#1E3A5F',
+              labelColor: '#1E3A5F',
+              desc: 'HoursServed helps reduce reporting gaps, simplify follow-up, and make it easier to gather cleaner records from clubs.',
+            },
+            {
+              role: 'For District Leadership Teams',
+              borderColor: '#9ca3af',
+              labelColor: '#374151',
+              desc: 'HoursServed supports a more organized process for meetings, events, service activity, and reporting preparation across the district.',
+            },
+          ].map(({ role, borderColor, labelColor, desc }) => (
+            <div key={role} class="rounded-2xl bg-white p-7 flex flex-col border-2" style={{borderColor}}>
+              <p class="text-base font-bold uppercase tracking-widest mb-3" style={{color: labelColor}}>{role}</p>
+              <p class="text-base text-gray-900 leading-normal flex-1">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </Section>
+
+    {/* 6. Feature-to-outcome */}
+    <Section>
+      <Card>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>The tools that support district-wide consistency</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base">Practical capabilities built around the workflows that matter most to district operations.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            {
+              icon: Calendar,
+              title: 'Simple meeting and event setup',
+              desc: 'Create and manage meetings, service activities, and events in a structured way that supports better participation and cleaner records.',
+            },
+            {
+              icon: Mail,
+              title: 'One-click attendance response by email',
+              desc: 'Members can respond Yes or No from email without unnecessary login friction, making attendance tracking easier from the start.',
+            },
+            {
+              icon: Clock,
+              title: 'Attendance and service-hour tracking',
+              desc: 'Capture the details districts and club officers need to keep better records tied to actual meetings and events.',
+            },
+            {
+              icon: Edit,
+              title: 'Manual attendance corrections',
+              desc: 'Fix attendance or participation records when needed without relying on workarounds or disconnected notes.',
+            },
+            {
+              icon: BarChart3,
+              title: 'CSV and PDF reporting outputs',
+              desc: 'Generate cleaner exports that support reporting, review, and recordkeeping.',
+            },
+            {
+              icon: Repeat,
+              title: 'District-friendly consistency',
+              desc: 'Help clubs follow a more repeatable operating pattern instead of depending on disconnected spreadsheets, emails, and memory.',
+            },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} class="bg-white rounded-xl border-2 p-6 shadow-sm flex flex-col" style={{borderColor: '#E5E1D8'}}>
+              <div class="mb-3"><Icon size={24} style={{color: '#1E3A5F'}} aria-hidden="true" /></div>
+              <h3 class="font-bold mb-2 text-base leading-normal" style={{color: '#1E3A5F'}}>{title}</h3>
+              <p class="text-base text-gray-600 leading-normal flex-1">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </Section>
+
+    {/* 7. Patchwork systems */}
+    <Section>
+      <Card>
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col gap-8">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold mb-5 leading-normal" style={{color: '#1E3A5F'}}>Districts outgrow patchwork systems</h2>
+              <p class="text-gray-600 leading-normal mb-4">
+                Many districts are still relying on a mix of spreadsheets, email threads, manual reminders, disconnected sign-up tools, and officer memory.
+              </p>
+              <p class="text-gray-600 leading-normal mb-4">
+                That usually works until reporting expectations increase, officer turnover happens, multiple clubs need support at the same time, district leaders need cleaner visibility, events become more complex, and follow-up becomes a monthly burden.
+              </p>
+              <p class="text-gray-900 font-medium leading-normal">
+                HoursServed helps districts move from a patchwork process to a simpler operating standard.
+              </p>
+            </div>
+            <div class="space-y-3">
+              {[
+                { icon: FileSpreadsheet, label: 'Spreadsheets', status: 'Manual, disconnected, error-prone' },
+                { icon: Inbox, label: 'Email threads', status: 'Hard to track, easy to miss' },
+                { icon: Pin, label: 'Generic sign-up tools', status: 'No service hours, no reporting' },
+                { icon: Brain, label: 'Officer memory', status: 'Lost at every transition' },
+              ].map(({ icon: Icon, label, status }) => (
+                <div key={label} class="flex items-center justify-between bg-gray-50 border-2 rounded-xl px-5 py-4" style={{borderColor: '#E5E1D8'}}>
+                  <div class="flex items-center gap-3">
+                    <Icon size={20} style={{color: '#1E3A5F'}} aria-hidden="true" />
+                    <span class="text-base font-medium" style={{color: '#1E3A5F'}}>{label}</span>
+                  </div>
+                  <span class="text-base text-gray-600 text-right hidden sm:block">{status}</span>
+                </div>
+              ))}
+              <div class="flex items-center justify-between rounded-xl px-5 py-4 bg-white border-2" style={{borderColor: '#0F6E56'}}>
+                <div class="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5" style={{color: '#0F6E56'}} aria-hidden="true" />
+                  <span class="text-base font-semibold" style={{color: '#1E3A5F'}}>HoursServed</span>
+                </div>
+                <span class="text-base font-medium text-right hidden sm:block" style={{color: '#0F6E56'}}>Consistent. Repeatable. Less admin.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* 8. Club Coverage Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Review Every Club's Reporting Status Before Month-End</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Coverage by club, events reported, hours logged, and days since last activity — all in one view.</p>
+        <Screen02ClubCoverage />
+      </Card>
+    </Section>
+
+    {/* 9. Club Detail Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Open One Club and Coach with Real Context</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Club-level detail: events by status, open corrections, and officer contacts — everything needed before a coaching call.</p>
+        <Screen03ClubDetail />
+      </Card>
+    </Section>
+
+    {/* 10. Event Ops Board Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>See How Clubs Are Running Meetings, Service Events, and Fundraisers</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Every district event across all clubs — RSVP counts, attendance, corrections, and readiness status in one board.</p>
+        <Screen04EventOpsBoard />
+      </Card>
+    </Section>
+
+    {/* 11. Event Detail Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Coach a Club Before Reporting Problems Spread</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Drill into any event to see exactly what's missing, what's blocked, and what needs to be resolved before Lions Portal submission.</p>
+        <Screen05EventDetail />
+      </Card>
+    </Section>
+
+    {/* 12. Corrections Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>See What Still Needs to Be Fixed Before Reporting</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Open corrections sorted by severity and age — so district officers know exactly where to focus first.</p>
+        <Screen06CorrectionsQueue />
+      </Card>
+    </Section>
+
+    {/* 13. Work Queue Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Organize District and Club Follow-Up in One Queue</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Pending approvals, overdue follow-ups, and open corrections — prioritized so district officers know what to do first.</p>
+        <Screen07WorkQueue />
+      </Card>
+    </Section>
+
+    {/* 14. Export Center Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Review What Is Ready, Blocked, or Still Awaiting Data</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">One-click Lions Portal CSV export for clubs that are ready — and a clear view of what's blocking the rest.</p>
+        <Screen08ExportCenter />
+      </Card>
+    </Section>
+
+    {/* 15. Lions Portal Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Lions Portal-Ready Reporting Starts Before Submission</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">Field alignment preview and export summary — so you know every row is correct before it goes to Lions Portal.</p>
+        <Screen09LionsPortal />
+      </Card>
+    </Section>
+
+    {/* 16. Rollout section */}
+    <Section>
+      <Card>
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-4" style={{color: '#1E3A5F'}}>Start with one district process, then expand</h2>
+          <p class="text-gray-600 mb-12 max-w-xl mx-auto">A district does not need to change everything at once.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            {[
+              { step: '1', label: 'Meeting attendance response', desc: 'Replace manual RSVP chasing with email-based responses.' },
+              { step: '2', label: 'Event participation tracking', desc: 'Capture who showed up and for how long.' },
+              { step: '3', label: 'Service-hour collection', desc: 'Record hours automatically at the point of response.' },
+              { step: '4', label: 'Cleaner reporting preparation', desc: 'Export structured records that are ready to use.' },
+            ].map(({ step, label, desc }) => (
+              <div key={step} class="bg-white rounded-2xl border-2 p-6 shadow-sm flex flex-col text-left" style={{borderColor: '#E5E1D8'}}>
+                <div class="w-9 h-9 rounded-full text-white font-bold text-base flex items-center justify-center mb-4 flex-shrink-0" style={{backgroundColor: '#1E3A5F'}}>{step}</div>
+                <h3 class="font-bold mb-2 text-base leading-normal" style={{color: '#1E3A5F'}}>{label}</h3>
+                <p class="text-base text-gray-600 leading-normal flex-1">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <p class="text-base text-gray-600 font-medium max-w-xl mx-auto">
+            From there, the district can build toward a more consistent operating approach across more clubs.
+          </p>
+        </div>
+      </Card>
+    </Section>
+
+    {/* 17. Compare links */}
+    <Section>
+      <Card>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>See how HoursServed compares to other tools</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base">
+          If your district is currently using a mix of club tools, sign-up tools, or older workflows, these pages can help clarify the differences.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Hours Served vs LionsBase',
+              desc: 'For districts and clubs that want a simpler way to manage participation, reporting flow, and officer admin.',
+              href: '/compare/lionsbase',
+            },
+            {
+              title: 'HoursServed vs ClubRunner',
+              desc: 'For organizations that need more practical support for meetings, attendance, service tracking, and reporting consistency.',
+              href: '/compare/clubrunner',
+            },
+            {
+              title: 'HoursServed vs SignUpGenius',
+              desc: 'For leaders who need more than simple sign-ups and want a system that supports real district operations.',
+              href: '/compare/signupgenius',
+            },
+          ].map(({ title, desc, href }) => (
+            <a key={title} href={href} class="group bg-gray-50 rounded-2xl border-2 p-6 hover:border-brand-navy hover:shadow-md transition-all flex flex-col" style={{borderColor: '#E5E1D8'}}>
+              <h3 class="font-bold group-hover:text-brand-navy transition-colors mb-2 text-base leading-normal" style={{color: '#1E3A5F'}}>{title}</h3>
+              <p class="text-base text-gray-600 leading-normal flex-1">{desc}</p>
+              <div class="flex items-center gap-1 text-base font-semibold mt-4" style={{color: '#0F6E56'}}>
+                See comparison <ChevronRight className="w-4 h-4" aria-hidden="true" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </Card>
+    </Section>
+
+    {/* 18. FAQ */}
+    <Section>
+      <Card>
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center" style={{color: '#1E3A5F'}}>Frequently Asked Questions</h2>
+          <FAQAccordion faqs={FAQS} client:load />
+        </div>
+      </Card>
+    </Section>
+
+    {/* 19. Before/After Screenshot */}
+    <Section>
+      <Card>
+        <h2 class="text-xl sm:text-2xl font-bold mb-3 text-center" style={{color: '#1E3A5F'}}>Before and After District Review Becomes Structured</h2>
+        <p class="text-gray-600 text-center mb-8 max-w-xl mx-auto text-base">What changes when clubs use a consistent process — and district officers have real visibility.</p>
+        <Screen10BeforeAfter />
+      </Card>
+    </Section>
+
+    {/* 20. Final CTA */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 max-w-2xl mx-auto leading-tight">
+            Give your district a simpler reporting standard
+          </h2>
+          <p class="text-base text-white mb-10 max-w-2xl mx-auto leading-normal">
+            HoursServed helps district leaders reduce admin friction, improve visibility, and support more consistent club reporting across meetings, attendance, service hours, and events.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/demo" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors text-base" style={{color: '#1E3A5F'}}>
+              Book a Demo
+            </a>
+            <a href="/compare/lionsbase" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white font-bold px-6 py-4 rounded-xl hover:bg-white/10 transition-colors text-base">
+              Compare vs LionsBase <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+            <a href="/compare/clubrunner" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white font-bold px-6 py-4 rounded-xl hover:bg-white/10 transition-colors text-base">
+              Compare vs ClubRunner <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

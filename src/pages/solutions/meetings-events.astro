@@ -1,0 +1,575 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import FAQAccordion from '../../components/FAQAccordion';
+
+const FAQS = [
+  {
+    q: 'How does one-email RSVP work?',
+    a: 'When you schedule a meeting, HoursServed sends each member a single email with two buttons: "Yes, I\'ll be there" and "No, I can\'t make it." Members click once — no login, no portal, no app download required. Their response is recorded instantly and your attendance register updates in real time.',
+  },
+  {
+    q: 'What is the difference between a Meeting and an Event?',
+    a: 'Meetings are recurring club gatherings (monthly dinner meetings, board meetings, committee meetings) with RSVP-based attendance. Events are service activities or fundraisers with defined shifts, volunteer slots, and capacity limits. Both feed into your service hours and reporting automatically.',
+  },
+  {
+    q: 'Can we manage volunteer shifts for large events?',
+    a: 'Yes. For any event, you can define multiple shifts (e.g., Setup 8am–10am, Service 10am–2pm, Cleanup 2pm–4pm), set capacity per shift, and send a shift-signup email to your member list. Volunteers claim their slot in one tap. The Event Operations Board shows live coverage so you know exactly where you are short-staffed.',
+  },
+  {
+    q: 'Do service hours get logged automatically?',
+    a: 'Yes. Every confirmed RSVP and every shift signup logs hours automatically based on the event duration and shift times. Officers can correct or add hours after the event — including for members who forgot to sign up in advance. All hours flow directly into your service dashboard and reporting.',
+  },
+  {
+    q: 'Can community volunteers (non-members) participate?',
+    a: 'Yes. HoursServed maintains a separate community volunteer roster alongside your member list. Non-member volunteers can receive shift invites, sign up, and have their hours tracked — without being added to your official member roll.',
+  },
+  {
+    q: 'How does attendance tracking help with member retention?',
+    a: 'HoursServed automatically flags members who have not attended in multiple consecutive months. Your retention coordinator receives an alert so they can reach out before a member quietly drifts away. Early outreach is far more effective than trying to re-engage someone who has already mentally resigned.',
+  },
+  {
+    q: 'Can we send reminders before meetings and events?',
+    a: 'Yes. Automated reminder emails go out 48 hours before each meeting or event. For events with open shift slots, a second reminder targets members who have not yet signed up, prompting them to claim a shift before capacity fills.',
+  },
+];
+---
+
+<Layout title="Lions Club Meeting and Event Management — HoursServed" description="Manage Lions Club meetings and events with no-login RSVP, attendance tracking, shift scheduling, and automated service hour logging.">
+  <div class="min-h-screen text-gray-900" style={{background: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+
+    {/* ── SECTION 1: HERO ─────────────────────────────────────────────── */}
+    <section class="relative overflow-hidden text-center px-6 py-24 md:py-28">
+      <div class="relative max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest" style={{border: '2px solid #0F6E56', color: '#0F6E56'}}>
+          Meetings &amp; Events
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-6 max-w-3xl mx-auto leading-tight">
+          Run Every Meeting and Event Without the Admin Chaos
+        </h1>
+        <p class="text-lg text-gray-900 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Most service clubs lose hours every month chasing RSVPs, manually recording attendance, and trying to remember who signed up for which shift. HoursServed replaces that entire workflow with a single, connected system — from scheduling to service hours — so your officers spend their time serving, not administering.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a
+            href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-white font-bold px-8 py-4 rounded-xl transition-colors text-base shadow-md"
+            style={{background: '#0F6E56'}}
+          >
+            Book a Demo
+          </a>
+          <a
+            href="/app/dashboard"
+            class="inline-block bg-white font-bold px-8 py-4 rounded-xl transition-colors text-base"
+            style={{border: '2px solid #0F6E56', color: '#0F6E56'}}
+          >
+            Start Free →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* ── SECTION 2: STATS ────────────────────────────────────────────── */}
+    <Section>
+      <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+        {[
+          { num: '1 click', label: 'to send meeting invites to your entire member list' },
+          { num: '0 logins', label: 'required for members to RSVP — just one email tap' },
+          { num: 'Auto', label: 'service hours logged from every RSVP and shift signup' },
+          { num: 'Live', label: 'attendance register updated the moment members respond' },
+        ].map((s) => (
+          <div key={s.num} class="text-center p-6 bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+            <div class="text-3xl font-black mb-1" style={{color: '#0F6E56'}}>{s.num}</div>
+            <div class="text-sm text-gray-600 leading-snug">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    {/* ── SECTION 3: ONE-EMAIL RSVP ───────────────────────────────────── */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>The RSVP Problem — Solved</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            One Email. One Tap. Attendance Recorded.
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            The single biggest time drain for club secretaries is chasing RSVPs. Texts, phone calls, Facebook messages, reply-all email threads — none of it produces a clean attendance record. HoursServed replaces all of that with a frictionless one-tap flow.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="space-y-5">
+            {[
+              {
+                icon: '📧',
+                title: 'Schedule and send in minutes',
+                body: 'Create a meeting, set the date and location, and send the invite to your full member list in under two minutes. No mail merge, no BCC list, no formatting required.',
+                badge: 'No login required for members',
+              },
+              {
+                icon: '✅',
+                title: "Yes or No — that's the whole flow",
+                body: 'Members receive a clean email with two buttons. They tap once. Their response is recorded. No portal to log into, no app to download, no account to create.',
+                badge: 'Attendance recorded instantly',
+              },
+              {
+                icon: '📋',
+                title: 'Live attendance register',
+                body: "Your attendance register updates in real time as responses come in. See who's confirmed, who's declined, and who hasn't responded — all from one screen.",
+              },
+              {
+                icon: '🔔',
+                title: 'Automated 48-hour reminders',
+                body: "A reminder email goes out automatically 48 hours before the meeting — targeting members who haven't responded yet. No manual follow-up required.",
+                badge: 'Auto-reminder 48 hrs before',
+              },
+            ].map((item) => (
+              <div key={item.title} class="flex gap-4 p-5 bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+                <div class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                <div>
+                  {item.badge && (
+                    <div class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-2" style={{background: '#F1EFE8', color: '#0F6E56', border: '2px solid #0F6E56'}}>
+                      {item.badge}
+                    </div>
+                  )}
+                  <h3 class="font-bold text-gray-900 mb-1 text-base">{item.title}</h3>
+                  <p class="text-gray-600 text-base leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mock email preview */}
+          <div class="relative">
+            <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden" style={{border: '2px solid #E5E1D8'}}>
+              <div class="px-4 py-2.5 flex items-center gap-2" style={{background: '#1E3A5F'}}>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                <span class="ml-3 text-white text-xs">Monthly Dinner Meeting — RSVP</span>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-5 pb-4" style={{borderBottom: '1px solid #E5E1D8'}}>
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-black text-sm" style={{background: '#0F6E56'}}>HS</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-sm">HoursServed</p>
+                    <p class="text-gray-600 text-xs">hello@hoursserved.com</p>
+                  </div>
+                </div>
+                <h3 class="font-black text-gray-900 text-lg mb-2">You're invited: Monthly Dinner Meeting</h3>
+                <p class="text-gray-600 text-sm mb-1">📅 Tuesday, May 6 · 6:30 PM</p>
+                <p class="text-gray-600 text-sm mb-5">📍 Markham Village Community Centre</p>
+                <p class="text-gray-900 text-base mb-6 leading-relaxed">
+                  Hi Sarah — please let us know if you'll be joining us. One tap is all it takes.
+                </p>
+                <div class="flex gap-3">
+                  <div class="flex-1 text-white font-bold py-3 rounded-xl text-sm text-center" style={{background: '#0F6E56'}}>
+                    ✓ Yes, I'll be there
+                  </div>
+                  <div class="flex-1 bg-white text-gray-900 font-semibold py-3 rounded-xl text-sm text-center" style={{border: '2px solid #E5E1D8'}}>
+                    ✗ Can't make it
+                  </div>
+                </div>
+                <p class="text-gray-600 text-xs text-center mt-4">No login required · Tap once · Done</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* ── SECTION 4: EVENT SHIFT MANAGEMENT ───────────────────────────── */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>Event Operations</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Shift Management That Actually Works
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            Service events need more than an RSVP. They need defined shifts, capacity limits, and a live view of who is covering what. The Event Operations Board gives you exactly that.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          {/* Event Operations Board mock */}
+          <div class="relative order-2 md:order-1">
+            <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden" style={{border: '2px solid #E5E1D8'}}>
+              <div class="px-4 py-2.5 flex items-center gap-2" style={{background: '#1E3A5F'}}>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                <span class="ml-3 text-white text-xs">Event Operations Board — Food Drive 2026</span>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="font-bold text-gray-900 text-base">Shift Coverage</h4>
+                  <span class="text-xs font-bold px-2.5 py-1 rounded-full" style={{background: '#FEF3C7', color: '#B45309'}}>2 shifts need volunteers</span>
+                </div>
+                <div class="space-y-3">
+                  {[
+                    { shift: 'Setup', time: '7:00 – 9:00 AM', filled: 4, cap: 4, color: '#DEF7EC', textColor: '#065F46', dot: '#10B981' },
+                    { shift: 'Morning Service', time: '9:00 AM – 12:00 PM', filled: 6, cap: 8, color: '#FEF3C7', textColor: '#B45309', dot: '#F59E0B' },
+                    { shift: 'Afternoon Service', time: '12:00 – 3:00 PM', filled: 3, cap: 8, color: '#FEE2E2', textColor: '#991B1B', dot: '#EF4444' },
+                    { shift: 'Cleanup', time: '3:00 – 5:00 PM', filled: 5, cap: 6, color: '#DEF7EC', textColor: '#065F46', dot: '#10B981' },
+                  ].map((row) => (
+                    <div key={row.shift} class="flex items-center justify-between p-3 rounded-xl bg-white" style={{border: '2px solid #E5E1D8'}}>
+                      <div class="flex items-center gap-3">
+                        <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{background: row.dot}} />
+                        <div>
+                          <p class="font-semibold text-gray-900 text-base">{row.shift}</p>
+                          <p class="text-gray-600 text-xs">{row.time}</p>
+                        </div>
+                      </div>
+                      <div class="px-3 py-1 rounded-full text-xs font-bold" style={{background: row.color, color: row.textColor}}>
+                        {row.filled}/{row.cap} filled
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-xs text-gray-600 text-center mt-4">Live coverage · Updates as volunteers sign up</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-5 order-1 md:order-2">
+            {[
+              {
+                icon: '🎯',
+                title: 'Define shifts with capacity limits',
+                body: 'Create as many shifts as your event needs. Set start/end times and a maximum headcount per shift. The system prevents overbooking automatically.',
+                badge: 'Overbooking prevented automatically',
+              },
+              {
+                icon: '📨',
+                title: 'One-tap shift signup via email',
+                body: 'Volunteers receive an email showing available shifts and their remaining capacity. They tap to claim their slot — no login, no portal, no friction.',
+                badge: 'No login required for volunteers',
+              },
+              {
+                icon: '📊',
+                title: 'Live Event Operations Board',
+                body: "See every shift, its capacity, and current fill rate in real time. Spot gaps before the event and send a targeted reminder to members who haven't signed up yet.",
+                badge: 'Live coverage view for officers',
+              },
+              {
+                icon: '👥',
+                title: 'Community volunteers welcome',
+                body: 'Non-member volunteers can receive shift invites, sign up, and have their hours tracked on a separate community roster — without being added to your official member roll.',
+              },
+            ].map((item) => (
+              <div key={item.title} class="flex gap-4 p-5 bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+                <div class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                <div>
+                  {item.badge && (
+                    <div class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-2" style={{background: '#F1EFE8', color: '#0F6E56', border: '2px solid #0F6E56'}}>
+                      {item.badge}
+                    </div>
+                  )}
+                  <h3 class="font-bold text-gray-900 mb-1 text-base">{item.title}</h3>
+                  <p class="text-gray-600 text-base leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* ── SECTION 5: AUTO SERVICE HOURS ───────────────────────────────── */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>Hours That Log Themselves</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Every RSVP and Shift Signup Logs Hours Automatically
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            The moment a member confirms attendance or claims a shift, their service hours are recorded. No paper logs. No spreadsheet entry after the fact. No hours lost because someone forgot to write them down.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mb-12">
+          {[
+            {
+              icon: '⏱',
+              title: 'RSVP → Hours',
+              body: 'Confirmed meeting attendance automatically logs hours based on the meeting duration set when the event was created.',
+            },
+            {
+              icon: '🎯',
+              title: 'Shift Signup → Hours',
+              body: 'Shift signups log hours equal to the shift duration. Officers can adjust post-event for early departures or extended service.',
+            },
+            {
+              icon: '✏️',
+              title: 'Manual Correction',
+              body: "Officers can add or correct hours after any event — including for members who participated but didn't sign up in advance.",
+            },
+          ].map((item) => (
+            <div key={item.title} class="p-6 rounded-2xl text-center bg-white" style={{border: '2px solid #E5E1D8'}}>
+              <div class="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
+              <h3 class="font-bold text-gray-900 mb-2 text-base">{item.title}</h3>
+              <p class="text-gray-600 text-base leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <Card variant="navy">
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            {[
+              { label: 'Hours flow into', value: 'Service Dashboard', sub: 'Real-time totals by category' },
+              { label: 'Hours flow into', value: 'Monthly Reports', sub: 'Auto-generated for officer approval' },
+              { label: 'Hours flow into', value: 'Lion Portal Export', sub: 'One-click Lions-ready CSV' },
+            ].map((item) => (
+              <div key={item.value}>
+                <p class="text-xs uppercase tracking-widest mb-1" style={{color: '#E8EDF3'}}>{item.label}</p>
+                <p class="font-black text-white text-lg">{item.value}</p>
+                <p class="text-xs mt-1" style={{color: '#E8EDF3'}}>{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </Section>
+
+    {/* ── SECTION 6: ATTENDANCE & RETENTION ──────────────────────────── */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#B91C1C'}}>Retention Intelligence</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            Know Who's Drifting Before They're Gone
+          </h2>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
+            Member attrition rarely happens all at once. It happens one missed meeting at a time. HoursServed tracks attendance patterns and surfaces at-risk members automatically — so your retention coordinator can act early.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="space-y-5">
+            {[
+              {
+                icon: '⚠️',
+                title: 'At-Risk Member Alerts',
+                body: 'HoursServed automatically flags members who have not attended in two or more consecutive months. Your retention coordinator receives an alert so they can reach out before the member mentally resigns.',
+                badge: 'Flags members missing 2+ months',
+              },
+              {
+                icon: '📈',
+                title: 'Attendance Trend Reports',
+                body: 'View attendance rates by member, by meeting, and by month. Identify seasonal patterns, compare year-over-year, and spot which event types drive the highest turnout.',
+                badge: 'By member, meeting, and month',
+              },
+              {
+                icon: '🏆',
+                title: 'Top Contributor Recognition',
+                body: 'Surface your most active members — by hours served, events attended, and shifts completed. Recognition is a powerful retention tool, and the data is already there.',
+              },
+              {
+                icon: '📊',
+                title: 'Participation Rate Dashboard',
+                body: "See your club's overall participation rate at a glance — what percentage of your membership attended each meeting, and how that trend is moving over time.",
+              },
+            ].map((item) => (
+              <div key={item.title} class="flex gap-4 p-5 bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+                <div class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</div>
+                <div>
+                  {item.badge && (
+                    <div class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-2" style={{background: '#F1EFE8', color: '#0F6E56', border: '2px solid #0F6E56'}}>
+                      {item.badge}
+                    </div>
+                  )}
+                  <h3 class="font-bold text-gray-900 mb-1 text-base">{item.title}</h3>
+                  <p class="text-gray-600 text-base leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* At-risk member mock */}
+          <div class="relative">
+            <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden" style={{border: '2px solid #E5E1D8'}}>
+              <div class="px-4 py-2.5 flex items-center gap-2" style={{background: '#1E3A5F'}}>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <span class="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                <span class="ml-3 text-white text-xs">Retention Alerts — April 2026</span>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="font-bold text-gray-900 text-base">At-Risk Members</h4>
+                  <span class="text-xs font-bold px-2.5 py-1 rounded-full" style={{background: '#FEE2E2', color: '#991B1B'}}>3 flagged</span>
+                </div>
+                <div class="space-y-3">
+                  {[
+                    { name: 'Robert T.', missed: 3, last: 'Jan 14', action: 'Call scheduled', isPending: false },
+                    { name: 'Linda M.', missed: 2, last: 'Feb 11', action: 'Email sent', isPending: false },
+                    { name: 'David K.', missed: 2, last: 'Feb 11', action: 'Pending', isPending: true },
+                  ].map((m) => (
+                    <div key={m.name} class="flex items-center justify-between p-3 rounded-xl" style={{background: '#FEE2E2', border: '2px solid #FEE2E2'}}>
+                      <div>
+                        <p class="font-semibold text-gray-900 text-base">{m.name}</p>
+                        <p class="text-gray-600 text-xs">Missed {m.missed} meetings · Last: {m.last}</p>
+                      </div>
+                      <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style={{background: m.isPending ? '#F1EFE8' : '#DEF7EC', color: m.isPending ? '#1F2937' : '#065F46'}}>
+                        {m.action}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-xs text-gray-600 text-center mt-4">Auto-flagged · Updated after every meeting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* ── SECTION 7: END-TO-END FLOW ──────────────────────────────────── */}
+    <Section>
+      <Card variant="navy">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#E8EDF3'}}>End-to-End</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+            From Scheduled to Reported — In One Connected System
+          </h2>
+          <p class="max-w-2xl mx-auto mb-14 leading-relaxed" style={{color: '#E8EDF3'}}>
+            Every step from creating a meeting to submitting your Lions service report happens inside one workflow — no spreadsheets, no manual data entry, no information lost between steps.
+          </p>
+          <div class="grid sm:grid-cols-5 gap-6 items-start">
+            {[
+              { step: '1', label: 'Schedule', desc: 'Create meeting or event with date, location, and shifts' },
+              { step: '2', label: 'Invite', desc: 'One-click invite sent to full member list via email' },
+              { step: '3', label: 'RSVP / Signup', desc: 'Members respond in one tap — no login required' },
+              { step: '4', label: 'Hours Logged', desc: 'Service hours recorded automatically from every response' },
+              { step: '5', label: 'Report Ready', desc: 'Data flows into dashboard, monthly report, and Lion Portal export' },
+            ].map((item) => (
+              <div key={item.step} class="flex flex-col items-center text-center gap-3">
+                <div class="w-11 h-11 rounded-full text-white font-black text-lg flex items-center justify-center flex-shrink-0 shadow-lg" style={{background: '#0F6E56'}}>
+                  {item.step}
+                </div>
+                <p class="font-bold text-white text-base">{item.label}</p>
+                <p class="text-xs leading-relaxed" style={{color: '#E8EDF3'}}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* ── SECTION 8: BEFORE & AFTER ───────────────────────────────────── */}
+    <Section>
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>Before &amp; After</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
+            What Changes When You Use HoursServed
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-7 rounded-2xl bg-white" style={{border: '2px solid #B91C1C'}}>
+            <h3 class="font-black text-lg mb-5" style={{color: '#B91C1C'}}>Without HoursServed</h3>
+            <ul class="space-y-3">
+              {[
+                'Email blast sent from personal inbox — no tracking',
+                'RSVPs come in via text, Facebook, and phone calls',
+                'Secretary manually updates a spreadsheet',
+                'Shift signups managed via paper sign-up sheet at the event',
+                'Hours recorded from memory days or weeks later',
+                'Monthly report assembled manually from multiple sources',
+                "At-risk members noticed only after they've already left",
+              ].map((item) => (
+                <li key={item} class="flex gap-2.5 text-base text-gray-900">
+                  <span class="font-bold flex-shrink-0 mt-0.5" style={{color: '#B91C1C'}}>✗</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="p-7 rounded-2xl bg-white" style={{border: '2px solid #065F46'}}>
+            <h3 class="font-black text-lg mb-5" style={{color: '#065F46'}}>With HoursServed</h3>
+            <ul class="space-y-3">
+              {[
+                'Invite sent to full member list in 2 minutes from the platform',
+                'RSVPs recorded automatically from one-tap email responses',
+                'Attendance register updates live — no manual entry',
+                'Shift signups claimed via email before the event even starts',
+                'Hours logged automatically from every RSVP and shift',
+                'Monthly report auto-generated and waiting for officer approval',
+                'At-risk members flagged automatically — early outreach possible',
+              ].map((item) => (
+                <li key={item} class="flex gap-2.5 text-base text-gray-900">
+                  <span class="font-bold flex-shrink-0 mt-0.5" style={{color: '#065F46'}}>✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* ── SECTION 9: FAQ ──────────────────────────────────────────────── */}
+    <Section>
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>Common Questions</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="space-y-3">
+          <FAQAccordion faqs={FAQS} client:load />
+        </div>
+      </div>
+    </Section>
+
+    {/* ── CTA ─────────────────────────────────────────────────────────── */}
+    <Section>
+      <Card variant="navy">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+            Ready to Reclaim Your Officers' Time?
+          </h2>
+          <p class="text-lg mb-8 leading-relaxed" style={{color: '#E8EDF3'}}>
+            See how HoursServed turns meeting and event management from a weekly admin burden into a five-minute task.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block bg-white font-bold px-8 py-4 rounded-xl transition-colors text-base shadow-md"
+              style={{color: '#1E3A5F'}}
+            >
+              Book a Demo
+            </a>
+            <a
+              href="/app/dashboard"
+              class="inline-block border-2 border-white text-white font-bold px-8 py-4 rounded-xl transition-colors text-base"
+            >
+              Start Free →
+            </a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

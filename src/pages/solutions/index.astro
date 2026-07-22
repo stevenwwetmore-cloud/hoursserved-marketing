@@ -1,0 +1,145 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { ChevronRight, CheckCircle } from 'lucide-react';
+
+const SOLUTIONS = [
+  {
+    emoji: null,
+    title: 'Service Clubs & Councils',
+    desc: 'Lions, Rotary, Kiwanis, and similar clubs. Email attendance, frozen hours, district CSV exports, and month locking built in.',
+    href: '/solutions/service-clubs',
+    tag: 'Most popular',
+    features: ['Email attendance tracking', 'Lions Portal CSV export', 'District leaderboard', 'Month locking & audit trail'],
+    useCase: 'Best for clubs that run recurring meetings and submit monthly service-hour reports to a district.',
+  },
+  {
+    emoji: '🏛️',
+    title: 'Districts',
+    desc: 'Standardize meetings, attendance, service hours, and reporting across clubs without adding more admin work for officers.',
+    href: '/solutions/districts',
+    tag: null,
+    features: ['District-wide reporting consistency', 'Reduce follow-up across clubs', 'Attendance and service-hour tracking', 'CSV and PDF reporting outputs'],
+    useCase: 'Best for District Governors and district secretaries who need cleaner visibility and less admin friction across clubs.',
+  },
+  {
+    emoji: '⛪',
+    title: 'Churches & Ministries',
+    desc: 'Track volunteer hours across ministry teams without asking congregation members to create an account.',
+    href: '/solutions/churches',
+    tag: null,
+    features: ['Ministry team rosters', 'Volunteer hour logging', 'No app for congregation', 'Monthly summaries'],
+    useCase: 'Best for churches coordinating ministry volunteers across recurring services and outreach events.',
+  },
+  {
+    emoji: '🏛️',
+    title: 'Community & Civic Groups',
+    desc: 'Committees, associations, and civic organizations. Grant-ready hour reports on demand.',
+    href: '/solutions/community-groups',
+    tag: null,
+    features: ['Committee tracking', 'Grant-ready reports', 'Email-only participation', 'PDF & CSV exports'],
+    useCase: 'Best for community groups that need clean participation records for grant applications or board reporting.',
+  },
+  {
+    emoji: '🏫',
+    title: 'Parent Councils, Booster Groups & Youth Sports',
+    desc: 'Email shift sign-ups and volunteer hour tracking for school councils, booster clubs, and youth sports organizations.',
+    href: '/solutions/parent-councils-booster-groups-youth-sports',
+    tag: null,
+    features: ['Email shift sign-ups', 'Volunteer hour logging', 'Event coverage tracking', 'Council reporting'],
+    useCase: 'Best for parent-led groups coordinating event volunteers and tracking participation across the year.',
+  },
+];
+---
+
+<Layout title="Solutions | HoursServed.com — Built for Every Service Organization" description="From Lions Clubs to churches to parent councils — HoursServed.com adapts to how your organization tracks volunteer hours and manages members.">
+  <div class="min-h-screen" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+    <section class="pt-20 pb-16 px-4 text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Built for your type of organization</h1>
+      <p class="text-base text-gray-900 max-w-xl mx-auto mb-6">
+        One shared platform, adapted to your vocabulary, templates, and workflows — not the other way around.
+      </p>
+      <p class="text-base text-gray-600">Select your organization type below to see the specific features and workflows relevant to you.</p>
+    </section>
+
+    <section class="py-16 px-4">
+      <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-6">
+        {SOLUTIONS.map(({ emoji, title, desc, href, tag, features, useCase }) => (
+          <div key={href} class="bg-white rounded-2xl overflow-hidden flex flex-col transition-all hover:shadow-md" style={{border: '2px solid #E5E1D8'}}>
+            <div class="p-6 flex-1">
+              <div class="flex items-start justify-between mb-3">
+                {emoji && <div class="text-3xl" aria-hidden="true">{emoji}</div>}
+                {tag && <span class="text-xs bg-white font-semibold px-2 py-0.5 rounded-full" style={{border: '2px solid #0F6E56', color: '#0F6E56'}}>{tag}</span>}
+              </div>
+              <h3 class="font-bold mb-2" style={{color: '#1E3A5F'}}>{title}</h3>
+              <p class="text-base text-gray-900 leading-relaxed mb-4">{desc}</p>
+              <ul class="space-y-1.5 mb-4">
+                {features.map(f => (
+                  <li key={f} class="flex items-center gap-2 text-base text-gray-900">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-700 flex-shrink-0" aria-hidden="true" />{f}
+                  </li>
+                ))}
+              </ul>
+              <p class="text-base text-gray-600 italic border-t pt-3" style={{borderColor: '#E5E1D8'}}>{useCase}</p>
+            </div>
+            <div class="px-6 pb-6 flex gap-3">
+              <a href={href} class="flex-1 flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl px-4 py-3 transition-all group" style={{border: '2px solid #E5E1D8'}}>
+                <span class="text-sm font-semibold text-gray-900">See features</span>
+                <ChevronRight className="w-4 h-4" style={{color: '#0F6E56'}} aria-hidden="true" />
+              </a>
+              <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-4 py-3 text-white text-sm font-semibold rounded-xl transition-colors" style={{backgroundColor: '#0F6E56'}}>
+                Demo
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Proof strip */}
+    <section class="py-12 px-4">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6 text-center">How it looks in practice</p>
+        <div class="grid md:grid-cols-3 gap-6 items-start">
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-01 · Attendance Requested</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/901bba013_AttendanceRequestedScreenshot.png" alt="Attendance Requested email" class="w-full rounded-xl shadow-md" style={{border: '2px solid #E5E1D8'}} />
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-02 · Attendance Confirmed</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/9c18c9565_AttendanceConfirmedScreenshot.png" alt="Attendance Confirmed screen" class="w-full rounded-xl shadow-md" style={{border: '2px solid #E5E1D8'}} />
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-03 · Admin Dashboard</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/f83bf4cd1_AdminDashboard.png" alt="Admin Dashboard" class="w-full rounded-xl shadow-md" style={{border: '2px solid #E5E1D8'}} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">Not sure which fits? Book a demo.</h2>
+          <p class="text-base mb-8" style={{color: '#E8EDF3'}}>We'll walk you through the features most relevant to your organization.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+            <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

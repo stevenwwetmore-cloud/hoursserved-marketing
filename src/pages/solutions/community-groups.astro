@@ -1,0 +1,161 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { Mail, Clock, Users, FileText, ChevronRight, CheckCircle } from 'lucide-react';
+
+const FEATURES = [
+  { icon: Mail, title: 'Attendance Requested by email', desc: 'Members confirm event participation with one click — no login, no app, no friction.' },
+  { icon: Clock, title: 'Participation hours logged automatically', desc: 'Hours are frozen at event creation and captured on confirmation. Timestamped audit trail, immutable once the month is locked — ideal for grant reporting.' },
+  { icon: Users, title: 'Shifts, volunteers & committee tracking', desc: 'Create events with role-based shifts and capacity limits. Invite external volunteers alongside members. Organize by committee or working group and see participation by team.' },
+  { icon: FileText, title: 'Grant-ready reports & at-risk alerts', desc: 'PDF or CSV summaries on demand with organization name, event dates, participant hours, totals by category, and officer signature line. At-risk report flags members below participation thresholds.' },
+];
+---
+
+<Layout title="Community Groups | HoursServed.com — Volunteer Hour Tracking" description="Manage volunteers, track service hours, and run event RSVPs for your community group — without spreadsheets or complex software.">
+  <div class="min-h-screen" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+    <section class="pt-20 pb-16 px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-3 py-1.5 rounded-full mb-6" style={{border: '2px solid #0F6E56', color: '#0F6E56'}}>
+        Community & Civic Groups
+      </div>
+      <h1 class="max-w-3xl mx-auto mb-4 leading-[1.08]" style={{fontSize: 'clamp(2rem, 5vw, 3.2rem)'}}>
+        <span class="font-light text-gray-900">One Click Sign-ups</span>
+        <br />
+        <span class="font-extrabold" style={{color: '#0F6E56'}}>Service Hours Tracked</span>
+        <br />
+        <span class="font-extrabold text-gray-900">One Click Service Report</span>
+      </h1>
+      <p class="text-base text-gray-900 max-w-2xl mx-auto mb-8">
+        Members confirm participation with one email click — no login, no app. Participation hours log automatically by committee, and coordinators get PDF or CSV summaries from the Admin Dashboard whenever they need them.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg" style={{backgroundColor: '#0F6E56'}}>Book a Demo</a>
+        <a href="/app/dashboard" class="flex items-center justify-center gap-2 bg-white font-semibold px-8 py-4 rounded-xl transition-colors" style={{border: '2px solid #E5E1D8', color: '#1E3A5F'}}>Start Free <ChevronRight className="w-4 h-4" aria-hidden="true" /></a>
+      </div>
+    </section>
+
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+        {FEATURES.map(({ icon: Icon, title, desc }) => (
+          <div key={title} class="bg-white rounded-2xl p-6 shadow-sm flex gap-4" style={{border: '2px solid #E5E1D8'}}>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#F1EFE8'}}>
+              <Icon className="w-5 h-5" style={{color: '#0F6E56'}} aria-hidden="true" />
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{title}</h3>
+              <p class="text-base text-gray-900 leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Visual proof */}
+    <section class="py-16 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">No uncertainty. No friction. Just two buttons.</h2>
+        <p class="text-base text-gray-900 text-center mb-14 max-w-xl mx-auto">See the exact workflow: from the email they receive to the attendance recorded.</p>
+        <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+          <div>
+            <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-4 text-center">The email they receive</p>
+            <img
+              src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/901bba013_AttendanceRequestedScreenshot.png"
+              alt="Attendance Requested email"
+              class="w-full rounded-2xl shadow-lg"
+              style={{border: '2px solid #E5E1D8'}}
+            />
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-4 text-center">After they click yes</p>
+            <img
+              src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/9c18c9565_AttendanceConfirmedScreenshot.png"
+              alt="Attendance Confirmed"
+              class="w-full rounded-2xl shadow-lg"
+              style={{border: '2px solid #E5E1D8'}}
+            />
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center" style={{border: '2px solid #E5E1D8'}}>
+          <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-4">In your admin dashboard</p>
+          <img
+            src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/f83bf4cd1_AdminDashboard.png"
+            alt="Admin Dashboard"
+            class="w-full max-w-2xl rounded-2xl shadow-lg mx-auto"
+            style={{border: '2px solid #E5E1D8'}}
+          />
+          <p class="text-base text-gray-600 text-center mt-4">Officer dashboard with activity and reporting at a glance</p>
+        </div>
+      </div>
+    </section>
+
+    {/* Choose section */}
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6" style={{border: '2px solid #0F6E56'}}>
+          <h3 class="font-bold mb-4 flex items-center gap-2" style={{color: '#1E3A5F'}}><CheckCircle className="w-5 h-5" style={{color: '#0F6E56'}} aria-hidden="true" /> Choose HoursServed if…</h3>
+          <ul class="space-y-2">
+            {[
+              'You need clean, auditable participation records for grant reporting',
+              'Your members won\'t create accounts for an occasional-use app',
+              'You want timestamped hour totals by event and committee with month locking',
+              'You run multi-day events or working bees with shifts and role assignments',
+              'You want external volunteers to participate in events alongside members',
+            ].map(item => (
+              <li key={item} class="text-base text-gray-900 flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{color: '#0F6E56'}} aria-hidden="true" />{item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6" style={{border: '2px solid #1E3A5F'}}>
+          <h3 class="font-bold mb-4" style={{color: '#1E3A5F'}}>Look elsewhere if…</h3>
+          <ul class="space-y-2">
+            {[
+              'You need full civic-management, CRM, or communications software',
+              'Your volunteers prefer to self-log hours from a personal portal',
+              'You need project management, task assignments, or kanban tools',
+            ].map(item => (
+              <li key={item} class="text-base text-gray-900 flex items-start gap-2">
+                <span class="text-gray-600 flex-shrink-0 mt-0.5">→</span>{item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-base font-bold text-gray-900 mb-4">How does HoursServed compare?</h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/compare/track-it-forward" class="text-base border px-4 py-2 rounded-lg transition-colors" style={{color: '#0F6E56', borderColor: '#0F6E56'}}>vs Track It Forward</a>
+          <a href="/compare/signupgenius" class="text-base border px-4 py-2 rounded-lg transition-colors" style={{color: '#0F6E56', borderColor: '#0F6E56'}}>vs SignUpGenius</a>
+          <a href="/pricing" class="text-base text-gray-900 border px-4 py-2 rounded-lg hover:bg-white transition-colors" style={{borderColor: '#E5E1D8'}}>View Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">Organize your community group</h2>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+            <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>
