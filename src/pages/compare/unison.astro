@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { CheckCircle, X } from 'lucide-react';
+
+const ROWS = [
+  { feature: 'Email-only attendance (no login for members)', hs: true, them: false },
+  { feature: 'Automatic service-hour logging on confirmation', hs: true, them: false },
+  { feature: 'Frozen hours at event creation', hs: true, them: false },
+  { feature: 'Automatic nudge emails (14d, 7d, 48h, 4h)', hs: true, them: false },
+  { feature: 'Month locking with timestamped audit trail', hs: true, them: false },
+  { feature: 'PDF + CSV monthly reports', hs: true, them: true },
+  { feature: 'District leaderboard & interclub reporting', hs: true, them: false },
+  { feature: 'Secretary bonus auto-applied at month lock', hs: true, them: false },
+  { feature: 'Manual member adjustment (add/remove from any event)', hs: true, them: false },
+  { feature: 'Interclub dues & payment tracking', hs: true, them: false },
+  { feature: 'Multi-day events with shift management & role-based signups', hs: true, them: false },
+  { feature: 'Per-day scheduling for complex events', hs: true, them: false },
+  { feature: 'Member roster management', hs: true, them: true },
+  { feature: 'No setup fee on paid plans', hs: true, them: false },
+  { feature: 'Free plan available', hs: true, them: false },
+];
+
+const FAQ = [
+  { q: 'Does Unison track service hours automatically?', a: 'Unison handles membership management for service clubs. HoursServed automatically logs service hours the moment a member confirms — no second step, no manual entry.' },
+  { q: 'Can my members use HoursServed without creating an account?', a: 'Yes. Members receive an email with two buttons — YES or NO. No login, no app, no account. This is core to how HoursServed works.' },
+  { q: 'Does HoursServed handle event management beyond simple meetings?', a: 'Yes. HoursServed supports multi-day events, shift management with role-based signups, per-day scheduling, and manual member adjustments — so secretaries can keep records accurate even when actual attendance differs from RSVPs.' },
+  { q: 'Does HoursServed handle interclub dues and payments?', a: 'Yes. HoursServed includes dues requests, payment tracking per member, and Interac e-Transfer support for Canadian clubs — covering the financial coordination that service clubs need alongside attendance.' },
+  { q: 'Which is better for Lions, Rotary, or Kiwanis clubs?', a: 'HoursServed is purpose-built for the full club workflow: attendance → automatic service hours → interclub payments → district reporting. If any of those are pain points, HoursServed covers more ground than Unison in those areas.' },
+];
+---
+
+<Layout title="HoursServed vs. Unison | Service Club Management Comparison" description="Compare HoursServed.com and Unison for Lions Club management. See features, pricing, and which platform best fits your club's reporting needs.">
+  <div class="min-h-screen" style="background-color: #F1EFE8;">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <section class="pt-20 pb-16 px-4 text-center">
+        <p class="text-sm text-gray-600 mb-3"><a href="/compare" class="font-semibold hover:underline" style={{color: '#0F6E56'}}>← Compare Overview</a></p>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">HoursServed vs. Unison</h1>
+        <p class="text-base text-gray-900 max-w-xl mx-auto">Both tools serve service clubs. Here's where they differ — attendance tracking, automatic hour logging, event management, interclub payments, and district reporting.</p>
+      </section>
+
+      <!-- Best for -->
+      <section class="py-12 px-4">
+        <div class="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-5" style="border: 2px solid #0F6E56;">
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#1E3A5F'}}>HoursServed is best for</p>
+            <p class="text-base text-gray-900">Clubs that want email-based attendance, automatic service-hour logging, interclub payment tracking, flexible event management, and district reporting — all in one place.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5" style="border: 2px solid #1E3A5F;">
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#1E3A5F'}}>Unison is best for</p>
+            <p class="text-base text-gray-900">Clubs that are already invested in Unison's ecosystem and don't need automated attendance, shift management, or interclub payment tracking.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature table -->
+      <section class="py-8 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm" style="border: 2px solid #E5E1D8;">
+            <div class="grid grid-cols-3 px-6 py-3 text-white" style="background-color: #1E3A5F;">
+              <div class="text-sm font-semibold">Feature</div>
+              <div class="text-sm font-bold text-center">HoursServed</div>
+              <div class="text-sm font-semibold text-center">Unison</div>
+            </div>
+            {ROWS.map(({ feature, hs, them }) => (
+              <div key={feature} class="grid grid-cols-3 px-6 py-4 border-b border-gray-100 last:border-0">
+                <div class="text-base text-gray-900">{feature}</div>
+                <div class="flex justify-center" style={{color: '#0F6E56'}}>{hs ? <CheckCircle className="w-5 h-5 text-green-700" aria-hidden="true" /> : <X className="w-5 h-5 text-gray-600" aria-hidden="true" />}</div>
+                <div class="flex justify-center">{them ? <CheckCircle className="w-5 h-5 text-green-700" aria-hidden="true" /> : <X className="w-5 h-5 text-gray-600" aria-hidden="true" />}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Choose sections -->
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
+            <h3 class="font-bold mb-4 flex items-center gap-2" style={{color: '#1E3A5F'}}><CheckCircle className="w-5 h-5" style={{color: '#0F6E56'}} aria-hidden="true" /> Choose HoursServed if…</h3>
+            <ul class="space-y-2">
+              {[
+                'Your main problem is tracking attendance and service hours for district reporting',
+                'You want hours logged automatically — no manual entry after confirmation',
+                'Your members shouldn\'t need to create an account to confirm attendance',
+                'You want month locking, frozen hours, and a clean audit trail',
+                'You run multi-day events, fundraisers, or service projects with shifts and roles',
+                'You need interclub dues and payment tracking built in',
+                'You want to manually adjust who attended any event without workarounds',
+              ].map(item => (
+                <li key={item} class="text-base text-gray-900 flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{color: '#0F6E56'}} aria-hidden="true" />{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
+            <h3 class="font-bold mb-4" style={{color: '#1E3A5F'}}>Choose Unison if…</h3>
+            <ul class="space-y-2">
+              {[
+                'You need broader club membership management beyond attendance',
+                'Your officers are already using Unison\'s platform and don\'t want to switch',
+                'Service-hour automation isn\'t your primary need',
+              ].map(item => (
+                <li key={item} class="text-base text-gray-900 flex items-start gap-2">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">→</span>{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proof -->
+      <section class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+          <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6 text-center">How HoursServed works in practice</p>
+          <div class="grid md:grid-cols-2 gap-6 items-start">
+            <div>
+              <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-01 · Attendance Requested</p>
+              <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/901bba013_AttendanceRequestedScreenshot.png" alt="Attendance Requested" class="w-full rounded-xl shadow-md border border-gray-100" />
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-02 · Attendance Confirmed</p>
+              <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/9c18c9565_AttendanceConfirmedScreenshot.png" alt="Attendance Confirmed" class="w-full rounded-xl shadow-md border border-gray-100" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently asked questions</h2>
+          <div class="space-y-5">
+            {FAQ.map(({ q, a }) => (
+              <div key={q} class="border-b border-gray-100 pb-5">
+                <h3 class="font-semibold text-gray-900 mb-2 text-base">{q}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="py-10 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="text-base text-gray-900 mb-4">Most relevant for: <a href="/solutions/service-clubs" class="font-semibold hover:underline" style={{color: '#0F6E56'}}>Service Clubs & Councils</a></p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href="/compare" class="text-base text-gray-900 border px-4 py-2 rounded-lg hover:bg-white transition-colors" style="border-color: #E5E1D8;">← All Comparisons</a>
+            <a href="/pricing" class="text-base text-gray-900 border px-4 py-2 rounded-lg hover:bg-white transition-colors" style="border-color: #E5E1D8;">View Pricing</a>
+            <a href="/demo" class="text-white font-bold px-4 py-2 rounded-lg transition-colors hover:bg-gray-50" style="background-color: #0F6E56;">Book a Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl p-8" style="background-color: #1E3A5F;">
+            <div class="text-center">
+              <h2 class="text-3xl font-bold text-white mb-4">See HoursServed in action</h2>
+              <p class="text-base text-white mb-8">20 minutes. We'll show you exactly how it works for your club.</p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+                <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

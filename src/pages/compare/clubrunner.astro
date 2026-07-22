@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { CheckCircle, XCircle, MinusCircle } from 'lucide-react';
+
+const ROWS = [
+  { feature: 'No member login required', hoursserved: 'yes', clubrunner: 'no', note: 'Members confirm attendance via email — no account, no app' },
+  { feature: 'Meeting attendance tracking', hoursserved: 'yes', clubrunner: 'yes', note: 'Both support attendance — HoursServed automates the full RSVP workflow' },
+  { feature: 'Automated service hour logging', hoursserved: 'yes', clubrunner: 'partial', note: 'HoursServed freezes hours at event creation; ClubRunner requires manual entry' },
+  { feature: 'Smart nudge reminders (14d, 7d, 48h, 4h)', hoursserved: 'yes', clubrunner: 'no', note: 'Auto-reminders skipping members who already responded' },
+  { feature: 'Shift & role-based volunteer signups', hoursserved: 'yes', clubrunner: 'partial', note: 'ClubRunner has volunteer management; HoursServed has role capacity + waitlists' },
+  { feature: 'Month locking & audit trail', hoursserved: 'yes', clubrunner: 'no', note: 'Lock any period to freeze records and apply secretary bonus automatically' },
+  { feature: 'Monthly report approval workflow', hoursserved: 'yes', clubrunner: 'no', note: 'Route reports to an approver before distribution — built in' },
+  { feature: 'At-risk member alerts', hoursserved: 'yes', clubrunner: 'no', note: 'Flag members below participation thresholds before month-end' },
+  { feature: 'Dues & payment tracking', hoursserved: 'yes', clubrunner: 'yes', note: 'Both support dues; HoursServed includes Interac reconciliation codes' },
+  { feature: 'District roll-up reporting', hoursserved: 'yes', clubrunner: 'yes', note: 'Both offer district views; HoursServed has a real-time club leaderboard' },
+  { feature: 'Lions Portal / Lion Portal CSV export', hoursserved: 'yes', clubrunner: 'partial', note: 'HoursServed exports a CSV matching exact Lion Portal column headers' },
+  { feature: 'Club website & member directory', hoursserved: 'no', clubrunner: 'yes', note: 'ClubRunner is a full website + directory platform; HoursServed is not' },
+  { feature: 'Bulletin & newsletter builder', hoursserved: 'no', clubrunner: 'yes', note: 'ClubRunner includes a communications suite; HoursServed focuses on operations' },
+  { feature: 'Transparent flat pricing', hoursserved: 'yes', clubrunner: 'partial', note: 'HoursServed: $19/mo flat. ClubRunner: tiered by member count + module add-ons' },
+  { feature: 'No setup fee', hoursserved: 'yes', clubrunner: 'partial', note: 'ClubRunner lists setup fees on some tiers; HoursServed has none' },
+  { feature: 'Set up in under 30 minutes', hoursserved: 'yes', clubrunner: 'no', note: 'ClubRunner is a broader platform requiring more configuration time' },
+];
+
+// Helper to render status icons inline
+
+const FAQ = [
+  {
+    q: 'Should I choose ClubRunner or HoursServed?',
+    a: 'If your club needs a full website, member directory, bulletin builder, and communications suite all in one platform, ClubRunner is worth evaluating. If your primary pain point is attendance tracking, automated service-hour logging, shift sign-ups, monthly reporting, and dues — and you want something running in under 30 minutes — HoursServed is the faster, more focused choice.',
+  },
+  {
+    q: 'Can HoursServed and ClubRunner be used together?',
+    a: 'Yes. Some clubs use ClubRunner for their public website and member directory, and HoursServed for the operational layer: meeting RSVPs, service-hour logging, shift management, report approvals, and dues tracking. HoursServed exports CSV data compatible with Lion Portal / Lions Portal for district submissions.',
+  },
+  {
+    q: 'How does pricing compare?',
+    a: 'ClubRunner pricing starts around $27/month for up to 20 members on Standard, rising with member count and add-on modules. HoursServed Pro is a flat $19/month (or $199/year) for unlimited members, with no setup fee and no per-module charges.',
+  },
+  {
+    q: 'Does ClubRunner require members to log in?',
+    a: 'Yes. ClubRunner requires members to create an account and log in to confirm attendance or access club features. HoursServed members confirm attendance by clicking YES or NO directly in their email — no account, no app, no password.',
+  },
+  {
+    q: 'Does HoursServed replace ClubRunner\'s website and directory?',
+    a: 'No — and it doesn\'t try to. HoursServed is an operations platform, not a website builder or directory. If you need a public-facing club website, ClubRunner has that. HoursServed handles everything that happens after the event is created: RSVPs, service hours, shift coverage, approvals, reports, and dues.',
+  },
+];
+---
+
+<Layout title="HoursServed vs ClubRunner — Service Club Software Comparison" description="HoursServed vs ClubRunner — Lion Portal CSV export, no-login RSVP, and purpose-built service workflows vs a generic club platform.">
+  <div class="min-h-screen font-sans" style="background-color: #F1EFE8;">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- Hero -->
+      <section class="pt-20 pb-16 px-4 sm:px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6" style="color: #1E3A5F; border: 2px solid #1E3A5F;">
+            For district leaders and club officers who need less follow-up and cleaner reporting flow
+          </div>
+          <h1 class="text-4xl font-black text-gray-900 mb-4">HoursServed vs ClubRunner</h1>
+          <p class="text-base text-gray-900 mb-4 max-w-2xl mx-auto leading-relaxed">
+            If your district needs a simpler operating standard for meetings, attendance, service activity, and reporting flow, HoursServed focuses on reducing friction in the workflows officers repeat most often.
+          </p>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed mb-5">
+            ClubRunner is often used for club management and communications, but districts and clubs may still need a simpler process for attendance response, event participation tracking, service-hour collection, and reporting preparation. HoursServed is built to help reduce admin friction while improving consistency across clubs.
+          </p>
+          <a href="/solutions/districts" class="inline-flex items-center gap-1 text-sm font-semibold hover:underline" style={{color: '#0F6E56'}}>
+            See how HoursServed supports district-wide consistency →
+          </a>
+        </div>
+      </section>
+
+      <!-- Positioning callout -->
+      <section class="py-10 px-4">
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}><span aria-hidden="true">🏛️</span> ClubRunner is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Club website, public directory, and bulletin builder</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Broad membership management and communications suite</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Clubs wanting an all-in-one association platform</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />District-level member and club data management</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}><span aria-hidden="true">📋</span> HoursServed is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Frictionless attendance — members respond via email, no login</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Automated service-hour logging, frozen at event creation</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Shift management with role capacity, waitlists & cancellations</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Month-end report approval workflow and distribution</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Flat $19/mo pricing — no setup fee, no per-module add-ons</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Set up and running in under 30 minutes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why HoursServed takes a different approach -->
+      <section class="py-14 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-5">Why HoursServed takes a different approach</h2>
+          <p class="text-base text-gray-900 leading-relaxed mb-5">
+            Some club-management platforms are built to handle a wide range of functions, including websites, member management, directories, and broader administration.
+          </p>
+          <p class="text-base text-gray-900 leading-relaxed mb-4">
+            HoursServed is focused on helping officers get the recurring work done faster:
+          </p>
+          <ul class="space-y-2 mb-6 ml-1">
+            {['Invitations and confirmations', 'Attendance and shift signup', 'Dues requests', 'Report creation and approval', 'District visibility and follow-up'].map(item => (
+              <li key={item} class="flex items-center gap-2 text-base text-gray-900">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color: #0F6E56;" />{item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-base text-gray-900 leading-relaxed mb-5">
+            If your main goal is to keep meetings, events, reporting, and officer follow-up organized without adding more complexity, HoursServed offers a simpler path.
+          </p>
+          <p class="text-base text-gray-900 leading-relaxed bg-white rounded-xl px-5 py-4" style="border: 2px solid #E5E1D8;">
+            HoursServed is built for organizations that want a practical operating system, not a larger platform with more parts to manage.
+          </p>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Feature Comparison</h2>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm" style="border: 2px solid #E5E1D8;">
+            <div class="grid grid-cols-[1fr_120px_120px] text-white text-sm font-semibold" style="background-color: #1E3A5F;">
+              <div class="px-5 py-3">Feature</div>
+              <div class="px-3 py-3 text-center">HoursServed</div>
+              <div class="px-3 py-3 text-center">ClubRunner</div>
+            </div>
+            {ROWS.map((row, i) => (
+              <div key={row.feature} class={`grid grid-cols-[1fr_120px_120px] border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <div class="px-5 py-3.5">
+                  <div class="text-base font-medium text-gray-900">{row.feature}</div>
+                  {row.note && <div class="text-sm text-gray-600 mt-0.5">{row.note}</div>}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.hoursserved === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.clubrunner === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.clubrunner === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.clubrunner === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="flex items-center gap-4 mt-4 justify-center text-xs text-gray-600">
+            <span class="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-700" aria-hidden="true" /> Yes</span>
+            <span class="flex items-center gap-1"><MinusCircle className="w-3.5 h-3.5 text-amber-700" aria-hidden="true" /> Partial</span>
+            <span class="flex items-center gap-1"><XCircle className="w-3.5 h-3.5 text-red-700" aria-hidden="true" /> No</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing snapshot -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Pricing at a Glance</h2>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
+              <h3 class="font-bold text-gray-900 mb-4">ClubRunner</h3>
+              <ul class="space-y-2 text-base text-gray-900">
+                <li class="flex justify-between"><span>Standard (up to 20 members)</span><span class="font-semibold">~$27/mo</span></li>
+                <li class="flex justify-between"><span>Standard (41–50 members)</span><span class="font-semibold">~$48/mo</span></li>
+                <li class="flex justify-between"><span>Standard (91–100 members)</span><span class="font-semibold">~$69/mo</span></li>
+                <li class="flex justify-between"><span>District Standard (&lt;2,000 members)</span><span class="font-semibold">~$155/mo</span></li>
+              </ul>
+              <p class="text-sm text-gray-600 mt-4">Plus setup fees and optional module add-ons (e.g. Enhanced Volunteers). Pricing may vary.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
+              <h3 class="font-bold text-gray-900 mb-4">HoursServed</h3>
+              <ul class="space-y-2 text-base text-gray-900">
+                <li class="flex justify-between"><span>Free (up to 20 members)</span><span class="font-semibold">$0/mo</span></li>
+                <li class="flex justify-between"><span>Pro (unlimited members)</span><span class="font-semibold">$19/mo</span></li>
+                <li class="flex justify-between"><span>Pro (annual)</span><span class="font-semibold">$199/yr</span></li>
+                <li class="flex justify-between"><span>District Trial (all clubs, 3-month max)</span><span class="font-semibold">$149/mo</span></li>
+                <li class="flex justify-between"><span>District plan (annual)</span><span class="font-semibold">Contact us</span></li>
+              </ul>
+              <p class="text-sm text-gray-900 mt-4">No setup fee. No per-module add-ons. Flat pricing regardless of member count on Pro.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-10">Common Questions</h2>
+          <div class="space-y-5">
+            {FAQ.map(({ q, a }) => (
+              <div key={q} class="bg-white rounded-2xl p-6 shadow-sm" style="border: 2px solid #E5E1D8;">
+                <h3 class="font-bold text-gray-900 mb-2 text-base">{q}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl p-8" style="background-color: #1E3A5F;">
+            <div class="text-center">
+              <h2 class="text-2xl font-bold text-white mb-3">Ready to simplify your club's admin workflow?</h2>
+              <p class="text-base text-white mb-8 max-w-xl mx-auto">Free plan available. No credit card required. Set up in under 30 minutes.</p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+                <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

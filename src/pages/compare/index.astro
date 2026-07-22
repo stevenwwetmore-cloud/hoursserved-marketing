@@ -1,0 +1,155 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { CheckCircle, ChevronRight } from 'lucide-react';
+
+const COMPARISONS = [
+  {
+    title: 'HoursServed vs. ClubRunner',
+    summary: 'ClubRunner is a broad club management platform. HoursServed is focused on the recurring operational layer — attendance, service hours, shift management, report approvals, and dues tracking — set up in under 30 minutes.',
+    href: '/compare/clubrunner',
+    relevantSolution: '/solutions/districts',
+    relevantLabel: 'Districts',
+    bestFor: 'Districts and clubs comparing operational workflow tools to broader management platforms',
+  },
+  {
+    title: 'HoursServed vs. LionsBase',
+    summary: 'LionsBase covers broader Lions administration. HoursServed is built for faster weekly execution — attendance, service hours, shifts, dues, and report approvals with no member login required.',
+    href: '/compare/lionsbase',
+    relevantSolution: '/solutions/districts',
+    relevantLabel: 'Districts',
+    bestFor: 'District leaders and clubs evaluating Lions-specific platforms',
+  },
+  {
+    title: 'HoursServed vs. Unison',
+    summary: 'Unison is built for service club membership management. HoursServed focuses on attendance tracking, automatic service-hour logging, and district reporting.',
+    href: '/compare/unison',
+    relevantSolution: '/solutions/service-clubs',
+    relevantLabel: 'Service Clubs & Councils',
+    bestFor: 'Lions, Rotary, Kiwanis clubs comparing tools for district reporting',
+  },
+  {
+    title: 'HoursServed vs. SignUpGenius',
+    summary: 'SignUpGenius handles sign-up sheets. HoursServed handles attendance and automatically logs service hours — no manual step required.',
+    href: '/compare/signupgenius',
+    relevantSolution: '/solutions/parent-councils-booster-groups-youth-sports',
+    relevantLabel: 'Parent Councils & Booster Groups',
+    bestFor: 'Organizations comparing email sign-up tools to automated hour logging',
+  },
+  {
+    title: 'HoursServed vs. Track It Forward',
+    summary: 'Track It Forward lets volunteers self-log hours from a portal. HoursServed logs hours automatically on email confirmation — no member action required beyond YES/NO.',
+    href: '/compare/track-it-forward',
+    relevantSolution: '/solutions/community-groups',
+    relevantLabel: 'Community & Civic Groups',
+    bestFor: 'Groups evaluating self-log portals vs. automated confirmation-based logging',
+  },
+];
+---
+
+<Layout title="Compare Volunteer Management Tools | HoursServed.com" description="See how HoursServed.com compares to other volunteer and club management platforms — built specifically for service clubs and community organizations.">
+  <div class="min-h-screen" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+    <section class="pt-20 pb-16 px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">How HoursServed compares</h1>
+      <p class="text-base text-gray-900 max-w-xl mx-auto">
+        Practical comparisons to help you choose the right tool. We try to be honest about where we're the best fit — and where we're not.
+      </p>
+    </section>
+
+    <!-- What makes HoursServed different -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">What makes HoursServed different</h2>
+        <p class="text-base text-gray-900 text-center mb-10">Most tools either do sign-ups or time tracking. HoursServed does both — automatically — for recurring service-led organizations.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { title: 'More than a sign-up sheet', desc: 'Hours are logged automatically when a member confirms. No second step, no manual entry, no separate portal to visit.' },
+            { title: 'More than a time tracker', desc: 'Attendance, commute time, shift management, dues tracking, audit trail, month locking, and district export — all in one system.' },
+            { title: 'Simple for members & volunteers', desc: 'One email, two buttons. Members don\'t need an account, an app, or a tutorial. External volunteers can join shifts the same way.' },
+            { title: 'Shifts with role-based capacity', desc: 'Multi-day events with named roles (e.g. Setup: 2–4, Check-in: 1–2). Capacity limits, waitlists, and cancellations managed by the admin.' },
+            { title: 'Dues & payment tracking built in', desc: 'Send dues requests, track paid/pending/waived per member, and reconcile Interac e-Transfers with auto-generated reference codes — no separate tool needed.' },
+            { title: 'Flexible for Secretaries', desc: 'When actual attendance differs from RSVPs, secretaries can manually add or remove members from any event — keeping records accurate without workarounds.' },
+            { title: 'At-risk member alerts', desc: 'The at-risk report flags members falling below participation or hour thresholds — so officers can follow up before month-end.' },
+            { title: 'Frozen, auditable records', desc: 'Hours and commute are locked at event creation. Every response is timestamped. Locking a month makes the audit trail immutable from that point.' },
+          ].map(({ title, desc }) => (
+            <div key={title} class="flex gap-3 bg-white rounded-xl p-5" style={{border: '2px solid #E5E1D8'}}>
+              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color: '#0F6E56'}} aria-hidden="true" />
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1 text-base">{title}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison cards -->
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto space-y-5">
+        {COMPARISONS.map(({ title, summary, href, relevantSolution, relevantLabel, bestFor }) => (
+          <div key={href} class="bg-white rounded-2xl shadow-sm p-6" style={{border: '2px solid #E5E1D8'}}>
+            <h3 class="font-bold text-gray-900 mb-2">{title}</h3>
+            <p class="text-base text-gray-900 mb-3 leading-relaxed">{summary}</p>
+            <p class="text-sm text-gray-600 mb-4 italic">Best for: {bestFor}</p>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href={href} class="flex items-center gap-1 text-sm font-semibold hover:underline" style={{color: '#0F6E56'}}>
+                Read comparison <ChevronRight className="w-4 h-4" />
+              </a>
+              <span class="text-gray-600">·</span>
+              <a href={relevantSolution} class="text-sm text-gray-600 hover:underline transition-colors">
+                {relevantLabel} →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Proof strip -->
+    <section class="py-12 px-4">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6 text-center">See it in action</p>
+        <div class="grid md:grid-cols-3 gap-6 items-start">
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-01 · Attendance Requested</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/901bba013_AttendanceRequestedScreenshot.png" alt="Attendance Requested" class="w-full rounded-xl shadow-md border border-gray-100" />
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-02 · Attendance Confirmed</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/9c18c9565_AttendanceConfirmedScreenshot.png" alt="Attendance Confirmed" class="w-full rounded-xl shadow-md border border-gray-100" />
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-gray-600 mb-2 text-center">HS-03 · Admin Dashboard</p>
+            <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/f83bf4cd1_AdminDashboard.png" alt="Admin Dashboard" class="w-full rounded-xl shadow-md border border-gray-100" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">See HoursServed in action</h2>
+          <p class="text-base text-white mb-8">20 minutes. We'll show you exactly how it works for your type of organization.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+            <a href="/pricing" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>View Pricing</a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

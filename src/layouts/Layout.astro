@@ -4,9 +4,17 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
 }
 
-const { title = 'HoursServed', description = 'Attendance and volunteer hour tracking for service-led organizations.' } = Astro.props;
+const {
+  title = 'HoursServed',
+  description = 'Attendance and volunteer hour tracking for service-led organizations.',
+  canonical
+} = Astro.props;
+
+// Auto-generate canonical from current URL if not provided
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
@@ -15,6 +23,7 @@ const { title = 'HoursServed', description = 'Attendance and volunteer hour trac
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
   </head>
   <body>

@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { CheckCircle, XCircle, MinusCircle } from 'lucide-react';
+
+const ROWS = [
+  { feature: 'No member login required', hoursserved: 'yes', lionsbase: 'no', note: 'Members confirm attendance via email — no account, no app, no password' },
+  { feature: 'Set up and running in under 30 minutes', hoursserved: 'yes', lionsbase: 'no', note: 'HoursServed is designed for club-level adoption without complex configuration' },
+  { feature: 'Automated service hour logging', hoursserved: 'yes', lionsbase: 'yes', note: 'HoursServed freezes hours at event creation — no manual entry required' },
+  { feature: 'Smart nudge reminders (14d, 7d, 48h, 4h)', hoursserved: 'yes', lionsbase: 'no', note: 'Auto-reminders sent only to members who have not yet responded' },
+  { feature: 'Month locking & audit trail', hoursserved: 'yes', lionsbase: 'no', note: 'Lock any period to freeze records and apply secretary bonus automatically' },
+  { feature: 'Monthly report approval workflow', hoursserved: 'yes', lionsbase: 'yes', note: 'Route reports to an approver before distribution — built in, one step' },
+  { feature: 'At-risk member alerts', hoursserved: 'yes', lionsbase: 'no', note: 'Auto-flags members below participation thresholds before month-end' },
+  { feature: 'Shift & role-based volunteer signups', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed has per-role capacity limits, waitlists, and email-link signups' },
+  { feature: 'Dues & payment tracking', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed includes Interac reconciliation codes and per-member status tracking' },
+  { feature: 'Lions Portal upload for approved reports', hoursserved: 'partial', lionsbase: 'yes', note: 'HoursServed exports CSV for Lion Portal submission; direct upload integration in development' },
+  { feature: 'Official Lions member synchronization', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase synchronizes with the official Lions database' },
+  { feature: 'Conference registration, QR tickets & invoices', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase supports structured conference workflows with registration questions and invoicing' },
+  { feature: 'Broad Lions-specific reporting & statistics', hoursserved: 'partial', lionsbase: 'yes', note: 'LionsBase has broader cross-club and district reporting; HoursServed focuses on monthly ops' },
+  { feature: 'Multi-district infrastructure', hoursserved: 'partial', lionsbase: 'yes', note: 'LionsBase is built for district and multi-district deployment at scale' },
+  { feature: 'Club website & newsletter builder', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase includes website and communications tools; HoursServed does not' },
+  { feature: 'Transparent flat pricing', hoursserved: 'yes', lionsbase: 'no', note: 'HoursServed: $19/mo flat. LionsBase: variable annual fee based on member/club count' },
+  { feature: 'No setup fee', hoursserved: 'yes', lionsbase: 'no', note: 'HoursServed has no setup fee on any paid plan. LionsBase pricing is not publicly disclosed.' },
+];
+
+// Helper to render status icons inline
+
+const FAQ = [
+  {
+    q: 'Is HoursServed a replacement for LionsBase?',
+    a: 'No. LionsBase is a broader Lions administration platform with support for member synchronization, conference-style events, district reporting, and official Lions data workflows. HoursServed focuses on the recurring weekly operational layer: RSVPs, attendance, service hours, shift coverage, dues tracking, monthly report approvals, and district follow-up. Many clubs benefit from using both.',
+  },
+  {
+    q: 'When would a Lions club choose HoursServed instead of LionsBase?',
+    a: 'HoursServed is a better fit when your primary need is reducing friction in the work that repeats every month — sending invitations, confirming attendance, logging service hours, filling shifts, tracking dues, and completing the district report. If you want members to respond with one click from their email — no login, no portal, no app — HoursServed is the faster path.',
+  },
+  {
+    q: 'When is LionsBase the better choice?',
+    a: 'LionsBase appears strongest where a district needs a larger Lions-specific management environment, especially for structured conferences, member synchronization with the official Lions database, and broad cross-club reporting. Its documentation points to conference workflows with registration questions, QR tickets, and invoices — capabilities HoursServed is not designed to replace.',
+  },
+  {
+    q: 'Do members need to create an account to use HoursServed?',
+    a: 'Never. Members receive a secure email with YES and NO buttons. One click records their attendance and service hours instantly. No account, no login, no app to download.',
+  },
+  {
+    q: 'How does pricing compare?',
+    a: 'LionsBase uses a variable annual fee based on active member or club count, without a published price list. HoursServed Pro is a flat $19/month (or $199/year) for unlimited members, with no setup fee. The Free plan supports up to 20 members at no cost.',
+  },
+  {
+    q: 'Can HoursServed data be submitted to Lions Portal?',
+    a: 'Yes. HoursServed currently exports a CSV matching Lion Portal / Lions Portal column headers for manual submission. A direct Lions Portal upload for approved monthly reports is in active development.',
+  },
+];
+---
+
+<Layout title="HoursServed vs LionsBase — Lions Club Software Comparison" description="HoursServed vs LionsBase — compare attendance automation, shift management, dues collection, transparent pricing, and Lions Portal reporting.">
+  <div class="min-h-screen font-sans" style="background-color: #F1EFE8;">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- Hero -->
+      <section class="pt-20 pb-16 px-4 sm:px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6" style="color: #1E3A5F; border: 2px solid #1E3A5F;">
+            For district leaders and club officers who need simpler reporting workflows
+          </div>
+          <h1 class="text-4xl font-black text-gray-900 mb-4">HoursServed vs LionsBase</h1>
+          <p class="text-base text-gray-900 mb-5 max-w-2xl mx-auto leading-relaxed">
+            If your district is trying to standardize meetings, attendance, service hours, and reporting without adding more admin work, HoursServed is built to give clubs a simpler process and district leaders clearer visibility.
+          </p>
+          <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed mb-5">
+            LionsBase may help cover broader administrative or website-related needs, but many districts and clubs still need a more practical workflow for attendance response, event participation, service-hour capture, and cleaner reporting preparation. HoursServed is designed to reduce the follow-up and patchwork admin that slows district coordination down.
+          </p>
+          <a href="/solutions/districts" class="inline-flex items-center gap-1 text-sm font-semibold hover:underline" style={{color: '#0F6E56'}}>
+            See how HoursServed supports district-wide consistency →
+          </a>
+          <h3 class="text-base font-semibold text-red-600 mt-5 max-w-xl mx-auto">
+            LionsBase is a privately operated Lions management system from Causal Sàrl in Switzerland, not a platform owned by Lions Clubs International.
+          </h3>
+        </div>
+      </section>
+
+      <!-- Positioning callout -->
+      <section class="py-10 px-4">
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}>LionsBase is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />District-level Lions administration and member synchronization</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Conference registration with questions, QR tickets, and invoices</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Synchronization with the official Lions International database</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Broad cross-club reporting and Lions-specific statistics</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Club website and newsletter communications</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}><span aria-hidden="true">📋</span> HoursServed is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Attendance invitations members confirm via email — no login needed</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Automated service-hour logging, frozen at event creation</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Shift signups with role capacity, waitlists, and smart nudge reminders</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Monthly report approval, distribution, and audit trail</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Dues tracking with Interac reconciliation codes</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Set up in under 30 minutes — flat $19/mo, no variable fees</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Balanced summary -->
+      <section class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+          <blockquote class="bg-white rounded-2xl p-6 shadow-sm" style="border-left: 4px solid #0F6E56;">
+            <p class="text-base text-gray-900 leading-relaxed">
+              LionsBase offers broader Lions-specific administration, especially around structured reporting, member synchronization, and convention-style event workflows. HoursServed is intentionally focused on reducing friction in the recurring operational work that clubs and districts handle far more often — attendance, shifts, dues, approvals, and report completion — while extending toward Lions Portal submission workflows for approved reports.
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Why HoursServed takes a different approach -->
+      <section class="py-14 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-5">Why HoursServed takes a different approach</h2>
+          <p class="text-base text-gray-900 leading-relaxed mb-5">
+            Some Lions-focused platforms are built to cover a wide range of district and convention administration. That can be helpful for larger, more structured yearly events and broader administrative needs.
+          </p>
+          <p class="text-base text-gray-900 leading-relaxed mb-4">
+            HoursServed is focused on the work officers deal with every week and every month:
+          </p>
+          <ul class="space-y-2 mb-6 ml-1">
+            {['Invitations and confirmations', 'Attendance and shift signup', 'Dues requests', 'Report creation and approval', 'District visibility and follow-up'].map(item => (
+              <li key={item} class="flex items-center gap-2 text-base text-gray-900">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color: #0F6E56;" />{item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-base text-gray-900 leading-relaxed mb-5">
+            For yearly convention needs, HoursServed can still support planning and coordination through flexible event and reporting templates, while keeping the everyday experience simpler for clubs and officers.
+          </p>
+          <p class="text-base text-gray-900 leading-relaxed bg-white rounded-xl px-5 py-4" style="border: 2px solid #E5E1D8;">
+            If your priority is reducing day-to-day admin work, HoursServed is built for the tasks officers repeat most often.
+          </p>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Feature Comparison</h2>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm" style="border: 2px solid #E5E1D8;">
+            <div class="grid grid-cols-[1fr_120px_120px] text-white text-sm font-semibold" style="background-color: #1E3A5F;">
+              <div class="px-5 py-3">Feature</div>
+              <div class="px-3 py-3 text-center">HoursServed</div>
+              <div class="px-3 py-3 text-center">LionsBase</div>
+            </div>
+            {ROWS.map((row, i) => (
+              <div key={row.feature} class={`grid grid-cols-[1fr_120px_120px] border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <div class="px-5 py-3.5">
+                  <div class="text-base font-medium text-gray-900">{row.feature}</div>
+                  {row.note && <div class="text-sm text-gray-600 mt-0.5">{row.note}</div>}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.hoursserved === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.lionsbase === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.lionsbase === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.lionsbase === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="flex items-center gap-4 mt-4 justify-center text-xs text-gray-600">
+            <span class="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-700" aria-hidden="true" /> Yes</span>
+            <span class="flex items-center gap-1"><MinusCircle className="w-3.5 h-3.5 text-amber-700" aria-hidden="true" /> Partial</span>
+            <span class="flex items-center gap-1"><XCircle className="w-3.5 h-3.5 text-red-700" aria-hidden="true" /> No</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- How they work together -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Two layers, not two competitors</h2>
+          <p class="text-base text-gray-900 mb-10 max-w-xl mx-auto">LionsBase handles the Lions infrastructure. HoursServed handles the week-to-week operational workflow. Many clubs use both.</p>
+          <div class="grid sm:grid-cols-3 gap-4 text-left">
+            {[
+              { step: '1', title: 'HoursServed collects', desc: 'Members confirm attendance via email. Hours are frozen and logged automatically. Shifts are filled. Dues are tracked. No login required.' },
+              { step: '2', title: 'Officers review & approve', desc: 'Monthly reports are generated, routed for approval, and distributed inside HoursServed — in minutes, not days.' },
+              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV for Lion Portal submission today. Direct Lions Portal upload for approved reports is in active development.' },
+            ].map(({ step, title, desc }) => (
+              <div key={step} class="bg-white rounded-2xl p-5" style="border: 2px solid #E5E1D8;">
+                <div class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#0F6E56'}}>Step {step}</div>
+                <h3 class="font-bold text-gray-900 text-base mb-2">{title}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-10">Common Questions</h2>
+          <div class="space-y-5">
+            {FAQ.map(({ q, a }) => (
+              <div key={q} class="bg-white rounded-2xl p-6 shadow-sm" style="border: 2px solid #E5E1D8;">
+                <h3 class="font-bold text-gray-900 mb-2 text-base">{q}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl p-8" style="background-color: #1E3A5F;">
+            <div class="text-center">
+              <h2 class="text-2xl font-bold text-white mb-3">Ready to simplify your club's weekly workflow?</h2>
+              <p class="text-base text-white mb-8 max-w-xl mx-auto">Free plan available. No credit card required. Set up in under 30 minutes.</p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+                <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

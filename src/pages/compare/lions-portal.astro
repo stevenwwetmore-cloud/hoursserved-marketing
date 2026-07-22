@@ -1,0 +1,186 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { CheckCircle, XCircle, MinusCircle } from 'lucide-react';
+
+const ROWS = [
+  { feature: 'Member login required', hoursserved: 'no', lions: 'yes', note: 'Members confirm attendance from email — no account needed' },
+  { feature: 'Meeting attendance tracking', hoursserved: 'yes', lions: 'partial', note: 'HoursServed automates the full RSVP and confirmation workflow' },
+  { feature: 'Automated service hour logging', hoursserved: 'yes', lions: 'no', note: 'Hours frozen at event creation, timestamped on confirmation' },
+  { feature: 'Monthly report generation', hoursserved: 'yes', lions: 'no', note: 'PDF and CSV summaries built for officer review' },
+  { feature: 'Report approval workflow', hoursserved: 'yes', lions: 'no', note: 'Approver reviews and signs off before distribution' },
+  { feature: 'Report distribution to members', hoursserved: 'yes', lions: 'no', note: 'Approved reports emailed directly to selected members' },
+  { feature: 'Dues & payment tracking', hoursserved: 'yes', lions: 'no', note: 'Track paid/pending/waived per member with Interac reconciliation' },
+  { feature: 'Shift & volunteer management', hoursserved: 'yes', lions: 'no', note: 'Role-based signups, capacity limits, waitlists' },
+  { feature: 'At-risk member alerts', hoursserved: 'yes', lions: 'no', note: 'Flag members falling below service-hour thresholds' },
+  { feature: 'Official Lions system of record', hoursserved: 'no', lions: 'yes', note: 'Lions Portal is the authoritative platform for all Lions data' },
+  { feature: 'District & club permission controls', hoursserved: 'no', lions: 'yes', note: 'Role-based access enforced by Lions International' },
+  { feature: 'Official reporting submission', hoursserved: 'no', lions: 'yes', note: 'Final submissions go into Lions Portal — HoursServed prepares the data' },
+  { feature: 'Mobile-friendly official access', hoursserved: 'partial', lions: 'yes', note: 'HoursServed is web-responsive; Lions Portal is the official mobile app' },
+  { feature: 'No setup fee', hoursserved: 'yes', lions: 'yes', note: 'Neither platform charges a setup fee — Lions Portal is part of Lions International membership' },
+];
+
+// Helper to render status icons inline
+
+const FAQ = [
+  {
+    q: 'Does HoursServed replace Lions Portal?',
+    a: 'No — and it\'s not designed to. Lions Portal is the official system of record for Lions International. HoursServed handles the pre-submission workflow: collecting attendance, logging service hours, generating reports, and routing approvals. Think of it as the preparation layer before data enters Lions Portal.',
+  },
+  {
+    q: 'Why use HoursServed if we already have Lions Portal?',
+    a: 'Lions Portal manages permissions, official records, and submissions. It doesn\'t automate meeting RSVPs, freeze service hours at event creation, generate approval-ready monthly reports, or track dues. HoursServed fills that operational gap for club secretaries and officers.',
+  },
+  {
+    q: 'Can data from HoursServed be submitted to Lions Portal?',
+    a: 'Yes. HoursServed exports CSV and PDF summaries formatted for officer review. A direct Lions Portal upload interface is currently in development to make submission even faster.',
+  },
+  {
+    q: 'Do members need to use both systems?',
+    a: 'No. Regular members only interact with HoursServed via email links — no login, no app. Officers use HoursServed for day-to-day admin and Lions Portal for official submissions and permissions.',
+  },
+];
+---
+
+<Layout title="HoursServed vs Lions Portal (myLCI) — Comparison" description="HoursServed automates the data preparation that Lions Portal requires manually. Generate your monthly myLCI CSV in one click instead of manual entry.">
+  <div class="min-h-screen font-sans" style="background-color: #F1EFE8;">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- Hero -->
+      <section class="pt-20 pb-16 px-4 sm:px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6" style="color: #1E3A5F; border: 2px solid #1E3A5F;">
+            Not a replacement — a preparation layer
+          </div>
+          <h1 class="text-4xl font-black text-gray-900 mb-4">HoursServed + Lions Portal</h1>
+          <p class="text-base text-gray-900 mb-4 max-w-2xl mx-auto leading-relaxed">
+            Lions Portal is the official Lions system of record. HoursServed is the workflow that gets your data ready for it — faster, cleaner, and with less chasing.
+          </p>
+          <p class="text-base font-semibold max-w-xl mx-auto" style={{color: '#1E3A5F'}}>
+            "HoursServed prepares the work, streamlines the approvals, and presents data for an official Lions Portal submission."
+          </p>
+        </div>
+      </section>
+
+      <!-- Positioning callout -->
+      <section class="py-10 px-4">
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}>Lions Portal is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Official Lions system of record</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Formal role-based permissions at district and club level</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Secure, mobile-friendly official Lions access</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Final submission and formal reporting to Lions International</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}><span aria-hidden="true">📋</span> HoursServed is best for</h2>
+            <ul class="space-y-2 text-base text-gray-900">
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Frictionless meeting & event RSVP — no member login required</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Automated service hour logging, frozen at event creation</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Monthly report generation, approval workflow & distribution</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Dues tracking, at-risk alerts, shift & volunteer management</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />PDF/CSV export ready for Lions Portal submission</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Feature Comparison</h2>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm" style="border: 2px solid #E5E1D8;">
+            <div class="grid grid-cols-[1fr_110px_110px] text-white text-sm font-semibold" style="background-color: #1E3A5F;">
+              <div class="px-5 py-3">Feature</div>
+              <div class="px-3 py-3 text-center">HoursServed</div>
+              <div class="px-3 py-3 text-center">Lions Portal</div>
+            </div>
+            {ROWS.map((row, i) => (
+              <div key={row.feature} class={`grid grid-cols-[1fr_110px_110px] border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <div class="px-5 py-3.5">
+                  <div class="text-base font-medium text-gray-900">{row.feature}</div>
+                  {row.note && <div class="text-sm text-gray-600 mt-0.5">{row.note}</div>}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.hoursserved === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.hoursserved === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+                <div class="px-3 py-3.5 flex items-center justify-center">
+                  {row.lions === 'yes' && <CheckCircle className="w-5 h-5 text-green-700 mx-auto" aria-hidden="true" />}
+                  {row.lions === 'no' && <XCircle className="w-5 h-5 text-red-700 mx-auto" aria-hidden="true" />}
+                  {row.lions === 'partial' && <MinusCircle className="w-5 h-5 text-amber-700 mx-auto" aria-hidden="true" />}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="flex items-center gap-4 mt-4 justify-center text-xs text-gray-600">
+            <span class="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-green-700" aria-hidden="true" /> Yes</span>
+            <span class="flex items-center gap-1"><MinusCircle className="w-3.5 h-3.5 text-amber-700" aria-hidden="true" /> Partial</span>
+            <span class="flex items-center gap-1"><XCircle className="w-3.5 h-3.5 text-red-700" aria-hidden="true" /> No</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- How they work together -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">How they work together</h2>
+          <p class="text-base text-gray-900 mb-10 max-w-xl mx-auto">Think of HoursServed as the engine room and Lions Portal as the submission window. Each does what it's designed for.</p>
+          <div class="grid sm:grid-cols-3 gap-4 text-left">
+            {[
+              { step: '1', title: 'HoursServed collects', desc: 'Members confirm attendance via email. Hours are logged automatically. No logins, no manual entry.' },
+              { step: '2', title: 'Officers review & approve', desc: 'Monthly reports are generated, routed for approval, and distributed — all inside HoursServed.' },
+              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV or PDF and submit to Lions Portal. Direct upload integration is in development.' },
+            ].map(({ step, title, desc }) => (
+              <div key={step} class="bg-white rounded-2xl p-5" style="border: 2px solid #E5E1D8;">
+                <div class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#0F6E56'}}>Step {step}</div>
+                <h3 class="font-bold text-gray-900 text-base mb-2">{title}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-center text-gray-900 mb-10">Common Questions</h2>
+          <div class="space-y-5">
+            {FAQ.map(({ q, a }) => (
+              <div key={q} class="bg-white rounded-2xl p-6 shadow-sm" style="border: 2px solid #E5E1D8;">
+                <h3 class="font-bold text-gray-900 mb-2 text-base">{q}</h3>
+                <p class="text-base text-gray-900 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl p-8" style="background-color: #1E3A5F;">
+            <div class="text-center">
+              <h2 class="text-2xl font-bold text-white mb-3">Ready to simplify your club's admin workflow?</h2>
+              <p class="text-base text-white mb-8 max-w-xl mx-auto">Free plan available. No credit card required. Set up in under 30 minutes.</p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Book a Demo</a>
+                <a href="/app/dashboard" class="inline-block bg-white font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#1E3A5F'}}>Start Free</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>

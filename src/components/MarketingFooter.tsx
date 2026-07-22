@@ -15,7 +15,7 @@ export default function MarketingFooter() {
             <p className="text-xs text-brand-ink leading-relaxed mb-4">Attendance and volunteer hour tracking for service-led organizations.</p>
             <div className="flex flex-col gap-2">
               <a href="/login" className="text-center text-xs font-semibold text-gray-700 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors">Login</a>
-              <a href="/demo" className="text-center text-xs font-semibold text-white py-2 rounded-lg transition-colors" style={{ background: "#0F6E56" }} onMouseEnter={(e: any) => (e.currentTarget.style.background = "#0d5c48")} onMouseLeave={(e: any) => (e.currentTarget.style.background = "#0F6E56")}>Book a Demo</a>
+              <a href="/demo" className="text-center text-xs font-semibold text-white py-2 rounded-lg transition-colors bg-[#0F6E56] hover:bg-[#0d5c48]">Book a Demo</a>
             </div>
           </div>
 
