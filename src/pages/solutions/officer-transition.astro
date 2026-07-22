@@ -1,0 +1,977 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import PhaseNavWrapper from '../../components/PhaseNavWrapper';
+import TransitionChecklistOffer from '../../components/TransitionChecklistOffer';
+import { Calendar, GraduationCap, Handshake, Zap, FileText, DollarSign, Building, PawPrint, RotateCcw, Award, Target, BarChart3, LifeBuoy, CalendarDays, CheckSquare, CalendarClock, Users, Clock, TrendingUp, Check, ArrowRight, BookOpen } from 'lucide-react';
+
+const B = {
+  blue: "#1E3A5F",
+  blueDark: "#17304F",
+  blueLight: "#e8f0fd",
+  navy: "#1E3A5F",
+  navyMid: "#1E3A5F",
+  navyDeep: "#16283F",
+  gold: "#b45309",
+  goldLight: "#fef9ec",
+  green: "#166534",
+};
+
+const serif = { fontFamily: "'Playfair Display', Georgia, serif" };
+const sans = { fontFamily: "'DM Sans', system-ui, sans-serif" };
+
+const STATS = [
+  { num: "July 1", label: "New Lion year begins every year" },
+  { num: "4", label: "Officers who must transition annually" },
+  { num: "90", label: "Days to recover without a system" },
+  { num: "1", label: "Click to generate the full handover package" },
+];
+
+const DEADLINES = [
+  { date: "April 15", action: "Elections held", who: "President & Board", tags: ["LCI"] },
+  { date: "May 15", action: "New officers registered in Lion Portal", who: "Outgoing Secretary", tags: ["LCI"] },
+  { date: "June (before Jul 1)", action: "Records handover meetings completed", who: "All officers", tags: ["LCI"] },
+  { date: "June (before Jul 1)", action: "Generate Transition Export Package", who: "Outgoing Secretary", tags: ["HS"] },
+  { date: "June (before Jul 1)", action: "Transfer HoursServed admin credentials", who: "Outgoing President", tags: ["HS"] },
+  { date: "July 1", action: "New Lion year begins — all access active", who: "Incoming officers", tags: ["LCI", "HS"] },
+];
+
+const EXPORT_CARDS = [
+  { icon: Users, title: "Member Attendance Summary", body: "Full-year attendance by member: events attended, service hours, and guests, ready to hand to the incoming secretary." },
+  { icon: Clock, title: "Service Hours by Event", body: "Every event with dates, hours, volunteers, and served counts, structured for Lion Portal entry." },
+  { icon: CalendarDays, title: "Service Hours by Member", body: "Month-by-month hours per member for the club's own records. Internal use only, never submitted." },
+  { icon: TrendingUp, title: "Volunteer Participation Report", body: "Every participant in the club's year: events attended, total hours, and first and last participation dates." },
+  { icon: BarChart3, title: "Event Performance Summary", body: "Every event run during the year with participants, total hours, and average hours per participant." },
+];
+
+const ROLES = [
+  {
+    title: "President", sub: "Outgoing → Incoming",
+    items: [
+      "Active committee chair assignments and project status",
+      "District and zone relationship briefing",
+      "Club goals and any multi-year commitments",
+      "HoursServed admin credentials and dashboard orientation",
+      "Year-in-Review report and recommended priorities",
+      "Outstanding award nominations in progress",
+    ],
+  },
+  {
+    title: "Secretary", sub: "Outgoing → Incoming",
+    items: [
+      "Full meeting minutes file and board decisions record",
+      "Current member roster — reconciled and filed in Lion Portal",
+      "All ongoing correspondence and awards applications",
+      "Supplies inventory and outstanding orders",
+      "HoursServed: attendance records, event history, member data",
+      "Updated stationery and club email signature",
+    ],
+  },
+  {
+    title: "Treasurer", sub: "Outgoing → Incoming",
+    items: [
+      "Bank signing authority (board resolution required)",
+      "Administrative and activities budgets — prior year actuals and new year draft",
+      "Outstanding invoices and dues schedule",
+      "LCI dues payment login and submission deadlines",
+      "HoursServed: service hours export formatted for LCI reporting",
+      "Banking contacts and authorized signatories list",
+    ],
+  },
+  {
+    title: "Leo Club Advisor", sub: "Continuity across Leo officer changes",
+    items: [
+      "Leo officer contacts and transition briefing",
+      "Leo-to-Lions pipeline tracking — eligible members identified",
+      "HoursServed: Leo attendance and hours carry forward automatically",
+      "Leo Lion certification process briefed to incoming Leo president",
+      "Annual membership goals set with incoming Leo leadership",
+      "Upcoming events and Leo invitation list confirmed",
+    ],
+  },
+];
+
+const SESSIONS = [
+  {
+    num: "Session 01", title: "Outgoing Officer Closeout",
+    duration: "⏱ 45 minutes · June · Outgoing officers",
+    body: "What to do before you hand the keys over — the complete platform closeout process so the incoming team inherits a clean record, not a mess.",
+    topics: [
+      "Finalize and lock the year's service hours",
+      "Generate the Transition Export Package",
+      "Confirm member roster is current in Lion Portal",
+      "Remove personal credentials — transfer admin access",
+      "Complete any outstanding volunteer follow-ups",
+    ],
+  },
+  {
+    num: "Session 02", title: "Incoming Officer Orientation",
+    duration: "⏱ 60 minutes · June – July · Incoming officers",
+    body: "Reading the club's history in HoursServed — and setting up the year ahead. Incoming officers leave this session knowing where everything is and what to do first.",
+    topics: [
+      "Review the Transition Export Package together",
+      "Dashboard walkthrough by role: president, secretary, treasurer",
+      "Set up and publish the year's first event",
+      "Confirm Lion Portal credentials and notification preferences",
+      "Review July 1 onboarding checklist and assign responsibilities",
+    ],
+  },
+  {
+    num: "Session 03", title: "First 90 Days Check-In",
+    duration: "⏱ 30 minutes · September · Incoming officers",
+    body: "A structured review of what's been accomplished, what's outstanding, and what the platform is telling you about the club's early-year trajectory.",
+    topics: [
+      "Review 30-day onboarding checklist completion",
+      "Check LCI reporting deadlines — any missed or upcoming",
+      "Review first event's attendance and volunteer data",
+      "Identify any volunteers needing follow-up from early events",
+      "Confirm district training has been attended or scheduled",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Officer Transition Tools — HoursServed"
+  description="HoursServed makes annual Lions Club officer transitions smooth — export handover packages, update roles, and protect historical service records.">
+
+  <MarketingNav client:load />
+
+  <main id="main-content" tabIndex={-1} class="text-gray-900 bg-canvas overflow-x-hidden" style={sans}>
+
+    <!-- Hero -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="rounded-2xl p-10 md:p-16 text-center relative overflow-hidden" style={{background: B.navy, border: '2px solid #E5E1D8'}}>
+          <div class="absolute inset-0 pointer-events-none" style={{
+            background: "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(30,58,95,0.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 15% 80%, rgba(30,58,95,0.10) 0%, transparent 70%)"
+          }}></div>
+          <div class="absolute inset-0 pointer-events-none" style={{
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            backgroundSize: "60px 60px"
+          }}></div>
+          <div class="relative z-10">
+            <span class="inline-block text-base font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full border border-brand-e8edf3 mb-8 text-white">
+              Officer Transition &amp; Training
+            </span>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl mx-auto mb-4 leading-tight tracking-tight" style={serif}>
+              When an officer leaves,<br />
+              their <em style={{fontStyle: "italic"}}>knowledge shouldn't.</em>
+            </h1>
+            <p class="text-lg max-w-xl mx-auto mt-6 mb-10 leading-normal font-light text-white">
+              A complete guide to transitioning your Lions club officers — structured around the Lions
+              International process, powered by HoursServed so nothing gets lost between Lion years.
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+              <a href="#phase-1" class="inline-block px-7 py-3 rounded-lg text-base font-semibold transition-all hover:opacity-90 bg-white text-brand-navy">
+                Walk Me Through It
+              </a>
+              <a href="#export" class="inline-block px-7 py-3 rounded-lg text-base font-semibold transition-colors hover:opacity-90 text-white"
+                style={{background: "#0F6E56"}}>
+                See the Transition Package
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stat Bar -->
+    <section class="py-6 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="rounded-2xl py-4 px-6" style={{background: B.navy, border: '2px solid #E5E1D8'}}>
+          <div class="flex justify-around flex-wrap gap-6">
+            {STATS.map((s) => (
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1" style={serif}>{s.num}</div>
+                <div class="text-base text-brand-e8edf3">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl p-10 md:p-14" style={{border: '2px solid #E5E1D8'}}>
+          <span class="block text-center text-base font-semibold tracking-widest uppercase mb-3 text-brand-teal-dark">
+            The real cost of a poor transition
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight tracking-tight mb-8 text-brand-navy" style={serif}>
+            Every June, the same things go wrong.
+          </h2>
+          <div class="text-base text-gray-600 leading-loose space-y-5">
+            <p>
+              The outgoing secretary has member records in a personal email account. The treasurer's budget
+              lives on their laptop. The new president doesn't know the login to anything. Three months of
+              institutional knowledge walks out the door with the officer who held it — and the incoming team
+              spends their first quarter reconstructing what the last team built.
+            </p>
+            <p>
+              Lions International prescribes <strong class="text-gray-900 font-semibold">what</strong> needs
+              to happen: LLC courses, records transfer, Lion Portal updates, district notifications. What it
+              doesn't provide is the system that makes it happen reliably, year after year, regardless of who's
+              in the chair.
+            </p>
+            <p>
+              That's the gap HoursServed fills. When your activity data, member records, service hours, event
+              history, and reports all live in one platform that belongs to the{" "}
+              <strong class="text-gray-900 font-semibold">club — not the officer</strong> — transition
+              becomes a handover of access, not a reconstruction of history.
+            </p>
+          </div>
+          <div class="mt-10 rounded-2xl p-8 relative overflow-hidden" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+            <div class="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-white"></div>
+            <p class="text-xl italic leading-normal font-semibold text-white" style={serif}>
+              "The records problem is solvable. The relationship wisdom isn't. HoursServed handles the records
+              so your outgoing officers can spend their handover time on what only they can give."
+            </p>
+            <p class="mt-3 text-base font-medium tracking-widest uppercase text-white">
+              HoursServed — Built for service clubs
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Nav -->
+    <PhaseNavWrapper client:load />
+
+    <!-- Phase 1 -->
+    <section id="phase-1" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 md:p-14" style={{border: '2px solid #E5E1D8'}}>
+          <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start mb-12 pb-10 border-b border-card-border">
+            <div class="w-14 h-14 rounded-xl flex flex-col items-center justify-center flex-shrink-0 bg-brand-navy">
+              <span class="text-base font-semibold tracking-widest uppercase leading-none text-white mb-0.5">Phase</span>
+              <span class="text-3xl font-bold text-white leading-none" style={serif}>1</span>
+            </div>
+            <div>
+              <span class="inline-block text-base font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-brand-navy mb-2 bg-white text-brand-navy">
+                April – June
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-2 text-brand-navy" style={serif}>Pre-Transition: Nomination Through Election</h2>
+              <p class="text-base text-gray-600 leading-normal max-w-xl">The period between election and installation is wasted in most clubs. It doesn't have to be. Incoming officers who can see the club's history before they take the chair arrive informed, not anxious.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Elections & Officer Registration</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">Elections must be held and new officers registered before LCI deadlines.</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Hold elections prior to April 15
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Register new officers in the Lion Portal by May 15
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Notify District Governor, 1st & 2nd VDG, and Zone Chairperson immediately
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Submit PU101 form to LCI if Lion Portal access isn't available
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <GraduationCap size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Lions Learning Center Enrollment</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">LCI's online training should begin as soon as officers are elected — not after installation.</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Club Officer Training — overview module (all officers)
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Club President Responsibilities (incoming president)
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Club Secretary Responsibilities (incoming secretary)
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Club Treasurer Responsibilities (incoming treasurer)
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Electives: Goal Setting, Meeting Management, Conflict Resolution
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Handshake size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Outgoing–Incoming Officer Meetings</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">One-on-one meetings before installation give incoming officers the context LLC courses can't provide.</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Outgoing officer prepares written summary of active projects and unresolved items
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Key district and zone contacts reviewed personally
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Mid-stream projects handed off with clear ownership
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Incoming officer encouraged to observe one board meeting before July 1
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 rounded-2xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start p-8" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white">
+              <Zap size={24} class="text-brand-navy" aria-hidden="true" />
+            </div>
+            <div>
+              <p class="text-base font-bold tracking-widest uppercase text-white mb-1">HoursServed Role</p>
+              <h3 class="text-base font-semibold text-white mb-2">Give incoming officers read access immediately after election</h3>
+              <p class="text-base mb-3 leading-normal text-white">Before they take the chair, incoming officers can review the current year's event history, service hours, attendance patterns, and volunteer roster inside HoursServed. They arrive at the installation dinner already informed — not starting from zero.</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Grant incoming officer read-only dashboard access post-election
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Incoming president reviews event performance and volunteer retention from the current year
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Incoming secretary previews the member roster and attendance records
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  No data migration. No exports. The record is already there.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 2 -->
+    <section id="phase-2" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 md:p-14" style={{border: '2px solid #E5E1D8'}}>
+          <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start mb-12 pb-10 border-b border-card-border">
+            <div class="w-14 h-14 rounded-xl flex flex-col items-center justify-center flex-shrink-0 bg-brand-navy">
+              <span class="text-base font-semibold tracking-widest uppercase leading-none text-white mb-0.5">Phase</span>
+              <span class="text-3xl font-bold text-white leading-none" style={serif}>2</span>
+            </div>
+            <div>
+              <span class="inline-block text-base font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-brand-navy mb-2 bg-white text-brand-navy">
+                June — Critical Window
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-2 text-brand-navy" style={serif}>Records Handover: The Work That Actually Matters</h2>
+              <p class="text-base text-gray-600 leading-normal max-w-xl">This is where most clubs fail and where HoursServed makes the biggest difference. Every role has a specific handover — and a specific point where the platform replaces the spreadsheet.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FileText size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Secretary Handover</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Review all records with the outgoing secretary before transfer
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Confirm member roster is current and all changes are filed in Lion Portal
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Transfer: minutes file, ongoing correspondence, awards applications, supplies inventory
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Update email access and Lion Portal credentials immediately
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Revise club stationery and email signatures to reflect new officers
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Notify LCI of officer changes via Lion Portal as soon as handover is complete
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <DollarSign size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Treasurer Handover</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Transfer bank signing authority — board resolution required
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Prepare administrative budget (dues-funded) and activities budget (fundraising-funded) — kept separate
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Hand over: financial statements, outstanding invoices, dues schedule, banking contacts
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Document LCI dues payment methods, deadlines, and online payment login
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Confirm all prior year transactions are reconciled before July 1
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Building size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">President Handover</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Transfer committee chair assignments and multi-year project commitments
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Brief incoming president on district and zone relationships personally
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Document the club's standing goals and carry-forward projects
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Review any outstanding recognition or award nominations in progress
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Confirm installation ceremony logistics
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <PawPrint size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Leo Club Transition</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Leo officer transitions mirror adult officer process — records, Lion Portal reporting, and service hours
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Leo advisor maintains platform continuity across annual Leo officer changes
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Incoming Leo president sets membership goals and Leo-to-Lions transition targets
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Leo hours and attendance records carry forward within HoursServed — no rebuild required
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 rounded-2xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start p-8" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white">
+              <RotateCcw size={24} class="text-brand-navy" aria-hidden="true" />
+            </div>
+            <div>
+              <p class="text-base font-bold tracking-widest uppercase text-white mb-1">HoursServed Role</p>
+              <h3 class="text-base font-semibold text-white mb-2">Platform handover is a two-minute admin action — not a weekend project</h3>
+              <p class="text-base mb-3 leading-normal text-white">All meeting attendance, service hours, event history, volunteer records, and photo archives live in HoursServed — owned by the club, not the officer. The handover process for HoursServed itself is straightforward:</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Remove outgoing officer credentials and revoke admin access
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Add incoming officers with role-appropriate permissions (president, secretary, treasurer views differ)
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Generate the year-end Transition Export Package — one click, everything included
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Incoming treasurer receives prior-year hours data formatted for LCI reporting — no manual compilation
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Incoming secretary sees the full member roster, current and historical, ready for Lion Portal reconciliation
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 border border-gray-200 rounded-xl overflow-hidden">
+            <table class="w-full border-collapse" aria-label="Officer transition deadlines">
+              <thead style={{background: B.navy}}>
+                <tr>
+                  <th class="px-4 py-3 text-left text-base font-semibold tracking-widest uppercase text-white">Deadline</th>
+                  <th class="px-4 py-3 text-left text-base font-semibold tracking-widest uppercase text-white">Action Required</th>
+                  <th class="px-4 py-3 text-left text-base font-semibold tracking-widest uppercase text-white">Who</th>
+                  <th class="px-4 py-3 text-left text-base font-semibold tracking-widest uppercase text-white">System</th>
+                </tr>
+              </thead>
+              <tbody>
+                {DEADLINES.map((row, i) => (
+                  <tr class={`border-b border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                    <td class="px-4 py-3 text-base font-semibold whitespace-nowrap" style={{color: B.blue}}>{row.date}</td>
+                    <td class="px-4 py-3 text-base text-gray-900">{row.action}</td>
+                    <td class="px-4 py-3 text-base text-gray-600 whitespace-nowrap">{row.who}</td>
+                    <td class="px-4 py-3">
+                      <div class="flex gap-1 flex-wrap">
+                        {row.tags.map(tag => (
+                          <span class="text-base font-semibold px-2 py-0.5 rounded bg-white"
+                            style={{border: `1px solid ${B.blue}`, color: B.blue}}>
+                            {tag === "HS" ? "HoursServed" : "LCI"}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TransitionChecklistOffer -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl" style={{border: '2px solid #E5E1D8'}}>
+          <TransitionChecklistOffer />
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 3 -->
+    <section id="phase-3" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 md:p-14" style={{border: '2px solid #E5E1D8'}}>
+          <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start mb-12 pb-10 border-b border-card-border">
+            <div class="w-14 h-14 rounded-xl flex flex-col items-center justify-center flex-shrink-0 bg-brand-navy">
+              <span class="text-base font-semibold tracking-widest uppercase leading-none text-white mb-0.5">Phase</span>
+              <span class="text-3xl font-bold text-white leading-none" style={serif}>3</span>
+            </div>
+            <div>
+              <span class="inline-block text-base font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-brand-navy mb-2 bg-white text-brand-navy">
+                June / July
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-2 text-brand-navy" style={serif}>Installation & First Board Meeting</h2>
+              <p class="text-base text-gray-600 leading-normal max-w-xl">Installation is ceremonial. The first board meeting is where the year actually starts. What the incoming team brings into that room shapes everything that follows.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Award size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Installation Ceremony</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Outgoing president presides over the ceremony
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Formal installation of each officer with stated duties
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Outgoing president delivers annual report and recognition of the year's service
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Incoming president accepts office and delivers acceptance address
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Committee appointments announced by incoming president
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Outgoing officers acknowledged formally — their service matters
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Target size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Goal-Setting Session</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">The first board meeting should include a structured goal-setting session — grounded in last year's actual performance.</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Service goals set against the prior year's actual hours total
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Membership targets informed by volunteer retention and Leo pipeline data
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Event calendar roughed out based on attendance trends
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Roles, decision-making authority, and communication cadence agreed upon
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BarChart3 size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Year-in-Review Presentation</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">One of the most underused tools at installation: the prior year's data, presented as a benchmark for the year ahead.</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Total service hours logged
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Events run and average attendance per event
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>New volunteers acquired vs. retained
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Top-performing events worth repeating
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Volunteer engagement gaps worth addressing
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 rounded-2xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start p-8" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white">
+              <BarChart3 size={24} class="text-brand-navy" aria-hidden="true" />
+            </div>
+            <div>
+              <p class="text-base font-bold tracking-widest uppercase text-white mb-1">HoursServed Role</p>
+              <h3 class="text-base font-semibold text-white mb-2">Walk into the first board meeting with last year's numbers already on the screen</h3>
+              <p class="text-base mb-3 leading-normal text-white">HoursServed generates a Year-in-Review report automatically from your club's data — formatted for presentation at installation or the first board meeting. Goals for the coming year get set against real performance, not guesswork or memory.</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Auto-generated Year-in-Review: hours, events, attendance, volunteer retention
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Exportable as PDF for board meeting distribution
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Goal-setting template pre-populated with prior year benchmarks
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Incoming president presented with the event calendar ready to build on — not start from scratch
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 4 -->
+    <section id="phase-4" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 md:p-14" style={{border: '2px solid #E5E1D8'}}>
+          <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start mb-12 pb-10 border-b border-card-border">
+            <div class="w-14 h-14 rounded-xl flex flex-col items-center justify-center flex-shrink-0 bg-brand-navy">
+              <span class="text-base font-semibold tracking-widest uppercase leading-none text-white mb-0.5">Phase</span>
+              <span class="text-3xl font-bold text-white leading-none" style={serif}>4</span>
+            </div>
+            <div>
+              <span class="inline-block text-base font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-brand-navy mb-2 bg-white text-brand-navy">
+                July – September
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-2 text-brand-navy" style={serif}>The First 90 Days: Early Support & Momentum</h2>
+              <p class="text-base text-gray-600 leading-normal max-w-xl">New officers don't know what they don't know. And outgoing officers have moved on. The first quarter is when good intentions meet confusing deadlines — and where most clubs lose momentum.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <LifeBuoy size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">Outgoing Officer Availability</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Outgoing officers remain available for questions for at least 30 days post-installation
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Agree in advance on how questions will be handled — email, phone, one scheduled call
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Zone Chairperson introduced formally as an ongoing support resource
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>District training dates communicated at installation for immediate calendar placement
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <CalendarDays size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">District Training Attendance</h3>
+              </div>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>District GLT coordinators conduct a training needs assessment with new officers early in the year
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Club officers attend district-organized training — typically July through September
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>ELLI recommended for first-time officers and incoming 1st Vice Presidents
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>RLLI for officers pursuing zone and district leadership
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-2xl p-6 transition-all hover:shadow-md hover:border-brand-navy" style={{border: '2px solid #E5E1D8'}}>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <CheckSquare size={24} class="text-gray-900" aria-hidden="true" />
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 leading-normal">30-Day Officer Checklist</h3>
+              </div>
+              <p class="text-base text-gray-600 leading-normal mb-3">What incoming officers should have confirmed by August 1:</p>
+              <ul class="flex flex-col gap-1.5">
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Lion Portal access confirmed and credentials working
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Member roster reviewed and any changes submitted
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>First event of the year published and open for signups
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>Prior year service hours filed with LCI
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>District and zone contacts saved and introduced
+                </li>
+                <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                  <span class="text-gray-600 flex-shrink-0 mt-0.5">–</span>LLC courses completed or in progress
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 rounded-2xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-start p-8" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white">
+              <CalendarClock size={24} class="text-brand-navy" aria-hidden="true" />
+            </div>
+            <div>
+              <p class="text-base font-bold tracking-widest uppercase text-white mb-1">HoursServed Role</p>
+              <h3 class="text-base font-semibold text-white mb-2">Built-in reminders mean new officers don't rely on institutional memory to know what's due</h3>
+              <p class="text-base mb-3 leading-normal text-white">HoursServed surfaces the right tasks at the right time — not as a generic checklist, but as prompts tied to actual platform actions and real LCI deadlines.</p>
+              <ul class="flex flex-col gap-2">
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  July 1 onboarding checklist activated for all incoming officers automatically
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  LCI reporting dates, Lion Portal update windows, and district submission deadlines prompted inside the platform
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Role-specific views: secretary, treasurer, and president each see what's relevant — no one overwhelmed on day one
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  Leo advisor maintains continuous platform access across annual Leo officer changes
+                </li>
+                <li class="flex items-start gap-2 text-base leading-normal text-white">
+                  <ArrowRight size={16} class="text-white flex-shrink-0 mt-1" aria-hidden="true" />
+                  30-day check-in report shows what's been completed and what's outstanding — in plain language
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Export Section -->
+    <section id="export" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="rounded-2xl p-10 md:p-14" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+          <span class="block text-center text-base font-semibold tracking-widest uppercase mb-3 text-white">
+            Featured capability
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-4 max-w-2xl mx-auto text-center" style={serif}>
+            The HoursServed Transition Export Package
+          </h2>
+          <p class="text-base max-w-xl mx-auto mb-14 leading-normal text-white text-center">
+            One action. Five reports the incoming team needs, generated from your club's year of activity and ready the moment the outgoing secretary clicks download.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            {EXPORT_CARDS.map((c) => {
+              const Icon = c.icon;
+              return (
+                <div class="bg-white rounded-2xl p-6" style={{border: '2px solid #E5E1D8'}}>
+                  <div class="mb-3"><Icon size={32} class="text-brand-navy" aria-hidden="true" /></div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">{c.title}</h3>
+                  <p class="text-base leading-normal text-gray-900">{c.body}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div class="rounded-xl px-7 py-5 flex items-center justify-between gap-6 flex-wrap bg-brand-navy">
+            <div>
+              <p class="text-base font-semibold text-white">One transition package. Generated in seconds.</p>
+              <p class="text-base mt-0.5 text-white">Replaces the box of unsorted papers that used to travel between officers every June.</p>
+            </div>
+            <a href="/how-it-works" class="flex-shrink-0 inline-block text-base font-semibold px-5 py-2.5 rounded-lg transition-colors hover:opacity-90 no-underline text-white"
+              style={{background: "#0F6E56"}}>
+              See How It Works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <span class="block text-center text-base font-semibold tracking-widest uppercase mb-3 text-brand-teal-dark">
+          By role
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight tracking-tight mb-14 text-brand-navy" style={serif}>
+          What each officer hands over — and receives
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {ROLES.map((role) => (
+            <div class="bg-white rounded-2xl p-0 overflow-hidden" style={{border: '2px solid #E5E1D8'}}>
+              <div class="px-5 py-4 bg-brand-navy">
+                <h3 class="text-lg font-bold text-white mb-0.5" style={serif}>{role.title}</h3>
+                <p class="text-base text-white">{role.sub}</p>
+              </div>
+              <div class="px-5 py-4">
+                <ul class="flex flex-col gap-2">
+                  {role.items.map((item) => (
+                    <li class="flex items-start gap-2 text-base text-gray-600 leading-normal">
+                      <Check size={16} class="flex-shrink-0 mt-1" style={{color: B.green}} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <span class="block text-center text-base font-semibold tracking-widest uppercase mb-3 text-brand-teal-dark">
+          Suggested training programme
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight tracking-tight mb-3 text-brand-navy" style={serif}>
+          HoursServed Transition Ready
+        </h2>
+        <p class="text-base text-gray-600 text-center max-w-lg mx-auto leading-normal mb-14">
+          A three-session training sequence that runs alongside LCI's LLC courses — not instead of them.
+          Lightweight, practical, and designed for the handover window your club already has.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          {SESSIONS.map((s) => (
+            <div class="bg-white rounded-2xl p-7 relative overflow-hidden" style={{border: '2px solid #E5E1D8'}}>
+              <div class="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-brand-navy"></div>
+              <p class="text-base font-bold tracking-widest uppercase mb-1 text-brand-navy">{s.num}</p>
+              <h3 class="text-xl font-bold leading-normal mb-1 text-brand-navy" style={serif}>{s.title}</h3>
+              <p class="text-base text-gray-600 mb-3">{s.duration}</p>
+              <p class="text-base text-gray-600 leading-normal mb-4">{s.body}</p>
+              <div class="flex flex-col gap-2">
+                {s.topics.map((t) => (
+                  <div class="flex items-start gap-2 text-base text-gray-600">
+                    <ArrowRight size={16} class="flex-shrink-0 mt-1 text-brand-navy" aria-hidden="true" />
+                    {t}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="bg-white rounded-2xl flex items-start gap-4 p-5" style={{border: '2px solid #E5E1D8', borderLeft: `4px solid ${B.gold}`}}>
+          <BookOpen size={32} class="flex-shrink-0 mt-0.5 text-gray-900" aria-hidden="true" />
+          <p class="text-base text-gray-900 leading-normal">
+            <strong class="text-gray-900 font-semibold">Integrates with LCI's Lions Learning Center: </strong>
+            These sessions are designed to complement — not replace — LCI's required Club Officer Training
+            courses. The LLC covers roles, responsibilities, and association structure. HoursServed
+            Transition Ready covers the records, workflows, and platform actions that make those
+            responsibilities achievable from day one. Both are needed. Neither is enough without the other.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pullout -->
+    <section class="py-8 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="rounded-2xl p-10 md:p-14 text-center" style={{background: "#0F6E56", border: '2px solid #E5E1D8'}}>
+          <blockquote class="text-3xl md:text-4xl font-bold italic text-white max-w-3xl mx-auto mb-4 leading-snug tracking-tight" style={serif}>
+            "The records problem is solvable. The relationship wisdom isn't. HoursServed handles the records
+            so your outgoing officers can spend their handover time on what only they can give."
+          </blockquote>
+          <p class="text-base font-medium tracking-widest uppercase text-white">
+            Built for Lions &amp; other service clubs everywhere
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl p-10 md:p-14 text-center" style={{border: '2px solid #E5E1D8'}}>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-brand-navy" style={serif}>
+            Ready to make this transition<br />the last hard one?
+          </h2>
+          <p class="text-base text-gray-500 max-w-md mx-auto leading-relaxed mb-10">
+            Set up HoursServed before June and your outgoing officers hand over a complete, clean record.
+            Every year from here.
+          </p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a href="/app/dashboard" class="inline-block px-7 py-3 rounded-lg text-base font-semibold text-white transition-all hover:-translate-y-px"
+              style={{background: "#0F6E56"}}>
+              Start Your Free Trial
+            </a>
+            <a href="/assets/officer-transition-checklist.pdf" download="HoursServed-Officer-Transition-Checklist.pdf"
+              class="inline-block px-7 py-3 rounded-lg text-base font-semibold transition-all hover:-translate-y-px bg-white"
+              style={{background: B.blue, color: "#FFFFFF"}}>
+              Download the Transition Checklist
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <MarketingFooter />
+</Layout>
