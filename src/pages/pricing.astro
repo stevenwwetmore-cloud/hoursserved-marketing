@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+import PricingSection from '../components/PricingSection';
+import { CheckCircle, X } from 'lucide-react';
+
+const title = 'Pricing | HoursServed.com — Affordable for Every Service Club';
+const description = 'Simple monthly pricing for Lions Clubs, Rotary, churches, and community groups. Start free and upgrade when you\'re ready.';
+---
+
+<Layout title={title} description={description}>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <MarketingNav client:load />
+
+  <main id="main-content" tabindex="-1">
+
+    <PricingSection client:load />
+
+    {/* Value vs competitors */}
+    <section class="py-16 px-4 bg-canvas">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Everything in one place — built for Lions</h2>
+        <p class="text-gray-600 text-center mb-10 text-base max-w-xl mx-auto">HoursServed is purpose-built for the Lions workflow. Here's how it compares to the alternatives clubs and districts are currently using.</p>
+        <div class="grid sm:grid-cols-3 gap-5 mb-10">
+          {[
+            {
+              tool: 'ClubRunner', compareLink: '/compare/clubrunner',
+              description: 'The dominant service club platform across Rotary, Lions, and Kiwanis. Broad feature set but no Lions Portal CSV export, no no-login member experience, and not built specifically for the Lions workflow.',
+              features: [
+                { text: 'Lions Portal CSV export', has: false }, { text: 'Built specifically for Lions', has: false },
+                { text: 'No-login member RSVP', has: false }, { text: 'Attendance tracking', has: true },
+                { text: 'Shift management', has: true }, { text: 'Dues collection', has: true },
+                { text: 'Automated monthly reports', has: true }, { text: 'Transparent club-level pricing', has: true },
+              ],
+            },
+            {
+              tool: 'LionsBase', compareLink: '/compare/lionsbase',
+              description: 'Lions-specific platform focused on district websites and member databases. No self-serve RSVP, limited attendance automation, and pricing negotiated at district level with no transparent club-level pricing.',
+              features: [
+                { text: 'Lions Portal CSV export', has: false }, { text: 'No-login member RSVP', has: false },
+                { text: 'Shift management', has: false }, { text: 'Dues collection', has: false },
+                { text: 'Transparent club-level pricing', has: false }, { text: 'Built specifically for Lions', has: true },
+                { text: 'Attendance tracking', has: true }, { text: 'Automated monthly reports', has: true },
+              ],
+            },
+            {
+              tool: 'Lions Portal (Lion Portal)', compareLink: '/compare/lions-portal',
+              description: 'The official LCI reporting tool. Handles submission but requires manual data entry every month. No event management, no RSVP, no attendance tracking, and no automation. HoursServed generates the CSV it needs automatically.',
+              features: [
+                { text: 'Lions Portal CSV export', has: false }, { text: 'No-login member RSVP', has: false },
+                { text: 'Attendance tracking', has: false }, { text: 'Shift management', has: false },
+                { text: 'Dues collection', has: false }, { text: 'Automated monthly reports', has: false },
+                { text: 'Transparent club-level pricing', has: false }, { text: 'Built specifically for Lions', has: false },
+              ],
+            },
+          ].map(({ tool, description, compareLink, features }) => (
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <p class="font-bold text-gray-900 text-sm mb-2">{tool}</p>
+              <p class="text-xs text-gray-600 mb-3">{description}</p>
+              <div class="space-y-1 mb-3">
+                {features.map(f => (
+                  <p class={`text-xs flex items-start gap-1 ${f.has ? 'text-gray-900' : 'text-red-700'}`}>
+                    {f.has ? <CheckCircle className="w-3 h-3 mt-0.5 flex-shrink-0" style={{ color: '#0F6E56' }} aria-hidden="true" /> : <X className="w-3 h-3 mt-0.5 flex-shrink-0" aria-hidden="true" />}
+                    {f.text}
+                  </p>
+                ))}
+              </div>
+              <a href={compareLink} class="text-xs font-semibold hover:underline" style={{ color: '#0F6E56' }}>Full comparison →</a>
+            </div>
+          ))}
+        </div>
+        <div class="bg-white border border-gray-300 rounded-2xl p-6 text-center">
+          <p class="text-base font-bold text-gray-900 mb-2">HoursServed ✓ on all of the above — in one system</p>
+          <p class="text-base text-gray-900 leading-relaxed">Lions Portal CSV export · No-login RSVP · Attendance tracking · Shift management · Dues collection · Automated reports · Transparent pricing · Built for Lions</p>
+          <div class="flex flex-wrap gap-3 justify-center mt-4">
+            <a href="/compare" class="text-xs text-gray-900 font-semibold border border-gray-300 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors">See full comparisons →</a>
+            <a href="/how-it-works" class="text-xs text-gray-900 font-semibold border border-gray-300 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors">How it works →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <MarketingFooter />
+</Layout>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+</style>
