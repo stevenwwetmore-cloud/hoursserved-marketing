@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+import ContactForm from '../components/ContactForm';
+import { Mail } from 'lucide-react';
+---
+
+<Layout
+  title="Contact Us | HoursServed"
+  description="Get in touch with the HoursServed team. We reply to every message within one business day."
+>
+  <div class="min-h-screen" style={{ backgroundColor: '#F1EFE8' }}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabIndex={-1}>
+      <section class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl">
+          <div class="rounded-2xl p-8 sm:p-12" style={{ backgroundColor: '#1E3A5F' }}>
+            <div class="text-center">
+              <Mail className="w-7 h-7 mx-auto mb-6" style={{ color: '#FFFFFF' }} aria-hidden="true" />
+              <h1 class="text-4xl font-bold text-white mb-4">Get in touch</h1>
+              <p class="text-lg max-w-md mx-auto mb-8" style={{ color: '#E8EDF3' }}>We're a small team and every message gets a real reply — usually within one business day.</p>
+              <ContactForm client:load />
+              <p class="text-base mt-6 mb-8" style={{ color: '#E8EDF3' }}>For billing questions, district pricing, or onboarding help — we've got you covered.</p>
+              <div class="inline-block text-center">
+                <p class="text-base mb-3" style={{ color: '#E8EDF3' }}>Prefer a guided walkthrough?</p>
+                <a href="/demo" class="text-base font-semibold text-white underline hover:no-underline">Book a Demo <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>
