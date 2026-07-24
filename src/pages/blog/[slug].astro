@@ -85,7 +85,7 @@ const description = post.metaDescription || post.excerpt || 'Practical guides an
           <p class="text-lg text-gray-500 mb-8 leading-relaxed border-l-4 border-blue-200 pl-4">{post.excerpt}</p>
         )}
         <div
-          class="blog-content"
+          class="prose prose-lg max-w-none"
           set:html={post.body || ''}
         />
       </article>
