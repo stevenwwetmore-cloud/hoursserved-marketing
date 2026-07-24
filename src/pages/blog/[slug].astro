@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+import { Shield, Calendar, ArrowLeft, Tag } from 'lucide-react';
+
+export async function getStaticPaths() {
+  const APP_ID = '69ac4eaa5a3031dffe252cf9';
+  const BASE_URL = 'https://base44.app/api';
+
+  try {
+    const url = `${BASE_URL}/apps/${APP_ID}/entities/BlogPost?q=${encodeURIComponent(JSON.stringify({ status: 'published' }))}`;
+    const response = await fetch(url, {
+      headers: { 'X-App-Id': APP_ID },
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    const posts = Array.isArray(data) ? data : [];
+    return posts.map((post: any) => ({
+      params: { slug: post.slug || post.id },
+      props: { post },
+    }));
+  } catch (error) {
+    console.error('Failed to fetch blog posts:', error);
+    return [];
+  }
+}
+
+const { post } = Astro.props;
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+const title = post.title || 'Blog | HoursServed';
+const description = post.metaDescription || post.excerpt || 'Practical guides and tips for service club and volunteer organization administrators — hour tracking, reporting, member management, and more.';
+---
+
+<Layout
+  title={title}
+  description={description}
+>
+  <div class="min-h-screen bg-white">
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
+            <Shield className="w-4 h-4 text-white" />
+          </div>
+          <span class="font-bold text-gray-900">Hours Served</span>
+        </a>
+        <a href="/blog" class="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> All Articles
+        </a>
+      </div>
+    </nav>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <article>
+        {post.cover_image_url && (
+          <img
+            src={post.cover_image_url}
+            alt={post.title}
+            class="w-full h-64 sm:h-80 object-cover rounded-2xl mb-8"
+          />
+        )}
+        <div class="flex items-center gap-3 text-xs text-gray-400 mb-4">
+          {post.published_at && (
+            <span class="flex items-center gap-1">
+              <Calendar className="w-3 h-3" />
+              {formatDate(post.published_at)}
+            </span>
+          )}
+          {post.author && <span>By {post.author}</span>}
+          {post.tags && (
+            <span class="flex items-center gap-1">
+              <Tag className="w-3 h-3" />
+              {post.tags}
+            </span>
+          )}
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">{post.title}</h1>
+        {post.excerpt && (
+          <p class="text-lg text-gray-500 mb-8 leading-relaxed border-l-4 border-blue-200 pl-4">{post.excerpt}</p>
+        )}
+        <div
+          class="blog-content"
+          set:html={post.body || ''}
+        />
+      </article>
+    </div>
+    <MarketingFooter />
+  </div>
+</Layout>
