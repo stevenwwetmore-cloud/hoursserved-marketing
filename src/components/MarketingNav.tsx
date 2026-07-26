@@ -113,7 +113,7 @@ export default function MarketingNav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/57f99d8a4_Gemini_Generated_Service_Hours.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
+          <img src="/images/logo.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
           <BrandLogo dark />
         </a>
 

@@ -9,7 +9,7 @@ export default function MarketingFooter() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <a href="/" className="flex items-center gap-2 mb-3">
-              <img src="https://media.base44.com/images/public/69ac4eaa5a3031dffe252cf9/57f99d8a4_Gemini_Generated_Service_Hours.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
+              <img src="/images/logo.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
               <BrandLogo />
             </a>
             <p className="text-xs text-brand-ink leading-relaxed mb-4">Attendance and volunteer hour tracking for service-led organizations.</p>

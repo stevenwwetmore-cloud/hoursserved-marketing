@@ -1,0 +1,611 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+---
+
+<Layout
+  title="How It Works | HoursServed.com"
+  description="One email, two buttons — members log service hours without passwords. See how HoursServed automates your club's reporting in minutes."
+>
+  <div style={{backgroundColor: '#F1EFE8'}} class="text-gray-900">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      {/* ── HERO ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase text-brand-navy mb-4">
+            How HoursServed works
+          </p>
+          <h1 class="text-[36px] leading-[1.15] tracking-tight mb-4 text-gray-900">
+            <span class="font-serif italic text-brand-navy">For officers</span>
+            <br />
+            <span>who take their role </span>
+            <span class="font-serif italic text-brand-teal-dark">seriously.</span>
+          </h1>
+          <p class="text-base text-brand-ink leading-relaxed max-w-xl">
+            Club secretaries, presidents, and district governors have real work to do — coaching
+            clubs, closing months, meeting Lions International reporting standards. HoursServed
+            makes sure the administration keeps pace with the leadership.
+          </p>
+        </Card>
+      </Section>
+
+      {/* ── DISTRICT VISIBILITY ── */}
+      <Section>
+        <Card variant="navy">
+          <p class="text-base font-medium tracking-[.08em] uppercase text-white mb-3">
+            District visibility
+          </p>
+          <h2 class="text-[28px] leading-snug tracking-tight mb-3">
+            <span class="font-serif italic text-white">The visibility</span>
+            <span class="text-white"> to coach.<br />The records to report.</span>
+          </h2>
+          <p class="text-base text-white/80 leading-relaxed max-w-lg mb-8">
+            District governors and secretaries get a live view across every club — reporting
+            coverage, open corrections, event activity, and Lions Portal readiness — without
+            touching data inside any club.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="rounded-lg p-4 bg-white/5" style={{borderTop: '2px solid #0F6E56'}}>
+              <p class="text-base font-medium mb-1.5 text-white">Coverage tracking</p>
+              <p class="text-base font-medium text-white mb-1">Every club, one view</p>
+              <p class="text-base text-white/80 leading-relaxed">See which clubs are complete, in progress, or overdue — before month-end arrives.</p>
+            </div>
+
+            <div class="rounded-lg p-4 bg-white/5" style={{borderTop: '2px solid #1E3A5F'}}>
+              <p class="text-base font-medium mb-1.5 text-white">Corrections visibility</p>
+              <p class="text-base font-medium text-white mb-1">Open issues, sorted by severity</p>
+              <p class="text-base text-white/80 leading-relaxed">Know which clubs need a call — and what to talk about when you make it.</p>
+            </div>
+
+            <div class="rounded-lg p-4 bg-white/5" style={{borderTop: '2px solid #1E3A5F'}}>
+              <p class="text-base font-medium mb-1.5 text-white">Export readiness</p>
+              <p class="text-base font-medium text-white mb-1">No month-end surprises</p>
+              <p class="text-base text-white/80 leading-relaxed">See which clubs are Lions Portal–ready and what's blocking the rest.</p>
+            </div>
+
+            <div class="rounded-lg p-4 bg-white/5" style={{borderTop: '2px solid #0F6E56'}}>
+              <p class="text-base font-medium mb-1.5 text-white">Read-only access</p>
+              <p class="text-base font-medium text-white mb-1">Oversight without interference</p>
+              <p class="text-base text-white/80 leading-relaxed">District officers see everything they need. They can't edit data inside any club.</p>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── DIVIDER ── */}
+      <Section class="py-6">
+        <div class="flex items-center gap-3">
+          <div class="flex-1 h-px bg-gray-300" />
+          <span class="text-base font-medium tracking-[.1em] uppercase text-gray-600">Club-level features</span>
+          <div class="flex-1 h-px bg-gray-300" />
+        </div>
+      </Section>
+
+      {/* ── MEETING RSVPS ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Meeting RSVPs</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">One email. Two buttons. Attendance handled.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            Create a meeting, send invitations in one click, and every member receives a personal email with a Yes or No button. No passwords, no app downloads. Responses update your attendance record in real time.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Create the event</strong> — name, date, location, and an optional note to members.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Send invitations</strong> with one click. Every active member gets a personalized email.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Members tap Yes or No</strong> directly in the email. No account, no app required.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Dashboard updates instantly</strong> — who's coming, who declined, who hasn't replied.</p>
+            </div>
+            <div class="flex gap-2 items-start bg-blue-50 rounded-lg px-3.5 py-2.5 mt-2">
+              <div class="w-3 h-3 rounded-full bg-brand-navy shrink-0 mt-0.5" />
+              <p class="text-base text-brand-navy leading-relaxed">Members never create a password or download anything. Every action happens inside the email they already received.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="flex flex-col gap-3 max-w-2xl w-full">
+              <img
+                src="/images/attendance-requested-alt.png"
+                alt="Attendance request email with Yes / No buttons"
+                class="rounded-xl border border-gray-100 shadow-sm w-full"
+              />
+              <img
+                src="/images/attendance-confirmed-alt.png"
+                alt="Attendance confirmed screen"
+                class="rounded-xl border border-gray-100 shadow-sm w-full"
+              />
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── SERVICE HOURS ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Service hours</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">Collecting hours without chasing people.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            Members submit hours through a simple form. You review and approve. HoursServed compiles everything — no spreadsheets, no data entry at month-end.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Members submit hours</strong> via a shared link. No login required.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Review submissions</strong> in the Work Queue. Approve or flag for correction.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Approved hours lock by month</strong> — no accidental overwrites when the secretary changes.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Reports compile automatically</strong> from approved data, ready for your district or board.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-gray-50 px-3 py-2 border-b border-gray-100 text-base font-medium text-gray-900">Report service hours</div>
+                <div class="p-3">
+                  <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Project / activity</div>
+                  <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5 mb-2">Food bank – sorting shift</div>
+                  <div class="grid grid-cols-2 gap-1.5 mb-2">
+                    <div>
+                      <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Date</div>
+                      <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5">May 8, 2025</div>
+                    </div>
+                    <div>
+                      <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Hours</div>
+                      <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5">3.5 hrs</div>
+                    </div>
+                  </div>
+                  <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Category</div>
+                  <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5 mb-2.5">Community service</div>
+                  <button class="w-full bg-brand-navy text-white rounded text-base font-medium py-1.5">Submit hours</button>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden mt-2.5">
+                <div class="bg-gray-50 px-3 py-1.5 flex justify-between items-center border-b border-gray-100">
+                  <span class="text-base font-medium text-gray-900">Pending approval</span>
+                  <span class="text-base bg-brand-navy text-white px-2 py-0.5 rounded-full font-medium">3 new</span>
+                </div>
+                <div class="px-3 py-2">
+                  <div class="flex justify-between mb-1.5">
+                    <span class="text-base text-gray-900">Margaret K. — Food bank</span>
+                    <span class="text-base font-medium text-gray-900">3.5 hrs</span>
+                  </div>
+                  <div class="flex gap-1.5">
+                    <button class="bg-brand-navy text-white rounded text-base px-2 py-0.5">Approve</button>
+                    <button class="bg-gray-50 border border-gray-200 text-gray-600 rounded text-base px-2 py-0.5">Flag</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── MONTHLY REPORTS ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Monthly reports</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">Reports that generate themselves, then lock.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            At month-end HoursServed assembles the report from approved data — attendance, hours, member activity. Officers review by email, approve, and the month locks permanently. Records stay intact regardless of who takes over next year.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Auto-generation runs</strong> on the last day of the month from all approved submissions.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Officers receive the report</strong> by email and approve or request corrections — no login needed.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Month locks on approval.</strong> Data is permanent and auditable regardless of future officer changes.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Export in one click</strong> — formatted for Lions Portal or your district system.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-brand-navy px-3 py-2">
+                  <p class="text-base mb-0.5" style={{color: '#E8EDF3'}}>Westdale Lions Club</p>
+                  <p class="text-base font-medium text-white">April 2025 — Monthly Report</p>
+                </div>
+                <div class="grid grid-cols-3 border-b border-gray-100">
+                  <div class="py-2 text-center border-r border-gray-100">
+                    <p class="text-xl font-bold text-gray-900">24</p>
+                    <p class="text-base text-gray-600 uppercase tracking-wide">Members</p>
+                  </div>
+                  <div class="py-2 text-center border-r border-gray-100">
+                    <p class="text-xl font-bold text-gray-900">142</p>
+                    <p class="text-base text-gray-600 uppercase tracking-wide">Hours</p>
+                  </div>
+                  <div class="py-2 text-center">
+                    <p class="text-xl font-bold text-gray-900">87%</p>
+                    <p class="text-base text-gray-600 uppercase tracking-wide">Attendance</p>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base">
+                  <span class="text-gray-600">Margaret Kowalski</span>
+                  <span class="font-medium text-gray-900">12.5 hrs</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base">
+                  <span class="text-gray-600">Robert Chen</span>
+                  <span class="font-medium text-gray-900">8.0 hrs</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base">
+                  <span class="text-gray-600">Patricia Wallace</span>
+                  <span class="font-medium text-gray-900">6.5 hrs</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base text-gray-600">
+                  <span>+ 21 more members</span>
+                  <span></span>
+                </div>
+                <div class="flex gap-1.5 px-3 py-2 bg-gray-50">
+                  <button class="flex-1 bg-brand-navy text-white rounded text-base font-medium py-1.5">Approve &amp; lock report</button>
+                  <button class="flex-1 bg-white border border-gray-200 text-gray-600 rounded text-base py-1.5">Request corrections</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── VOLUNTEER SHIFTS ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Volunteer shifts</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">Shift sign-ups without the group-chat chaos.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            Create time slots for your events, share a link, and members claim shifts directly — no spreadsheet, no reply-all. Hours from completed shifts flow into the service record automatically.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Define shifts</strong> — time, role, and capacity for each slot.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Share the sign-up link</strong> by email or newsletter. No login required to claim a slot.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Members claim a shift</strong> and receive instant email confirmation.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Hours post automatically</strong> after the shift — nothing to enter manually.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-gray-50 px-3 py-2 border-b border-gray-100">
+                  <p class="text-base font-medium text-gray-900">Harvest Dinner — Nov 2</p>
+                  <p class="text-base text-gray-600">Sign up for a volunteer shift</p>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100">
+                  <div>
+                    <p class="text-base font-medium text-gray-900">3:00 – 5:00 PM</p>
+                    <p class="text-base text-gray-600">Setup crew</p>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base text-gray-600">1 left</span>
+                    <button class="bg-brand-navy text-white rounded text-base px-1.5 py-0.5">Claim</button>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100">
+                  <div>
+                    <p class="text-base font-medium text-gray-900">5:30 – 8:00 PM</p>
+                    <p class="text-base text-gray-600">Serving tables</p>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base text-gray-600">3 spots</span>
+                    <button class="bg-brand-navy text-white rounded text-base px-1.5 py-0.5">Claim</button>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 bg-gray-50">
+                  <div>
+                    <p class="text-base font-medium text-gray-900">8:00 – 9:30 PM</p>
+                    <p class="text-base text-gray-600">Cleanup</p>
+                  </div>
+                  <span class="text-base text-gray-600">Full</span>
+                </div>
+                <p class="px-3 py-2 text-base text-gray-600">Hours recorded automatically after your shift.</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── OFFICER TRANSITION ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Officer transition</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">New secretary. Zero lost history.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            When your executive turns over, no data migrates, no spreadsheets get emailed, and nothing lives on someone's laptop. The incoming officer logs in and the full record is already there.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Invite the incoming officer</strong> by email — access granted instantly, no IT required.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Full history is immediately visible</strong> — every locked month, approved report, and member record.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Remove the outgoing officer</strong> and their access expires. Nothing leaves with them.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Role-based access</strong> — secretary, president, and district officers each see what's appropriate to their role.</p>
+            </div>
+            <div class="flex gap-2 items-start bg-blue-50 rounded-lg px-3.5 py-2.5 mt-2">
+              <div class="w-3 h-3 rounded-full bg-brand-navy shrink-0 mt-0.5" />
+              <p class="text-base text-brand-navy leading-relaxed">Officer transitions typically take 4–6 hours. With HoursServed, about 10 minutes.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-brand-navy px-3 py-2 flex justify-between items-center">
+                  <span class="text-base font-medium text-white">Westdale Lions — officer access</span>
+                  <span class="bg-white/20 rounded px-1.5 py-0.5 text-base text-white">+ Invite</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 border-b border-gray-100">
+                  <div class="w-5 h-5 rounded-full bg-gray-100 text-brand-navy text-base font-medium flex items-center justify-center shrink-0">DK</div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-base text-gray-900">David Kim</p>
+                    <p class="text-base text-gray-600">Secretary (incoming)</p>
+                  </div>
+                  <span class="rounded-full px-2 py-0.5 text-base font-medium bg-white border border-brand-navy text-brand-navy">New</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 border-b border-gray-100">
+                  <div class="w-5 h-5 rounded-full bg-gray-100 text-brand-navy text-base font-medium flex items-center justify-center shrink-0">MH</div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-base text-gray-900">Margaret H.</p>
+                    <p class="text-base text-gray-600">President</p>
+                  </div>
+                  <span class="rounded-full px-2 py-0.5 text-base font-medium bg-white border border-green-800 text-green-800">Active</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 border-b border-gray-100">
+                  <div class="w-5 h-5 rounded-full bg-gray-100 text-brand-navy text-base font-medium flex items-center justify-center shrink-0">RW</div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-base text-gray-900">Robert Walsh</p>
+                    <p class="text-base text-gray-600">Secretary (outgoing)</p>
+                  </div>
+                  <span class="rounded-full px-2 py-0.5 text-base font-medium bg-white border border-gray-600 text-gray-600">Removing</span>
+                </div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-100 mt-2.5">
+                <p class="text-base font-medium uppercase tracking-wider text-gray-600 mb-1.5">History visible to incoming secretary</p>
+                <div class="flex justify-between text-base py-0.5 border-b border-gray-100">
+                  <span class="text-gray-600">Locked months</span>
+                  <span class="font-medium text-gray-900">36 months</span>
+                </div>
+                <div class="flex justify-between text-base py-0.5 border-b border-gray-100">
+                  <span class="text-gray-600">Approved reports</span>
+                  <span class="font-medium text-gray-900">36 reports</span>
+                </div>
+                <div class="flex justify-between text-base py-0.5 border-b border-gray-100">
+                  <span class="text-gray-600">Member records</span>
+                  <span class="font-medium text-gray-900">247 members</span>
+                </div>
+                <div class="flex justify-between text-base py-0.5">
+                  <span class="text-gray-600">Service hours logged</span>
+                  <span class="font-medium text-gray-900">4,812 hrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── COMMUNITY VOLUNTEERS ── */}
+      <Section>
+        <Card variant="white">
+          <p class="text-base font-medium tracking-[.08em] uppercase mb-2 text-brand-navy">Community volunteers</p>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">Open your events to the community, not just your members.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            External volunteers sign up for shifts without being club members. Their contributions are tracked separately — they show up in your event record without affecting your Lions Portal member reporting.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Enable public sign-ups</strong> for any shift. External volunteers get a separate flow from members.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Share a public link</strong> — post it in community groups, your club website, or a newsletter.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Volunteers enter name and email</strong> and claim a shift. No account required.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-navy">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">External hours tracked separately</strong> from member hours — Lions Portal reports stay accurate.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-gray-50 px-3 py-2 border-b border-gray-100">
+                  <p class="text-base font-medium text-gray-900">Community Food Drive — Dec 14</p>
+                  <p class="text-base text-gray-600">Westdale Lions · Volunteer sign-up</p>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100">
+                  <div>
+                    <p class="text-base font-medium text-gray-900">9:00 – 11:00 AM</p>
+                    <p class="text-base text-gray-600">Sorting station · 4 spots</p>
+                  </div>
+                  <button class="bg-brand-navy text-white rounded text-base px-1.5 py-0.5">Claim</button>
+                </div>
+                <div class="px-3 py-2.5">
+                  <div class="mb-1.5">
+                    <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Your name</div>
+                    <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5">Sandra Petrov</div>
+                  </div>
+                  <div class="mb-1.5">
+                    <div class="block text-base font-medium text-gray-600 uppercase tracking-wide mb-0.5">Your email</div>
+                    <div class="bg-gray-50 border border-gray-100 rounded text-base text-gray-900 px-2 py-1.5">s.petrov@email.com</div>
+                  </div>
+                  <button class="w-full bg-brand-navy text-white rounded text-base font-medium py-1.5 mt-1">Confirm my shift</button>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden mt-2.5">
+                <div class="bg-gray-50 px-3 py-1.5 flex justify-between items-center border-b border-gray-100">
+                  <span class="text-base font-medium text-gray-900">Community volunteers</span>
+                  <span class="text-base bg-brand-navy text-white px-2 py-0.5 rounded-full font-medium">11 signed up</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base">
+                  <span>Sandra Petrov</span>
+                  <span class="rounded-full px-2 py-0.5 text-base font-medium bg-white border border-green-800 text-green-800">Confirmed</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 text-base">
+                  <span>Marcus Delacroix</span>
+                  <span class="rounded-full px-2 py-0.5 text-base font-medium bg-white border border-green-800 text-green-800">Confirmed</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 border-b border-gray-100 last:border-b-0 text-base text-gray-600">
+                  <span>+ 9 more community volunteers</span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── LIONS PORTAL REPORTING ── */}
+      <Section>
+        <Card variant="white">
+          <div class="flex items-center gap-2 mb-2">
+            <p class="text-base font-medium tracking-[.08em] uppercase text-brand-teal-dark">Lions Portal reporting</p>
+            <span class="text-base font-medium bg-amber-50 text-brand-navy border border-brand-teal rounded-full px-2 py-px tracking-wide">Coming soon: direct upload</span>
+          </div>
+          <h2 class="text-xl font-medium leading-snug text-gray-900 mb-2.5">Export a Portal-ready CSV in one click.</h2>
+          <p class="text-base leading-relaxed text-brand-ink max-w-xl mb-6">
+            When your monthly report is approved and locked, your Lions Portal CSV is ready — field names aligned, dates formatted, volunteer counts accurate. A field alignment preview lets you confirm every row before you download.
+          </p>
+          <div class="flex flex-col gap-3.5">
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-teal-dark">1</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Approve and lock</strong> your monthly report. Required fields are checked before export is enabled.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-teal-dark">2</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Review the field alignment preview</strong> — see every value mapped to the exact Lions Portal column it belongs in.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-teal-dark">3</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Download the CSV</strong> — field names and formats match exactly what Lions Portal expects.</p>
+            </div>
+            <div class="flex gap-2.5 items-start">
+              <div class="w-[22px] h-[22px] rounded-full text-white text-base font-medium flex items-center justify-center shrink-0 mt-0.5 bg-brand-teal-dark">4</div>
+              <p class="text-base leading-relaxed text-brand-ink"><strong class="text-gray-900 font-medium">Upload to Lions Portal manually</strong> — the file is ready to go. Direct upload integration is coming soon.</p>
+            </div>
+            <div class="bg-amber-50 border-l-[3px] border-brand-teal rounded-lg px-3.5 py-2.5 mt-2">
+              <p class="text-base text-brand-navy leading-relaxed"><strong class="text-brand-navy">Coming soon:</strong> direct upload from HoursServed to Lions Portal — no manual step required.</p>
+            </div>
+          </div>
+          <div class="hidden md:flex md:justify-center md:mt-8">
+            <div class="bg-gray-50 rounded-xl p-3 border border-gray-100 w-full max-w-2xl mx-auto">
+              <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                <div class="bg-brand-navy px-3 py-2 flex justify-between items-center">
+                  <span class="text-base font-medium text-white">Lions Portal — field alignment preview</span>
+                  <span class="text-base text-white/60">Thornwood Lions · June 2025</span>
+                </div>
+                <div class="flex justify-between px-3 py-1.5 bg-gray-50 border-b border-gray-100">
+                  <span class="text-base font-medium text-gray-600 uppercase tracking-wide font-mono">Lions Portal field</span>
+                  <span class="text-base font-medium text-gray-600 uppercase tracking-wide">Value</span>
+                  <span class="text-base font-medium text-gray-600 uppercase tracking-wide">Status</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-1.5 border-b border-gray-100 text-base">
+                  <span class="font-mono text-base text-gray-600">Club Number</span>
+                  <span class="text-gray-900">4391</span>
+                  <span class="bg-green-50 text-green-800 text-base font-medium rounded px-1.5 py-px">OK</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-1.5 border-b border-gray-100 text-base">
+                  <span class="font-mono text-base text-gray-600">Activity Name</span>
+                  <span class="text-gray-900">June Meeting</span>
+                  <span class="bg-green-50 text-green-800 text-base font-medium rounded px-1.5 py-px">OK</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-1.5 border-b border-gray-100 text-base">
+                  <span class="font-mono text-base text-gray-600">Volunteer Count</span>
+                  <span class="text-gray-900">22</span>
+                  <span class="bg-green-50 text-green-800 text-base font-medium rounded px-1.5 py-px">OK</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-1.5 border-b border-gray-100 text-base">
+                  <span class="font-mono text-base text-gray-600">Service Hours</span>
+                  <span class="text-gray-900">44.0</span>
+                  <span class="bg-green-50 text-green-800 text-base font-medium rounded px-1.5 py-px">OK</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2 bg-gray-50 border-t border-gray-100">
+                  <span class="text-base text-gray-600">All fields aligned · 5 events · 124.0 hrs</span>
+                  <button class="bg-brand-teal-dark text-white rounded text-base font-medium px-2.5 py-1">Download CSV</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Section>
+
+      {/* ── CTA ── */}
+      <Section>
+        <Card variant="teal" class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Ready to simplify your organization?</h2>
+          <p class="text-white mb-8 text-base leading-relaxed max-w-xl mx-auto">HoursServed makes attendance tracking, service hour logging, and monthly reporting easier — so your officers can focus on the work that matters.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/app/dashboard" class="bg-white text-brand-navy font-bold px-7 py-3 rounded-xl hover:opacity-90 transition-opacity text-sm no-underline">
+              Start Free — No Credit Card
+            </a>
+            <a
+              href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-transparent border-white text-white font-semibold px-7 py-3 rounded-xl hover:opacity-90 transition-opacity text-sm no-underline"
+              style={{border: "1.5px solid #FFFFFF"}}
+            >
+              Book a Demo
+            </a>
+          </div>
+        </Card>
+      </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>
