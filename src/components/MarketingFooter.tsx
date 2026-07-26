@@ -36,6 +36,7 @@ export default function MarketingFooter() {
               <li><a href="/solutions" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">All Solutions</a></li>
               <li><a href="/solutions/service-clubs" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Clubs</a></li>
               <li><a href="/solutions/districts" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Districts</a></li>
+              <li><a href="/guide" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Secretary Guide</a></li>
               <li><a href="/solutions/officer-transition" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Officer Transition</a></li>
               <li><a href="/solutions/volunteer-growth" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Volunteer Growth</a></li>
               <li><a href="/solutions/service-reporting" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Service Reporting</a></li>
@@ -75,7 +76,7 @@ export default function MarketingFooter() {
           <div>
             <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Company</p>
             <ul className="space-y-2">
-              <li><a href="/guide" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Secretary Guide</a></li>
+              <li><a href="/accessibility" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Accessibility</a></li>
               <li><a href="/faq" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">FAQ</a></li>
               <li><a href="/blog" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Blog</a></li>
               <li><a href="/contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Contact</a></li>
@@ -84,7 +85,6 @@ export default function MarketingFooter() {
               <li><a href="/privacy-policy" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Privacy</a></li>
               <li><a href="/terms-of-service" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Terms</a></li>
               <li><a href="/cookie-policy" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cookie Policy</a></li>
-              <li><a href="/accessibility" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Accessibility</a></li>
               <li><a href="/legal/processors" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Subprocessor DPAs</a></li>
               <li><a href="/sitemap" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Site Map</a></li>
             </ul>
