@@ -96,7 +96,7 @@ export default function MarketingFooter() {
             HoursServed is an independent product of Abacus Media Marketing Inc. It is not affiliated with, endorsed by, or sponsored by Lions Clubs International. Lions Clubs International, MyLCI, and Lion Portal are trademarks of their respective owner, used here only to describe compatibility.
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
-            <p className="text-xs text-brand-ink">© 2026 Hours Served Inc. All rights reserved. · Toronto, ON, Canada</p>
+            <p className="text-xs text-brand-ink">© 2026 HoursServed — a product of Abacus Media Marketing Inc. All rights reserved. · Toronto, ON, Canada</p>
             <a href="/contact" className="text-xs text-brand-ink hover:text-gray-700 transition-colors">hello@hoursserved.com</a>
           </div>
         </div>
