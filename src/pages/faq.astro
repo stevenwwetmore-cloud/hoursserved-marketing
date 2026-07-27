@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+import { ChevronDown } from 'lucide-react';
+
+const FAQ_CATEGORIES = [
+  {
+    label: '⚡ Getting Started',
+    faqs: [
+      { q: 'How quickly can I get set up?', a: 'Most admins are fully set up in under 30 minutes. You create your club, import your member list (CSV or manual), and create your first event. Members need zero training — they just click YES or NO in their email.' },
+      { q: 'Do I need technical skills to use HoursServed?', a: 'None at all. It\'s designed for club secretaries and volunteer coordinators, not IT staff. If you can send an email, you can run HoursServed.' },
+      { q: 'Is there a free plan?', a: 'Yes. The Free plan supports up to 20 members with YES/NO email attendance, manual event creation, and basic CSV export — no credit card required.' },
+      { q: 'What\'s the difference between the Free and Pro plans?', a: 'Pro adds unlimited members, smart nudge emails (14d, 7d, 48h, 4h), shift management with role-based signups, external volunteer management, dues & payment tracking, Interac e-Transfer reconciliation, branded PDF reports, at-risk member alerts, month locking, Lion Portal CSV export, and Google Calendar sync. Pro is $19/month or $199/year.' },
+    ]
+  },
+  {
+    label: '👤 Members & Attendance',
+    faqs: [
+      { q: 'Do members need to create an account or download an app?', a: 'Never. Members receive a secure email with two buttons — YES or NO. One click and they\'re done. No account, no app, no password to remember. This is core to how HoursServed works — unlike Track It Forward or SignUpGenius which require members to log in.' },
+      { q: 'What happens if a member clicks YES then changes their mind?', a: 'Last click wins. They can click NO at any time using the same link and their response updates immediately. Every response is timestamped so there\'s a full, immutable audit trail.' },
+      { q: 'Can I manually adjust attendance after the fact?', a: 'Yes. Secretaries can add or remove any member from any event at any time before the month is locked. This is something neither SignUpGenius nor basic time-tracking tools support — they only record what people self-reported.' },
+      { q: 'Can external volunteers (non-members) join events?', a: 'Yes. On Pro, you can invite external volunteers to specific shifts. They receive the same email-link experience as members but are tracked separately from your member roster. No login required for them either.' },
+      { q: 'Can I track guests and meal attendance?', a: 'Yes. On Pro, you can capture guest count and meal cost per attendance record — useful for clubs that charge per-head or need to track catering costs.' },
+    ]
+  },
+  {
+    label: '⏱️ Service Hours & Reporting',
+    faqs: [
+      { q: 'How are service hours calculated?', a: 'Hours are frozen at event creation — you set the duration when you create the event and it never changes retroactively. The moment a member clicks YES, their service hours and commute time are captured instantly. No manual entry, no spreadsheet, no second step.' },
+      { q: 'Why are hours "frozen" at event creation?', a: 'Frozen hours create a defensible, audit-ready record. Nobody can go back and inflate hours after the fact. Competitors like Track It Forward let volunteers self-log hours — which means the record depends on volunteers remembering to log, and can be edited any time. HoursServed\'s hours are locked at the source.' },
+      { q: 'What is the Lion Portal CSV export?', a: 'The Pro CSV export matches the exact column headers required by Lion Portal: Activity Name, Activity Type, Number of Volunteers, Duration (Hours), Total Volunteer Hours, and Total Commute Time. You can submit it to your district directly without reformatting anything.' },
+      { q: 'What is month locking?', a: 'When you "lock" a month, all totals are frozen for reporting. The secretary\'s 60-minute admin bonus is applied automatically. The audit trail becomes immutable — no further responses can be recorded for that period\'s events. Locking is how you finalize your district submission with confidence.' },
+      { q: 'What is the at-risk member report?', a: 'The at-risk report automatically flags members who are falling below your participation or hour thresholds before month-end. This gives officers time to follow up — something no spreadsheet does automatically.' },
+      { q: 'Can I generate PDF summaries for reporting?', a: 'Yes. Pro includes branded PDF monthly summaries you can send to district leadership or use for grant applications. You can also export raw CSV data for district portals like Lion Portal.' },
+    ]
+  },
+  {
+    label: '📅 Events & Shifts',
+    faqs: [
+      { q: 'What types of events can I create?', a: 'You can create standard recurring meetings (whole roster invited), single-day events, and multi-day events with complex shift schedules. Each shift can have named roles with min/max capacity limits (e.g. "Setup: 2–4 people", "Check-in: 1–2 people").' },
+      { q: 'What are "smart nudge" emails?', a: 'Smart nudge emails are automatic reminders sent at 14 days, 7 days, 48 hours, and 4 hours before the event — but only to members who haven\'t responded yet. Members who already clicked YES or NO are automatically skipped. No other tool in this category does this automatically.' },
+      { q: 'How does shift management work?', a: 'For complex events like fundraisers or service projects, you can create multiple shifts across multiple days, each with named roles and capacity limits. Members and external volunteers receive an email to claim a specific role. The admin sees real-time coverage (filled vs. open slots) and can manage waitlists and cancellations.' },
+      { q: 'How does Google Calendar sync work?', a: 'Google Calendar sync pulls your upcoming events from Google Calendar into HoursServed — saving you from manually re-entering each meeting or event. Here\'s exactly what happens:\n\n1. You connect your Google account (one-time setup in your dashboard).\n2. Click "Sync Google Calendar" — HoursServed imports events from the next 90 days that don\'t already exist.\n3. Each imported event lands in HoursServed as a Draft. Nothing is sent to your members yet.\n4. You review each draft, confirm or adjust the duration and commute time (since Google Calendar doesn\'t always have those), then activate the event when you\'re ready.\n5. Once activated, HoursServed sends the Attendance Request email to your members as normal.\n\nThe sync is one-way: Google Calendar → HoursServed. HoursServed does not write back to your Google Calendar. Duplicate protection is built in — re-syncing won\'t create duplicates. This is a Pro feature.' },
+    ]
+  },
+  {
+    label: '💰 Dues & Payments',
+    faqs: [
+      { q: 'Can I track dues payments inside HoursServed?', a: 'Yes. You can create dues requests (e.g. "2025–2026 Annual Dues"), set an amount and due date, and track payment status per member as paid, pending, or waived — all without a separate spreadsheet. HoursServed does not process or handle payments directly. Instead, members send their dues via Interac e-Transfer to your club\'s email address, and your treasurer verifies the transfer in their banking app. Once confirmed, the treasurer manually marks that member as paid inside HoursServed. The optional reconciliation code makes it easy to match incoming transfers to the right member. This is built into the Pro plan.' },
+      { q: 'Can I use Interac e-Transfer to pay my subscription?', a: 'Yes. Canadian clubs on Pro or District plans can pay via Interac e-Transfer. We generate a pro-forma invoice with a unique reconciliation code so we can match your payment.' },
+      { q: 'Can members pay their club dues by Interac e-Transfer?', a: 'Yes. You can configure your club\'s Interac e-Transfer email and auto-generate a unique reconciliation code per dues request, so you can easily match incoming transfers to the correct member.' },
+      { q: 'Is fiscal year billing available?', a: 'Yes. Service clubs often run July 1 to June 30. You can align your billing to that fiscal year so your subscription renews in sync with your club year.' },
+    ]
+  },
+  {
+    label: '🏛️ District & Multi-Club',
+    faqs: [
+      { q: 'What is the District plan?', a: 'The District plan lets you manage multiple clubs under one account. You get district-wide rollup reports, a real-time club leaderboard showing which clubs are leading in service hours, and a dedicated onboarding call. Pricing is tailored — contact us or book a demo.' },
+      { q: 'Can I compare service hours across clubs in my district?', a: 'Yes, on the District plan. You get a real-time leaderboard and club-by-club hour breakdowns — something no other tool in this space offers out of the box.' },
+    ]
+  },
+  {
+    label: '🆚 How We Compare',
+    faqs: [
+      { q: 'How is HoursServed different from SignUpGenius?', a: 'SignUpGenius is a sign-up sheet tool — it tells you who signed up, but it doesn\'t log service hours, send smart nudge reminders, lock months, or generate reports. HoursServed logs hours automatically the moment someone confirms, and includes audit trails, dues tracking, and district CSV exports. SignUpGenius Pro costs $10–$20/mo and does none of that.' },
+      { q: 'How is HoursServed different from Track It Forward?', a: 'Track It Forward requires volunteers to self-log their hours in a portal — which means volunteers must remember to do it, and records are only as accurate as what they submit. HoursServed logs hours automatically when a member confirms by email. There\'s no portal, no login, and no reliance on volunteer memory. HoursServed also includes shift management, dues tracking, and district reporting that Track It Forward doesn\'t have.' },
+      { q: 'How is HoursServed different from Unison?', a: 'Unison is a membership management platform. HoursServed is focused specifically on attendance, automatic service-hour logging, shift management, dues tracking, and district reporting. If your main pain point is "I need accurate service hours submitted to district every month," HoursServed covers that workflow end-to-end in a way Unison doesn\'t.' },
+      { q: 'Can\'t I just use a spreadsheet?', a: 'You can — but spreadsheets require someone to manually collect responses, update cells, calculate totals, and generate reports every single month. With HoursServed, every click is logged automatically, totals are always current, the at-risk report is instant, and your district CSV is one button. Most admins save 2–4 hours per month.' },
+    ]
+  },
+  {
+    label: '🔒 Privacy & Security',
+    faqs: [
+      { q: 'What data do you store about members?', a: 'We store only first name, last name, and email address. No addresses, no phone numbers, no government IDs, no unnecessary data. We take a minimal data approach by design.' },
+      { q: 'Are the email links secure?', a: 'Yes. Each YES/NO link is a unique, time-limited token tied to one member and one event. Links expire after the event and cannot be reused for a different response once the month is locked.' },
+    ]
+  },
+];
+---
+
+<Layout title="FAQ | HoursServed" description="Answers to common questions about HoursServed — attendance tracking, service hours, shift management, dues, and how we compare to SignUpGenius, Track It Forward, and Unison.">
+  <div class="min-h-screen bg-canvas">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <Section>
+        <Card variant="white" className="text-center">
+          <h1 class="text-4xl font-bold text-brand-navy mb-3">Frequently Asked Questions</h1>
+          <p class="text-base text-gray-600 max-w-xl mx-auto">
+            Everything you need to know about HoursServed — from setup to district reporting.
+          </p>
+        </Card>
+      </Section>
+
+      <Section>
+        <div class="max-w-3xl mx-auto space-y-8">
+          {FAQ_CATEGORIES.map((cat) => (
+            <div class="bg-white rounded-2xl border border-card-border shadow-sm p-6">
+              <h2 class="text-base font-bold text-brand-navy mb-2">{cat.label}</h2>
+              <div>
+                {cat.faqs.map((faq) => (
+                  <details class="border-b border-gray-100 last:border-0 group">
+                    <summary class="w-full flex items-center justify-between gap-4 py-4 cursor-pointer list-none focus:outline-none focus:ring-2 focus:ring-brand-teal-dark focus:ring-offset-2 rounded">
+                      <span class="text-base font-semibold text-brand-navy">{faq.q}</span>
+                      <ChevronDown className="w-4 h-4 flex-shrink-0 transition-transform group-open:rotate-180" style={{color: '#0F6E56'}} aria-hidden="true" />
+                    </summary>
+                    <div class="text-base text-gray-600 leading-relaxed pb-4 whitespace-pre-line">{faq.a}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <Card variant="white" className="text-center max-w-2xl mx-auto">
+          <p class="text-base text-gray-600 mb-4">Still have questions? We reply to every message.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact/" class="text-base font-semibold border px-5 py-3 rounded-xl hover:bg-gray-50 transition-colors" style={{color: '#0F6E56', borderColor: '#0F6E56'}}>Contact Us</a>
+            <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="text-base font-semibold text-white px-5 py-3 rounded-xl transition-colors" style={{backgroundColor: '#1E3A5F'}}>Book a Demo</a>
+          </div>
+        </Card>
+      </Section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>
+
+<style>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
