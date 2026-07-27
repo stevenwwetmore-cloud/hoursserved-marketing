@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+import BrandLogo from '../components/BrandLogo';
+import { CheckCircle, Calendar, Clock, Mail } from 'lucide-react';
+---
+
+<Layout title="Book a Demo | HoursServed" description="Schedule a free 20-minute demo of HoursServed. We'll show you exactly how it works for your type of organization.">
+  <div class="min-h-screen" style={{ backgroundColor: '#F1EFE8' }}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+      <section class="pt-20 pb-16 px-4 text-center" style={{ backgroundColor: '#F1EFE8' }}>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">See <BrandLogo className="font-bold text-4xl" /> in action</h1>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">Book a 20-minute walkthrough. We'll show you exactly how it works for your type of organization — no pressure, just the product.</p>
+      </section>
+
+      <section class="py-16 px-4" style={{ backgroundColor: '#F1EFE8' }}>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+          {/* What to expect */}
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 mb-6">What to expect</h2>
+            <div class="space-y-5">
+              <div class="flex gap-4">
+                <div class="w-9 h-9 bg-white border rounded-lg flex items-center justify-center flex-shrink-0" style={{ borderColor: '#E5E1D8' }}>
+                  <Clock className="w-4 h-4" style={{ color: '#0F6E56' }} aria-hidden="true" />
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 text-sm">20 minutes</p>
+                  <p class="text-base text-gray-600">A focused walkthrough — no sales pressure, just the product.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-9 h-9 bg-white border rounded-lg flex items-center justify-center flex-shrink-0" style={{ borderColor: '#E5E1D8' }}>
+                  <Calendar className="w-4 h-4" style={{ color: '#0F6E56' }} aria-hidden="true" />
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 text-sm">Pick your time</p>
+                  <p class="text-base text-gray-600">Book directly via Calendly. Available weekdays and evenings.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-9 h-9 bg-white border rounded-lg flex items-center justify-center flex-shrink-0" style={{ borderColor: '#E5E1D8' }}>
+                  <Mail className="w-4 h-4" style={{ color: '#0F6E56' }} aria-hidden="true" />
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 text-sm">Follow-up included</p>
+                  <p class="text-base text-gray-600">We'll send a summary and answer any questions after the call.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-9 h-9 bg-white border rounded-lg flex items-center justify-center flex-shrink-0" style={{ borderColor: '#E5E1D8' }}>
+                  <CheckCircle className="w-4 h-4" style={{ color: '#0F6E56' }} aria-hidden="true" />
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 text-sm">Your use case, specifically</p>
+                  <p class="text-base text-gray-600">Tell us your organization type and we'll show you the relevant features.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-white border rounded-xl p-5" style={{ borderColor: '#E5E1D8' }}>
+              <p class="text-base font-semibold text-gray-900 mb-1">Prefer to explore on your own?</p>
+              <p class="text-base text-gray-600 mb-3">Start a free account — no credit card required.</p>
+              <a href="/app/dashboard/" class="text-sm font-semibold hover:underline" style={{ color: '#0F6E56' }}>Start Free <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="mt-4 bg-white border rounded-xl p-5" style={{ borderColor: '#E5E1D8' }}>
+              <p class="text-xs font-bold text-gray-900 uppercase tracking-widest mb-2">Evaluating alternatives?</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/compare/unison/" class="text-xs border px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors" style={{ color: '#0F6E56', borderColor: '#0F6E56' }}>vs Unison</a>
+                <a href="/compare/signupgenius/" class="text-xs border px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors" style={{ color: '#0F6E56', borderColor: '#0F6E56' }}>vs SignUpGenius</a>
+                <a href="/compare/track-it-forward/" class="text-xs border px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors" style={{ color: '#0F6E56', borderColor: '#0F6E56' }}>vs Track It Forward</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Calendly embed */}
+          <div class="rounded-2xl shadow-lg p-6 md:p-8 text-center" style={{ backgroundColor: '#1E3A5F' }}>
+            <Calendar className="w-12 h-12 mx-auto mb-4 text-white" aria-hidden="true" />
+            <h2 class="text-xl font-bold text-white mb-2">Book your demo</h2>
+            <p class="text-base mb-6" style={{ color: '#E8EDF3' }}>Choose a time that works for you. Pick a date and time that works for you — you'll get a calendar invite immediately.</p>
+            <a
+              href="https://calendly.com/hello-klbv/hoursserved-com-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block w-full bg-white font-bold py-4 px-6 rounded-xl hover:bg-gray-50 transition-colors text-center text-base"
+              style={{ color: '#1E3A5F' }}
+            >
+              Open Booking Calendar <span aria-hidden="true">→</span>
+            </a>
+            <p class="text-sm mt-4" style={{ color: '#E8EDF3' }}>Opens in a new tab · No account required</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <MarketingFooter />
+  </div>
+</Layout>
