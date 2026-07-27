@@ -4,6 +4,7 @@
   ],
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/sitemap-index.xml" },
+    { "source": "/api/:path*", "destination": "https://base44.app/api/:path*" },
     { "source": "/assets/:path*", "destination": "https://hoursserved.vercel.app/assets/:path*" },
     { "source": "/brand/:path*", "destination": "https://hoursserved.vercel.app/brand/:path*" },
     { "source": "/images/guide/:path*", "destination": "https://hoursserved.vercel.app/images/guide/:path*" },
