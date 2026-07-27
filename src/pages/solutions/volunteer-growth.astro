@@ -213,7 +213,7 @@ import MarketingFooter from '../../components/MarketingFooter';
             { icon: "🌐", title: "Public Website Pages",                     body: "Dedicated pages for events, volunteers, photos, and contact — visible to your community, always current." },
             { icon: "📅", title: "Event Publishing & Google Calendar Sync",   body: "Publish events directly from HoursServed and sync them to Google Calendar so volunteers can add them instantly." },
             { icon: "✉️", title: "Frictionless Volunteer Signups",            body: "No passwords. No accounts. One email, two buttons — volunteers RSVP in seconds from any device." },
-            { icon: "🔁", title: "Follow-Up That Actually Happens",           body: "Automated follow-up turns one-time helpers into repeat volunteers and shows guests what it means to belong." },
+            { icon: "🔁", title: "Meeting & Event Nudges",           body: "Automatic reminders bring members and volunteers back to meetings and events, without an officer chasing anyone." },
             { icon: "📸", title: "Instant Photo Uploads",                     body: "Volunteers upload photos from the field. Your website shows visible, real-time proof of community impact." },
             { icon: "📊", title: "Officer Tools: Attendance, Hours & Reports", body: "Track attendance, log service hours, and export CSV or PDF reports — all in one place, without a spreadsheet in sight." },
           ].map((f, idx) => (
@@ -277,8 +277,7 @@ import MarketingFooter from '../../components/MarketingFooter';
         <p class="text-base text-gray-900 max-w-2xl mx-auto text-center leading-relaxed mb-14">
           The fastest way to lose a volunteer is to treat their time like it was unremarkable. The
           fastest way to keep one — and grow ten more from their network — is to make them feel
-          genuinely seen. HoursServed helps clubs build an appreciation habit without adding to the
-          workload.
+          genuinely seen.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -286,22 +285,19 @@ import MarketingFooter from '../../components/MarketingFooter';
             {
               icon:     "✉️",
               title:    "Thank-You Email",
-              body:     "Send a warm, personalized thank-you the moment an event wraps. Acknowledge what they did, name the impact, and invite them back to the next one — all from inside HoursServed.",
-              tag:      "Sent automatically · Personalizable",
+              body:     "Send a warm, personalized thank-you the moment an event wraps. Acknowledge what they did, name the impact, and invite them back to the next one.",
               featured: false,
             },
             {
               icon:     "💌",
               title:    "Mail a Card",
-              body:     "A physical card in the mailbox still means something. Officers get a prompted reminder to send a handwritten note — the kind of gesture volunteers remember and talk about.",
-              tag:      "Prompted reminder · Personal touch",
+              body:     "A physical card in the mailbox still means something. A handwritten note is the kind of gesture volunteers remember and talk about.",
               featured: true,
             },
             {
               icon:     "📞",
               title:    "A Personal Phone Call",
-              body:     "Some appreciation can't be automated. HoursServed reminds officers to make the call — especially for first-time volunteers — so no one slips through the cracks after their first event.",
-              tag:      "Officer reminder · First-time priority",
+              body:     "Some appreciation can't be automated. A call after someone's first event is what keeps a new volunteer from slipping through the cracks.",
               featured: false,
             },
           ].map((c, idx) => (
@@ -321,16 +317,6 @@ import MarketingFooter from '../../components/MarketingFooter';
               <p class={`text-base flex-1 leading-relaxed`} style={c.featured ? { color: '#E8EDF3' } : { color: '#4B5563' }}>
                 {c.body}
               </p>
-              <span
-                class="self-start text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full"
-                style={
-                  c.featured
-                    ? { background: 'rgba(255,255,255,0.2)', color: '#fff', border: '2px solid rgba(255,255,255,0.3)' }
-                    : { background: '#F1EFE8', color: '#0F6E56', border: '2px solid #E5E1D8' }
-                }
-              >
-                {c.tag}
-              </span>
             </div>
           ))}
         </div>
@@ -404,27 +390,11 @@ import MarketingFooter from '../../components/MarketingFooter';
             <div class="flex flex-col gap-5">
               <div
                 class="rounded-xl p-6 text-center"
-                style={{background: "rgba(255,255,255,0.07)", border: '2px solid rgba(255,255,255,0.1)'}}
-              >
-                <div class="text-4xl font-black mb-2 text-white" style={{fontFamily: "'Playfair Display', serif"}}>12–28</div>
-                <div class="text-xs" style={{color: "#E8EDF3"}}>Age range of Leo Club members</div>
-              </div>
-
-              <div
-                class="rounded-xl p-6 text-center"
                 style={{background: "rgba(15,110,86,0.2)", border: '2px solid rgba(15,110,86,0.35)'}}
               >
                 <p class="text-base italic leading-snug text-white" style={{fontFamily: "'Playfair Display', serif"}}>
                   "Every Leo is a future Lion. Give them a reason to stay."
                 </p>
-              </div>
-
-              <div
-                class="rounded-xl p-6 text-center"
-                style={{background: "rgba(255,255,255,0.07)", border: '2px solid rgba(255,255,255,0.1)'}}
-              >
-                <div class="text-4xl font-black mb-2 text-white" style={{fontFamily: "'Playfair Display', serif"}}>800K+</div>
-                <div class="text-xs" style={{color: "#E8EDF3"}}>Leo members worldwide</div>
               </div>
             </div>
           </div>
@@ -456,10 +426,6 @@ import MarketingFooter from '../../components/MarketingFooter';
           <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white" style={{fontFamily: "'Playfair Display', serif"}}>
             Ready to grow your club?
           </h2>
-          <p class="text-base max-w-md mx-auto mb-10 leading-relaxed" style={{color: '#E8EDF3'}}>
-            Join clubs across Canada, the US, UK, and Australia who are replacing admin burden with real
-            volunteer momentum.
-          </p>
           <div class="flex gap-4 justify-center flex-wrap">
             <a
               href="/app/dashboard/"
