@@ -1,0 +1,495 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import Card from '../../components/Card.astro';
+import MarketingNav from '../../components/MarketingNav';
+import MarketingFooter from '../../components/MarketingFooter';
+---
+
+<Layout title="Volunteer Growth | HoursServed" description="Turn guests and one-time helpers into returning contributors, future members, and stronger club support — with follow-up that actually happens.">
+  <div class="min-h-screen text-gray-900" style={{backgroundColor: '#F1EFE8'}}>
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1">
+
+    {/* HERO */}
+    <section class="relative overflow-hidden text-center px-6 pt-20 pb-20">
+      <span
+        class="inline-block text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-7 bg-white"
+        style={{color: '#0F6E56', border: '2px solid #0F6E56'}}
+      >
+        Volunteer Growth
+      </span>
+
+      <h1
+        class="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight max-w-3xl mx-auto mb-2 text-gray-900"
+        style={{fontFamily: "'Playfair Display', serif"}}
+      >
+        More volunteers today.{" "}
+        <br />
+        <em class="not-italic" style={{color: '#0F6E56'}}>More Lions tomorrow.</em>
+      </h1>
+
+      <p class="text-base text-gray-900 max-w-xl mx-auto mt-6 mb-10 leading-relaxed">
+        Turn guests and one-time helpers into returning contributors, future members, and stronger
+        club support — with follow-up that actually happens.
+      </p>
+
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a
+          href="/app/dashboard/"
+          class="inline-block px-7 py-3 rounded-lg text-sm font-semibold text-white transition-all hover:-translate-y-px"
+          style={{background: '#0F6E56'}}
+        >
+          Start Free Trial
+        </a>
+        <a
+          href="/how-it-works/"
+          class="inline-block px-7 py-3 rounded-lg text-sm font-medium text-gray-900 bg-white transition-colors"
+          style={{border: '2px solid #0F6E56', color: '#0F6E56'}}
+        >
+          See How It Works
+        </a>
+      </div>
+    </section>
+
+    {/* TRANSFORMATION / COMPARE */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <p class="text-center text-xs font-semibold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>
+          The difference
+        </p>
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center leading-tight tracking-tight max-w-2xl mx-auto mb-6 text-gray-900"
+          style={{fontFamily: "'Playfair Display', serif"}}
+        >
+          From static brochure
+          <br />
+          to{" "}
+          <em class="not-italic" style={{color: '#0F6E56'}}>
+            volunteer growth engine
+          </em>
+        </h2>
+        <p class="text-base text-gray-900 max-w-2xl mx-auto text-center leading-relaxed mb-16">
+          Most club websites post meeting dates and officer names — and stop there. HoursServed turns
+          your site into a working tool that attracts volunteers, collects signups, and keeps people
+          coming back. Every event becomes a chance to grow your club.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 items-center max-w-3xl mx-auto">
+          {/* Before */}
+          <div class="rounded-2xl p-8 bg-white" style={{border: '2px solid #E5E1D8'}}>
+            <div class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-2">Other Club Tools</div>
+            <h3 class="text-xl font-bold text-gray-600 mb-5 leading-snug" style={{fontFamily: "'Playfair Display', serif"}}>
+              A presence,<br />not a pipeline
+            </h3>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-start gap-2 text-base text-gray-600 leading-snug">
+                <span class="mt-0.5" aria-hidden="true">📄</span>Static pages with meeting info
+              </li>
+              <li class="flex items-start gap-2 text-base text-gray-600 leading-snug">
+                <span class="mt-0.5" aria-hidden="true">🔗</span>External forms with no follow-up
+              </li>
+              <li class="flex items-start gap-2 text-base text-gray-600 leading-snug">
+                <span class="mt-0.5" aria-hidden="true">📋</span>Manual attendance and sign-in sheets
+              </li>
+              <li class="flex items-start gap-2 text-base text-gray-600 leading-snug">
+                <span class="mt-0.5" aria-hidden="true">📁</span>Hours recorded in scattered spreadsheets
+              </li>
+              <li class="flex items-start gap-2 text-base text-gray-600 leading-snug">
+                <span class="mt-0.5" aria-hidden="true">📷</span>Photos posted days later, if at all
+              </li>
+            </ul>
+          </div>
+
+          {/* Arrow */}
+          <div class="flex justify-center items-center px-4 py-4 md:py-0 rotate-90 md:rotate-0" style={{color: '#0F6E56'}}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+
+          {/* After */}
+          <div class="rounded-2xl p-8 text-white" style={{background: '#0F6E56'}}>
+            <div class="text-xs font-bold tracking-widest uppercase mb-2" style={{color: '#E8EDF3'}}>
+              HoursServed
+            </div>
+            <h3 class="text-xl font-bold text-white mb-5 leading-snug" style={{fontFamily: "'Playfair Display', serif"}}>
+              A website that<br />helps you grow
+            </h3>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-start gap-2 text-base leading-snug text-white">
+                <span class="mt-0.5" aria-hidden="true">📣</span>Published events with volunteer calls-to-action
+              </li>
+              <li class="flex items-start gap-2 text-base leading-snug text-white">
+                <span class="mt-0.5" aria-hidden="true">✉️</span>Single-email RSVP — no passwords, no friction
+              </li>
+              <li class="flex items-start gap-2 text-base leading-snug text-white">
+                <span class="mt-0.5" aria-hidden="true">✅</span>Attendance and hours tracked in one place
+              </li>
+              <li class="flex items-start gap-2 text-base leading-snug text-white">
+                <span class="mt-0.5" aria-hidden="true">📊</span>CSV/PDF reports for officers, ready instantly
+              </li>
+              <li class="flex items-start gap-2 text-base leading-snug text-white">
+                <span class="mt-0.5" aria-hidden="true">📸</span>Instant photo uploads — visible proof of impact
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* FLOW CHAIN */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <p class="text-center text-xs font-semibold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>
+          How growth happens
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-14 text-gray-900" style={{fontFamily: "'Playfair Display', serif"}}>
+          Every event is a growth opportunity
+        </h2>
+
+        <div class="flex items-stretch gap-0 overflow-x-auto pb-2">
+          {[
+            { num: 1, icon: "📣", title: "Event Visibility",    desc: "Public event pages go live on your site",           highlight: false },
+            { num: 2, icon: "✍️", title: "Volunteer Signups",   desc: "One-click RSVP by email, no account needed",       highlight: false },
+            { num: 3, icon: "📸", title: "Photo Proof",         desc: "Instant uploads show the community is active",     highlight: false },
+            { num: 4, icon: "💛", title: "Thank & Appreciate",  desc: "Email, card, or call — genuine thanks that land",  highlight: true  },
+            { num: 5, icon: "🌱", title: "Nurture & Re-invite", desc: "Keep the door open, remind them they matter",      highlight: true  },
+            { num: 6, icon: "📈", title: "Club Growth",         desc: "More members, more hours, stronger community",     highlight: false },
+          ].map((step, idx) => (
+            <div key={step.num} class="flex items-stretch gap-0">
+              <div
+                class="flex-1 min-w-[130px] rounded-xl p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lg bg-white"
+                style={
+                  step.highlight
+                    ? { border: '2px solid #0F6E56' }
+                    : { border: '2px solid #E5E1D8' }
+                }
+              >
+                <div
+                  class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mx-auto mb-3"
+                  style={
+                    step.highlight
+                      ? { background: '#0F6E56', color: "#fff" }
+                      : { background: '#F1EFE8', color: '#0F6E56' }
+                  }
+                >
+                  {step.num}
+                </div>
+                <span class="block text-2xl mb-2" aria-hidden="true">{step.icon}</span>
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">{step.title}</h3>
+                <p class="text-xs text-gray-600 leading-snug">{step.desc}</p>
+              </div>
+              {idx < 5 && (
+                <div class="flex items-center px-1 flex-shrink-0 text-xl text-gray-600" aria-hidden="true">
+                  ›
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+
+    {/* FEATURES */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <p class="text-center text-xs font-semibold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>
+          What's included
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-3 text-gray-900" style={{fontFamily: "'Playfair Display', serif"}}>
+          Everything behind the growth
+        </h2>
+        <p class="text-base text-gray-900 text-center max-w-lg mx-auto mb-14 leading-relaxed">
+          The public-facing tools that bring volunteers in — and the officer tools that keep everything
+          running behind the scenes.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {[
+            { icon: "🌐", title: "Public Website Pages",                     body: "Dedicated pages for events, volunteers, photos, and contact — visible to your community, always current." },
+            { icon: "📅", title: "Event Publishing & Google Calendar Sync",   body: "Publish events directly from HoursServed and sync them to Google Calendar so volunteers can add them instantly." },
+            { icon: "✉️", title: "Frictionless Volunteer Signups",            body: "No passwords. No accounts. One email, two buttons — volunteers RSVP in seconds from any device." },
+            { icon: "🔁", title: "Follow-Up That Actually Happens",           body: "Automated follow-up turns one-time helpers into repeat volunteers and shows guests what it means to belong." },
+            { icon: "📸", title: "Instant Photo Uploads",                     body: "Volunteers upload photos from the field. Your website shows visible, real-time proof of community impact." },
+            { icon: "📊", title: "Officer Tools: Attendance, Hours & Reports", body: "Track attendance, log service hours, and export CSV or PDF reports — all in one place, without a spreadsheet in sight." },
+          ].map((f, idx) => (
+            <div
+              key={idx}
+              class="bg-white rounded-2xl p-7 transition-all hover:shadow-md"
+              style={{border: '2px solid #E5E1D8'}}
+            >
+              <div
+                class="w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-4"
+                style={{background: '#F1EFE8'}}
+                aria-hidden="true"
+              >
+                {f.icon}
+              </div>
+              <h3 class="text-base font-semibold text-gray-900 mb-2 leading-snug">{f.title}</h3>
+              <p class="text-base text-gray-600 leading-relaxed">{f.body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Photo Consent Notice */}
+        <div
+          class="flex items-start gap-5 rounded-xl p-6 mt-4 bg-white"
+          style={{
+            border:      `2px solid #E5E1D8`,
+            borderLeft:  `4px solid #0F6E56`,
+          }}
+        >
+          <span class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">📷</span>
+          <div>
+            <p class="text-xs font-bold tracking-widest uppercase mb-2" style={{color: "#0F6E56"}}>
+              Shown at the bottom of every event setup
+            </p>
+            <p class="text-base text-gray-900 leading-relaxed mb-3">
+              <strong class="text-gray-900 font-semibold">Photography Notice —</strong> Photos and
+              video may be taken at this event by club members for use on the club website, social
+              media, and promotional materials. By attending or participating, guests and volunteers
+              acknowledge that images in which they appear may be published. Participants who prefer
+              not to be photographed are welcome to let an organizer know at any time.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {["📋 Displayed on event page", "✉️ Included in RSVP confirmation", "🖨️ Printable for on-site posting"].map(chip => (
+                <span
+                  key={chip}
+                  class="text-xs font-semibold px-3 py-1 rounded-full"
+                  style={{color: "#0F6E56", background: "#F1EFE8", border: '2px solid #0F6E56'}}
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* NURTURE SECTION */}
+    <Section>
+      <div class="max-w-5xl mx-auto">
+        <p class="text-center text-xs font-semibold tracking-widest uppercase mb-3" style={{color: '#0F6E56'}}>
+          Volunteer appreciation
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-4 text-gray-900" style={{fontFamily: "'Playfair Display', serif"}}>
+          Because a thank-you{" "}
+          <br />
+          <em class="not-italic" style={{color: '#0F6E56'}}>goes a long way</em>
+        </h2>
+        <p class="text-base text-gray-900 max-w-2xl mx-auto text-center leading-relaxed mb-14">
+          The fastest way to lose a volunteer is to treat their time like it was unremarkable. The
+          fastest way to keep one — and grow ten more from their network — is to make them feel
+          genuinely seen. HoursServed helps clubs build an appreciation habit without adding to the
+          workload.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {[
+            {
+              icon:     "✉️",
+              title:    "Thank-You Email",
+              body:     "Send a warm, personalized thank-you the moment an event wraps. Acknowledge what they did, name the impact, and invite them back to the next one — all from inside HoursServed.",
+              tag:      "Sent automatically · Personalizable",
+              featured: false,
+            },
+            {
+              icon:     "💌",
+              title:    "Mail a Card",
+              body:     "A physical card in the mailbox still means something. Officers get a prompted reminder to send a handwritten note — the kind of gesture volunteers remember and talk about.",
+              tag:      "Prompted reminder · Personal touch",
+              featured: true,
+            },
+            {
+              icon:     "📞",
+              title:    "A Personal Phone Call",
+              body:     "Some appreciation can't be automated. HoursServed reminds officers to make the call — especially for first-time volunteers — so no one slips through the cracks after their first event.",
+              tag:      "Officer reminder · First-time priority",
+              featured: false,
+            },
+          ].map((c, idx) => (
+            <div
+              key={idx}
+              class="rounded-2xl p-7 flex flex-col gap-3 transition-all hover:shadow-lg"
+              style={
+                c.featured
+                  ? { background: '#0F6E56', border: '2px solid #0F6E56', color: "#fff" }
+                  : { background: "#fff", border: '2px solid #E5E1D8' }
+              }
+            >
+              <span class="text-3xl" aria-hidden="true">{c.icon}</span>
+              <h3 class={`text-base font-semibold leading-snug ${c.featured ? "text-white" : "text-gray-900"}`}>
+                {c.title}
+              </h3>
+              <p class={`text-base flex-1 leading-relaxed`} style={c.featured ? { color: '#E8EDF3' } : { color: '#4B5563' }}>
+                {c.body}
+              </p>
+              <span
+                class="self-start text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full"
+                style={
+                  c.featured
+                    ? { background: 'rgba(255,255,255,0.2)', color: '#fff', border: '2px solid rgba(255,255,255,0.3)' }
+                    : { background: '#F1EFE8', color: '#0F6E56', border: '2px solid #E5E1D8' }
+                }
+              >
+                {c.tag}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Callout note */}
+        <div
+          class="flex items-start gap-4 rounded-xl p-5 max-w-3xl mx-auto bg-white"
+          style={{borderLeft: `4px solid #0F6E56`, border: '2px solid #E5E1D8'}}
+        >
+          <span class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">🎯</span>
+          <p class="text-base text-gray-900 leading-relaxed">
+            Most clubs mean to follow up. They just run out of time. HoursServed builds the reminder
+            into your workflow so appreciation happens — not just when someone remembers.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    {/* LEO SECTION */}
+    <Section>
+      <Card variant="navy">
+        <div class="max-w-5xl mx-auto">
+          <span
+            class="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-10 bg-white"
+            style={{color: '#0F6E56', border: '2px solid #0F6E56'}}
+          >
+            Leo Clubs
+          </span>
+
+          <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 items-start">
+            {/* Text */}
+            <div>
+              <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6" style={{fontFamily: "'Playfair Display', serif"}}>
+                Your next Lions members
+                <br />
+                are already out there serving.
+              </h2>
+              <p class="text-base leading-relaxed mb-4" style={{color: "#E8EDF3"}}>
+                Leo Clubs are the youth arm of Lions International — young people aged 12–28 who
+                already share your values and show up to serve. They're not just volunteers. They're
+                future members.
+              </p>
+              <p class="text-base leading-relaxed mb-6" style={{color: "#E8EDF3"}}>
+                HoursServed helps clubs track and engage Leo volunteers alongside adult members, log
+                their hours, invite them to events, and build a relationship that carries forward when
+                they're ready to join as Lions.
+              </p>
+              <ul class="flex flex-col gap-3 mb-8">
+                {[
+                  "Track Leo volunteer hours alongside adult members",
+                  "Include Leos in event invitations and signups",
+                  "Recognize Leo contributions publicly on your site",
+                  "Build a pipeline from Leo Club to full membership",
+                ].map((pt, idx) => (
+                  <li key={idx} class="flex items-start gap-3 text-base leading-snug text-white">
+                    <span class="font-bold mt-0.5 text-white">✓</span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/solutions/service-clubs/"
+                class="inline-block px-7 py-3 rounded-lg text-sm font-semibold text-white transition-all hover:-translate-y-px"
+                style={{background: '#0F6E56'}}
+              >
+                Learn More About Leo Engagement
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div class="flex flex-col gap-5">
+              <div
+                class="rounded-xl p-6 text-center"
+                style={{background: "rgba(255,255,255,0.07)", border: '2px solid rgba(255,255,255,0.1)'}}
+              >
+                <div class="text-4xl font-black mb-2 text-white" style={{fontFamily: "'Playfair Display', serif"}}>12–28</div>
+                <div class="text-xs" style={{color: "#E8EDF3"}}>Age range of Leo Club members</div>
+              </div>
+
+              <div
+                class="rounded-xl p-6 text-center"
+                style={{background: "rgba(15,110,86,0.2)", border: '2px solid rgba(15,110,86,0.35)'}}
+              >
+                <p class="text-base italic leading-snug text-white" style={{fontFamily: "'Playfair Display', serif"}}>
+                  "Every Leo is a future Lion. Give them a reason to stay."
+                </p>
+              </div>
+
+              <div
+                class="rounded-xl p-6 text-center"
+                style={{background: "rgba(255,255,255,0.07)", border: '2px solid rgba(255,255,255,0.1)'}}
+              >
+                <div class="text-4xl font-black mb-2 text-white" style={{fontFamily: "'Playfair Display', serif"}}>800K+</div>
+                <div class="text-xs" style={{color: "#E8EDF3"}}>Leo members worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    {/* PULLOUT QUOTE */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <blockquote
+            class="text-3xl md:text-4xl font-bold italic text-white max-w-3xl mx-auto mb-5 leading-snug tracking-tight"
+            style={{fontFamily: "'Playfair Display', serif"}}
+          >
+            "HoursServed helps turn your club website from a static brochure into a volunteer growth engine."
+          </blockquote>
+          <p class="text-xs font-semibold tracking-widest uppercase" style={{color: "#E8EDF3"}}>
+            Built for Lions &amp; other service clubs everywhere
+          </p>
+        </div>
+      </Card>
+    </Section>
+
+    {/* CTA */}
+    <Section>
+      <Card variant="navy">
+        <div class="text-center">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white" style={{fontFamily: "'Playfair Display', serif"}}>
+            Ready to grow your club?
+          </h2>
+          <p class="text-base max-w-md mx-auto mb-10 leading-relaxed" style={{color: '#E8EDF3'}}>
+            Join clubs across Canada, the US, UK, and Australia who are replacing admin burden with real
+            volunteer momentum.
+          </p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a
+              href="/app/dashboard/"
+              class="inline-block px-7 py-3 rounded-lg text-sm font-semibold text-white transition-all hover:-translate-y-px"
+              style={{background: '#0F6E56'}}
+            >
+              Start Your Free Trial
+            </a>
+            <a
+              href="/pricing/"
+              class="inline-block px-7 py-3 rounded-lg text-sm font-medium text-gray-900 bg-white transition-colors"
+              style={{border: '2px solid #0F6E56', color: '#0F6E56'}}
+            >
+              See Pricing
+            </a>
+          </div>
+        </div>
+      </Card>
+    </Section>
+
+    </main>
+
+    <MarketingFooter client:load />
+  </div>
+</Layout>
