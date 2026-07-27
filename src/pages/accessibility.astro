@@ -5,14 +5,14 @@ import MarketingNav from '../components/MarketingNav';
 import MarketingFooter from '../components/MarketingFooter';
 ---
 
-<Layout title="Accessibility - HoursServed" description="">
+<Layout title="Accessibility - HoursServed" description="HoursServed is working to meet WCAG 2.2 Level AA. Learn about our accessibility commitment, what we are doing, known limitations, and how to report barriers.">
   <div class="min-h-screen bg-white">
     <MarketingNav client:load />
 
     <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-16">
       <h1 class="text-4xl font-bold text-gray-900 mb-6">Accessibility at HoursServed</h1>
 
-      <p class="text-sm text-gray-500 mb-8">Last updated: June 14, 2026</p>
+      <p class="text-sm text-gray-500 mb-8">Last updated: July 27, 2026</p>
 
       <div class="space-y-8 text-gray-700 leading-relaxed">
         <section>
@@ -33,14 +33,17 @@ import MarketingFooter from '../components/MarketingFooter';
             <li>Clearly labeled forms and fields</li>
             <li>Full keyboard operation, so nothing requires a mouse</li>
             <li>A logical heading structure so you can navigate and orient quickly</li>
-            <li>Support for common screen readers, including JAWS, NVDA, and VoiceOver, and for refreshable braille displays</li>
+            <li>Testing with assistive technology. HoursServed has been tested with NVDA, and an external tester confirmed clear, precise braille output on links using a BrailleSense Mini refreshable braille display.</li>
             <li>Clear announcements when something is saved, submitted, or returns an error</li>
           </ul>
         </section>
 
         <section>
           <h2 class="text-2xl font-semibold text-gray-900 mb-4">Known limitations</h2>
-          <p>We are early in this work, and some parts of HoursServed are not yet fully accessible. We are addressing them in order of importance. If you encounter a barrier, telling us about it directly helps us fix the right things first.</p>
+          <p class="mb-4">We are early in this work, and some parts of HoursServed are not yet fully accessible. We are addressing them in order of importance. If you encounter a barrier, telling us about it directly helps us fix the right things first.</p>
+          <ul class="list-disc ml-6 space-y-2">
+            <li>We have not tested HoursServed with JAWS. We cannot confirm how the platform behaves with it.</li>
+          </ul>
         </section>
 
         <section>
