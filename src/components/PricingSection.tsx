@@ -308,13 +308,13 @@ export default function PricingSection() {
             Not a Lions club? See how HoursServed fits your group:
           </p>
           <p className="text-base text-gray-600">
-            <a href="/solutions/churches" className="hover:underline" style={{ color: '#0F6E56' }}>Churches and faith groups</a>
+            <a href="/solutions/churches/" className="hover:underline" style={{ color: '#0F6E56' }}>Churches and faith groups</a>
             {' · '}
-            <a href="/solutions/parent-councils-booster-groups-youth-sports" className="hover:underline" style={{ color: '#0F6E56' }}>Parent councils, booster and youth sports</a>
+            <a href="/solutions/parent-councils-booster-groups-youth-sports/" className="hover:underline" style={{ color: '#0F6E56' }}>Parent councils, booster and youth sports</a>
             {' · '}
-            <a href="/solutions/community-groups" className="hover:underline" style={{ color: '#0F6E56' }}>Community groups and nonprofits</a>
+            <a href="/solutions/community-groups/" className="hover:underline" style={{ color: '#0F6E56' }}>Community groups and nonprofits</a>
             {' · '}
-            <a href="/solutions/service-clubs" className="hover:underline" style={{ color: '#0F6E56' }}>Service clubs</a>
+            <a href="/solutions/service-clubs/" className="hover:underline" style={{ color: '#0F6E56' }}>Service clubs</a>
           </p>
         </div>
 

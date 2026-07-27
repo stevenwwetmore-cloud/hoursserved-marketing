@@ -3,34 +3,34 @@ import { BookOpen, Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 const SOLUTIONS = [
-  { label: 'Lions Clubs', href: '/solutions/service-clubs', desc: 'Run meetings, service, dues, and reporting with less admin friction.' },
-  { label: 'Districts', href: '/solutions/districts', desc: 'Standardize meetings, attendance, service hours, and reporting across clubs without adding more admin work for officers.' },
-  { label: 'Officer Transition', href: '/solutions/officer-transition', desc: 'Transfer tasks, files, knowledge, and training without losing momentum each year.' },
-  { label: 'Volunteer Growth', href: '/solutions/volunteer-growth', desc: 'Turn guests and volunteers into returning contributors and future members.' },
-  { label: 'Service Reporting', href: '/solutions/service-reporting', desc: 'Capture service activity cleanly and prepare Lions-ready reporting faster.' },
-  { label: 'Meetings & Events', href: '/solutions/meetings-events', desc: 'Plan agendas, attendance, service projects, shifts, and follow-up in one workflow.' },
-  { label: 'Churches & Ministries', href: '/solutions/churches', desc: 'Track volunteer hours and service activity for faith-based organizations.' },
-  { label: 'Community Groups', href: '/solutions/community-groups', desc: 'Hour tracking and reporting for civic and community organizations.' },
-  { label: 'Parent Councils & Boosters', href: '/solutions/parent-councils-booster-groups-youth-sports', desc: 'Manage volunteers and service hours for school and youth organizations.' },
-  { label: 'See All Solutions', href: '/solutions', divider: true },
-  { label: '🌎 América Latina', href: '/es', desc: 'Para Clubes de Lions en LATAM' },
+  { label: 'Lions Clubs', href: '/solutions/service-clubs/', desc: 'Run meetings, service, dues, and reporting with less admin friction.' },
+  { label: 'Districts', href: '/solutions/districts/', desc: 'Standardize meetings, attendance, service hours, and reporting across clubs without adding more admin work for officers.' },
+  { label: 'Officer Transition', href: '/solutions/officer-transition/', desc: 'Transfer tasks, files, knowledge, and training without losing momentum each year.' },
+  { label: 'Volunteer Growth', href: '/solutions/volunteer-growth/', desc: 'Turn guests and volunteers into returning contributors and future members.' },
+  { label: 'Service Reporting', href: '/solutions/service-reporting/', desc: 'Capture service activity cleanly and prepare Lions-ready reporting faster.' },
+  { label: 'Meetings & Events', href: '/solutions/meetings-events/', desc: 'Plan agendas, attendance, service projects, shifts, and follow-up in one workflow.' },
+  { label: 'Churches & Ministries', href: '/solutions/churches/', desc: 'Track volunteer hours and service activity for faith-based organizations.' },
+  { label: 'Community Groups', href: '/solutions/community-groups/', desc: 'Hour tracking and reporting for civic and community organizations.' },
+  { label: 'Parent Councils & Boosters', href: '/solutions/parent-councils-booster-groups-youth-sports/', desc: 'Manage volunteers and service hours for school and youth organizations.' },
+  { label: 'See All Solutions', href: '/solutions/', divider: true },
+  { label: '🌎 América Latina', href: '/es/', desc: 'Para Clubes de Lions en LATAM' },
 ];
 
 const COMPARE = [
-  { label: 'ClubRunner', href: '/compare/clubrunner' },
-  { label: 'LionsBase', href: '/compare/lionsbase' },
-  { label: 'Lions Portal', href: '/compare/lions-portal' },
-  { label: 'SignUpGenius', href: '/compare/signupgenius' },
-  { label: 'Track It Forward', href: '/compare/track-it-forward' },
-  { label: 'Unison', href: '/compare/unison' },
-  { label: 'See All Comparisons', href: '/compare', divider: true },
+  { label: 'ClubRunner', href: '/compare/clubrunner/' },
+  { label: 'LionsBase', href: '/compare/lionsbase/' },
+  { label: 'Lions Portal', href: '/compare/lions-portal/' },
+  { label: 'SignUpGenius', href: '/compare/signupgenius/' },
+  { label: 'Track It Forward', href: '/compare/track-it-forward/' },
+  { label: 'Unison', href: '/compare/unison/' },
+  { label: 'See All Comparisons', href: '/compare/', divider: true },
 ];
 
 const RESOURCES = [
-  { label: 'Guides', href: '/guide', icon: BookOpen },
-  { label: 'Blog', href: '/blog' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Guides', href: '/guide/', icon: BookOpen },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 function Dropdown({ label, items, isOpen, onToggle, wide }: any) {
@@ -120,7 +120,7 @@ export default function MarketingNav() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           <a
-            href="/how-it-works"
+            href="/how-it-works/"
             className="text-base text-white hover:text-white/90 px-3 py-2 font-medium transition-colors"
           >
             How It Works
@@ -139,7 +139,7 @@ export default function MarketingNav() {
             onToggle={(v: boolean) => setOpenMenu(v ? 'compare' : null)}
           />
           <a
-            href="/pricing"
+            href="/pricing/"
             className="text-base text-white hover:text-white/90 px-3 py-2 font-medium transition-colors"
           >
             Pricing
@@ -155,7 +155,7 @@ export default function MarketingNav() {
         {/* Desktop utility */}
         <div className="hidden md:flex items-center gap-3">
           <a href="/login" className="text-base text-white hover:text-white/90 px-3 py-2 font-bold transition-colors">Login</a>
-          <a href="/demo" className="bg-brand-teal-dark text-white text-base font-semibold px-4 py-2 rounded-lg hover:bg-brand-teal transition-colors">Book a Demo</a>
+          <a href="/demo/" className="bg-brand-teal-dark text-white text-base font-semibold px-4 py-2 rounded-lg hover:bg-brand-teal transition-colors">Book a Demo</a>
         </div>
 
         {/* Mobile toggle */}
@@ -167,14 +167,14 @@ export default function MarketingNav() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-brand-navy border-t border-brand-navy px-4 py-4 space-y-1">
-          <a href="/how-it-works" className="block py-2.5 text-base text-white font-medium">How It Works</a>
+          <a href="/how-it-works/" className="block py-2.5 text-base text-white font-medium">How It Works</a>
           <MobileSection label="Solutions" items={SOLUTIONS} isOpen={mobileExpanded === 'solutions'} onToggle={() => toggleMobileSection('solutions')} />
           <MobileSection label="Compare" items={COMPARE} isOpen={mobileExpanded === 'compare'} onToggle={() => toggleMobileSection('compare')} />
-          <a href="/pricing" className="block py-2.5 text-base text-white font-medium">Pricing</a>
+          <a href="/pricing/" className="block py-2.5 text-base text-white font-medium">Pricing</a>
           <MobileSection label="Resources" items={RESOURCES} isOpen={mobileExpanded === 'resources'} onToggle={() => toggleMobileSection('resources')} />
           <div className="pt-3 border-t border-white/20 flex flex-col gap-2">
             <a href="/login" className="text-center py-2.5 text-base font-bold text-white border border-white/30 rounded-lg">Login</a>
-            <a href="/demo" className="text-center py-2.5 text-base font-semibold text-white bg-brand-teal-dark rounded-lg">Book a Demo</a>
+            <a href="/demo/" className="text-center py-2.5 text-base font-semibold text-white bg-brand-teal-dark rounded-lg">Book a Demo</a>
           </div>
         </div>
       )}
