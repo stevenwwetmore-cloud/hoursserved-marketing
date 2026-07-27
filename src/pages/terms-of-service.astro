@@ -1,0 +1,332 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+
+const SECTIONS = [
+  { id: 'acceptance', label: '1. Acceptance of Terms' },
+  { id: 'services', label: '2. Description of Services' },
+  { id: 'eligibility', label: '3. Eligibility' },
+  { id: 'subscriptions', label: '4. Subscriptions & Billing' },
+  { id: 'use', label: '5. Acceptable Use' },
+  { id: 'data', label: '6. Data & Privacy' },
+  { id: 'interclub', label: '7. Interclub Payments' },
+  { id: 'ip', label: '8. Intellectual Property' },
+  { id: 'disclaimers', label: '9. Disclaimers' },
+  { id: 'liability', label: '10. Limitation of Liability' },
+  { id: 'indemnification', label: '11. Indemnification' },
+  { id: 'termination', label: '12. Termination' },
+  { id: 'jurisdiction', label: '13. Governing Law' },
+  { id: 'changes', label: '14. Changes to Terms' },
+  { id: 'contact', label: '15. Contact Us' },
+];
+
+const p = 'text-sm text-gray-700 mb-3 last:mb-0 leading-relaxed';
+const ul = 'list-disc pl-5 text-sm text-gray-700 mb-3 space-y-1';
+const h3 = 'text-xs font-semibold uppercase tracking-widest text-slate-800 mt-5 mb-2';
+---
+
+<Layout
+  title="Terms of Service | HoursServed"
+  description="Terms of Service for HoursServed volunteer hour tracking and service organization management platform."
+>
+  <div class="min-h-screen bg-slate-50">
+    <MarketingNav client:load />
+
+    <!-- Hero -->
+    <div class="bg-slate-900 text-white py-16 px-4 text-center relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(20,184,166,.18) 0%, transparent 70%)"></div>
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-teal-400 border border-teal-500/40 rounded-full px-4 py-1 mb-5">Legal</span>
+      <h1 class="text-4xl font-bold mb-3">Terms of Service</h1>
+      <p class="text-slate-400 text-sm max-w-md mx-auto">Please read these terms carefully before using HoursServed and its subscription services.</p>
+      <div class="flex gap-8 justify-center flex-wrap mt-6 text-xs text-slate-500">
+        <span><strong class="text-slate-300 font-medium">Effective:</strong> March 24, 2026</span>
+        <span><strong class="text-slate-300 font-medium">Version:</strong> 1.0</span>
+        <span><strong class="text-slate-300 font-medium">Applies to:</strong> CA · US · UK · EU · AU</span>
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="max-w-6xl mx-auto px-4 py-10 flex gap-10 items-start">
+
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-56 flex-shrink-0 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Contents</p>
+        <nav class="space-y-0.5">
+          {SECTIONS.map(({ id, label }) => (
+            <a
+              href={`#${id}`}
+              class="block text-xs py-1.5 pl-3 border-l-2 border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-colors leading-snug"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <main class="flex-1 min-w-0">
+
+        <!-- Preamble -->
+        <div class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm">
+          <div class="bg-teal-50 border-l-4 border-teal-500 rounded-r-md px-5 py-4 my-4 text-sm text-gray-700">
+            <strong class="text-teal-700">Plain-language summary:</strong> By using HoursServed you agree to these Terms. Our service lets organisations run meeting sign-ups, track volunteer service hours, and coordinate interclub payments — all without passwords or traditional logins. These terms set out how we operate and what you can expect from us.
+          </div>
+          <p class={p}>These Terms of Service ("Terms") constitute a legally binding agreement between you ("you", "your", "User", or "Organisation") and Abacus Media Marketing Inc., a corporation incorporated under the Canada Business Corporations Act, with its principal place of business in Toronto, Ontario, Canada, which operates the HoursServed platform ("HoursServed", "we", "us", "our", or "Company"), governing your access to and use of the HoursServed platform, website, and all associated services (collectively, the "Service").</p>
+          <p class={p}>References to "Organisation" include clubs, associations, nonprofits, schools, and any other entity that signs up for the Service on behalf of its members.</p>
+        </div>
+
+        <!-- Section 01 -->
+        <div id="acceptance" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">01</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Acceptance of Terms</h2>
+          <p class={p}>By accessing or using the Service — including clicking a meeting sign-up link, submitting a service hours report, or purchasing a subscription — you confirm that you have read, understood, and agree to be bound by these Terms and our <a href="/privacy-policy/" class="text-teal-600 hover:underline">Privacy Policy</a>.</p>
+          <p class={p}>If you are accepting on behalf of an Organisation, you represent and warrant that you have the authority to bind that Organisation to these Terms. In that case, "you" refers to the Organisation.</p>
+          <p class={p}>If you do not agree with any part of these Terms, you must not use the Service.</p>
+        </div>
+
+        <!-- Section 02 -->
+        <div id="services" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">02</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Description of Services</h2>
+          <p class={p}>HoursServed provides a cloud-based subscription SaaS platform that currently includes three core modules:</p>
+          <h3 class={h3}>Meeting Sign-Ups</h3>
+          <p class={p}>Allows Organisations to send a single email containing two-button RSVP functionality. Attendance is recorded automatically upon button click — no member account, password, or login is required.</p>
+          <h3 class={h3}>Service Hours Reporting</h3>
+          <p class={p}>Enables members to report and log volunteer or service hours via email-based interactions. Hours are aggregated and made available to Organisation administrators in real time.</p>
+          <h3 class={h3}>Interclub Payments Coordination</h3>
+          <p class={p}>Facilitates the coordination and tracking of payments between clubs or chapters (e.g., hosting fees, event contributions) without HoursServed acting as a money transmitter, payment processor, or financial institution. We record and communicate agreed payment obligations; actual funds transfer occurs directly between Organisations through their own payment methods.</p>
+          <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-md px-5 py-4 my-4 text-sm text-gray-700">
+            <strong>Important:</strong> HoursServed does not process, hold, transmit, or settle funds. The Interclub Payments module is a coordination and record-keeping tool only.
+          </div>
+          <p class={p}>We reserve the right to modify, suspend, or discontinue any part of the Service at any time with reasonable notice where required by applicable law.</p>
+        </div>
+
+        <!-- Section 03 -->
+        <div id="eligibility" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">03</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Eligibility</h2>
+          <p class={p}>The Service is intended for use by:</p>
+          <ul class={ul}>
+            <li>Organisations (clubs, associations, nonprofits, community groups, schools) and their designated administrators; and</li>
+            <li>Individual members who interact with the Service via email links sent by an Organisation.</li>
+          </ul>
+          <p class={p}>You must be at least 16 years of age to use the Service. If an Organisation intends to collect data related to individuals under 16 (or the applicable age of digital consent in their jurisdiction), the Organisation is solely responsible for obtaining appropriate parental or guardian consent.</p>
+          <p class={p}>By using the Service, you represent that you meet these eligibility requirements.</p>
+        </div>
+
+        <!-- Section 04 -->
+        <div id="subscriptions" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">04</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Subscriptions & Billing</h2>
+          <h3 class={h3}>Subscription Plans</h3>
+          <p class={p}>Access to the Service is provided on a subscription basis. Plan details, pricing, and feature inclusions are published on our <a href="/pricing/" class="text-teal-600 hover:underline">Pricing page</a> and may be updated from time to time. Continued use after a price change takes effect constitutes acceptance of the new pricing.</p>
+          <h3 class={h3}>Billing & Payment</h3>
+          <p class={p}>Subscription fees are billed in advance on a recurring basis (monthly or annually, as selected). All payments are processed by our third-party payment processor. We do not store full credit card details on our servers.</p>
+          <p class={p}>All fees are exclusive of applicable taxes. Depending on your location, we may be required to charge sales tax, VAT, GST, or HST. You are responsible for any applicable taxes beyond what we collect.</p>
+          <h3 class={h3}>Currency</h3>
+          <p class={p}>Prices are displayed in your local currency where supported (CAD, USD, GBP, EUR, AUD). If your local currency is unavailable, billing defaults to USD.</p>
+          <h3 class={h3}>Free Trials</h3>
+          <p class={p}>Where a free trial is offered, no charge will be made until the trial period ends. You may cancel before the trial ends to avoid any charge. We reserve the right to modify or terminate free trial offers at any time.</p>
+          <h3 class={h3}>Cancellation & Refunds</h3>
+          <p class={p}>You may cancel your subscription at any time through your account dashboard or by contacting us. Upon cancellation, your subscription remains active until the end of the current billing period. We do not provide prorated refunds for partial periods unless required by applicable consumer protection law in your jurisdiction (see Section 13 for jurisdiction-specific rights).</p>
+          <h3 class={h3}>Failed Payments</h3>
+          <p class={p}>If a payment fails, we will notify you and attempt to retry. If payment is not resolved within 10 days, we may suspend access to the Service until the outstanding balance is settled.</p>
+        </div>
+
+        <!-- Section 05 -->
+        <div id="use" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">05</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Acceptable Use</h2>
+          <p class={p}>You agree to use the Service only for its intended, lawful purposes. You must not:</p>
+          <ul class={ul}>
+            <li>Use the Service for any unlawful, fraudulent, or deceptive purpose;</li>
+            <li>Send unsolicited commercial messages or spam through the Service;</li>
+            <li>Upload, transmit, or distribute content that is harmful, offensive, defamatory, or infringing;</li>
+            <li>Attempt to gain unauthorised access to any portion of the Service or its infrastructure;</li>
+            <li>Reverse-engineer, decompile, or disassemble any part of the Service;</li>
+            <li>Use automated means (bots, scrapers, crawlers) to access the Service without our express written consent;</li>
+            <li>Impersonate any person or Organisation, or misrepresent your affiliation with any entity;</li>
+            <li>Interfere with the integrity or performance of the Service or the data of other users; or</li>
+            <li>Use the Service in any manner that violates applicable laws or regulations in your jurisdiction.</li>
+          </ul>
+          <p class={p}>We reserve the right to investigate and take appropriate action — including suspension or termination of accounts — for any violation of this Section.</p>
+        </div>
+
+        <!-- Section 06 -->
+        <div id="data" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">06</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Data & Privacy</h2>
+          <p class={p}>Your privacy matters to us. Our <a href="/privacy-policy/" class="text-teal-600 hover:underline">Privacy Policy</a> describes how we collect, use, store, and protect personal data. The Privacy Policy is incorporated into these Terms by reference.</p>
+          <h3 class={h3}>Organisation Data Responsibilities</h3>
+          <p class={p}>When using the Service, Organisations act as the "data controller" (or equivalent under applicable law) for their members' personal data. Abacus Media Marketing Inc. acts as a "data processor" on the Organisation's behalf. Organisations are responsible for:</p>
+          <ul class={ul}>
+            <li>Obtaining any required consent from members before submitting their email addresses or personal data to the Service;</li>
+            <li>Complying with applicable data protection laws in relation to their use of the Service; and</li>
+            <li>Maintaining an appropriate privacy notice for their members.</li>
+          </ul>
+          <h3 class={h3}>Data Location & Transfers</h3>
+          <p class={p}>Data may be stored and processed in Canada, the United States, or other jurisdictions where our service providers operate. Where required (e.g., EU/UK GDPR transfers outside the EEA/UK), we rely on appropriate transfer mechanisms such as Standard Contractual Clauses (SCCs).</p>
+          <h3 class={h3}>Retention</h3>
+          <p class={p}>We retain Organisation and member data for the duration of the subscription and for a reasonable period thereafter (typically 90 days after account closure), unless a longer retention period is required by law or a shorter period is requested by the Organisation.</p>
+        </div>
+
+        <!-- Section 07 -->
+        <div id="interclub" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">07</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Interclub Payments Coordination</h2>
+          <div class="bg-teal-50 border-l-4 border-teal-500 rounded-r-md px-5 py-4 my-4 text-sm text-gray-700">
+            <strong class="text-teal-700">HoursServed is not a payment processor.</strong> We do not receive, hold, transmit, or disburse funds between Organisations.
+          </div>
+          <p class={p}>The Interclub Payments module enables clubs and chapters to record, agree upon, and track payment obligations to one another (for example, joint event costs, hosting fees, or inter-district assessments). All actual financial settlement occurs directly between Organisations using their own external payment methods.</p>
+          <p class={p}>By using this module, you acknowledge and agree that:</p>
+          <ul class={ul}>
+            <li>HoursServed has no responsibility or liability for the accuracy of payment amounts entered by Organisations;</li>
+            <li>Disputes regarding payment amounts, obligations, or settlement are solely between the Organisations involved;</li>
+            <li>HoursServed does not guarantee that any recorded payment obligation will be honoured or settled; and</li>
+            <li>Organisations are solely responsible for compliance with any applicable financial regulations, tax obligations, or reporting requirements arising from interclub transactions.</li>
+          </ul>
+        </div>
+
+        <!-- Section 08 -->
+        <div id="ip" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">08</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Intellectual Property</h2>
+          <h3 class={h3}>Our Property</h3>
+          <p class={p}>The Service, including its software, code, design, trademarks, logos, and all content created by HoursServed, is owned by or licensed to us and protected by applicable intellectual property laws. You receive a limited, non-exclusive, non-transferable, revocable licence to access and use the Service solely as permitted by these Terms.</p>
+          <h3 class={h3}>Your Content</h3>
+          <p class={p}>You retain ownership of all data and content you or your Organisation submits to the Service ("Your Content"). By submitting Your Content, you grant us a limited, non-exclusive licence to host, process, and display Your Content solely to provide the Service to you.</p>
+          <p class={p}>You represent that you have all necessary rights to Your Content and that it does not infringe any third-party rights or violate any law.</p>
+          <h3 class={h3}>Feedback</h3>
+          <p class={p}>If you provide us with feedback, suggestions, or ideas about the Service, you grant us a perpetual, royalty-free licence to use such feedback for any purpose without obligation or compensation to you.</p>
+        </div>
+
+        <!-- Section 09 -->
+        <div id="disclaimers" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">09</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Disclaimers</h2>
+          <p class={p}>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+          <p class={p}>We do not warrant that:</p>
+          <ul class={ul}>
+            <li>The Service will be uninterrupted, error-free, or free of viruses or other harmful components;</li>
+            <li>The results obtained through use of the Service will be accurate or reliable; or</li>
+            <li>Any defects in the Service will be corrected.</li>
+          </ul>
+          <p class={p}>Certain jurisdictions do not allow the exclusion of implied warranties. Where such laws apply (including consumer protection laws in Australia, the UK, EU, and Canada), some of the above exclusions may not apply to you, and you may have additional statutory rights that we cannot exclude.</p>
+        </div>
+
+        <!-- Section 10 -->
+        <div id="liability" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">10</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Limitation of Liability</h2>
+          <p class={p}>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, HOURSSERVED AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES — INCLUDING LOSS OF PROFITS, DATA, GOODWILL, OR BUSINESS INTERRUPTION — ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+          <p class={p}>In any event, our total aggregate liability to you for all claims arising out of or relating to the Service shall not exceed the greater of: (a) the total fees paid by you to HoursServed in the 12 months immediately preceding the event giving rise to the claim; or (b) CAD $100.</p>
+          <p class={p}>These limitations do not apply to liability that cannot be excluded or limited under applicable law (for example, liability for death or personal injury caused by our negligence, or liability under consumer protection statutes in your jurisdiction).</p>
+        </div>
+
+        <!-- Section 11 -->
+        <div id="indemnification" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">11</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Indemnification</h2>
+          <p class={p}>You agree to defend, indemnify, and hold harmless HoursServed and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, or expenses (including reasonable legal fees) arising out of or relating to:</p>
+          <ul class={ul}>
+            <li>Your violation of these Terms;</li>
+            <li>Your use or misuse of the Service;</li>
+            <li>Your Content; or</li>
+            <li>Your violation of any applicable law or the rights of any third party.</li>
+          </ul>
+        </div>
+
+        <!-- Section 12 -->
+        <div id="termination" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">12</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Termination</h2>
+          <h3 class={h3}>By You</h3>
+          <p class={p}>You may cancel your subscription at any time as described in Section 4. Upon cancellation, your access will continue until the end of the paid period, after which it will cease.</p>
+          <h3 class={h3}>By Us</h3>
+          <p class={p}>We may suspend or terminate your access to the Service immediately and without prior notice if:</p>
+          <ul class={ul}>
+            <li>You breach any material term of these Terms;</li>
+            <li>We are required to do so by law or a competent authority;</li>
+            <li>We reasonably suspect fraudulent or harmful activity; or</li>
+            <li>We choose to discontinue the Service (with reasonable advance notice where practicable).</li>
+          </ul>
+          <h3 class={h3}>Effect of Termination</h3>
+          <p class={p}>Upon termination, your licence to use the Service ceases immediately. Provisions of these Terms that by their nature should survive termination — including Sections 7, 8, 9, 10, 11, and 13 — will continue to apply.</p>
+          <p class={p}>We will provide a reasonable opportunity for you to export your data prior to account closure, except where termination results from a material breach by you.</p>
+        </div>
+
+        <!-- Section 13 -->
+        <div id="jurisdiction" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">13</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Governing Law & Jurisdiction-Specific Rights</h2>
+          <p class={p}>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of law principles. Any disputes shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada — except where mandatory local law requires otherwise.</p>
+          <p class={p}>We acknowledge and respect the additional consumer and data-subject rights available in each region we serve:</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-4">
+            <div class="bg-slate-50 border border-gray-200 rounded-lg p-3 text-xs">
+              <div class="text-xl mb-1">🇨🇦</div>
+              <strong class="block text-slate-800 mb-1">Canada</strong>
+              <span class="text-gray-500 leading-relaxed">PIPEDA / provincial privacy laws apply. You may request access, correction, or deletion of your personal data.</span>
+            </div>
+            <div class="bg-slate-50 border border-gray-200 rounded-lg p-3 text-xs">
+              <div class="text-xl mb-1">🇺🇸</div>
+              <strong class="block text-slate-800 mb-1">United States</strong>
+              <span class="text-gray-500 leading-relaxed">State-specific rights may apply (e.g., California CCPA/CPRA). Contact us to exercise applicable rights.</span>
+            </div>
+            <div class="bg-slate-50 border border-gray-200 rounded-lg p-3 text-xs">
+              <div class="text-xl mb-1">🇬🇧</div>
+              <strong class="block text-slate-800 mb-1">United Kingdom</strong>
+              <span class="text-gray-500 leading-relaxed">UK GDPR applies. You have rights to access, rectification, erasure, portability, and to object to processing.</span>
+            </div>
+            <div class="bg-slate-50 border border-gray-200 rounded-lg p-3 text-xs">
+              <div class="text-xl mb-1">🇪🇺</div>
+              <strong class="block text-slate-800 mb-1">European Union</strong>
+              <span class="text-gray-500 leading-relaxed">EU GDPR applies. You may lodge a complaint with your national supervisory authority (DPA).</span>
+            </div>
+            <div class="bg-slate-50 border border-gray-200 rounded-lg p-3 text-xs">
+              <div class="text-xl mb-1">🇦🇺</div>
+              <strong class="block text-slate-800 mb-1">Australia</strong>
+              <span class="text-gray-500 leading-relaxed">Australian Privacy Act & Consumer Law apply. The ACCC enforces consumer guarantees that cannot be excluded.</span>
+            </div>
+          </div>
+          <p class={p}>To exercise any privacy rights or submit a jurisdiction-specific request, please contact us at <a href="mailto:privacy@hoursserved.com" class="text-teal-600 hover:underline">privacy@hoursserved.com</a>.</p>
+        </div>
+
+        <!-- Section 14 -->
+        <div id="changes" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">14</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Changes to These Terms</h2>
+          <p class={p}>We may update these Terms from time to time to reflect changes to our Service, legal requirements, or business practices. When we make material changes, we will:</p>
+          <ul class={ul}>
+            <li>Update the "Effective Date" at the top of this page;</li>
+            <li>Send an email notification to the primary contact address on file for each Organisation; and</li>
+            <li>Where required by law, provide a minimum of 30 days' notice before changes take effect.</li>
+          </ul>
+          <p class={p}>Your continued use of the Service after the effective date of any updated Terms constitutes your acceptance of those changes. If you do not agree to the updated Terms, you must stop using the Service and cancel your subscription before the changes take effect.</p>
+        </div>
+
+        <!-- Section 15 -->
+        <div id="contact" class="bg-white border border-gray-200 rounded-xl p-8 mb-4 shadow-sm scroll-mt-24">
+          <span class="text-xs font-semibold tracking-widest uppercase text-teal-600 mb-1 block">15</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-4">Contact Us</h2>
+          <p class={p}>If you have any questions, concerns, or requests relating to these Terms or the Service, please reach out:</p>
+          <ul class={ul}>
+            <li><strong>General enquiries:</strong> <a href="mailto:hello@hoursserved.com" class="text-teal-600 hover:underline">hello@hoursserved.com</a></li>
+            <li><strong>Privacy & data requests:</strong> <a href="mailto:privacy@hoursserved.com" class="text-teal-600 hover:underline">privacy@hoursserved.com</a></li>
+            <li><strong>Legal notices:</strong> <a href="mailto:legal@hoursserved.com" class="text-teal-600 hover:underline">legal@hoursserved.com</a></li>
+            <li><strong>Website:</strong> <a href="https://hoursserved.com" class="text-teal-600 hover:underline">https://hoursserved.com</a></li>
+          </ul>
+          <hr class="my-4 border-gray-200" />
+          <p class="text-xs text-gray-400">We aim to respond to all enquiries within 5 business days. For urgent legal or compliance matters, please mark your message accordingly.</p>
+        </div>
+
+        <div class="text-center text-xs text-gray-400 py-6">
+          <strong class="text-gray-600">HoursServed</strong> · Terms of Service · Effective March 24, 2026<br />
+          <a href="/privacy-policy/" class="text-teal-600 hover:underline mt-1 inline-block">Privacy Policy</a>
+        </div>
+      </main>
+    </div>
+
+    <MarketingFooter />
+  </div>
+</Layout>

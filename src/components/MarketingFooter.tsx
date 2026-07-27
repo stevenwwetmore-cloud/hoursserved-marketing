@@ -83,7 +83,7 @@ export default function MarketingFooter() {
               <li><a href="/contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Support</a></li>
               <li><a href="/contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Billing</a></li>
               <li><a href="/privacy-policy" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Privacy</a></li>
-              <li><a href="/terms-of-service" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Terms</a></li>
+              <li><a href="/terms-of-service/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Terms</a></li>
               <li><a href="/cookie-policy" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cookie Policy</a></li>
               <li><a href="/legal/processors" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Subprocessor DPAs</a></li>
               <li><a href="/sitemap" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Site Map</a></li>
