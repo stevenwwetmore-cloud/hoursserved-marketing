@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+---
+
+<Layout title="Accessibility - HoursServed" description="">
+  <div class="min-h-screen bg-white">
+    <MarketingNav client:load />
+
+    <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">Accessibility at HoursServed</h1>
+
+      <p class="text-sm text-gray-500 mb-8">Last updated: June 14, 2026</p>
+
+      <div class="space-y-8 text-gray-700 leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our commitment</h2>
+          <p>HoursServed is built for service clubs, and service is for everyone. We believe the people who give their time to their communities should be able to record and report that service themselves, independently, whatever tools they use to access the web. We are working to make HoursServed usable for people who are blind or have low vision, who navigate by keyboard, and who use screen readers or refreshable braille displays.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">The standard we are working toward</h2>
+          <p>We are building HoursServed to meet the Web Content Accessibility Guidelines (WCAG) version 2.2, Level AA, the internationally recognized benchmark for accessible websites and applications. We want to be clear and honest that this is work in progress, not a finished claim of full conformance. We are improving the product steadily and testing it with people who rely on assistive technology.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">What we are doing</h2>
+          <p class="mb-4">We are focusing first on the tasks that matter most: signing in, logging service hours, and viewing and submitting reports. Across the product we are working to provide:</p>
+          <ul class="list-disc ml-6 space-y-2">
+            <li>Text descriptions for images and icons, so nothing depends on seeing a graphic</li>
+            <li>Clearly labeled forms and fields</li>
+            <li>Full keyboard operation, so nothing requires a mouse</li>
+            <li>A logical heading structure so you can navigate and orient quickly</li>
+            <li>Support for common screen readers, including JAWS, NVDA, and VoiceOver, and for refreshable braille displays</li>
+            <li>Clear announcements when something is saved, submitted, or returns an error</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Known limitations</h2>
+          <p>We are early in this work, and some parts of HoursServed are not yet fully accessible. We are addressing them in order of importance. If you encounter a barrier, telling us about it directly helps us fix the right things first.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Tell us about a barrier</h2>
+          <p class="mb-4">If any part of HoursServed is difficult or impossible for you to use, please contact us. We read every message and we will work with you.</p>
+          <p class="mb-4">
+            Email: <a href="mailto:support@hoursserved.com" class="text-blue-600 hover:underline">support@hoursserved.com</a>
+          </p>
+          <p>Please include the page or task you were trying to complete, and the assistive technology you were using, if you can. We aim to respond promptly.</p>
+        </section>
+      </div>
+    </main>
+
+    <MarketingFooter client:load />
+  </div>
+</Layout>
