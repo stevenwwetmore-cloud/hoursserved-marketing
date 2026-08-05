@@ -1,6 +1,15 @@
 import { CalendarDays, CheckCircle2, MailCheck, UploadCloud } from 'lucide-react';
 
 type Locale = 'en' | 'es-419';
+type Variant = 'default' | 'automated-csv';
+
+const AUTOMATED_CSV_BENEFIT = {
+  number: '03', icon: UploadCloud,
+  title: 'Automated CSV reports',
+  description: 'Automatically turn attendance, event, and volunteer-hour records into consistent CSV reports.',
+  details: ['Build CSV reports from recorded attendance and volunteer hours', 'Keep report columns consistent across events and reporting periods', 'Download CSV files for review, sharing, or import into other systems'],
+  featured: true,
+};
 
 const CONTENT = {
   en: {
@@ -55,8 +64,17 @@ const CONTENT = {
   },
 };
 
-export default function TopBenefitsHero({ locale = 'en' }: { locale?: Locale }) {
-  const copy = CONTENT[locale] || CONTENT.en;
+export default function TopBenefitsHero({
+  locale = 'en',
+  variant = 'default',
+}: {
+  locale?: Locale;
+  variant?: Variant;
+}) {
+  const baseCopy = CONTENT[locale] || CONTENT.en;
+  const copy = variant === 'automated-csv'
+    ? { ...baseCopy, benefits: [...baseCopy.benefits.slice(0, 2), AUTOMATED_CSV_BENEFIT] }
+    : baseCopy;
 
   return (
     <section className="bg-white px-4 py-8 sm:px-6 sm:py-10 border-b border-gray-200" aria-labelledby={`top-benefits-title-${locale}`} data-testid="top-benefits-hero">
