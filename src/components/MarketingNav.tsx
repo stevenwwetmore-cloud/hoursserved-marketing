@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { BookOpen, Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
+import TopBenefitsHero from './TopBenefitsHero';
 
 const SOLUTIONS = [
   { label: 'Lions Clubs', href: '/solutions/service-clubs/', desc: 'Run meetings, service, dues, and reporting with less admin friction.' },
@@ -109,11 +110,11 @@ export default function MarketingNav() {
   const toggleMobileSection = (key: string) => setMobileExpanded(prev => prev === key ? null : key);
 
   return (
+    <>
     <nav className="sticky top-0 z-40 bg-brand-navy border-b border-brand-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src="/images/logo.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
           <BrandLogo dark />
         </a>
 
@@ -179,5 +180,7 @@ export default function MarketingNav() {
         </div>
       )}
     </nav>
+    <TopBenefitsHero />
+    </>
   );
 }

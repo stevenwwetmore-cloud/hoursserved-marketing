@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: 'Is Lion Portal automated upload included in my plan?',
-    a: 'Automated Lion Portal submission is included in all District plans at no extra charge. Club plans include full Lion Portal field tracking and one-click CSV export. Upgrade to a District plan to activate automated submission.',
+    a: 'CSV and PDF reports are available now. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International. They are not currently enabled as a standard plan feature.',
   },
   {
     q: 'Is service reporting legally required for Lions Clubs?',
@@ -35,7 +35,7 @@ const FAQS = [
 ];
 ---
 
-<Layout title="Lions Portal Reporting Automation — HoursServed" description="Automate Lions Portal monthly reporting. HoursServed generates myLCI-ready CSV exports from your attendance and service hour records automatically.">
+<Layout title="Lion Portal-Ready Service Reporting — HoursServed" description="Prepare officer-reviewed CSV and PDF activity reports now. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International.">
   <div class="min-h-screen text-gray-900" style={{backgroundColor: '#F1EFE8'}}>
     <MarketingNav client:load />
 
@@ -46,7 +46,7 @@ const FAQS = [
     <section class="relative overflow-hidden text-center px-6 py-24 md:py-28">
       <div class="relative max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{backgroundColor: '#0F6E56'}}>
-          Lion Portal Upload — Now Live
+          Lion Portal-Ready Reporting
         </div>
         <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest" style={{border: '2px solid #1E3A5F', color: '#1E3A5F'}}>
           Service Reporting
@@ -78,19 +78,19 @@ const FAQS = [
       </div>
     </section>
 
-    {/* SECTION 1.5: LION PORTAL UPLOAD — AUTOMATED */}
+    {/* SECTION 1.5: LION PORTAL REPORTING READINESS */}
     <section class="py-20 px-6" style={{backgroundColor: '#F8FFFE'}}>
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-14">
-          <div class="inline-flex items-center gap-2 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest" style={{backgroundColor: '#0F6E56'}}>
-            Now Live
+          <div class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest bg-amber-50 text-brand-navy border border-brand-teal">
+            Available with LCI approval
           </div>
-          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Automated Submission</p>
+          <p class="text-xs font-bold tracking-widest uppercase text-gray-600 mb-3">Officer-reviewed reporting</p>
           <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
-            Lion Portal Report Upload — Included. Automated. Done.
+            Prepare accurate Lion Portal activity reports now
           </h2>
           <p class="text-base text-gray-900 max-w-2xl mx-auto leading-relaxed">
-            No extra charge. No manual data entry. No missed deadlines. HoursServed now uploads your monthly service activity report directly to Lion Portal — automatically, as part of every District plan at no extra charge.
+            Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International. Until approval is received, HoursServed keeps the officer review workflow in place and provides CSV and PDF reports for manual submission.
           </p>
         </div>
 
@@ -100,18 +100,18 @@ const FAQS = [
               {[
                 {
                   number: '1',
-                  title: 'Enter your Lion Account credentials once',
-                  body: 'Go to Club Settings and enter your Lion Account credentials. This takes 30 seconds. You only do it once.',
+                  title: 'Capture aligned event information',
+                  body: 'HoursServed collects the activity, attendance, service-hour, and venue details needed for Lion Portal-ready reporting.',
                 },
                 {
                   number: '2',
-                  title: 'Run your events and meetings normally',
-                  body: 'HoursServed tracks attendance, hours, and all required Lion Portal fields as you go throughout the month. No extra work.',
+                  title: 'Review and approve the monthly report',
+                  body: 'A designated officer checks the report before it is finalized, distributed, or prepared for submission.',
                 },
                 {
                   number: '3',
-                  title: 'Click Submit to Lion Portal',
-                  body: 'When all reports are export ready, click Submit. HoursServed logs in, fills every service activity form, and submits — while you watch the status in real time.',
+                  title: 'Download CSV or PDF',
+                  body: 'Use the officer-approved downloadable report for manual Lion Portal activity reporting today.',
                 },
               ].map((step) => (
                 <div key={step.number} class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm" style={{border: '2px solid #E5E1D8'}}>
@@ -128,7 +128,7 @@ const FAQS = [
 
             <div class="p-6 bg-white rounded-2xl" style={{border: '2px solid #0F6E56'}}>
               <p class="text-base leading-relaxed" style={{color: '#111827'}}>
-                <strong class="font-bold">No spreadsheets. No copy-paste. No logging into Lion Portal manually.</strong> Your secretary gets that hour back, every month.
+                <strong class="font-bold">Automated uploads stay protected until approval.</strong> Existing CSV downloads, PDF reports, event data, and officer approval workflows remain available.
               </p>
             </div>
           </div>
@@ -139,29 +139,29 @@ const FAQS = [
                 <div class="flex items-start gap-3">
                   <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
                   <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Setup takes 30 seconds</h4>
-                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Enter your Lion Account credentials once in Club Settings. That's it.</p>
+                    <h4 class="font-bold text-gray-900 mb-1">Aligned data collection</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Collect Lion Portal-ready fields during normal event and meeting workflows.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
                   <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Tracks as you go</h4>
-                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>All required Lion Portal fields are captured during normal event and meeting workflows.</p>
+                    <h4 class="font-bold text-gray-900 mb-1">Officer review first</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>A named officer reviews and approves each monthly report before distribution.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
                   <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Watch it submit in real time</h4>
-                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>See live status updates as each service activity form is filled and submitted to Lion Portal.</p>
+                    <h4 class="font-bold text-gray-900 mb-1">Downloads available now</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Generate CSV and PDF reports for the current manual submission workflow.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
                   <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#0F6E56'}}></div>
                   <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Full audit trail</h4>
-                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Every submission is logged with timestamp, status, and confirmation — so you always know what was sent.</p>
+                    <h4 class="font-bold text-gray-900 mb-1">Approval-dependent automation</h4>
+                    <p class="text-base leading-relaxed" style={{color: '#111827'}}>Protected automated uploads can be activated only after written approval from Lions Clubs International.</p>
                   </div>
                 </div>
               </div>

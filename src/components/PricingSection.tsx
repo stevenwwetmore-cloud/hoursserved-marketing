@@ -235,7 +235,7 @@ export default function PricingSection() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-900" aria-hidden="true" />
-                  <span>Lion Portal automated submission (coming soon)</span>
+                  <span>Automated Lion Portal uploads (available with LCI approval)</span>
                 </li>
               </ul>
             </div>
@@ -405,7 +405,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Lion Portal AutoSubmit add-on */}
+        {/* Lion Portal automation readiness */}
         <div className="max-w-5xl mx-auto mt-8">
           <div className="rounded-2xl border border-gray-300 bg-white p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center">
@@ -413,12 +413,12 @@ export default function PricingSection() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="font-bold text-gray-900 text-sm">Add-on: Lion Portal AutoSubmit</span>
-                <span className="text-xs bg-gray-200 text-gray-900 font-semibold px-2 py-0.5 rounded-full border border-gray-300">Requires Club Pro</span>
+                <span className="font-bold text-gray-900 text-sm">Automated Lion Portal uploads</span>
+                <span className="text-xs bg-gray-200 text-gray-900 font-semibold px-2 py-0.5 rounded-full border border-gray-300">Available with LCI approval</span>
               </div>
-              <p className="text-base text-gray-900 mb-2">Automated monthly Lions Portal submission. After you approve your report, HoursServed logs into myLCI and submits automatically — no manual portal navigation required.</p>
+              <p className="text-base text-gray-900 mb-2">Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International. CSV and PDF reports remain available now.</p>
               <div className="flex flex-wrap gap-x-4 gap-y-1">
-                {['Automated myLCI login', 'Event-by-event submission', 'Dry-run preview', 'Submission confirmation', 'Re-submission on error', 'Full audit log'].map(f => (
+                {['Officer review and approval', 'Dry-run validation', 'Submission confirmation', 'Full audit trail', 'CSV and PDF available now'].map(f => (
                   <span key={f} className="text-base text-gray-900 flex items-center gap-1">
                     <CheckCircle className="w-3 h-3 text-gray-900 flex-shrink-0" aria-hidden="true" />{f}
                   </span>
@@ -427,7 +427,7 @@ export default function PricingSection() {
             </div>
             <div className="flex-shrink-0 text-right">
               <div className="text-2xl font-bold text-gray-900">Coming soon</div>
-              <div className="text-xs text-gray-600">per club / month</div>
+              <div className="text-xs text-gray-600">subject to written LCI approval</div>
             </div>
           </div>
         </div>

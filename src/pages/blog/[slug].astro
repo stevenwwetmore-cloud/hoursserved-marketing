@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import MarketingNav from '../../components/MarketingNav';
 import MarketingFooter from '../../components/MarketingFooter';
-import { Shield, Calendar, ArrowLeft, Tag } from 'lucide-react';
+import { Calendar, Tag } from 'lucide-react';
 
 export async function getStaticPaths() {
   const APP_ID = '69ac4eaa5a3031dffe252cf9';
@@ -42,19 +42,7 @@ const description = post.metaDescription || post.excerpt || 'Practical guides an
   description={description}
 >
   <div class="min-h-screen bg-white">
-    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2">
-          <div class="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Shield className="w-4 h-4 text-white" />
-          </div>
-          <span class="font-bold text-gray-900">Hours Served</span>
-        </a>
-        <a href="/blog/" class="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> All Articles
-        </a>
-      </div>
-    </nav>
+    <MarketingNav client:load />
 
     <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
       <article>

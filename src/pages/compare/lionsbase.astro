@@ -14,7 +14,7 @@ const ROWS = [
   { feature: 'At-risk member alerts', hoursserved: 'yes', lionsbase: 'no', note: 'Auto-flags members below participation thresholds before month-end' },
   { feature: 'Shift & role-based volunteer signups', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed has per-role capacity limits, waitlists, and email-link signups' },
   { feature: 'Dues & payment tracking', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed includes Interac reconciliation codes and per-member status tracking' },
-  { feature: 'Lions Portal upload for approved reports', hoursserved: 'partial', lionsbase: 'yes', note: 'HoursServed exports CSV for Lion Portal submission; direct upload integration in development' },
+  { feature: 'Lions Portal upload for approved reports', hoursserved: 'partial', lionsbase: 'yes', note: 'HoursServed exports CSV and PDF reports now; automated uploads require written LCI approval' },
   { feature: 'Official Lions member synchronization', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase synchronizes with the official Lions database' },
   { feature: 'Conference registration, QR tickets & invoices', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase supports structured conference workflows with registration questions and invoicing' },
   { feature: 'Broad Lions-specific reporting & statistics', hoursserved: 'partial', lionsbase: 'yes', note: 'LionsBase has broader cross-club and district reporting; HoursServed focuses on monthly ops' },
@@ -49,7 +49,7 @@ const FAQ = [
   },
   {
     q: 'Can HoursServed data be submitted to Lions Portal?',
-    a: 'Yes. HoursServed currently exports a CSV matching Lion Portal / Lions Portal column headers for manual submission. A direct Lions Portal upload for approved monthly reports is in active development.',
+    a: 'Yes. HoursServed currently exports CSV and PDF reports for manual submission. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International.',
   },
 ];
 ---
@@ -192,7 +192,7 @@ const FAQ = [
             {[
               { step: '1', title: 'HoursServed collects', desc: 'Members confirm attendance via email. Hours are frozen and logged automatically. Shifts are filled. Dues are tracked. No login required.' },
               { step: '2', title: 'Officers review & approve', desc: 'Monthly reports are generated, routed for approval, and distributed inside HoursServed — in minutes, not days.' },
-              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV for Lion Portal submission today. Direct Lions Portal upload for approved reports is in active development.' },
+              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV or PDF report for manual submission today. Automated Lion Portal uploads require written LCI approval.' },
             ].map(({ step, title, desc }) => (
               <div key={step} class="bg-white rounded-2xl p-5" style="border: 2px solid #E5E1D8;">
                 <div class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#0F6E56'}}>Step {step}</div>

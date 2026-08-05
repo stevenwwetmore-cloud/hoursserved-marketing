@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/terms", "destination": "/terms-of-service/", "permanent": true }
+    { "source": "/terms", "destination": "/terms-of-service/", "permanent": true },
+    { "source": "/guide", "destination": "/guide/", "permanent": true }
   ],
   "headers": [
     { "source": "/Home", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
@@ -101,7 +102,6 @@
     { "source": "/app/dashboard", "destination": "https://hoursserved.vercel.app/app/dashboard" },
     { "source": "/signup", "destination": "https://hoursserved.vercel.app/signup" },
     { "source": "/welcome", "destination": "https://hoursserved.vercel.app/welcome" },
-    { "source": "/guide", "destination": "https://hoursserved.vercel.app/guide" },
     { "source": "/faq", "destination": "https://hoursserved.vercel.app/faq" },
     { "source": "/accessibility", "destination": "https://hoursserved.vercel.app/accessibility" },
     { "source": "/sitemap", "destination": "https://hoursserved.vercel.app/sitemap" },

@@ -1,4 +1,5 @@
 import React from 'react';
+import BrandLogo from './BrandLogo';
 
 export default function LatamFooter() {
   return (
@@ -7,8 +8,7 @@ export default function LatamFooter() {
         <div className="max-w-md mx-auto text-center mb-12">
           {/* Brand */}
           <a href="/es/" className="inline-flex items-center gap-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
-            <img src="/images/logo.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
-            <span className="font-bold text-lg text-gray-900">HoursServed</span>
+            <BrandLogo size={24} />
           </a>
           <p className="text-xs text-brand-ink leading-relaxed mb-6">Seguimiento de asistencia y horas de voluntariado para organizaciones de servicio.</p>
 

@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  locale?: 'en' | 'es-419';
 }
 
 const {
   title = 'HoursServed',
   description = 'Attendance and volunteer hour tracking for service-led organizations.',
-  canonical
+  canonical,
+  locale = 'en'
 } = Astro.props;
 
 // Auto-generate canonical from current URL if not provided
@@ -18,11 +20,13 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260804" />
+    <link rel="icon" href="/favicon.ico?v=20260804" sizes="any" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
   </head>

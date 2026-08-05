@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MarketingNav from '../components/MarketingNav';
+import MarketingFooter from '../components/MarketingFooter';
+
+const steps = [
+  ['Create your club workspace', 'Sign in with the email used during enrollment, choose Add New Organization, and select Service Club as the organization type.'],
+  ['Enter the club identity', 'Add the club name, city, district designation, zone, LCI club number, currency, fiscal-year start, and primary officer contact.'],
+  ['Choose the club structure', 'Confirm whether the club uses committees, shared officer access, interclub events, recurring meetings, service-hour reporting, and payment coordination.'],
+  ['Set the member experience', 'Use officer-controlled hours and no-login member responses. Members confirm attendance directly from a secure Yes or No email link.'],
+  ['Review the default templates', 'Choose the meeting, service project, fundraiser, shift, interclub event, officer, and monthly-report templates your club needs.'],
+  ['Complete reusable club defaults', 'Open Club Settings and save the details reused across events and reports, including venue, reporting, and payment defaults.'],
+  ['Add members', 'Add members individually or import an Excel or CSV roster, then review roles and remove inactive or duplicate records.'],
+  ['Review roles and communication', 'Confirm the labels used for members, officers, events, and committees, and review the email response workflow.'],
+  ['Choose a report approver', 'Select the officer who reviews monthly reports before distribution. CSV and PDF activity reports are available now.'],
+  ['Generate the monthly report', 'Select the reporting month and recipients, review the activity data, and send the report to the designated approver.'],
+  ['Review Lion Portal defaults', 'Confirm sponsor, district, activity, venue, and location defaults so downloadable reports stay consistent.'],
+  ['Invite additional officers', 'Invite the officers who need administrative access and confirm the setup checklist is complete.'],
+];
+---
+
+<Layout
+  title="How to Set Up Your Lions Club in HoursServed — Step-by-Step Guide"
+  description="A complete setup guide for Lions Club secretaries and incoming officers using HoursServed."
+  canonical="https://www.hoursserved.com/guide/"
+>
+  <div class="min-h-screen bg-canvas font-sans">
+    <MarketingNav client:load />
+    <main id="main-content" tabindex="-1">
+      <section class="px-4 py-14 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white border border-card-border rounded-3xl p-6 sm:p-10 text-center">
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-teal-dark mb-3">Secretary guide</p>
+          <h1 class="text-4xl sm:text-5xl font-black text-brand-navy mb-5 leading-tight">How to Set Up Your Lions Club in HoursServed</h1>
+          <p class="text-base text-gray-700 leading-relaxed max-w-3xl mx-auto">Follow this practical setup sequence to prepare attendance, events, service hours, officer review, and downloadable Lion Portal activity reports.</p>
+        </div>
+      </section>
+
+      <section class="px-4 pb-14 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white border border-card-border rounded-3xl p-4 sm:p-8">
+          <div class="aspect-video overflow-hidden rounded-2xl">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/_7B-BeC1Oe4" title="How to Set Up Your Lions Club in HoursServed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p class="text-sm text-gray-600 text-center mt-3">Complete setup walkthrough</p>
+        </div>
+      </section>
+
+      <section class="px-4 pb-16 sm:px-6">
+        <div class="max-w-4xl mx-auto space-y-5">
+          {steps.map(([title, body], index) => (
+            <article class="bg-white border border-card-border rounded-2xl p-6 flex gap-5 shadow-sm">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-bold" aria-hidden="true">{index + 1}</div>
+              <div>
+                <h2 class="text-lg font-bold text-brand-navy mb-2">Step {index + 1}: {title}</h2>
+                <p class="text-base text-gray-700 leading-relaxed">{body}</p>
+              </div>
+            </article>
+          ))}
+          <div class="bg-amber-50 border-l-4 border-brand-teal rounded-xl p-5">
+            <p class="text-base text-brand-navy leading-relaxed"><strong>Automation status:</strong> Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International. Downloadable CSV and PDF reports remain available now.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <MarketingFooter />
+  </div>
+</Layout>

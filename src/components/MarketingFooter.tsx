@@ -9,8 +9,7 @@ export default function MarketingFooter() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <a href="/" className="flex items-center gap-2 mb-3">
-              <img src="/images/logo.png" alt="Hours Served" className="w-7 h-7 rounded-lg" />
-              <BrandLogo />
+              <BrandLogo size={24} />
             </a>
             <p className="text-xs text-brand-ink leading-relaxed mb-4">Attendance and volunteer hour tracking for service-led organizations.</p>
             <div className="flex flex-col gap-2">
@@ -66,9 +65,9 @@ export default function MarketingFooter() {
             <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">América Latina</p>
             <ul className="space-y-2">
               <li><a href="/es/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Para Clubes de Lions</a></li>
-              <li><a href="/es/how-it-works/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cómo Funciona</a></li>
-              <li><a href="/es/solutions/service-clubs/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Soluciones</a></li>
-              <li><a href="/es/contact/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Contacto</a></li>
+              <li><a href="/es/como-funciona/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cómo Funciona</a></li>
+              <li><a href="/es/soluciones/clubes-de-servicio/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Soluciones</a></li>
+              <li><a href="/es/contacto/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Contacto</a></li>
             </ul>
           </div>
 
@@ -85,7 +84,7 @@ export default function MarketingFooter() {
               <li><a href="/privacy-policy/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Privacy</a></li>
               <li><a href="/terms-of-service/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Terms</a></li>
               <li><a href="/cookie-policy/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cookie Policy</a></li>
-              <li><a href="/legal/processors/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Subprocessor DPAs</a></li>
+              <li><a href="/legal/processors" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Subprocessor DPAs</a></li>
             </ul>
           </div>
         </div>
