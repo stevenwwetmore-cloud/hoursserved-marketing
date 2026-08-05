@@ -1,233 +1,0 @@
-[1mdiff --git a/src/components/LatamFooter.tsx b/src/components/LatamFooter.tsx[m
-[1mindex 04a3d4a..31fc771 100644[m
-[1m--- a/src/components/LatamFooter.tsx[m
-[1m+++ b/src/components/LatamFooter.tsx[m
-[36m@@ -1,35 +1,26 @@[m
-[31m-import React from 'react';[m
-[31m-import BrandLogo from './BrandLogo';[m
-[31m-[m
-[31m-export default function LatamFooter() {[m
-[31m-  return ([m
-[31m-    <footer className="border-t border-gray-200 bg-gray-50 pt-14 pb-8 px-4 sm:px-6">[m
-[31m-      <div className="max-w-7xl mx-auto">[m
-[31m-        <div className="max-w-md mx-auto text-center mb-12">[m
-[31m-          {/* Brand */}[m
-[31m-          <a href="/es/" className="inline-flex items-center gap-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">[m
-[31m-            <BrandLogo size={24} />[m
-[31m-          </a>[m
-[31m-          <p className="text-xs text-brand-ink leading-relaxed mb-6">Seguimiento de asistencia y horas de voluntariado para organizaciones de servicio.</p>[m
-[31m-[m
-[31m-          {/* Links column */}[m
-[31m-          <ul className="space-y-2 mb-8">[m
-[31m-            <li><a href="/es/como-funciona/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Cómo Funciona</a></li>[m
-[31m-            <li><a href="/es/soluciones/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Soluciones</a></li>[m
-[31m-            <li><a href="/es/soluciones/clubes-de-servicio/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Clubes de Servicio</a></li>[m
-[31m-            <li><a href="/es/precios/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Precios</a></li>[m
-[31m-            <li><a href="/es/contacto/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Contacto</a></li>[m
-[31m-          </ul>[m
-[31m-[m
-[31m-          {/* Copyright */}[m
-[31m-          <div className="border-t border-gray-200 pt-6">[m
-[31m-            <p className="text-xs text-gray-600 leading-relaxed mb-3">[m
-[31m-              HoursServed es un producto independiente de Abacus Media Marketing Inc. No está afiliado, respaldado ni patrocinado por Lions Clubs International. Lions Clubs International, MyLCI y Lion Portal son marcas comerciales de su respectivo propietario, utilizadas aquí solo para describir compatibilidad.[m
-[31m-            </p>[m
-[31m-            <p className="text-xs text-brand-ink">© 2026 HoursServed — un producto de Abacus Media Marketing Inc. Todos los derechos reservados. · Toronto, ON, Canadá</p>[m
-[31m-          </div>[m
-[31m-        </div>[m
-[31m-      </div>[m
-[31m-    </footer>[m
-[31m-  );[m
-[31m-}[m
-[32m+[m[32mimport React from 'react';[m[41m[m
-[32m+[m[32mimport BrandLogo from './BrandLogo';[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32mexport default function LatamFooter() {[m[41m[m
-[32m+[m[32m  return ([m[41m[m
-[32m+[m[32m    <footer className="border-t border-gray-200 bg-gray-50 pt-14 pb-8 px-4 sm:px-6">[m[41m[m
-[32m+[m[32m      <div className="max-w-7xl mx-auto">[m[41m[m
-[32m+[m[32m        <div className="max-w-md mx-auto text-center mb-12">[m[41m[m
-[32m+[m[32m          {/* Brand */}[m[41m[m
-[32m+[m[32m          <a href="/" className="inline-flex items-center gap-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">[m[41m[m
-[32m+[m[32m            <BrandLogo size={24} />[m[41m[m
-[32m+[m[32m          </a>[m[41m[m
-[32m+[m[32m          <p className="text-xs text-brand-ink leading-relaxed mb-6">Seguimiento de asistencia y horas de voluntariado para organizaciones de servicio.</p>[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32m          {/* Copyright */}[m[41m[m
-[32m+[m[32m          <div className="border-t border-gray-200 pt-6">[m[41m[m
-[32m+[m[32m            <p className="text-xs text-gray-600 leading-relaxed mb-3">[m[41m[m
-[32m+[m[32m              HoursServed es un producto independiente de Abacus Media Marketing Inc. No está afiliado, respaldado ni patrocinado por Lions Clubs International. Lions Clubs International, MyLCI y Lion Portal son marcas comerciales de su respectivo propietario, utilizadas aquí solo para describir compatibilidad.[m[41m[m
-[32m+[m[32m            </p>[m[41m[m
-[32m+[m[32m            <p className="text-xs text-brand-ink">© 2026 HoursServed — un producto de Abacus Media Marketing Inc. Todos los derechos reservados. · Toronto, ON, Canadá</p>[m[41m[m
-[32m+[m[32m          </div>[m[41m[m
-[32m+[m[32m        </div>[m[41m[m
-[32m+[m[32m      </div>[m[41m[m
-[32m+[m[32m    </footer>[m[41m[m
-[32m+[m[32m  );[m[41m[m
-[32m+[m[32m}[m[41m[m
-[1mdiff --git a/src/components/MarketingFooter.tsx b/src/components/MarketingFooter.tsx[m
-[1mindex c395970..bf063c2 100644[m
-[1m--- a/src/components/MarketingFooter.tsx[m
-[1m+++ b/src/components/MarketingFooter.tsx[m
-[36m@@ -1,104 +1,93 @@[m
-[31m-import React from 'react';[m
-[31m-import BrandLogo from './BrandLogo';[m
-[31m-[m
-[31m-export default function MarketingFooter() {[m
-[31m-  return ([m
-[31m-    <footer className="border-t border-gray-200 bg-gray-50 pt-14 pb-8 px-4 sm:px-6">[m
-[31m-      <div className="max-w-7xl mx-auto">[m
-[31m-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">[m
-[31m-          {/* Brand */}[m
-[31m-          <div className="col-span-2 md:col-span-1">[m
-[31m-            <a href="/" className="flex items-center gap-2 mb-3">[m
-[31m-              <BrandLogo size={24} />[m
-[31m-            </a>[m
-[31m-            <p className="text-xs text-brand-ink leading-relaxed mb-4">Attendance and volunteer hour tracking for service-led organizations.</p>[m
-[31m-            <div className="flex flex-col gap-2">[m
-[31m-              <a href="/login" className="text-center text-xs font-semibold text-gray-700 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors">Login</a>[m
-[31m-              <a href="/demo/" className="text-center text-xs font-semibold text-white py-2 rounded-lg transition-colors bg-[#0F6E56] hover:bg-[#0d5c48]">Book a Demo</a>[m
-[31m-            </div>[m
-[31m-          </div>[m
-[31m-[m
-[31m-          {/* Column 1: Product */}[m
-[31m-          <div>[m
-[31m-            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Product</p>[m
-[31m-            <ul className="space-y-2">[m
-[31m-              <li><a href="/how-it-works/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">How It Works</a></li>[m
-[31m-              <li><a href="/pricing/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Pricing</a></li>[m
-[31m-              <li><a href="/demo/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Demo</a></li>[m
-[31m-            </ul>[m
-[31m-          </div>[m
-[31m-[m
-[31m-          {/* Column 2: Solutions */}[m
-[31m-          <div>[m
-[31m-            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Solutions</p>[m
-[31m-            <ul className="space-y-2">[m
-[31m-              <li><a href="/solutions/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">All Solutions</a></li>[m
-[31m-              <li><a href="/solutions/service-clubs/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Clubs</a></li>[m
-[31m-              <li><a href="/solutions/districts/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Districts</a></li>[m
-[31m-              <li><a href="/guide/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Secretary Guide</a></li>[m
-[31m-              <li><a href="/solutions/officer-transition/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Officer Transition</a></li>[m
-[31m-              <li><a href="/solutions/volunteer-growth/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Volunteer Growth</a></li>[m
-[31m-              <li><a href="/solutions/service-reporting/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Service Reporting</a></li>[m
-[31m-              <li><a href="/solutions/meetings-events/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Meetings & Events</a></li>[m
-[31m-              <li><a href="/solutions/churches/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Churches & Ministries</a></li>[m
-[31m-              <li><a href="/solutions/community-groups/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Community & Civic Groups</a></li>[m
-[31m-              <li><a href="/solutions/parent-councils-booster-groups-youth-sports/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Parent Councils & Boosters</a></li>[m
-[31m-            </ul>[m
-[31m-          </div>[m
-[31m-[m
-[31m-          {/* Column 3: Compare */}[m
-[31m-          <div>[m
-[31m-            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Compare</p>[m
-[31m-            <ul className="space-y-2">[m
-[31m-              <li><a href="/compare/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Compare Overview</a></li>[m
-[31m-              <li><a href="/compare/lions-portal/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Lion Portal</a></li>[m
-[31m-              <li><a href="/compare/lionsbase/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs LionsBase</a></li>[m
-[31m-              <li><a href="/compare/clubrunner/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs ClubRunner</a></li>[m
-[31m-              <li><a href="/compare/signupgenius/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs SignUpGenius</a></li>[m
-[31m-              <li><a href="/compare/unison/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Unison</a></li>[m
-[31m-              <li><a href="/compare/track-it-forward/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Track It Forward</a></li>[m
-[31m-            </ul>[m
-[31m-          </div>[m
-[31m-[m
-[31m-          {/* Column 4: América Latina */}[m
-[31m-          <div>[m
-[31m-            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">América Latina</p>[m
-[31m-            <ul className="space-y-2">[m
-[31m-              <li><a href="/es/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Para Clubes de Lions</a></li>[m
-[31m-              <li><a href="/es/como-funciona/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cómo Funciona</a></li>[m
-[31m-              <li><a href="/es/soluciones/clubes-de-servicio/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Soluciones</a></li>[m
-[31m-              <li><a href="/es/contacto/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Contacto</a></li>[m
-[31m-            </ul>[m
-[31m-          </div>[m
-[31m-[m
-[31m-          {/* Column 5: Company */}[m
-[31m-          <div>[m
-[31m-            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Company</p>[m
-[31m-            <ul className="space-y-2">[m
-[31m-              <li><a href="/accessibility/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Accessibility</a></li>[m
-[31m-              <li><a href="/faq/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">FAQ</a></li>[m
-[31m-              <li><a href="/blog/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Blog</a></li>[m
-[31m-              <li><a href="/contact/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Contact</a></li>[m
-[31m-              <li><a href="/contact/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Support</a></li>[m
-[31m-              <li><a href="/contact/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Billing</a></li>[m
-[31m-              <li><a href="/privacy-policy/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Privacy</a></li>[m
-[31m-              <li><a href="/terms-of-service/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Terms</a></li>[m
-[31m-              <li><a href="/cookie-policy/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Cookie Policy</a></li>[m
-[31m-              <li><a href="/legal/processors" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Subprocessor DPAs</a></li>[m
-[31m-            </ul>[m
-[31m-          </div>[m
-[31m-        </div>[m
-[31m-[m
-[31m-        <div className="border-t border-gray-200 pt-6 space-y-4">[m
-[31m-          <p className="text-xs text-gray-600 leading-relaxed max-w-4xl">[m
-[31m-            HoursServed is an independent product of Abacus Media Marketing Inc. It is not affiliated with, endorsed by, or sponsored by Lions Clubs International. Lions Clubs International, MyLCI, and Lion Portal are trademarks of their respective owner, used here only to describe compatibility.[m
-[31m-          </p>[m
-[31m-          <div className="flex flex-col sm:flex-row justify-between items-center gap-3">[m
-[31m-            <p className="text-xs text-brand-ink">© 2026 HoursServed — a product of Abacus Media Marketing Inc. All rights reserved. · Toronto, ON, Canada</p>[m
-[31m-            <a href="/contact/" className="text-xs text-brand-ink hover:text-gray-700 transition-colors">hello@hoursserved.com</a>[m
-[31m-          </div>[m
-[31m-        </div>[m
-[31m-      </div>[m
-[31m-    </footer>[m
-[31m-  );[m
-[31m-}[m
-[32m+[m[32mimport React from 'react';[m[41m[m
-[32m+[m[32mimport BrandLogo from './BrandLogo';[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32mexport default function MarketingFooter() {[m[41m[m
-[32m+[m[32m  return ([m[41m[m
-[32m+[m[32m    <footer className="border-t border-gray-200 bg-gray-50 pt-14 pb-8 px-4 sm:px-6">[m[41m[m
-[32m+[m[32m      <div className="max-w-7xl mx-auto">[m[41m[m
-[32m+[m[32m        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">[m[41m[m
-[32m+[m[32m          {/* Brand */}[m[41m[m
-[32m+[m[32m          <div className="col-span-2 md:col-span-1">[m[41m[m
-[32m+[m[32m            <a href="/" className="flex items-center gap-2 mb-3">[m[41m[m
-[32m+[m[32m              <BrandLogo size={24} />[m[41m[m
-[32m+[m[32m            </a>[m[41m[m
-[32m+[m[32m            <p className="text-xs text-brand-ink leading-relaxed mb-4">Attendance and volunteer hour tracking for service-led organizations.</p>[m[41m[m
-[32m+[m[32m            <div className="flex flex-col gap-2">[m[41m[m
-[32m+[m[32m              <a href="/login" className="text-center text-xs font-semibold text-gray-700 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition-colors">Login</a>[m[41m[m
-[32m+[m[32m              <a href="/demo/" className="text-center text-xs font-semibold text-white py-2 rounded-lg transition-colors bg-[#0F6E56] hover:bg-[#0d5c48]">Book a Demo</a>[m[41m[m
-[32m+[m[32m            </div>[m[41m[m
-[32m+[m[32m          </div>[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32m          {/* Column 1: Product */}[m[41m[m
-[32m+[m[32m          <div>[m[41m[m
-[32m+[m[32m            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Product</p>[m[41m[m
-[32m+[m[32m            <ul className="space-y-2">[m[41m[m
-[32m+[m[32m              <li><a href="/how-it-works/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">How It Works</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/pricing/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Pricing</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/demo/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Demo</a></li>[m[41m[m
-[32m+[m[32m            </ul>[m[41m[m
-[32m+[m[32m          </div>[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32m          {/* Column 2: Solutions */}[m[41m[m
-[32m+[m[32m          <div>[m[41m[m
-[32m+[m[32m            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Solutions</p>[m[41m[m
-[32m+[m[32m            <ul className="space-y-2">[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">All Solutions</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/service-clubs/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Clubs</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/districts/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Lions Districts</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/guide/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Secretary Guide</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/officer-transition/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Officer Transition</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/volunteer-growth/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Volunteer Growth</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/service-reporting/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Service Reporting</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/meetings-events/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Meetings & Events</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/churches/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Churches & Ministries</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/community-groups/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Community & Civic Groups</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/solutions/parent-councils-booster-groups-youth-sports/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Parent Councils & Boosters</a></li>[m[41m[m
-[32m+[m[32m            </ul>[m[41m[m
-[32m+[m[32m          </div>[m[41m[m
-[32m+[m[41m[m
-[32m+[m[32m          {/* Column 3: Compare */}[m[41m[m
-[32m+[m[32m          <div>[m[41m[m
-[32m+[m[32m            <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Compare</p>[m[41m[m
-[32m+[m[32m            <ul className="space-y-2">[m[41m[m
-[32m+[m[32m              <li><a href="/compare/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Compare Overview</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/compare/lions-portal/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Lion Portal</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/compare/lionsbase/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs LionsBase</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/compare/clubrunner/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs ClubRunner</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/compare/signupgenius/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs SignUpGenius</a></li>[m[41m[m
-[32m+[m[32m              <li><a href="/compare/unison/" className="text-sm t
