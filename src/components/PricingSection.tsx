@@ -75,7 +75,7 @@ function PricingCard({ name, badge, price, billing, features, cta, highlight, ct
   // Build checkout URL for paid plans
   const checkoutUrl = planKey && currency
     ? `https://www.hoursserved.com/login?plan=${planKey}&currency=${currency.toLowerCase()}${(planKey === 'pro_monthly' || planKey === 'pro_annual') ? '&trial=true' : ''}`
-    : ctaLink || '/app/dashboard';
+    : ctaLink || '/signup';
 
   return (
     <div className={`rounded-2xl border flex flex-col p-8 relative ${highlight ? 'bg-brand-navy text-white shadow-2xl' : 'bg-white'}`} style={highlight ? {} : { borderColor: '#E5E1D8' }}>
@@ -282,7 +282,7 @@ export default function PricingSection() {
 
         {/* Club plan cards */}
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 items-stretch">
-          <PricingCard name="Club Free" price="$0" billing="forever · no credit card" features={freeFeatures} cta="Start Free" ctaLink="/app/dashboard" />
+          <PricingCard name="Club Free" price="$0" billing="forever · no credit card" features={freeFeatures} cta="Start Free" ctaLink="/signup" />
           <PricingCard
             name="Club Essential"
             price={annual ? P.essential_yr : P.essential_mo}
