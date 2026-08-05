@@ -19,7 +19,7 @@ const SOLUTIONS = [
 const COMPARE = [
   { label: 'ClubRunner', href: '/compare/clubrunner/' },
   { label: 'LionsBase', href: '/compare/lionsbase/' },
-  { label: 'Lions Portal', href: '/compare/lions-portal/' },
+  { label: 'Lion Portal', href: '/compare/lions-portal/' },
   { label: 'SignUpGenius', href: '/compare/signupgenius/' },
   { label: 'Track It Forward', href: '/compare/track-it-forward/' },
   { label: 'Unison', href: '/compare/unison/' },

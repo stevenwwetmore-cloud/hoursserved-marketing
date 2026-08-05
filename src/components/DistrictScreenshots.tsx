@@ -215,7 +215,7 @@ const NAV_ITEMS = [
   { icon: Pencil, label: "Corrections" },
   { icon: Clock, label: "Work Queue" },
   { icon: Upload, label: "Export Center" },
-  { icon: FileOutput, label: "Lions Portal" },
+  { icon: FileOutput, label: "Lion Portal" },
 ];
 
 function Sidebar({ active }: { active: string }) {
@@ -337,7 +337,7 @@ export function Screen01DistrictDashboard() {
           <StatCard label="Clubs Fully Reported" value="21" sub="of 34 clubs · 62%" variant="green" />
           <StatCard label="In Progress / Partial" value="8" sub="reports open" variant="amber" />
           <StatCard label="Overdue / No Activity" value="5" sub="need follow-up" variant="red" />
-          <StatCard label="Export Ready" value="18" sub="clubs · Lions Portal" variant="blue" />
+          <StatCard label="Export Ready" value="18" sub="clubs · Lion Portal" variant="blue" />
         </div>
         <CardWrap title="Clubs Needing Attention" count="5 overdue · 8 in progress">
           <DataTable
@@ -463,7 +463,7 @@ export function Screen05EventDetail() {
     ["Service hours entered", <Badge key="1" variant="red">✗ Missing</Badge>],
     ["Corrections resolved", <Badge key="1" variant="red">✗ 3 open</Badge>],
     ["Officer approval", <Badge key="1" variant="red">✗ Pending</Badge>],
-    ["Ready for Lions Portal", <Badge key="1" variant="red">✗ Blocked</Badge>],
+    ["Ready for Lion Portal", <Badge key="1" variant="red">✗ Blocked</Badge>],
   ];
 
   return (
@@ -517,7 +517,7 @@ export function Screen06CorrectionsQueue() {
         topbarActions={[{ label: "Filter: Critical" }, { label: "Export Corrections", primary: true }]}
       >
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <StatCard label="Critical (Blocking)" value="7" sub="blocks Lions Portal export" variant="red" />
+          <StatCard label="Critical (Blocking)" value="7" sub="blocks Lion Portal export" variant="red" />
           <StatCard label="Minor (Review)" value="7" sub="data inconsistencies" variant="amber" />
           <StatCard label="Resolved This Week" value="11" sub="corrections closed" variant="green" />
         </div>
@@ -570,7 +570,7 @@ export function Screen08ExportCenter() {
       <AppShell
         active="Export Center"
         topbarTitle="Export Center"
-        topbarSub="June 2025 · Lions Portal CSV preparation · District 18-C"
+        topbarSub="June 2025 · Lion Portal CSV preparation · District 18-C"
         topbarActions={[{ label: "Preview Ready" }, { label: "Export All Ready", primary: true }]}
       >
         <div className="grid grid-cols-3 gap-3 mb-4">
@@ -608,14 +608,14 @@ export function Screen09LionsPortal() {
     ["Total volunteer hours", <strong key="3">124.0 hrs</strong>],
     ["Unique volunteers", <strong key="4">28</strong>],
     ["Fields with issues", <strong key="5" style={{color: T.green}}>0</strong>],
-    ["Ready for Lions Portal", <Badge key="6" variant="green">Yes</Badge>],
+    ["Ready for Lion Portal", <Badge key="6" variant="green">Yes</Badge>],
   ];
 
   return (
     <ChromeFrame url="hoursserved.com/app/district/lions-portal-report">
       <AppShell
-        active="Lions Portal"
-        topbarTitle="Lions Portal Report Preview"
+        active="Lion Portal"
+        topbarTitle="Lion Portal Report Preview"
         topbarSub="Thornwood Lions · June 2025 · Field alignment check"
         topbarActions={[{ label: "← Export Center" }, { label: "Download CSV", primary: true }]}
       >
@@ -631,7 +631,7 @@ export function Screen09LionsPortal() {
             <div className="rounded-lg p-4 border border-gray-200 bg-white">
               <p className="text-base font-semibold mb-1" style={{color: T.green}}>All clear — ready to submit</p>
               <p className="text-base leading-relaxed text-gray-900">
-                All required Lions Portal fields are populated and aligned. Download the CSV and upload directly to the Lions Portal activity reporting module.
+                All required Lion Portal fields are populated and aligned. Download the CSV and upload directly to the Lion Portal activity reporting module.
               </p>
             </div>
           </div>
@@ -647,7 +647,7 @@ export function Screen10BeforeAfter() {
     "No visibility into which clubs have corrections open or how old they are",
     "Follow-up based on who responds — overdue clubs stay invisible",
     "Month-end reporting compiled manually from email replies and spreadsheets",
-    "Lions Portal CSV built by hand, field by field, from scattered sources",
+    "Lion Portal CSV built by hand, field by field, from scattered sources",
     "District governor doesn't know which clubs need coaching until it's too late",
     "Corrections discovered at submission — too late to fix without delays",
   ];
@@ -657,7 +657,7 @@ export function Screen10BeforeAfter() {
     "Corrections queue shows every open issue, sorted by severity and age",
     "Follow-up is targeted: district officers see exactly which clubs need attention first",
     "Month-end reporting is a review, not a rebuild — data already in the system",
-    "Lions Portal CSV generated from aligned fields in one click, per club",
+    "Lion Portal CSV generated from aligned fields in one click, per club",
     "Club Detail gives district reviewers real activity context before any coaching call",
     "Corrections resolved before submission — no month-end surprises",
   ];

@@ -6,7 +6,12 @@ import MarketingFooter from '../../components/MarketingFooter';
 import { CheckCircle, XCircle, MinusCircle } from 'lucide-react';
 
 const ROWS = [
-  { feature: 'Member login required', hoursserved: 'no', lions: 'yes', note: 'Members confirm attendance from email — no account needed' },
+  { feature: 'Member login required', hoursserved: 'no', lions: 'yes', note: 'Lion Portal requires intentional officer authentication for official and confidential submissions; HoursServed lets members confirm attendance from email without a login' },
+  { feature: 'Official Lions Clubs International system of record', hoursserved: 'no', lions: 'yes', note: 'Lion Portal is the authoritative platform for Lions Clubs International data' },
+  { feature: 'District & club permission controls', hoursserved: 'no', lions: 'yes', note: 'Role-based access enforced by Lions Clubs International' },
+  { feature: 'Official reporting submission', hoursserved: 'no', lions: 'yes', note: 'Final submissions go into Lion Portal — HoursServed prepares the data' },
+  { feature: 'Mobile-friendly official access', hoursserved: 'partial', lions: 'yes', note: 'HoursServed is web-responsive; Lion Portal is the official mobile app' },
+  { feature: 'No setup fee', hoursserved: 'yes', lions: 'yes', note: 'Neither platform charges a setup fee — Lion Portal is part of Lions Clubs International membership' },
   { feature: 'Meeting attendance tracking', hoursserved: 'yes', lions: 'partial', note: 'HoursServed automates the full RSVP and confirmation workflow' },
   { feature: 'Automated service hour logging', hoursserved: 'yes', lions: 'no', note: 'Hours frozen at event creation, timestamped on confirmation' },
   { feature: 'Monthly report generation', hoursserved: 'yes', lions: 'no', note: 'PDF and CSV summaries built for officer review' },
@@ -15,36 +20,31 @@ const ROWS = [
   { feature: 'Dues & payment tracking', hoursserved: 'yes', lions: 'no', note: 'Track paid/pending/waived per member with Interac reconciliation' },
   { feature: 'Shift & volunteer management', hoursserved: 'yes', lions: 'no', note: 'Role-based signups, capacity limits, waitlists' },
   { feature: 'At-risk member alerts', hoursserved: 'yes', lions: 'no', note: 'Flag members falling below service-hour thresholds' },
-  { feature: 'Official Lions system of record', hoursserved: 'no', lions: 'yes', note: 'Lions Portal is the authoritative platform for all Lions data' },
-  { feature: 'District & club permission controls', hoursserved: 'no', lions: 'yes', note: 'Role-based access enforced by Lions International' },
-  { feature: 'Official reporting submission', hoursserved: 'no', lions: 'yes', note: 'Final submissions go into Lions Portal — HoursServed prepares the data' },
-  { feature: 'Mobile-friendly official access', hoursserved: 'partial', lions: 'yes', note: 'HoursServed is web-responsive; Lions Portal is the official mobile app' },
-  { feature: 'No setup fee', hoursserved: 'yes', lions: 'yes', note: 'Neither platform charges a setup fee — Lions Portal is part of Lions International membership' },
 ];
 
 // Helper to render status icons inline
 
 const FAQ = [
   {
-    q: 'Does HoursServed replace Lions Portal?',
-    a: 'No — and it\'s not designed to. Lions Portal is the official system of record for Lions International. HoursServed handles the pre-submission workflow: collecting attendance, logging service hours, generating reports, and routing approvals. Think of it as the preparation layer before data enters Lions Portal.',
+    q: 'Does HoursServed replace Lion Portal?',
+    a: 'No — and it\'s not designed to. Lion Portal is the official system of record for Lions Clubs International. HoursServed handles the pre-submission workflow: collecting attendance, logging service hours, generating reports, and routing approvals. Think of it as the preparation layer before data enters Lion Portal.',
   },
   {
-    q: 'Why use HoursServed if we already have Lions Portal?',
-    a: 'Lions Portal manages permissions, official records, and submissions. It doesn\'t automate meeting RSVPs, freeze service hours at event creation, generate approval-ready monthly reports, or track dues. HoursServed fills that operational gap for club secretaries and officers.',
+    q: 'Why use HoursServed if we already have Lion Portal?',
+    a: 'Lion Portal manages permissions, official records, and submissions. It doesn\'t automate meeting RSVPs, freeze service hours at event creation, generate approval-ready monthly reports, or track dues. HoursServed fills that operational gap for club secretaries and officers.',
   },
   {
-    q: 'Can data from HoursServed be submitted to Lions Portal?',
-    a: 'Yes. HoursServed exports CSV and PDF summaries formatted for officer review. A direct Lions Portal upload interface is currently in development to make submission even faster.',
+    q: 'Can data from HoursServed be submitted to Lion Portal?',
+    a: 'Yes. HoursServed exports CSV and PDF summaries formatted for officer review. A direct Lion Portal upload interface is currently in development to make submission even faster.',
   },
   {
     q: 'Do members need to use both systems?',
-    a: 'No. Regular members only interact with HoursServed via email links — no login, no app. Officers use HoursServed for day-to-day admin and Lions Portal for official submissions and permissions.',
+    a: 'No. Regular members only interact with HoursServed via email links — no login, no app. Officers use HoursServed for day-to-day admin and Lion Portal for official submissions and permissions.',
   },
 ];
 ---
 
-<Layout title="HoursServed vs Lions Portal (myLCI) — Comparison" description="HoursServed automates the data preparation that Lions Portal requires manually. Generate your monthly myLCI CSV in one click instead of manual entry.">
+<Layout title="HoursServed vs Lion Portal (myLCI) — Comparison" description="HoursServed automates the data preparation that Lion Portal requires manually. Generate your monthly myLCI CSV in one click instead of manual entry.">
   <div class="min-h-screen font-sans" style="background-color: #F1EFE8;">
     <MarketingNav client:load />
 
@@ -56,12 +56,12 @@ const FAQ = [
           <div class="inline-flex items-center gap-2 bg-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6" style="color: #1E3A5F; border: 2px solid #1E3A5F;">
             Not a replacement — a preparation layer
           </div>
-          <h1 class="text-4xl font-black text-gray-900 mb-4">HoursServed + Lions Portal</h1>
+          <h1 class="text-4xl font-black text-gray-900 mb-4">HoursServed + Lion Portal</h1>
           <p class="text-base text-gray-900 mb-4 max-w-2xl mx-auto leading-relaxed">
-            Lions Portal is the official Lions system of record. HoursServed is the workflow that gets your data ready for it — faster, cleaner, and with less chasing.
+            Lion Portal is the official Lions Clubs International system of record. HoursServed is the workflow that gets your data ready for it — faster, cleaner, and with less chasing.
           </p>
           <p class="text-base font-semibold max-w-xl mx-auto" style={{color: '#1E3A5F'}}>
-            "HoursServed prepares the work, streamlines the approvals, and presents data for an official Lions Portal submission."
+            "HoursServed prepares the work, streamlines the approvals, and presents data for an official Lion Portal submission."
           </p>
         </div>
       </section>
@@ -72,12 +72,13 @@ const FAQ = [
       <section class="py-10 px-4">
         <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl p-6" style="border: 2px solid #1E3A5F;">
-            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}>Lions Portal is best for</h2>
+            <h2 class="font-bold mb-3 text-sm uppercase tracking-wide" style={{color: '#1E3A5F'}}>Lion Portal is best for</h2>
             <ul class="space-y-2 text-base text-gray-900">
-              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Official Lions system of record</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Secure, intentional officer login for official and confidential submissions</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Official Lions Clubs International system of record</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Formal role-based permissions at district and club level</li>
-              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Secure, mobile-friendly official Lions access</li>
-              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Final submission and formal reporting to Lions International</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Secure, mobile-friendly official access</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Final submission and formal reporting to Lions Clubs International</li>
             </ul>
           </div>
           <div class="bg-white rounded-2xl p-6" style="border: 2px solid #0F6E56;">
@@ -87,7 +88,7 @@ const FAQ = [
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Automated service hour logging, frozen at event creation</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Monthly report generation, approval workflow & distribution</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Dues tracking, at-risk alerts, shift & volunteer management</li>
-              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />PDF/CSV export ready for Lions Portal submission</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />PDF/CSV export ready for Lion Portal submission</li>
             </ul>
           </div>
         </div>
@@ -101,7 +102,7 @@ const FAQ = [
             <div class="grid grid-cols-[1fr_110px_110px] text-white text-sm font-semibold" style="background-color: #1E3A5F;">
               <div class="px-5 py-3">Feature</div>
               <div class="px-3 py-3 text-center">HoursServed</div>
-              <div class="px-3 py-3 text-center">Lions Portal</div>
+              <div class="px-3 py-3 text-center">Lion Portal</div>
             </div>
             {ROWS.map((row, i) => (
               <div key={row.feature} class={`grid grid-cols-[1fr_110px_110px] border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
@@ -134,12 +135,12 @@ const FAQ = [
       <section class="py-16 px-4 sm:px-6">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-2xl font-bold text-gray-900 mb-4">How they work together</h2>
-          <p class="text-base text-gray-900 mb-10 max-w-xl mx-auto">Think of HoursServed as the engine room and Lions Portal as the submission window. Each does what it's designed for.</p>
+          <p class="text-base text-gray-900 mb-10 max-w-xl mx-auto">Think of HoursServed as the engine room and Lion Portal as the submission window. Each does what it's designed for.</p>
           <div class="grid sm:grid-cols-3 gap-4 text-left">
             {[
               { step: '1', title: 'HoursServed collects', desc: 'Members confirm attendance via email. Hours are logged automatically. No logins, no manual entry.' },
               { step: '2', title: 'Officers review & approve', desc: 'Monthly reports are generated, routed for approval, and distributed — all inside HoursServed.' },
-              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV or PDF for manual submission today. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International.' },
+              { step: '3', title: 'Lion Portal receives', desc: 'Export a clean CSV or PDF for manual submission today. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International.' },
             ].map(({ step, title, desc }) => (
               <div key={step} class="bg-white rounded-2xl p-5" style="border: 2px solid #E5E1D8;">
                 <div class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#0F6E56'}}>Step {step}</div>

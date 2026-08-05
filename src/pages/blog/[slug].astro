@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MarketingNav from '../../components/MarketingNav';
-import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
+import { normalizeWebsiteNaming } from '../../utils/normalizeWebsiteNaming';
 import { Calendar, Tag } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -27,7 +27,15 @@ export async function getStaticPaths() {
   }
 }
 
-const { post } = Astro.props;
+const { post: sourcePost } = Astro.props;
+
+const post = {
+  ...sourcePost,
+  title: normalizeWebsiteNaming(sourcePost.title),
+  metaDescription: normalizeWebsiteNaming(sourcePost.metaDescription),
+  excerpt: normalizeWebsiteNaming(sourcePost.excerpt),
+  body: normalizeWebsiteNaming(sourcePost.body),
+};
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -76,7 +84,6 @@ const description = post.metaDescription || post.excerpt || 'Practical guides an
 
       </header>
 
-      <TopBenefitsHero />
 
       <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         <div

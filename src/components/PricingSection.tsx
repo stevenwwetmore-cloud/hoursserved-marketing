@@ -32,14 +32,14 @@ const freeFeatures = [
   'Up to 15 members', 'Up to 2 events per month', 'Email invitations',
   'Service hours tracking', 'Monthly report — view only', 'Email support',
   { text: 'No export or PDF', included: false },
-  { text: 'No Lions Portal fields', included: false },
+  { text: 'No Lion Portal fields', included: false },
   { text: 'No shift management', included: false },
   { text: 'No volunteer tracking', included: false },
 ];
 const essentialFeatures = [
   'Up to 50 members', 'Unlimited events', 'Email invitations',
   'Service hours tracking', 'Monthly report — PDF and CSV export',
-  'Lions Portal fields complete', 'Import and export', 'Email support',
+  'Lion Portal fields complete', 'Import and export', 'Email support',
   { text: 'No shift management', included: false },
   { text: 'No volunteer tracking', included: false },
   { text: 'No District Dashboard visibility', included: false },
@@ -48,7 +48,7 @@ const proFeatures = [
   'Unlimited members', 'Unlimited events', 'Email invitations and nudges',
   'Service hours tracking', 'Monthly report — PDF and CSV export',
   { note: true, text: 'For Rotary, Kiwanis, and community organizations: generates a Monthly Activity Report instead.' },
-  'Lions Portal fields complete', 'Shift management', 'Volunteer tracking',
+  'Lion Portal fields complete', 'Shift management', 'Volunteer tracking',
   'Bulk actions', 'Report approval workflow', 'Google Calendar sync',
   'District Dashboard visibility', 'Dues management', 'Import and export', 'Email support',
 ];
@@ -234,7 +234,7 @@ export default function PricingSection() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-900" aria-hidden="true" />
-                  <span>Lions Portal CSV export</span>
+                  <span>Lion Portal CSV export</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-900" aria-hidden="true" />

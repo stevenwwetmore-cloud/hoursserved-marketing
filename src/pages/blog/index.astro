@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MarketingNav from '../../components/MarketingNav';
-import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
+import { normalizeWebsiteNaming } from '../../utils/normalizeWebsiteNaming';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 
 const APP_ID = '69ac4eaa5a3031dffe252cf9';
@@ -23,7 +23,11 @@ async function fetchPosts() {
   }
 }
 
-const posts = await fetchPosts();
+const posts = (await fetchPosts()).map((post: any) => ({
+  ...post,
+  title: normalizeWebsiteNaming(post.title),
+  excerpt: normalizeWebsiteNaming(post.excerpt),
+}));
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -45,7 +49,6 @@ function formatDate(dateStr: string) {
       </div>
     </div>
 
-    <TopBenefitsHero />
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       {posts.length === 0 && (

@@ -55,9 +55,9 @@ const CONTENT = {
       },
       {
         number: '03', icon: UploadCloud,
-        title: 'Cargas automatizadas al Portal de Lions (disponibles con la aprobación de LCI)',
-        description: 'Las cargas automatizadas al Portal de Lions estarán disponibles próximamente, sujetas a la aprobación por escrito de Lions Clubs International',
-        details: ['Captura campos compatibles con el Portal de Lions durante el registro habitual de eventos', 'Envía los reportes mensuales de actividades para revisión y aprobación de los oficiales', 'Descarga reportes CSV y PDF ahora; activa las cargas protegidas únicamente después de recibir la aprobación'],
+        title: 'Cargas automatizadas al Lion Portal (disponibles con la aprobación de LCI)',
+        description: 'Las cargas automatizadas al Lion Portal estarán disponibles próximamente, sujetas a la aprobación por escrito de Lions Clubs International',
+        details: ['Captura campos compatibles con el Lion Portal durante el registro habitual de eventos', 'Envía los reportes mensuales de actividades para revisión y aprobación de los oficiales', 'Descarga reportes CSV y PDF ahora; activa las cargas protegidas únicamente después de recibir la aprobación'],
         featured: true,
       },
     ],

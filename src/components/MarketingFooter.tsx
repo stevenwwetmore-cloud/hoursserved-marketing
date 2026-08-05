@@ -51,7 +51,7 @@ export default function MarketingFooter() {
             <p className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3">Compare</p>
             <ul className="space-y-2">
               <li><a href="/compare/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">Compare Overview</a></li>
-              <li><a href="/compare/lions-portal/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Lions Portal</a></li>
+              <li><a href="/compare/lions-portal/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs Lion Portal</a></li>
               <li><a href="/compare/lionsbase/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs LionsBase</a></li>
               <li><a href="/compare/clubrunner/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs ClubRunner</a></li>
               <li><a href="/compare/signupgenius/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">vs SignUpGenius</a></li>

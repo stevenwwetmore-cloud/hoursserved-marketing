@@ -148,7 +148,7 @@ function TabHours() {
           <PfItem dot={dot}>Post-event corrections with officer attribution</PfItem>
           <PfItem dot={dot}>Member dashboard — each member sees their own record</PfItem>
           <PfItem dot={dot}>Monthly report generation &amp; distribution</PfItem>
-          <PfItem dot={dot}>LCI-format Lions Portal CSV export</PfItem>
+          <PfItem dot={dot}>LCI-format Lion Portal CSV export</PfItem>
         </div>
       </div>
       <MockBrowser className="w-full max-w-2xl mx-auto">
@@ -255,11 +255,11 @@ function TabReports() {
       <div>
         <h3 className="text-2xl font-black text-gray-900 mb-3 leading-normal font-serif italic">Reports that generate and distribute themselves</h3>
         <p className="text-gray-900 leading-relaxed mb-3 text-base">Monthly reports are auto-generated at month-end and distributed to officers by email. Require approval before distribution — or let it run automatically. Everything exports cleanly.</p>
-        <p className="text-gray-900 leading-relaxed text-base">Lions clubs get a dedicated <strong className="text-gray-800">LCI Portal CSV export</strong> formatted exactly for Lions International reporting requirements.</p>
+        <p className="text-gray-900 leading-relaxed text-base">Lions clubs get a dedicated <strong className="text-gray-800">LCI Portal CSV export</strong> formatted exactly for Lions Clubs International reporting requirements.</p>
         <div className="flex flex-col gap-2.5 mt-5">
           <PfItem dot={dot}>Auto-generated monthly reports</PfItem>
           <PfItem dot={dot}>Report approval workflow before distribution</PfItem>
-          <PfItem dot={dot}>LCI Lions Portal CSV — properly formatted</PfItem>
+          <PfItem dot={dot}>LCI Lion Portal CSV — properly formatted</PfItem>
           <PfItem dot={dot}>Export Center — CSV, PDF by date range</PfItem>
           <PfItem dot={dot}>Club Reporting Coverage dashboard</PfItem>
         </div>

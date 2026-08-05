@@ -15,8 +15,8 @@ const ROWS = [
   { feature: 'At-risk member alerts', hoursserved: 'yes', lionsbase: 'no', note: 'Auto-flags members below participation thresholds before month-end' },
   { feature: 'Shift & role-based volunteer signups', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed has per-role capacity limits, waitlists, and email-link signups' },
   { feature: 'Dues & payment tracking', hoursserved: 'yes', lionsbase: 'partial', note: 'HoursServed includes Interac reconciliation codes and per-member status tracking' },
-  { feature: 'Lions Portal upload for approved reports', hoursserved: 'partial', lionsbase: 'yes', note: 'HoursServed exports CSV and PDF reports now; automated uploads require written LCI approval' },
-  { feature: 'Official Lions member synchronization', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase synchronizes with the official Lions database' },
+  { feature: 'Lion Portal upload for approved reports', hoursserved: 'partial', lionsbase: 'yes', note: 'HoursServed exports CSV and PDF reports now; automated uploads require written LCI approval' },
+  { feature: 'Official Lions Clubs International member synchronization', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase synchronizes with the official Lions Clubs International database' },
   { feature: 'Conference registration, QR tickets & invoices', hoursserved: 'no', lionsbase: 'yes', note: 'LionsBase supports structured conference workflows with registration questions and invoicing' },
   { feature: 'Broad Lions-specific reporting & statistics', hoursserved: 'partial', lionsbase: 'yes', note: 'LionsBase has broader cross-club and district reporting; HoursServed focuses on monthly ops' },
   { feature: 'Multi-district infrastructure', hoursserved: 'partial', lionsbase: 'yes', note: 'LionsBase is built for district and multi-district deployment at scale' },
@@ -30,7 +30,7 @@ const ROWS = [
 const FAQ = [
   {
     q: 'Is HoursServed a replacement for LionsBase?',
-    a: 'No. LionsBase is a broader Lions administration platform with support for member synchronization, conference-style events, district reporting, and official Lions data workflows. HoursServed focuses on the recurring weekly operational layer: RSVPs, attendance, service hours, shift coverage, dues tracking, monthly report approvals, and district follow-up. Many clubs benefit from using both.',
+    a: 'No. LionsBase is a broader Lions administration platform with support for member synchronization, conference-style events, district reporting, and official Lions Clubs International data workflows. HoursServed focuses on the recurring weekly operational layer: RSVPs, attendance, service hours, shift coverage, dues tracking, monthly report approvals, and district follow-up. Many clubs benefit from using both.',
   },
   {
     q: 'When would a Lions club choose HoursServed instead of LionsBase?',
@@ -38,7 +38,7 @@ const FAQ = [
   },
   {
     q: 'When is LionsBase the better choice?',
-    a: 'LionsBase appears strongest where a district needs a larger Lions-specific management environment, especially for structured conferences, member synchronization with the official Lions database, and broad cross-club reporting. Its documentation points to conference workflows with registration questions, QR tickets, and invoices — capabilities HoursServed is not designed to replace.',
+    a: 'LionsBase appears strongest where a district needs a larger Lions-specific management environment, especially for structured conferences, member synchronization with the official Lions Clubs International database, and broad cross-club reporting. Its documentation points to conference workflows with registration questions, QR tickets, and invoices — capabilities HoursServed is not designed to replace.',
   },
   {
     q: 'Do members need to create an account to use HoursServed?',
@@ -49,13 +49,13 @@ const FAQ = [
     a: 'LionsBase uses a variable annual fee based on active member or club count, without a published price list. HoursServed Pro is a flat $19/month (or $199/year) for unlimited members, with no setup fee. The Free plan supports up to 20 members at no cost.',
   },
   {
-    q: 'Can HoursServed data be submitted to Lions Portal?',
+    q: 'Can HoursServed data be submitted to Lion Portal?',
     a: 'Yes. HoursServed currently exports CSV and PDF reports for manual submission. Automated Lion Portal uploads are coming soon, subject to written approval from Lions Clubs International.',
   },
 ];
 ---
 
-<Layout title="HoursServed vs LionsBase — Lions Club Software Comparison" description="HoursServed vs LionsBase — compare attendance automation, shift management, dues collection, transparent pricing, and Lions Portal reporting.">
+<Layout title="HoursServed vs LionsBase — Lions Club Software Comparison" description="HoursServed vs LionsBase — compare attendance automation, shift management, dues collection, transparent pricing, and Lion Portal reporting.">
   <div class="min-h-screen font-sans" style="background-color: #F1EFE8;">
     <MarketingNav client:load />
 
@@ -93,7 +93,7 @@ const FAQ = [
             <ul class="space-y-2 text-base text-gray-900">
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />District-level Lions administration and member synchronization</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Conference registration with questions, QR tickets, and invoices</li>
-              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Synchronization with the official Lions International database</li>
+              <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Synchronization with the official Lions Clubs International database</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Broad cross-club reporting and Lions-specific statistics</li>
               <li class="flex items-start gap-2"><CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{color: '#0F6E56'}} aria-hidden="true" />Club website and newsletter communications</li>
             </ul>
@@ -117,7 +117,7 @@ const FAQ = [
         <div class="max-w-3xl mx-auto">
           <blockquote class="bg-white rounded-2xl p-6 shadow-sm" style="border-left: 4px solid #0F6E56;">
             <p class="text-base text-gray-900 leading-relaxed">
-              LionsBase offers broader Lions-specific administration, especially around structured reporting, member synchronization, and convention-style event workflows. HoursServed is intentionally focused on reducing friction in the recurring operational work that clubs and districts handle far more often — attendance, shifts, dues, approvals, and report completion — while extending toward Lions Portal submission workflows for approved reports.
+              LionsBase offers broader Lions-specific administration, especially around structured reporting, member synchronization, and convention-style event workflows. HoursServed is intentionally focused on reducing friction in the recurring operational work that clubs and districts handle far more often — attendance, shifts, dues, approvals, and report completion — while extending toward Lion Portal submission workflows for approved reports.
             </p>
           </blockquote>
         </div>
@@ -195,7 +195,7 @@ const FAQ = [
             {[
               { step: '1', title: 'HoursServed collects', desc: 'Members confirm attendance via email. Hours are frozen and logged automatically. Shifts are filled. Dues are tracked. No login required.' },
               { step: '2', title: 'Officers review & approve', desc: 'Monthly reports are generated, routed for approval, and distributed inside HoursServed — in minutes, not days.' },
-              { step: '3', title: 'Lions Portal receives', desc: 'Export a clean CSV or PDF report for manual submission today. Automated Lion Portal uploads require written LCI approval.' },
+              { step: '3', title: 'Lion Portal receives', desc: 'Export a clean CSV or PDF report for manual submission today. Automated Lion Portal uploads require written LCI approval.' },
             ].map(({ step, title, desc }) => (
               <div key={step} class="bg-white rounded-2xl p-5" style="border: 2px solid #E5E1D8;">
                 <div class="text-xs font-bold uppercase tracking-widest mb-2" style={{color: '#0F6E56'}}>Step {step}</div>
