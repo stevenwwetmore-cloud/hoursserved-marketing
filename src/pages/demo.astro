@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import MarketingNav from '../components/MarketingNav';
+import TopBenefitsHero from '../components/TopBenefitsHero';
 import MarketingFooter from '../components/MarketingFooter';
 import BrandLogo from '../components/BrandLogo';
 import { CheckCircle, Calendar, Clock, Mail } from 'lucide-react';
@@ -17,6 +18,8 @@ import { CheckCircle, Calendar, Clock, Mail } from 'lucide-react';
         <h1 class="text-4xl font-bold text-gray-900 mb-4">See <BrandLogo className="font-bold text-4xl" /> in action</h1>
         <p class="text-lg text-gray-600 max-w-xl mx-auto">Book a 20-minute walkthrough. We'll show you exactly how it works for your type of organization — no pressure, just the product.</p>
       </section>
+
+      <TopBenefitsHero />
 
       <section class="py-16 px-4" style={{ backgroundColor: '#F1EFE8' }}>
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">

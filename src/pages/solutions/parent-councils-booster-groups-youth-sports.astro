@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
 import Card from '../../components/Card.astro';
 import MarketingNav from '../../components/MarketingNav';
+import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
 import { Mail, Clock, Users, FileText, ChevronRight, CheckCircle } from 'lucide-react';
 
@@ -39,7 +40,9 @@ const FEATURES = [
         <a href="https://calendly.com/hello-klbv/hoursserved-com-demo" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg" style={{backgroundColor: '#0F6E56'}}>Book a Demo</a>
         <a href="/app/dashboard/" class="flex items-center justify-center gap-2 bg-white font-semibold px-8 py-4 rounded-xl transition-colors" style={{border: '2px solid #E5E1D8', color: '#1E3A5F'}}>Start Free <ChevronRight className="w-4 h-4" aria-hidden="true" /></a>
       </div>
-    </section>
+      </section>
+
+      <TopBenefitsHero />
 
     <section class="py-20 px-4">
       <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">

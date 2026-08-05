@@ -2,9 +2,10 @@
 import Layout from '../../../layouts/Layout.astro';
 import LatamNav from '../../../components/LatamNav';
 import LatamFooter from '../../../components/LatamFooter';
+import TopBenefitsHero from '../../../components/TopBenefitsHero';
 ---
 <Layout locale="es-419" title="Soluciones de HoursServed para organizaciones de servicio" description="Asistencia, eventos, voluntariado y reportes para Clubes de Lions y organizaciones de servicio." canonical="https://www.hoursserved.com/es/soluciones/">
-  <div class="min-h-screen bg-canvas font-sans"><LatamNav client:load /><main id="main-content" tabindex="-1"><section class="px-4 py-16 sm:px-6"><div class="max-w-4xl mx-auto text-center mb-12"><h1 class="text-4xl sm:text-5xl font-black text-brand-navy mb-5">Herramientas prácticas para organizaciones de servicio</h1><p class="text-lg text-gray-700">Un flujo de trabajo conectado para oficiales, miembros y voluntarios.</p></div><div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-5">{[
+  <div class="min-h-screen bg-canvas font-sans"><LatamNav client:load /><main id="main-content" tabindex="-1"><section class="px-4 pt-16 pb-12 sm:px-6"><div class="max-w-4xl mx-auto text-center"><h1 class="text-4xl sm:text-5xl font-black text-brand-navy mb-5">Herramientas prácticas para organizaciones de servicio</h1><p class="text-lg text-gray-700">Un flujo de trabajo conectado para oficiales, miembros y voluntarios.</p></div></section><TopBenefitsHero locale="es-419" /><section class="px-4 py-16 sm:px-6"><div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-5">{[
       ['Clubes de Lions', 'Organiza reuniones, asistencia, horas de servicio, cuotas y reportes mensuales.', '/es/soluciones/clubes-de-servicio/'],
       ['Reuniones y eventos', 'Crea borradores, solicita confirmaciones y mantén los detalles del evento en un solo lugar.', '/es/como-funciona/'],
       ['Voluntarios y turnos', 'Coordina funciones, capacidad y participación sin exigir una cuenta a cada voluntario.', '/es/contacto/'],

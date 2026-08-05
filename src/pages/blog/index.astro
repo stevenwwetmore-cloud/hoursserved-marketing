@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MarketingNav from '../../components/MarketingNav';
+import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 
@@ -42,7 +43,11 @@ function formatDate(dateStr: string) {
         <h1 class="text-4xl font-bold text-gray-900 mb-3">Blog</h1>
         <p class="text-gray-500 text-lg">Tips, updates, and insights for service club administrators.</p>
       </div>
+    </div>
 
+    <TopBenefitsHero />
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       {posts.length === 0 && (
         <div class="text-center py-24 border border-dashed border-gray-200 rounded-2xl">
           <p class="text-gray-400 text-lg font-medium">Articles coming soon</p>

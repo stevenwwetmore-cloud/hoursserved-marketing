@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { BookOpen, Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import TopBenefitsHero from './TopBenefitsHero';
 
 const SOLUTIONS = [
   { label: 'Lions Clubs', href: '/solutions/service-clubs/', desc: 'Run meetings, service, dues, and reporting with less admin friction.' },
@@ -180,7 +179,6 @@ export default function MarketingNav() {
         </div>
       )}
     </nav>
-    <TopBenefitsHero />
     </>
   );
 }

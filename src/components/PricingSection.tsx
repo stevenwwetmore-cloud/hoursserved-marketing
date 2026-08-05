@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CheckCircle, X, Zap, ClipboardCheck, Map } from 'lucide-react';
 import DistrictCalculator from './DistrictCalculator';
+import TopBenefitsHero from './TopBenefitsHero';
 
 // ── Fixed district prices per currency ───────────────────────────────────────
 const DISTRICT_PRICING = {
@@ -171,6 +172,8 @@ export default function PricingSection() {
           </button>
         </div>
       </section>
+
+      <TopBenefitsHero />
 
       <section className="pb-12 px-4">
         {/* Currency selector */}

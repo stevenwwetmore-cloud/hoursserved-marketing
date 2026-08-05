@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MarketingNav from '../components/MarketingNav';
+import TopBenefitsHero from '../components/TopBenefitsHero';
 import MarketingFooter from '../components/MarketingFooter';
 ---
 
@@ -10,10 +11,14 @@ import MarketingFooter from '../components/MarketingFooter';
 >
   <div class="min-h-screen bg-white">
     <MarketingNav client:load />
-    <section class="max-w-3xl mx-auto px-4 py-20">
+    <header class="max-w-3xl mx-auto px-4 pt-20 pb-10">
       <h1 class="text-4xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
       <p class="text-sm text-gray-400 mb-10">Last updated: March 2026</p>
+    </header>
 
+    <TopBenefitsHero />
+
+    <main class="max-w-3xl mx-auto px-4 py-16">
       <div class="prose prose-gray max-w-none space-y-8 text-gray-700 text-sm leading-relaxed">
 
         <div>
@@ -66,7 +71,7 @@ import MarketingFooter from '../components/MarketingFooter';
           <p>If you have any questions about our use of cookies, please contact us at <a href="mailto:support@hoursserved.com" class="text-blue-600 hover:underline">support@hoursserved.com</a>.</p>
         </div>
       </div>
-    </section>
+    </main>
     <MarketingFooter />
   </div>
 </Layout>

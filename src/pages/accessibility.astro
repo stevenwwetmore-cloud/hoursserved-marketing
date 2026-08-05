@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import MarketingNav from '../components/MarketingNav';
+import TopBenefitsHero from '../components/TopBenefitsHero';
 import MarketingFooter from '../components/MarketingFooter';
 ---
 
@@ -9,11 +10,15 @@ import MarketingFooter from '../components/MarketingFooter';
   <div class="min-h-screen bg-white">
     <MarketingNav client:load />
 
-    <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-16">
+    <header class="max-w-4xl mx-auto px-4 pt-16 pb-8">
       <h1 class="text-4xl font-bold text-gray-900 mb-6">Accessibility at HoursServed</h1>
 
       <p class="text-sm text-gray-500 mb-8">Last updated: July 27, 2026</p>
+    </header>
 
+    <TopBenefitsHero />
+
+    <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-16">
       <div class="space-y-8 text-gray-700 leading-relaxed">
         <section>
           <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our commitment</h2>

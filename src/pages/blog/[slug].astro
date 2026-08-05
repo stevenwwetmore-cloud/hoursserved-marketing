@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MarketingNav from '../../components/MarketingNav';
+import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
 import { Calendar, Tag } from 'lucide-react';
 
@@ -44,8 +45,8 @@ const description = post.metaDescription || post.excerpt || 'Practical guides an
   <div class="min-h-screen bg-white">
     <MarketingNav client:load />
 
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-      <article>
+    <main>
+      <header class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8">
         {post.cover_image_url && (
           <img
             src={post.cover_image_url}
@@ -72,12 +73,18 @@ const description = post.metaDescription || post.excerpt || 'Practical guides an
         {post.excerpt && (
           <p class="text-lg text-gray-500 mb-8 leading-relaxed border-l-4 border-blue-200 pl-4">{post.excerpt}</p>
         )}
+
+      </header>
+
+      <TopBenefitsHero />
+
+      <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         <div
           class="prose prose-lg max-w-none"
           set:html={post.body || ''}
         />
       </article>
-    </div>
+    </main>
     <MarketingFooter />
   </div>
 </Layout>

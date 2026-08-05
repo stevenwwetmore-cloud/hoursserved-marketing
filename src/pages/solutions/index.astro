@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
 import Card from '../../components/Card.astro';
 import MarketingNav from '../../components/MarketingNav';
+import TopBenefitsHero from '../../components/TopBenefitsHero';
 import MarketingFooter from '../../components/MarketingFooter';
 import { ChevronRight, CheckCircle } from 'lucide-react';
 
@@ -69,6 +70,8 @@ const SOLUTIONS = [
       </p>
       <p class="text-base text-gray-600">Select your organization type below to see the specific features and workflows relevant to you.</p>
     </section>
+
+    <TopBenefitsHero />
 
     <section class="py-16 px-4">
       <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-6">

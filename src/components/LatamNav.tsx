@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import TopBenefitsHero from './TopBenefitsHero';
 
 export default function LatamNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,7 +68,6 @@ export default function LatamNav() {
         </div>
       )}
     </nav>
-    <TopBenefitsHero locale="es-419" />
     </>
   );
 }
