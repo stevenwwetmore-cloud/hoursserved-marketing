@@ -173,9 +173,7 @@ export default function PricingSection() {
         </div>
       </section>
 
-      <TopBenefitsHero />
-
-      <section className="pb-12 px-4">
+      <section className="px-4">
         {/* Currency selector */}
         <div className="flex flex-col items-center mb-8 gap-2">
           <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1 gap-1">
@@ -186,6 +184,11 @@ export default function PricingSection() {
             <span hidden={currency !== 'CAD'}> · Canadian registered charities may claim PSB rebate on GST/HST paid</span>
           </p>
         </div>
+      </section>
+
+      <TopBenefitsHero />
+
+      <section className="pb-12 px-4">
 
         {/* Built for the two people section */}
         <div className="max-w-4xl mx-auto mb-16">
