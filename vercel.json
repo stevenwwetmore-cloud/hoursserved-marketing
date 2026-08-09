@@ -1,7 +1,9 @@
 {
   "redirects": [
     { "source": "/terms", "destination": "/terms-of-service/", "permanent": true },
-    { "source": "/guide", "destination": "/guide/", "permanent": true }
+    { "source": "/guide", "destination": "/guide/", "permanent": true },
+    { "source": "/districts", "destination": "/solutions/districts/", "permanent": true },
+    { "source": "/district", "destination": "/solutions/districts/", "permanent": true }
   ],
   "headers": [
     { "source": "/Home", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
@@ -102,13 +104,7 @@
     { "source": "/app/dashboard", "destination": "https://hoursserved.vercel.app/app/dashboard" },
     { "source": "/signup", "destination": "https://hoursserved.vercel.app/signup" },
     { "source": "/welcome", "destination": "https://hoursserved.vercel.app/welcome" },
-    { "source": "/faq", "destination": "https://hoursserved.vercel.app/faq" },
-    { "source": "/accessibility", "destination": "https://hoursserved.vercel.app/accessibility" },
     { "source": "/sitemap", "destination": "https://hoursserved.vercel.app/sitemap" },
-    { "source": "/demo", "destination": "https://hoursserved.vercel.app/demo" },
-    { "source": "/solutions/volunteer-growth", "destination": "https://hoursserved.vercel.app/solutions/volunteer-growth" },
-    { "source": "/districts", "destination": "https://hoursserved.vercel.app/districts" },
-    { "source": "/district", "destination": "https://hoursserved.vercel.app/district" },
     { "source": "/district-champion", "destination": "https://hoursserved.vercel.app/district-champion" },
     { "source": "/pricing-test", "destination": "https://hoursserved.vercel.app/pricing-test" },
     { "source": "/test/officer-lifted-cards", "destination": "https://hoursserved.vercel.app/test/officer-lifted-cards" },
