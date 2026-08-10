@@ -302,7 +302,9 @@ export default function PricingSection() {
             cta="Start Free Trial — No Credit Card Required"
             trialBanner="30-day free trial — no credit card required"
             savingsBadge={annual ? '2 months free' : ''}
-            promoLine={`30 days free, then ${P.pro_mo}/month (${CURRENCY_LABELS[currency]})`}
+            promoLine={annual
+              ? `30 days free, then ${P.pro_yr}/year — billed annually (${CURRENCY_LABELS[currency]})`
+              : `30 days free, then ${P.pro_mo}/month (${CURRENCY_LABELS[currency]})`}
             planKey={annual ? 'pro_annual' : 'pro_monthly'}
             currency={currency}
           />
