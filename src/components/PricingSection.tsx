@@ -303,8 +303,8 @@ export default function PricingSection() {
             trialBanner="30-day free trial — no credit card required"
             savingsBadge={annual ? '2 months free' : ''}
             promoLine={annual
-              ? `30 days free, then ${P.pro_yr}/year — billed annually (${CURRENCY_LABELS[currency]})`
-              : `30 days free, then ${P.pro_mo}/month (${CURRENCY_LABELS[currency]})`}
+              ? `30 days free, then ${P.pro_yr}/year — billed annually`
+              : `30 days free, then ${P.pro_mo}/month`}
             planKey={annual ? 'pro_annual' : 'pro_monthly'}
             currency={currency}
           />
@@ -346,7 +346,7 @@ export default function PricingSection() {
               </div>
             </div>
             <div className="flex-shrink-0 text-right">
-              <div className="text-2xl font-bold text-gray-900">{fmt(D.connectYear)}</div>
+              <div className="text-2xl font-bold text-gray-900">{D.symbol}{D.connectYear.toLocaleString('en')}</div>
               <div className="text-xs text-gray-600 mb-3">per year</div>
               <a
                 href={`https://www.hoursserved.com/login?plan=pro_district_connect_annual&currency=${currency.toLowerCase()}`}
@@ -386,7 +386,7 @@ export default function PricingSection() {
             </p>
           </div>
           <div className="flex-shrink-0 text-center md:text-right">
-            <p className="text-3xl font-extrabold text-gray-900 mb-0.5">{fmt(D.trialMonth)}<span className="text-base font-medium"> / month</span></p>
+            <p className="text-3xl font-extrabold text-gray-900 mb-0.5">{D.symbol}{D.trialMonth.toLocaleString('en')}<span className="text-base font-medium"> / month</span></p>
             <p className="text-xs text-gray-600 mb-3">3-mo cap</p>
             <a
               href={`https://www.hoursserved.com/login?plan=district_trial_monthly&currency=${currency.toLowerCase()}`}
@@ -400,14 +400,14 @@ export default function PricingSection() {
 
         {/* ── Footer Conditions ── */}
         <p className="text-xs text-center text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-          No setup fee. Member and volunteer upload requires Excel/CSV. Meeting and event import requires Google Calendar sync or Excel/CSV. Annual billing only on Starter, Growth, and Premier. Prices exclude applicable tax.
+          No setup fee. Member and volunteer upload requires Excel/CSV. Meeting and event import requires Google Calendar sync or Excel/CSV. District plans are billed annually. The District Trial is billed monthly, up to 3 months. Prices exclude applicable tax.
         </p>
 
         {/* LATAM disclaimer */}
         <div className="max-w-2xl mx-auto p-4 rounded-lg bg-white border border-gray-300 text-center">
           <p className="text-base text-gray-900">
             <span className="font-semibold text-gray-900">Lions clubs in Latin America</span>
-            {' '}— regional pricing is available in your local currency.{' '}
+            {' '}— regional pricing is available on request.{' '}
             <a href="/contact?subject=LATAM+Pricing+Inquiry" className="hover:underline" style={{ color: '#0F6E56' }}>Contact us</a>
             {' '}to discuss pricing for your district.
           </p>

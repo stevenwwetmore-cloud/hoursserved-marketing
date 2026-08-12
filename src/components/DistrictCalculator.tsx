@@ -50,7 +50,7 @@ export default function DistrictCalculator({ currency = 'CAD' }: DistrictCalcula
       const count = Math.min(remaining, 25);
       const subtotal = count * rates.tier1;
       brackets.push({
-        label: 'First 25 clubs',
+        label: clubs < 10 ? 'Billed at 10-club minimum' : 'First 25 clubs',
         range: count === 25 ? '1-25' : `1-${count}`,
         count,
         rate: rates.tier1,
@@ -147,7 +147,7 @@ export default function DistrictCalculator({ currency = 'CAD' }: DistrictCalcula
           Price your district
         </h2>
         <p className="text-base leading-relaxed max-w-xl mx-auto text-gray-600">
-          You only pay for the clubs you have. Enter your club count to see your exact annual price.
+          Pricing scales with your district, starting at a 10-club minimum. Enter your club count to see your exact annual price.
         </p>
       </div>
 
@@ -204,9 +204,7 @@ export default function DistrictCalculator({ currency = 'CAD' }: DistrictCalcula
               accentColor: '#1E3A5F',
             }}
           />
-          <div className="mt-3 px-4 py-2.5 rounded-lg text-sm bg-white text-gray-900 border-2" style={{ borderColor: '#1E3A5F' }} hidden={clubs >= 10}>
-            Below the 10-club minimum, so billed as 10 clubs.
-          </div>
+          <p className="text-xs text-gray-600 mt-3">10-club minimum applies.</p>
         </div>
 
         {/* Breakdown Ladder */}
@@ -270,7 +268,7 @@ export default function DistrictCalculator({ currency = 'CAD' }: DistrictCalcula
                 </span>
               </div>
               <div className="text-sm mt-1" style={{ color: '#E8EDF3' }}>
-                That is {fmt(blendedRate)} per club, per month
+                {clubs >= 10 ? `That is ${fmt(blendedRate)} per club, per month` : 'Billed at the 10-club minimum.'}
               </div>
             </div>
           </div>
