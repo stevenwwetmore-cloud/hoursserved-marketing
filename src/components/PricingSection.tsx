@@ -140,7 +140,10 @@ export default function PricingSection() {
   const D = DISTRICT_PRICING[currency];
   const CURRENCY_LABELS = { CAD: 'CAD', USD: 'USD', GBP: 'GBP', AUD: 'AUD' };
 
-  const fmt = (n: number) => `${D.symbol}${Number(n).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const fmt = (n: number) => {
+    const isWholeNumber = n === Math.floor(n);
+    return `${D.symbol}${Number(n).toLocaleString('en', { minimumFractionDigits: isWholeNumber ? 0 : 2, maximumFractionDigits: 2 })}`;
+  };
 
   const CurrencyBtn = ({ c }: { c: Currency }) => (
     <button onClick={() => setCurrency(c)}
@@ -346,7 +349,7 @@ export default function PricingSection() {
               </div>
             </div>
             <div className="flex-shrink-0 text-right">
-              <div className="text-2xl font-bold text-gray-900">{D.symbol}{D.connectYear.toLocaleString('en')}</div>
+              <div className="text-2xl font-bold text-gray-900">{fmt(D.connectYear)}</div>
               <div className="text-xs text-gray-600 mb-3">per year</div>
               <a
                 href={`https://www.hoursserved.com/login?plan=pro_district_connect_annual&currency=${currency.toLowerCase()}`}
@@ -386,7 +389,7 @@ export default function PricingSection() {
             </p>
           </div>
           <div className="flex-shrink-0 text-center md:text-right">
-            <p className="text-3xl font-extrabold text-gray-900 mb-0.5">{D.symbol}{D.trialMonth.toLocaleString('en')}<span className="text-base font-medium"> / month</span></p>
+            <p className="text-3xl font-extrabold text-gray-900 mb-0.5">{fmt(D.trialMonth)}<span className="text-base font-medium"> / month</span></p>
             <p className="text-xs text-gray-600 mb-3">3-mo cap</p>
             <a
               href={`https://www.hoursserved.com/login?plan=district_trial_monthly&currency=${currency.toLowerCase()}`}
