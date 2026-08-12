@@ -205,6 +205,9 @@ export default function DistrictCalculator({ currency = 'CAD' }: DistrictCalcula
             }}
           />
           <p className="text-xs text-gray-600 mt-3">10-club minimum applies.</p>
+          <div className="mt-3 px-4 py-2.5 rounded-lg text-sm bg-white text-gray-900 border-2" style={{ borderColor: '#1E3A5F' }} hidden={clubs >= 10}>
+            Below the 10-club minimum, so billed as 10 clubs.
+          </div>
         </div>
 
         {/* Breakdown Ladder */}
