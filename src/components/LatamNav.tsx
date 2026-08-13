@@ -45,7 +45,7 @@ export default function LatamNav() {
         {/* Desktop utility */}
         <div className="hidden md:flex items-center gap-3">
           <a href="/login" className="text-base text-white hover:text-white/90 px-3 py-2 font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-brand-navy rounded">Iniciar Sesión</a>
-          <a href="/es/contacto/" className="bg-brand-teal-dark text-white text-base font-semibold px-4 py-2 rounded-lg hover:bg-brand-teal transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-brand-navy">Solicitar una demo</a>
+          <a href="/es/contacto/" className="bg-brand-teal-on-navy text-brand-navy text-base font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-brand-navy">Solicitar una demo</a>
         </div>
 
         {/* Mobile toggle */}
@@ -63,7 +63,7 @@ export default function LatamNav() {
           <a href="/es/contacto/" className="block py-2.5 text-base text-white font-medium focus:outline-none focus:ring-2 focus:ring-white/50 rounded">Contacto</a>
           <div className="pt-3 border-t border-white/20 flex flex-col gap-2">
             <a href="/login" className="text-center py-2.5 text-base font-bold text-white border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">Iniciar Sesión</a>
-            <a href="/es/contacto/" className="text-center py-2.5 text-base font-semibold text-white bg-brand-teal-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">Solicitar una demo</a>
+            <a href="/es/contacto/" className="text-center py-2.5 text-base font-semibold text-brand-navy bg-brand-teal-on-navy rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50">Solicitar una demo</a>
           </div>
         </div>
       )}

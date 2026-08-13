@@ -155,7 +155,7 @@ export default function MarketingNav() {
         {/* Desktop utility */}
         <div className="hidden md:flex items-center gap-3">
           <a href="/login" className="text-base text-white hover:text-white/90 px-3 py-2 font-bold transition-colors">Login</a>
-          <a href="/demo/" className="bg-brand-teal-dark text-white text-base font-semibold px-4 py-2 rounded-lg hover:bg-brand-teal transition-colors">Book a Demo</a>
+          <a href="/demo/" className="bg-brand-teal-on-navy text-brand-navy text-base font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-colors">Book a Demo</a>
         </div>
 
         {/* Mobile toggle */}
@@ -174,7 +174,7 @@ export default function MarketingNav() {
           <MobileSection label="Resources" items={RESOURCES} isOpen={mobileExpanded === 'resources'} onToggle={() => toggleMobileSection('resources')} />
           <div className="pt-3 border-t border-white/20 flex flex-col gap-2">
             <a href="/login" className="text-center py-2.5 text-base font-bold text-white border border-white/30 rounded-lg">Login</a>
-            <a href="/demo/" className="text-center py-2.5 text-base font-semibold text-white bg-brand-teal-dark rounded-lg">Book a Demo</a>
+            <a href="/demo/" className="text-center py-2.5 text-base font-semibold text-brand-navy bg-brand-teal-on-navy rounded-lg">Book a Demo</a>
           </div>
         </div>
       )}
