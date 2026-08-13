@@ -9,6 +9,8 @@
 
 **BEFORE changing any page:** confirm which repo serves that URL. Do not assume.
 
+**Production branch: `master`** (NOT `main` — this repo uses a different convention from Club-service-tracker). Confirm the branch before committing; verify in Vercel that `master` is the production branch for this project.
+
 ---
 
 ## Development
