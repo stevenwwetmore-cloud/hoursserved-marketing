@@ -13,6 +13,22 @@
 
 ---
 
+**⚠️ TAILWIND v4 — COLORS ARE NOT IN tailwind.config.js.**
+
+This repo uses Tailwind CSS v4. Brand colors are defined in `src/styles/global.css` inside the `@theme` block as CSS custom properties (e.g. `--color-brand-teal-on-navy: #2FD3AC`). **Editing colors in `tailwind.config.js` has NO EFFECT** — the config is ignored for color definitions. A class using an undefined token generates no CSS, which renders elements invisible (no background, no text color) rather than throwing an error.
+
+**Before changing any color:** edit `src/styles/global.css` @theme, then verify the hex appears in the built CSS:
+`npm run build` then `Select-String -Path .\dist\_astro\*.css -Pattern "<hex>"`
+
+Current brand tokens (global.css @theme):
+- `--color-brand-navy: #1E3A5F`
+- `--color-brand-teal: #0F6E56` (on light backgrounds)
+- `--color-brand-teal-on-navy: #2FD3AC` (on navy backgrounds)
+
+CONTRAST RULE: dark teal #0F6E56 on navy = 1.85:1 FAIL. Bright teal #2FD3AC on navy = 6.04:1 PASS with navy text. Bright teal on white = 1.90:1 FAIL. Use each teal only on its correct background.
+
+---
+
 ## Development
 
 When starting the dev server, use background mode:
