@@ -59,6 +59,11 @@
       "source": "/es/contact/",
       "destination": "/es/contacto/",
       "permanent": true
+    },
+    {
+      "source": "/sitemap",
+      "destination": "/sitemap.xml",
+      "permanent": true
     }
   ],
   "headers": [
@@ -685,10 +690,6 @@
     {
       "source": "/welcome",
       "destination": "https://hoursserved.vercel.app/welcome"
-    },
-    {
-      "source": "/sitemap",
-      "destination": "https://hoursserved.vercel.app/sitemap"
     },
     {
       "source": "/district-champion",
