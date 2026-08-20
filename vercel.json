@@ -1,121 +1,718 @@
 {
   "redirects": [
-    { "source": "/terms", "destination": "/terms-of-service/", "permanent": true },
-    { "source": "/guide", "destination": "/guide/", "permanent": true },
-    { "source": "/districts", "destination": "/solutions/districts/", "permanent": true },
-    { "source": "/district", "destination": "/solutions/districts/", "permanent": true }
+    {
+      "source": "/terms",
+      "destination": "/terms-of-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guide",
+      "destination": "/guide/",
+      "permanent": true
+    },
+    {
+      "source": "/districts",
+      "destination": "/solutions/districts/",
+      "permanent": true
+    },
+    {
+      "source": "/district",
+      "destination": "/solutions/districts/",
+      "permanent": true
+    },
+    {
+      "source": "/es/how-it-works",
+      "destination": "/es/como-funciona/",
+      "permanent": true
+    },
+    {
+      "source": "/es/how-it-works/",
+      "destination": "/es/como-funciona/",
+      "permanent": true
+    },
+    {
+      "source": "/es/solutions/service-clubs",
+      "destination": "/es/soluciones/clubes-de-servicio/",
+      "permanent": true
+    },
+    {
+      "source": "/es/solutions/service-clubs/",
+      "destination": "/es/soluciones/clubes-de-servicio/",
+      "permanent": true
+    },
+    {
+      "source": "/es/solutions",
+      "destination": "/es/soluciones/",
+      "permanent": true
+    },
+    {
+      "source": "/es/solutions/",
+      "destination": "/es/soluciones/",
+      "permanent": true
+    },
+    {
+      "source": "/es/contact",
+      "destination": "/es/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/es/contact/",
+      "destination": "/es/contacto/",
+      "permanent": true
+    }
   ],
   "headers": [
-    { "source": "/Home", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Confirm", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Onboarding", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/AtRisk", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/BlogAdmin", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/BillingSettings", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ReviewsAdmin", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/MemberDashboard", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Volunteers", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Import", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ShiftManagement", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ShiftSignup", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ShiftRsvp", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/EventRoster", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ClubSettings", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ReportApproval", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/AppTermsOfUse", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/LionsPortalReport", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/InviteAdmins", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/DistrictDashboard", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ClubDetail", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/OfficerWorkQueue", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/EventOperationsBoard", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/CorrectionsQueue", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ClubReportingCoverage", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ExportCenter", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/SeedRestore", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Dashboard", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Dues", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/EventDetail", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Events", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/ExecBrief", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Landing", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/LandingV1", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/LandingV2", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Members", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/Reports", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/pricing-test", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/test/officer-lifted-cards", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/test/officer-teal-seam", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/welcome", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/app/login", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/app/dashboard", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/login", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/legal/processors", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] },
-    { "source": "/legal/dpa/:path*", "headers": [ { "key": "X-Robots-Tag", "value": "noindex" } ] }
+    {
+      "source": "/Home",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Confirm",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Onboarding",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/AtRisk",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/BlogAdmin",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/BillingSettings",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ReviewsAdmin",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/MemberDashboard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Volunteers",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Import",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ShiftManagement",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ShiftSignup",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ShiftRsvp",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/EventRoster",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ClubSettings",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ReportApproval",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/AppTermsOfUse",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/LionsPortalReport",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/InviteAdmins",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/DistrictDashboard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ClubDetail",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/OfficerWorkQueue",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/EventOperationsBoard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/CorrectionsQueue",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ClubReportingCoverage",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ExportCenter",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/SeedRestore",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Dashboard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Dues",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/EventDetail",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Events",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/ExecBrief",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Landing",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/LandingV1",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/LandingV2",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Members",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/Reports",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/pricing-test",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/test/officer-lifted-cards",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/test/officer-teal-seam",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/welcome",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/app/login",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/app/dashboard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/login",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/legal/processors",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/legal/dpa/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml" },
-    { "source": "/api/:path*", "destination": "https://base44.app/api/:path*" },
-    { "source": "/assets/:path*", "destination": "https://hoursserved.vercel.app/assets/:path*" },
-    { "source": "/brand/:path*", "destination": "https://hoursserved.vercel.app/brand/:path*" },
-    { "source": "/images/guide/:path*", "destination": "https://hoursserved.vercel.app/images/guide/:path*" },
-    { "source": "/secretary_guide_images/:path*", "destination": "https://hoursserved.vercel.app/secretary_guide_images/:path*" },
-    { "source": "/manifest.json", "destination": "https://hoursserved.vercel.app/manifest.json" },
-    { "source": "/hoursserved-logo.png", "destination": "https://hoursserved.vercel.app/hoursserved-logo.png" },
-    { "source": "/mockup3_compliance_export.png", "destination": "https://hoursserved.vercel.app/mockup3_compliance_export.png" },
-    { "source": "/mockup4_auto_upload.png", "destination": "https://hoursserved.vercel.app/mockup4_auto_upload.png" },
-    { "source": "/Home", "destination": "https://hoursserved.vercel.app/Home" },
-    { "source": "/Confirm", "destination": "https://hoursserved.vercel.app/Confirm" },
-    { "source": "/Onboarding", "destination": "https://hoursserved.vercel.app/Onboarding" },
-    { "source": "/AtRisk", "destination": "https://hoursserved.vercel.app/AtRisk" },
-    { "source": "/BlogAdmin", "destination": "https://hoursserved.vercel.app/BlogAdmin" },
-    { "source": "/BillingSettings", "destination": "https://hoursserved.vercel.app/BillingSettings" },
-    { "source": "/ReviewsAdmin", "destination": "https://hoursserved.vercel.app/ReviewsAdmin" },
-    { "source": "/MemberDashboard", "destination": "https://hoursserved.vercel.app/MemberDashboard" },
-    { "source": "/Volunteers", "destination": "https://hoursserved.vercel.app/Volunteers" },
-    { "source": "/Import", "destination": "https://hoursserved.vercel.app/Import" },
-    { "source": "/ShiftManagement", "destination": "https://hoursserved.vercel.app/ShiftManagement" },
-    { "source": "/ShiftSignup", "destination": "https://hoursserved.vercel.app/ShiftSignup" },
-    { "source": "/ShiftRsvp", "destination": "https://hoursserved.vercel.app/ShiftRsvp" },
-    { "source": "/EventRoster", "destination": "https://hoursserved.vercel.app/EventRoster" },
-    { "source": "/ClubSettings", "destination": "https://hoursserved.vercel.app/ClubSettings" },
-    { "source": "/ReportApproval", "destination": "https://hoursserved.vercel.app/ReportApproval" },
-    { "source": "/AppTermsOfUse", "destination": "https://hoursserved.vercel.app/AppTermsOfUse" },
-    { "source": "/LionsPortalReport", "destination": "https://hoursserved.vercel.app/LionsPortalReport" },
-    { "source": "/InviteAdmins", "destination": "https://hoursserved.vercel.app/InviteAdmins" },
-    { "source": "/DistrictDashboard", "destination": "https://hoursserved.vercel.app/DistrictDashboard" },
-    { "source": "/ClubDetail", "destination": "https://hoursserved.vercel.app/ClubDetail" },
-    { "source": "/OfficerWorkQueue", "destination": "https://hoursserved.vercel.app/OfficerWorkQueue" },
-    { "source": "/EventOperationsBoard", "destination": "https://hoursserved.vercel.app/EventOperationsBoard" },
-    { "source": "/CorrectionsQueue", "destination": "https://hoursserved.vercel.app/CorrectionsQueue" },
-    { "source": "/ClubReportingCoverage", "destination": "https://hoursserved.vercel.app/ClubReportingCoverage" },
-    { "source": "/ExportCenter", "destination": "https://hoursserved.vercel.app/ExportCenter" },
-    { "source": "/SeedRestore", "destination": "https://hoursserved.vercel.app/SeedRestore" },
-    { "source": "/Dashboard", "destination": "https://hoursserved.vercel.app/Dashboard" },
-    { "source": "/Dues", "destination": "https://hoursserved.vercel.app/Dues" },
-    { "source": "/EventDetail", "destination": "https://hoursserved.vercel.app/EventDetail" },
-    { "source": "/Events", "destination": "https://hoursserved.vercel.app/Events" },
-    { "source": "/ExecBrief", "destination": "https://hoursserved.vercel.app/ExecBrief" },
-    { "source": "/Landing", "destination": "https://hoursserved.vercel.app/Landing" },
-    { "source": "/LandingV1", "destination": "https://hoursserved.vercel.app/LandingV1" },
-    { "source": "/LandingV2", "destination": "https://hoursserved.vercel.app/LandingV2" },
-    { "source": "/Members", "destination": "https://hoursserved.vercel.app/Members" },
-    { "source": "/Reports", "destination": "https://hoursserved.vercel.app/Reports" },
-    { "source": "/login", "destination": "https://hoursserved.vercel.app/login" },
-    { "source": "/app/login", "destination": "https://hoursserved.vercel.app/app/login" },
-    { "source": "/app/dashboard", "destination": "https://hoursserved.vercel.app/app/dashboard" },
-    { "source": "/signup", "destination": "https://hoursserved.vercel.app/signup" },
-    { "source": "/welcome", "destination": "https://hoursserved.vercel.app/welcome" },
-    { "source": "/sitemap", "destination": "https://hoursserved.vercel.app/sitemap" },
-    { "source": "/district-champion", "destination": "https://hoursserved.vercel.app/district-champion" },
-    { "source": "/pricing-test", "destination": "https://hoursserved.vercel.app/pricing-test" },
-    { "source": "/test/officer-lifted-cards", "destination": "https://hoursserved.vercel.app/test/officer-lifted-cards" },
-    { "source": "/test/officer-teal-seam", "destination": "https://hoursserved.vercel.app/test/officer-teal-seam" },
-    { "source": "/es", "destination": "https://hoursserved.vercel.app/es" },
-    { "source": "/es/solutions/service-clubs", "destination": "https://hoursserved.vercel.app/es/solutions/service-clubs" },
-    { "source": "/es/how-it-works", "destination": "https://hoursserved.vercel.app/es/how-it-works" },
-    { "source": "/es/contact", "destination": "https://hoursserved.vercel.app/es/contact" },
-    { "source": "/legal/processors", "destination": "https://hoursserved.vercel.app/legal/processors" },
-    { "source": "/legal/dpa/:path*", "destination": "https://hoursserved.vercel.app/legal/dpa/:path*" }
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://base44.app/api/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "https://hoursserved.vercel.app/assets/:path*"
+    },
+    {
+      "source": "/brand/:path*",
+      "destination": "https://hoursserved.vercel.app/brand/:path*"
+    },
+    {
+      "source": "/images/guide/:path*",
+      "destination": "https://hoursserved.vercel.app/images/guide/:path*"
+    },
+    {
+      "source": "/secretary_guide_images/:path*",
+      "destination": "https://hoursserved.vercel.app/secretary_guide_images/:path*"
+    },
+    {
+      "source": "/manifest.json",
+      "destination": "https://hoursserved.vercel.app/manifest.json"
+    },
+    {
+      "source": "/hoursserved-logo.png",
+      "destination": "https://hoursserved.vercel.app/hoursserved-logo.png"
+    },
+    {
+      "source": "/mockup3_compliance_export.png",
+      "destination": "https://hoursserved.vercel.app/mockup3_compliance_export.png"
+    },
+    {
+      "source": "/mockup4_auto_upload.png",
+      "destination": "https://hoursserved.vercel.app/mockup4_auto_upload.png"
+    },
+    {
+      "source": "/Home",
+      "destination": "https://hoursserved.vercel.app/Home"
+    },
+    {
+      "source": "/Confirm",
+      "destination": "https://hoursserved.vercel.app/Confirm"
+    },
+    {
+      "source": "/Onboarding",
+      "destination": "https://hoursserved.vercel.app/Onboarding"
+    },
+    {
+      "source": "/AtRisk",
+      "destination": "https://hoursserved.vercel.app/AtRisk"
+    },
+    {
+      "source": "/BlogAdmin",
+      "destination": "https://hoursserved.vercel.app/BlogAdmin"
+    },
+    {
+      "source": "/BillingSettings",
+      "destination": "https://hoursserved.vercel.app/BillingSettings"
+    },
+    {
+      "source": "/ReviewsAdmin",
+      "destination": "https://hoursserved.vercel.app/ReviewsAdmin"
+    },
+    {
+      "source": "/MemberDashboard",
+      "destination": "https://hoursserved.vercel.app/MemberDashboard"
+    },
+    {
+      "source": "/Volunteers",
+      "destination": "https://hoursserved.vercel.app/Volunteers"
+    },
+    {
+      "source": "/Import",
+      "destination": "https://hoursserved.vercel.app/Import"
+    },
+    {
+      "source": "/ShiftManagement",
+      "destination": "https://hoursserved.vercel.app/ShiftManagement"
+    },
+    {
+      "source": "/ShiftSignup",
+      "destination": "https://hoursserved.vercel.app/ShiftSignup"
+    },
+    {
+      "source": "/ShiftRsvp",
+      "destination": "https://hoursserved.vercel.app/ShiftRsvp"
+    },
+    {
+      "source": "/EventRoster",
+      "destination": "https://hoursserved.vercel.app/EventRoster"
+    },
+    {
+      "source": "/ClubSettings",
+      "destination": "https://hoursserved.vercel.app/ClubSettings"
+    },
+    {
+      "source": "/ReportApproval",
+      "destination": "https://hoursserved.vercel.app/ReportApproval"
+    },
+    {
+      "source": "/AppTermsOfUse",
+      "destination": "https://hoursserved.vercel.app/AppTermsOfUse"
+    },
+    {
+      "source": "/LionsPortalReport",
+      "destination": "https://hoursserved.vercel.app/LionsPortalReport"
+    },
+    {
+      "source": "/InviteAdmins",
+      "destination": "https://hoursserved.vercel.app/InviteAdmins"
+    },
+    {
+      "source": "/DistrictDashboard",
+      "destination": "https://hoursserved.vercel.app/DistrictDashboard"
+    },
+    {
+      "source": "/ClubDetail",
+      "destination": "https://hoursserved.vercel.app/ClubDetail"
+    },
+    {
+      "source": "/OfficerWorkQueue",
+      "destination": "https://hoursserved.vercel.app/OfficerWorkQueue"
+    },
+    {
+      "source": "/EventOperationsBoard",
+      "destination": "https://hoursserved.vercel.app/EventOperationsBoard"
+    },
+    {
+      "source": "/CorrectionsQueue",
+      "destination": "https://hoursserved.vercel.app/CorrectionsQueue"
+    },
+    {
+      "source": "/ClubReportingCoverage",
+      "destination": "https://hoursserved.vercel.app/ClubReportingCoverage"
+    },
+    {
+      "source": "/ExportCenter",
+      "destination": "https://hoursserved.vercel.app/ExportCenter"
+    },
+    {
+      "source": "/SeedRestore",
+      "destination": "https://hoursserved.vercel.app/SeedRestore"
+    },
+    {
+      "source": "/Dashboard",
+      "destination": "https://hoursserved.vercel.app/Dashboard"
+    },
+    {
+      "source": "/Dues",
+      "destination": "https://hoursserved.vercel.app/Dues"
+    },
+    {
+      "source": "/EventDetail",
+      "destination": "https://hoursserved.vercel.app/EventDetail"
+    },
+    {
+      "source": "/Events",
+      "destination": "https://hoursserved.vercel.app/Events"
+    },
+    {
+      "source": "/ExecBrief",
+      "destination": "https://hoursserved.vercel.app/ExecBrief"
+    },
+    {
+      "source": "/Landing",
+      "destination": "https://hoursserved.vercel.app/Landing"
+    },
+    {
+      "source": "/LandingV1",
+      "destination": "https://hoursserved.vercel.app/LandingV1"
+    },
+    {
+      "source": "/LandingV2",
+      "destination": "https://hoursserved.vercel.app/LandingV2"
+    },
+    {
+      "source": "/Members",
+      "destination": "https://hoursserved.vercel.app/Members"
+    },
+    {
+      "source": "/Reports",
+      "destination": "https://hoursserved.vercel.app/Reports"
+    },
+    {
+      "source": "/login",
+      "destination": "https://hoursserved.vercel.app/login"
+    },
+    {
+      "source": "/app/login",
+      "destination": "https://hoursserved.vercel.app/app/login"
+    },
+    {
+      "source": "/app/dashboard",
+      "destination": "https://hoursserved.vercel.app/app/dashboard"
+    },
+    {
+      "source": "/signup",
+      "destination": "https://hoursserved.vercel.app/signup"
+    },
+    {
+      "source": "/welcome",
+      "destination": "https://hoursserved.vercel.app/welcome"
+    },
+    {
+      "source": "/sitemap",
+      "destination": "https://hoursserved.vercel.app/sitemap"
+    },
+    {
+      "source": "/district-champion",
+      "destination": "https://hoursserved.vercel.app/district-champion"
+    },
+    {
+      "source": "/pricing-test",
+      "destination": "https://hoursserved.vercel.app/pricing-test"
+    },
+    {
+      "source": "/test/officer-lifted-cards",
+      "destination": "https://hoursserved.vercel.app/test/officer-lifted-cards"
+    },
+    {
+      "source": "/test/officer-teal-seam",
+      "destination": "https://hoursserved.vercel.app/test/officer-teal-seam"
+    },
+    {
+      "source": "/legal/processors",
+      "destination": "https://hoursserved.vercel.app/legal/processors"
+    },
+    {
+      "source": "/legal/dpa/:path*",
+      "destination": "https://hoursserved.vercel.app/legal/dpa/:path*"
+    }
   ]
 }
