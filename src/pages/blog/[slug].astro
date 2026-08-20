@@ -4,36 +4,23 @@ import MarketingNav from '../../components/MarketingNav';
 import MarketingFooter from '../../components/MarketingFooter';
 import { normalizeWebsiteNaming } from '../../utils/normalizeWebsiteNaming';
 import { Calendar, Tag } from 'lucide-react';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const APP_ID = '69ac4eaa5a3031dffe252cf9';
-  const BASE_URL = 'https://base44.app/api';
-
-  try {
-    const url = `${BASE_URL}/apps/${APP_ID}/entities/BlogPost?q=${encodeURIComponent(JSON.stringify({ status: 'published' }))}`;
-    const response = await fetch(url, {
-      headers: { 'X-App-Id': APP_ID },
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    const posts = Array.isArray(data) ? data : [];
-    return posts.map((post: any) => ({
-      params: { slug: post.slug || post.id },
-      props: { post },
-    }));
-  } catch (error) {
-    console.error('Failed to fetch blog posts:', error);
-    return [];
-  }
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug || post.id },
+    props: { post },
+  }));
 }
 
 const { post: sourcePost } = Astro.props;
 
 const post = {
-  ...sourcePost,
-  title: normalizeWebsiteNaming(sourcePost.title),
-  metaDescription: normalizeWebsiteNaming(sourcePost.metaDescription),
-  excerpt: normalizeWebsiteNaming(sourcePost.excerpt),
+  ...sourcePost.data,
+  title: normalizeWebsiteNaming(sourcePost.data.title),
+  metaDescription: normalizeWebsiteNaming(sourcePost.data.metaDescription),
+  excerpt: normalizeWebsiteNaming(sourcePost.data.excerpt),
   body: normalizeWebsiteNaming(sourcePost.body),
 };
 
